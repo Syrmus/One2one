@@ -270,3 +270,9 @@ System prompt (paraphrased; finalize during implementation):
 ---
 
 *End of spec. This document is meant for iterative work with Claude Code: start with §3 "MVP", building on the data model in §5.2 and the architecture in §7.*
+
+---
+
+## Appendix B. Design Mockups
+
+- `design/weave-diglot-reader.png` — mobile UI mockup: Library, Reader (with weave popover and density slider), covering FR-2, FR-3, FR-5, FR-9.
