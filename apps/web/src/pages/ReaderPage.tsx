@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { LEVEL_PRESETS } from "@weave/shared";
-import { getStoryById } from "../lib/loadStories";
+import { LEVEL_PRESETS, type Story } from "@weave/shared";
+import { getStory } from "../lib/api";
 import { useReaderStore } from "../store/readerStore";
 import { WeaveText } from "../components/reader/WeaveText";
 import { WeavePopover } from "../components/reader/WeavePopover";
@@ -9,7 +9,14 @@ import { DensitySlider } from "../components/reader/DensitySlider";
 
 export function ReaderPage() {
   const { storyId } = useParams<{ storyId: string }>();
-  const story = storyId ? getStoryById(storyId) : undefined;
+
+  const [story, setStory] = useState<Story | undefined | null>(null);
+
+  useEffect(() => {
+    if (!storyId) return;
+    setStory(null);
+    getStory(storyId).then((s) => setStory(s ?? undefined));
+  }, [storyId]);
 
   const densityByStory = useReaderStore((s) => s.densityByStory);
   const setDensity = useReaderStore((s) => s.setDensity);
@@ -38,6 +45,14 @@ export function ReaderPage() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [story, setScroll]);
+
+  if (story === null) {
+    return (
+      <div className="mx-auto max-w-md px-4 py-6">
+        <p className="text-slate-500 dark:text-slate-400">Loading…</p>
+      </div>
+    );
+  }
 
   if (!story) {
     return (

@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { postSeen } from "../lib/api";
 
 export type VocabEntry = {
   lemma: string;
@@ -36,7 +37,7 @@ export const useReaderStore = create<ReaderState>()(
         set((s) => ({
           scrollByStory: { ...s.scrollByStory, [storyId]: position },
         })),
-      recordEncounter: (lang, lemma, gloss) =>
+      recordEncounter: (lang, lemma, gloss) => {
         set((s) => {
           const key = vocabKey(lang, lemma);
           const existing = s.vocabulary[key];
@@ -44,7 +45,11 @@ export const useReaderStore = create<ReaderState>()(
             ? { ...existing, seenCount: existing.seenCount + 1 }
             : { lemma, lang, gloss, firstSeenAt: Date.now(), seenCount: 1 };
           return { vocabulary: { ...s.vocabulary, [key]: entry } };
-        }),
+        });
+        // Fire-and-forget: localStorage above already keeps the UI instant,
+        // this just persists the same encounter to the backend (FR-6).
+        void postSeen(lang, lemma, gloss);
+      },
     }),
     { name: "weave-reader-store" },
   ),

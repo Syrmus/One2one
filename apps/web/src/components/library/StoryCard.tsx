@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import type { Story } from "@weave/shared";
 import { useReaderStore } from "../../store/readerStore";
 import { storyProgress } from "../../lib/progress";
-import { wordCount } from "../../lib/loadStories";
+import { wordCount } from "../../lib/text";
 
 const LANG_LABEL: Record<string, string> = {
   de: "DE",

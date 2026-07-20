@@ -3,8 +3,13 @@
   "private": true,
   "packageManager": "pnpm@11.15.1",
   "scripts": {
-    "dev": "pnpm --filter web dev",
+    "dev": "concurrently -n web,api -c blue,green \"pnpm --filter web dev\" \"pnpm --filter api dev\"",
+    "dev:web": "pnpm --filter web dev",
+    "dev:api": "pnpm --filter api dev",
     "build": "pnpm -r build",
     "lint": "pnpm -r lint"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
   }
 }
