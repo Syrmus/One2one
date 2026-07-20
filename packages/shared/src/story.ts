@@ -22,7 +22,8 @@ export const weaveUnitSchema = z.object({
   l2: z.string(),
   lemma: z.string(),
   pos: posSchema,
-  gender: z.enum(["m", "f", "n"]).optional(),
+  // "c" = common gender (Dutch de-words; German/Spanish use m/f/n)
+  gender: z.enum(["m", "f", "n", "c"]).optional(),
   article: z.string().optional(),
   case: z.string().optional(),
   gloss: z.string(),

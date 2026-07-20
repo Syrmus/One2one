@@ -2,6 +2,14 @@ import { storySchema, type Story } from "@weave/shared";
 
 const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3001";
 
+export type Language = { code: string; label: string };
+
+export async function getLanguages(): Promise<Language[]> {
+  const res = await fetch(`${API_URL}/api/languages`);
+  if (!res.ok) throw new Error(`Failed to load languages: ${res.status}`);
+  return res.json();
+}
+
 export async function getStories(lang?: string): Promise<Story[]> {
   const url = new URL(`${API_URL}/api/stories`);
   if (lang) url.searchParams.set("lang", lang);
