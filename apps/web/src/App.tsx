@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { LibraryPage } from './pages/LibraryPage'
 import { ReaderPage } from './pages/ReaderPage'
+import { ProgressPage } from './pages/ProgressPage'
+import { SettingsPage } from './pages/SettingsPage'
+import { AppLayout } from './components/nav/AppLayout'
 import { signIn, useSession } from './lib/authClient'
 
 function SignInScreen() {
@@ -46,7 +49,11 @@ function App() {
       ) : (
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<LibraryPage />} />
+            <Route element={<AppLayout />}>
+              <Route path="/" element={<LibraryPage />} />
+              <Route path="/progress" element={<ProgressPage />} />
+              <Route path="/settings" element={<SettingsPage />} />
+            </Route>
             <Route path="/reader/:storyId" element={<ReaderPage />} />
           </Routes>
         </BrowserRouter>
