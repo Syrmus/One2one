@@ -1,0 +1,101 @@
+import { useEffect, useRef, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import { LEVEL_PRESETS } from "@weave/shared";
+import { getStoryById } from "../lib/loadStories";
+import { useReaderStore } from "../store/readerStore";
+import { WeaveText } from "../components/reader/WeaveText";
+import { WeavePopover } from "../components/reader/WeavePopover";
+import { DensitySlider } from "../components/reader/DensitySlider";
+
+export function ReaderPage() {
+  const { storyId } = useParams<{ storyId: string }>();
+  const story = storyId ? getStoryById(storyId) : undefined;
+
+  const densityByStory = useReaderStore((s) => s.densityByStory);
+  const setDensity = useReaderStore((s) => s.setDensity);
+  const scrollByStory = useReaderStore((s) => s.scrollByStory);
+  const setScroll = useReaderStore((s) => s.setScroll);
+  const vocabulary = useReaderStore((s) => s.vocabulary);
+  const recordEncounter = useReaderStore((s) => s.recordEncounter);
+
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const restoredRef = useRef(false);
+
+  const threshold = story
+    ? (densityByStory[story.id] ?? LEVEL_PRESETS["A1-lite"])
+    : 0;
+
+  useEffect(() => {
+    if (!story || restoredRef.current) return;
+    restoredRef.current = true;
+    const saved = scrollByStory[story.id];
+    if (saved) window.scrollTo(0, saved);
+  }, [story, scrollByStory]);
+
+  useEffect(() => {
+    if (!story) return;
+    const onScroll = () => setScroll(story.id, window.scrollY);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [story, setScroll]);
+
+  if (!story) {
+    return (
+      <div className="mx-auto max-w-md px-4 py-6">
+        <p className="text-slate-600 dark:text-slate-300">
+          Story not found.
+        </p>
+        <Link to="/" className="text-blue-500">
+          ← Library
+        </Link>
+      </div>
+    );
+  }
+
+  const selectedUnit =
+    selectedIndex !== null ? story.units[selectedIndex] : undefined;
+  const weaveUnit = selectedUnit?.t === "weave" ? selectedUnit : undefined;
+
+  return (
+    <div className="mx-auto max-w-md px-4 py-6 pb-44">
+      <div className="mb-4 flex items-center justify-between gap-2">
+        <Link to="/" className="text-sm text-blue-500">
+          ← Library
+        </Link>
+        <h1 className="truncate text-base font-semibold text-slate-900 dark:text-slate-100">
+          {story.title}
+        </h1>
+        <span className="w-12 shrink-0" />
+      </div>
+
+      <WeaveText
+        story={story}
+        threshold={threshold}
+        onSelectWeave={(index) => {
+          setSelectedIndex(index);
+          const unit = story.units[index];
+          if (unit?.t === "weave") {
+            recordEncounter(story.l2, unit.lemma, unit.gloss);
+          }
+        }}
+      />
+
+      <div className="fixed inset-x-0 bottom-0 mx-auto max-w-md px-4 pb-4">
+        <DensitySlider
+          threshold={threshold}
+          onChange={(t) => setDensity(story.id, t)}
+        />
+      </div>
+
+      {weaveUnit && (
+        <WeavePopover
+          unit={weaveUnit}
+          seenCount={
+            vocabulary[`${story.l2}:${weaveUnit.lemma}`]?.seenCount ?? 0
+          }
+          onClose={() => setSelectedIndex(null)}
+        />
+      )}
+    </div>
+  );
+}

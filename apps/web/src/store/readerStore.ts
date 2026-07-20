@@ -1,0 +1,51 @@
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+
+export type VocabEntry = {
+  lemma: string;
+  lang: string;
+  gloss: string;
+  firstSeenAt: number;
+  seenCount: number;
+};
+
+type ReaderState = {
+  densityByStory: Record<string, number>;
+  scrollByStory: Record<string, number>;
+  vocabulary: Record<string, VocabEntry>;
+  setDensity: (storyId: string, threshold: number) => void;
+  setScroll: (storyId: string, position: number) => void;
+  recordEncounter: (lang: string, lemma: string, gloss: string) => void;
+};
+
+function vocabKey(lang: string, lemma: string) {
+  return `${lang}:${lemma}`;
+}
+
+export const useReaderStore = create<ReaderState>()(
+  persist(
+    (set) => ({
+      densityByStory: {},
+      scrollByStory: {},
+      vocabulary: {},
+      setDensity: (storyId, threshold) =>
+        set((s) => ({
+          densityByStory: { ...s.densityByStory, [storyId]: threshold },
+        })),
+      setScroll: (storyId, position) =>
+        set((s) => ({
+          scrollByStory: { ...s.scrollByStory, [storyId]: position },
+        })),
+      recordEncounter: (lang, lemma, gloss) =>
+        set((s) => {
+          const key = vocabKey(lang, lemma);
+          const existing = s.vocabulary[key];
+          const entry: VocabEntry = existing
+            ? { ...existing, seenCount: existing.seenCount + 1 }
+            : { lemma, lang, gloss, firstSeenAt: Date.now(), seenCount: 1 };
+          return { vocabulary: { ...s.vocabulary, [key]: entry } };
+        }),
+    }),
+    { name: "weave-reader-store" },
+  ),
+);
