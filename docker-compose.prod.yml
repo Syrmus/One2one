@@ -1,0 +1,52 @@
+# Explicit project name so this stack's container/network/volume names never
+# collide with the dev-only docker-compose.yml, which lives in the same directory
+# and would otherwise default to the same "one2one" project name (learned the hard
+# way — an earlier `up` here replaced the running dev postgres container in place).
+name: weave-prod
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    # No host port published — only reachable by `backend` over the Compose-internal
+    # network via the `postgres` service DNS name. Keeps this stack from ever
+    # colliding with other Postgres instances on the same host.
+    volumes:
+      - weave_prod_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    env_file:
+      - .env.production
+    depends_on:
+      postgres:
+        condition: service_healthy
+    # Bound to localhost only — the host's Nginx (already running outside Docker)
+    # is what actually terminates TLS and faces the internet; see DEPLOY.md.
+    ports:
+      - "127.0.0.1:3001:3001"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        VITE_API_URL: ${VITE_API_URL}
+    ports:
+      - "127.0.0.1:8080:80"
+    restart: unless-stopped
+
+volumes:
+  weave_prod_pgdata:
