@@ -33,8 +33,10 @@ function loadAll(): Story[] {
 
 const stories = loadAll();
 
-export function getStories(lang?: string): Story[] {
-  return lang ? stories.filter((s) => s.l2 === lang) : stories;
+export function getStories(lang?: string, nativeLang?: string): Story[] {
+  return stories.filter(
+    (s) => (!lang || s.l2 === lang) && (!nativeLang || s.l1 === nativeLang),
+  );
 }
 
 export function getStoryById(id: string): Story | undefined {

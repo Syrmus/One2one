@@ -78,7 +78,7 @@ The app helps users learn a foreign language using the **diglot weave** method: 
 ## 5. Content and Data
 
 ### 5.1. Seed Stories
-- MVP ships **2–3 stories per language** (6–9 total), level A1–A2, ~300–600 words each.
+- MVP ships **2–3 stories per language** (6–9 total), level A1–B1, ~120–150 words each (see `STORY_GENERATION_SPEC.md` §4 for exact length/level guidelines).
 - Stored as static files in the format from §5.2 (e.g., `content/seed/de/*.json`).
 - These can be generated once via an LLM during development and manually reviewed — a one-time task, not a runtime operation.
 - **Authoring rules:** every story — seed content or generated — must follow `STORY_GENERATION_SPEC.md` (repo root). It's the binding contract for weaving mechanics, `weave_priority` scale, and per-language morphology; this file only defines the storage shape.
@@ -224,7 +224,7 @@ All endpoints except `/api/auth/*` and `GET /api/languages` require a valid sess
 - **NFR-1. Mobile-first & PWA.** Installable to the home screen; the reader works offline for already-loaded stories.
 - **NFR-2. Mobile-build readiness.** No server-rendered HTML pages (API+SPA only), so a future Capacitor wrapper doesn't require a rewrite.
 - **NFR-3. i18n.** UI and content are decoupled; UI language and L1/L2 language are independent.
-- **NFR-4. Performance.** Rendering a 600-word story takes < 100ms; changing density has no noticeable delay.
+- **NFR-4. Performance.** Rendering a 120–150-word story (per `STORY_GENERATION_SPEC.md` §4) takes < 100ms; changing density has no noticeable delay.
 - **NFR-5. Generation cost.** Log tokens/cost per generation; cache generated stories (generation happens once, reading happens many times).
 - **NFR-6. Privacy.** API keys and progress data live only on the backend. Suitable for self-hosted deployment with no external dependencies beyond the chosen LLM provider (with local Ollama, no external calls at all).
 - **NFR-7. Language extensibility.** A new L2 = config + (optionally) reference data, no changes to core code.

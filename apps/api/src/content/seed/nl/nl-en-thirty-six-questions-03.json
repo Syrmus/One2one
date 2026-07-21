@@ -1,0 +1,118 @@
+{
+  "id": "nl-en-thirty-six-questions-03",
+  "l1": "en",
+  "l2": "nl",
+  "level": "B1",
+  "topic": "relationships",
+  "title": "Thirty-Six Questions",
+  "units": [
+    {
+      "t": "text",
+      "l1": "Can two strangers fall in "
+    },
+    {
+      "t": "weave",
+      "l1": "love",
+      "l2": "liefde",
+      "lemma": "liefde",
+      "pos": "noun",
+      "gender": "c",
+      "gloss": "love",
+      "ipa": "ˈlivdə",
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": " on purpose? A psychologist named Arthur Aron believed they could. He built a list of thirty-six "
+    },
+    {
+      "t": "weave",
+      "l1": "questions",
+      "l2": "vragen",
+      "lemma": "vraag",
+      "pos": "noun",
+      "gender": "c",
+      "gloss": "question",
+      "ipa": "vraːx",
+      "weave_priority": 4
+    },
+    {
+      "t": "text",
+      "l1": " that slowly grow more personal. Two "
+    },
+    {
+      "t": "weave",
+      "l1": "people",
+      "l2": "mensen",
+      "lemma": "mensen",
+      "pos": "noun",
+      "gloss": "people",
+      "ipa": "ˈmɛnsə",
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " sit face to face and take turns asking them. The early questions are light and easy. Later ones ask about "
+    },
+    {
+      "t": "weave",
+      "l1": "family",
+      "l2": "familie",
+      "lemma": "familie",
+      "pos": "noun",
+      "gender": "c",
+      "gloss": "family",
+      "ipa": "faːˈmili",
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": ", fear, and your deepest dreams. At the very end, the two partners look into each other's "
+    },
+    {
+      "t": "weave",
+      "l1": "eyes",
+      "l2": "ogen",
+      "lemma": "oog",
+      "pos": "noun",
+      "gender": "n",
+      "gloss": "eye",
+      "ipa": "oːx",
+      "weave_priority": 4
+    },
+    {
+      "t": "text",
+      "l1": " in silence for four long minutes. Many "
+    },
+    {
+      "t": "weave",
+      "l1": "couples",
+      "l2": "koppels",
+      "lemma": "koppel",
+      "pos": "noun",
+      "gender": "n",
+      "gloss": "couple",
+      "ipa": "ˈkɔpəl",
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": " who tried this said they felt surprisingly close afterwards. Some even married. The idea is simple but strong. Love does not only come by luck or by chance. It can also grow when two people choose to open their "
+    },
+    {
+      "t": "weave",
+      "l1": "hearts",
+      "l2": "harten",
+      "lemma": "hart",
+      "pos": "noun",
+      "gender": "n",
+      "gloss": "heart",
+      "ipa": "ɦɑrt",
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " and share what they usually hide."
+    }
+  ]
+}

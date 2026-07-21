@@ -42,7 +42,7 @@ export const storySchema = z.object({
   id: z.string(),
   l1: z.string(),
   l2: z.string(),
-  level: z.enum(["A1", "A2"]),
+  level: z.enum(["A1", "A2", "B1"]),
   topic: z.string(),
   title: z.string(),
   units: z.array(storyUnitSchema),

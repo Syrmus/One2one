@@ -1,0 +1,119 @@
+{
+  "id": "es-en-waiter-memory-04",
+  "l1": "en",
+  "l2": "es",
+  "level": "B1",
+  "topic": "psychology",
+  "title": "The Waiter's Memory",
+  "units": [
+    {
+      "t": "text",
+      "l1": "A young psychologist once sat in a busy "
+    },
+    {
+      "t": "weave",
+      "l1": "café",
+      "l2": "café",
+      "lemma": "café",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "café",
+      "ipa": "kaˈfe",
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": " and noticed something odd about the "
+    },
+    {
+      "t": "weave",
+      "l1": "waiters",
+      "l2": "camareros",
+      "lemma": "camarero",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "waiter",
+      "ipa": "kamaˈreɾo",
+      "weave_priority": 4
+    },
+    {
+      "t": "text",
+      "l1": ". Each waiter could remember a long list of unpaid "
+    },
+    {
+      "t": "weave",
+      "l1": "orders",
+      "l2": "pedidos",
+      "lemma": "pedido",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "order",
+      "ipa": "peˈðiðo",
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": " without any notes at all. Yet the moment a "
+    },
+    {
+      "t": "weave",
+      "l1": "bill",
+      "l2": "cuenta",
+      "lemma": "cuenta",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "bill",
+      "ipa": "ˈkwenta",
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": " was paid, the whole order seemed to vanish from his memory. Her name was Bluma Zeigarnik, and she turned this small observation into a famous idea. Our "
+    },
+    {
+      "t": "weave",
+      "l1": "brain",
+      "l2": "cerebro",
+      "lemma": "cerebro",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "brain",
+      "ipa": "θeˈɾeβɾo",
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": " holds on tightly to tasks that are not yet finished. A closed task is quietly released and soon forgotten. This is why an unfinished "
+    },
+    {
+      "t": "weave",
+      "l1": "book",
+      "l2": "libro",
+      "lemma": "libro",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "book",
+      "ipa": "ˈliβɾo",
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " or an open "
+    },
+    {
+      "t": "weave",
+      "l1": "question",
+      "l2": "pregunta",
+      "lemma": "pregunta",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "question",
+      "ipa": "preˈɣunta",
+      "weave_priority": 4
+    },
+    {
+      "t": "text",
+      "l1": " can sit in your head for days. The mind hates loose ends. If you want to remember something, it sometimes helps to leave it a little bit incomplete."
+    }
+  ]
+}

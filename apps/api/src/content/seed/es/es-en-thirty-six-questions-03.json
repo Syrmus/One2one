@@ -1,0 +1,119 @@
+{
+  "id": "es-en-thirty-six-questions-03",
+  "l1": "en",
+  "l2": "es",
+  "level": "B1",
+  "topic": "relationships",
+  "title": "Thirty-Six Questions",
+  "units": [
+    {
+      "t": "text",
+      "l1": "Can two strangers fall in "
+    },
+    {
+      "t": "weave",
+      "l1": "love",
+      "l2": "amor",
+      "lemma": "amor",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "love",
+      "ipa": "aˈmor",
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": " on purpose? A psychologist named Arthur Aron believed they could. He built a list of thirty-six "
+    },
+    {
+      "t": "weave",
+      "l1": "questions",
+      "l2": "preguntas",
+      "lemma": "pregunta",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "question",
+      "ipa": "preˈɣunta",
+      "weave_priority": 4
+    },
+    {
+      "t": "text",
+      "l1": " that slowly grow more personal. Two "
+    },
+    {
+      "t": "weave",
+      "l1": "people",
+      "l2": "gente",
+      "lemma": "gente",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "people",
+      "ipa": "ˈxente",
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " sit face to face and take turns asking them. The early questions are light and easy. Later ones ask about "
+    },
+    {
+      "t": "weave",
+      "l1": "family",
+      "l2": "familia",
+      "lemma": "familia",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "family",
+      "ipa": "faˈmilja",
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": ", fear, and your deepest dreams. At the very end, the two partners look into each other's "
+    },
+    {
+      "t": "weave",
+      "l1": "eyes",
+      "l2": "ojos",
+      "lemma": "ojo",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "eye",
+      "ipa": "ˈoxo",
+      "weave_priority": 4
+    },
+    {
+      "t": "text",
+      "l1": " in silence for four long minutes. Many "
+    },
+    {
+      "t": "weave",
+      "l1": "couples",
+      "l2": "parejas",
+      "lemma": "pareja",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "couple",
+      "ipa": "paˈrexa",
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": " who tried this said they felt surprisingly close afterwards. Some even married. The idea is simple but strong. Love does not only come by luck or by chance. It can also grow when two people choose to open their "
+    },
+    {
+      "t": "weave",
+      "l1": "hearts",
+      "l2": "corazones",
+      "lemma": "corazón",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "heart",
+      "ipa": "koɾaˈθon",
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " and share what they usually hide."
+    }
+  ]
+}

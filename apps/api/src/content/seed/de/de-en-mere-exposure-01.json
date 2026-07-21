@@ -1,0 +1,134 @@
+{
+  "id": "de-en-mere-exposure-01",
+  "l1": "en",
+  "l2": "de",
+  "level": "B1",
+  "topic": "psychology",
+  "title": "Why We Like What We Know",
+  "units": [
+    {
+      "t": "text",
+      "l1": "There is a strange rule hidden in the human "
+    },
+    {
+      "t": "weave",
+      "l1": "mind",
+      "l2": "Geist",
+      "lemma": "Geist",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "mind",
+      "ipa": "ɡaɪst",
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": ". We tend to like a thing more simply because we have seen it many times. A "
+    },
+    {
+      "t": "weave",
+      "l1": "song",
+      "l2": "Lied",
+      "lemma": "Lied",
+      "pos": "noun",
+      "gender": "n",
+      "gloss": "song",
+      "ipa": "liːt",
+      "weave_priority": 4
+    },
+    {
+      "t": "text",
+      "l1": " we did not enjoy at first can slowly become a favourite. A "
+    },
+    {
+      "t": "weave",
+      "l1": "face",
+      "l2": "Gesicht",
+      "lemma": "Gesicht",
+      "pos": "noun",
+      "gender": "n",
+      "gloss": "face",
+      "ipa": "ɡəˈzɪçt",
+      "weave_priority": 4
+    },
+    {
+      "t": "text",
+      "l1": " we pass every morning starts to feel warm and friendly. Scientists call this the mere exposure effect, and they have studied it for many "
+    },
+    {
+      "t": "weave",
+      "l1": "years",
+      "l2": "Jahren",
+      "lemma": "Jahr",
+      "pos": "noun",
+      "gender": "n",
+      "case": "dat",
+      "gloss": "year",
+      "ipa": "jaːɐ̯",
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": ". In one study, "
+    },
+    {
+      "t": "weave",
+      "l1": "people",
+      "l2": "Leute",
+      "lemma": "Leute",
+      "pos": "noun",
+      "gloss": "people",
+      "ipa": "ˈlɔʏtə",
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " looked at photos of strangers. The more often a face appeared, the more they liked that person. This quiet rule shapes our taste in "
+    },
+    {
+      "t": "weave",
+      "l1": "music",
+      "l2": "Musik",
+      "lemma": "Musik",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "music",
+      "ipa": "muˈziːk",
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": ", in "
+    },
+    {
+      "t": "weave",
+      "l1": "food",
+      "l2": "Essen",
+      "lemma": "Essen",
+      "pos": "noun",
+      "gender": "n",
+      "gloss": "food",
+      "ipa": "ˈɛsən",
+      "weave_priority": 4
+    },
+    {
+      "t": "text",
+      "l1": ", and even in "
+    },
+    {
+      "t": "weave",
+      "l1": "love",
+      "l2": "Liebe",
+      "lemma": "Liebe",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "love",
+      "ipa": "ˈliːbə",
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": ". We believe we choose freely, yet much of what we want is simply what we already know. In the end, we may simply love the world that feels the most familiar to us, even when we cannot say exactly why."
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "id": "es-en-octopus-mind-05",
+  "l1": "en",
+  "l2": "es",
+  "level": "B1",
+  "topic": "nature",
+  "title": "The Octopus's Nine Brains",
+  "units": [
+    {
+      "t": "text",
+      "l1": "The "
+    },
+    {
+      "t": "weave",
+      "l1": "octopus",
+      "l2": "pulpo",
+      "lemma": "pulpo",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "octopus",
+      "ipa": "ˈpulpo",
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " is one of the strangest "
+    },
+    {
+      "t": "weave",
+      "l1": "animals",
+      "l2": "animales",
+      "lemma": "animal",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "animal",
+      "ipa": "aniˈmal",
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " in the "
+    },
+    {
+      "t": "weave",
+      "l1": "sea",
+      "l2": "mar",
+      "lemma": "mar",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "sea",
+      "ipa": "maɾ",
+      "weave_priority": 4
+    },
+    {
+      "t": "text",
+      "l1": ". It has three "
+    },
+    {
+      "t": "weave",
+      "l1": "hearts",
+      "l2": "corazones",
+      "lemma": "corazón",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "heart",
+      "ipa": "koɾaˈθon",
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " and "
+    },
+    {
+      "t": "weave",
+      "l1": "blood",
+      "l2": "sangre",
+      "lemma": "sangre",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "blood",
+      "ipa": "ˈsaŋɡɾe",
+      "weave_priority": 4
+    },
+    {
+      "t": "text",
+      "l1": " that is blue instead of red. Two of the hearts push blood through the gills, while the third heart sends it around the rest of the "
+    },
+    {
+      "t": "weave",
+      "l1": "body",
+      "l2": "cuerpo",
+      "lemma": "cuerpo",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "body",
+      "ipa": "ˈkweɾpo",
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": ". When an octopus swims, that third heart stops beating, which is why these animals often prefer to crawl. An octopus also has nine "
+    },
+    {
+      "t": "weave",
+      "l1": "brains",
+      "l2": "cerebros",
+      "lemma": "cerebro",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "brain",
+      "ipa": "θeˈɾeβɾo",
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": " of a kind: one central brain and a small one in each of its eight "
+    },
+    {
+      "t": "weave",
+      "l1": "arms",
+      "l2": "brazos",
+      "lemma": "brazo",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "arm",
+      "ipa": "ˈbɾaθo",
+      "weave_priority": 4
+    },
+    {
+      "t": "text",
+      "l1": ". Each arm can taste, touch, and even make simple choices on its own. Some scientists think the octopus is close to a living alien. It shows us that a mind can be built in a shape completely different from our own."
+    }
+  ]
+}

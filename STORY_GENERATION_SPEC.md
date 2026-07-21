@@ -9,7 +9,7 @@
 Given a target language (L2), a CEFR level, and a topic, produce a short story in the base language (L1: Russian) with certain lexical units woven in from L2, following the diglot-weave pedagogy, and output it in the exact JSON format consumed by the reader app (see `SPEC.md` §5.2).
 
 Two entry points use this same contract:
-1. **Generate from scratch:** input is `{l2, level, topic, length}` (where `length` defaults to 120–150 characters) → output is a new story.
+1. **Generate from scratch:** input is `{l2, level, topic, length}` (where `length` defaults to 120–150 words) → output is a new story.
 2. **Weave existing text:** input is `{l2, level, l1_text}` → output is the same story split into units, with weaving applied — no new content invented, no plot changes, no added/removed sentences.
 
 Note on `id`: the model may propose a slug, but the app assigns the final, collision-free `id` on save (the model can't know which IDs are already taken). The `{NN}` suffix in the schema example is illustrative — treat it as app-controlled.
@@ -90,7 +90,7 @@ The reader renders a story by concatenating the `l1` (or, for shown weave units,
    - Priority 11–15: adjectives (big, small, good, old)
    - Priority 16–20: adverbs and common phrases (nach Hause, immer, schnell)
    - Priority 21+: function words (prepositions, conjunctions, pronouns) — introduce last, and sparingly, since these carry the least standalone meaning and are hardest to guess from context
-4. **Density is a consequence of tagging, not a separate knob.** Tag as `weave` every unit you legitimately could weave (subject to the rules here); the reader controls how many actually show via the threshold `T` on `weave_priority`. Practical target: at the lowest reader setting (`T` covering roughly the 1–3 band), about 10–15% of the story's content words should surface in L2. For a 120–150-character story (~20–25 words) that means ~2–4 low-priority woven units at the entry level — do not front-load them into one sentence; spread them out.
+4. **Density is a consequence of tagging, not a separate knob.** Tag as `weave` every unit you legitimately could weave (subject to the rules here); the reader controls how many actually show via the threshold `T` on `weave_priority`. Practical target: at the lowest reader setting (`T` covering roughly the 1–3 band), about 10–15% of the story's content words should surface in L2. For a 120–150-word story that means roughly 7–12 woven units across the priority bands at the entry level — do not front-load them into one sentence; spread them out.
 5. **No orphan grammar.** Never weave a word in a form that requires grammatical knowledge the reader hasn't been given (e.g. don't weave a verb conjugated in a compound tense before the story has established simpler forms) — for A1/A2, stick to present tense and simple past.
 6. **Consistency of lemma.** If a word appears multiple times in the story, every occurrence must share the same `lemma` and `gloss`, even though `l2` (the inflected surface form) and `case`/`article` may differ per occurrence.
 7. **Don't weave what can't be guessed.** Function words, abstract words, and idioms with non-transparent meaning should either not be woven, or be woven only after level A2 and only with a very clear surrounding context.
@@ -104,7 +104,7 @@ The reader renders a story by concatenating the `l1` (or, for shown weave units,
 | A1 | short, mostly simple (subject-verb-object) | very high-frequency, concrete | present tense, simple past for narration | daily routine, family, food, weather, simple errands |
 | A2 | can include one subordinate clause | still frequent but broader; some abstract nouns allowed | present + simple past; occasional modal verbs | travel, work, shopping, simple past events, plans |
 
-**Length.** Target length is a request parameter (`length`), defaulting to **120–150 characters** of `l1` text — the story as the reader sees it at zero weave density, counting every `l1` field (text units and weave units alike), not word count. This default is the same for A1 and A2; level is distinguished by the columns above, not by length. At 120–150 characters expect one to two short sentences — a single self-contained scene, not a multi-paragraph narrative; scope the topic accordingly (one moment or action). Because models count characters unreliably, the length target is a soft instruction to the model and a **hard check in validation** (§7), not something to trust the model to hit on its own.
+**Length.** Target length is a request parameter (`length`), defaulting to **120–150 words** of `l1` text — the story as the reader sees it at zero weave density, counting every `l1` field (text and weave units alike). This default is the same across levels; level is distinguished by the columns above (sentence complexity, tense, vocabulary), not by length. At 120–150 words expect a short, self-contained paragraph — a small scene, anecdote, or fact with a beginning and end. Note that a Russian rendering of the same content is typically ~15–20% shorter in word count than English, so translated pairs are counted per language, not forced to match.
 
 Topic should be concrete and visualizable — avoid topics that require abstract vocabulary too early (philosophy, emotions-as-topic, politics).
 
@@ -141,7 +141,7 @@ When given `l1_text` instead of a generation prompt:
 The calling application will validate output before accepting it:
 1. **JSON parses.** No markdown fences, no leading/trailing text.
 2. **Schema conformance.** All required fields present per §2.2; `weave_priority` is an integer; `pos`/`gender`/`case` use only the allowed enum values for the requested language.
-3. **Length.** Total character count of all `l1` fields (in order) is within the requested `length` range (default 120–150). This is enforced here because models count characters unreliably — do not rely on the model to self-check.
+3. **Length.** Total word count of all `l1` fields (in order) is within the requested `length` range (default 120–150 words). Enforced here rather than trusted to the model.
 4. **Concatenation & interchangeability.** Joining all `l1` fields in order reproduces coherent, grammatical L1 text; rendering every weave unit's `l2` at max threshold produces grammatical L2 text with no doubled or dropped articles (the determiner check from §2.3).
 5. **Lemma consistency.** Same surface word ⇒ same `lemma` and `gloss` throughout the story.
 6. **(If reference layer connected, Stage 2)** Gender/article cross-checked against Wiktionary data; mismatches flagged.
@@ -180,7 +180,7 @@ Rules you must follow:
 
 ## 9. Worked Example (German, A1, "morning routine")
 
-**Note:** in production, `l1` is Russian (per `SPEC.md` §2). This example uses English for `l1` to keep the document readable without mixing scripts — but article handling is exactly the place where the L1 language matters, so read the note under the JSON. The `l1` text totals 130 characters, inside the default 120–150 range from §4.
+**Note:** in production, `l1` is Russian (per `SPEC.md` §2). This example uses English for `l1` to keep the document readable without mixing scripts — but article handling is exactly the place where the L1 language matters, so read the note under the JSON. The `l1` text in this short illustration is well under the 120–150-word production range from §4 — it is trimmed only to keep the example readable; real seed/generated stories are full 120–150-word paragraphs.
 
 ```json
 {
@@ -231,7 +231,7 @@ Key points this example demonstrates:
 - **Inconsistent lemma/gloss** for the same word across occurrences (e.g. `essen` in one unit, `isst` as lemma in another). The lemma is always the dictionary form.
 - **Punctuation smuggled into `l2`** (`"l2":"Hund,"`) while `l1` has none — breaks interchangeability. Keep punctuation in `text` units.
 - **Wrong morphology to force a weave.** If you can't produce the correct case/gender/agreement for a word in its position, leave it as L1 `text` rather than weaving an incorrect form — a wrong article teaches an error.
-- **Ignoring the length check.** Padding to look longer or truncating mid-sentence to hit the count. Write a naturally complete scene within the character range.
+- **Ignoring the length check.** Padding to look longer or truncating mid-sentence to hit the count. Write a naturally complete paragraph within the word range.
 
 ---
 
