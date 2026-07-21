@@ -19,11 +19,25 @@
       "gender": "m",
       "gloss": "octopus",
       "ipa": "ˈtɪntn̩fɪʃ",
-      "weave_priority": 3
+      "weave_priority": 1
     },
     {
       "t": "text",
-      "l1": " is one of the strangest "
+      "l1": " is one of the "
+    },
+    {
+      "t": "weave",
+      "l1": "strangest",
+      "l2": "seltsam",
+      "lemma": "seltsam",
+      "pos": "adjective",
+      "gloss": "strange",
+      "ipa": "ˈzɛltzaːm",
+      "weave_priority": 8
+    },
+    {
+      "t": "text",
+      "l1": " "
     },
     {
       "t": "weave",
@@ -34,7 +48,7 @@
       "gender": "n",
       "gloss": "animal",
       "ipa": "tiːɐ̯",
-      "weave_priority": 3
+      "weave_priority": 1
     },
     {
       "t": "text",
@@ -49,7 +63,7 @@
       "gender": "n",
       "gloss": "sea",
       "ipa": "meːɐ̯",
-      "weave_priority": 4
+      "weave_priority": 2
     },
     {
       "t": "text",
@@ -64,7 +78,7 @@
       "gender": "n",
       "gloss": "heart",
       "ipa": "hɛʁts",
-      "weave_priority": 3
+      "weave_priority": 2
     },
     {
       "t": "text",
@@ -79,11 +93,40 @@
       "gender": "n",
       "gloss": "blood",
       "ipa": "bluːt",
-      "weave_priority": 4
+      "weave_priority": 3
     },
     {
       "t": "text",
-      "l1": " that is blue instead of red. Two of the hearts push blood through the gills, while the third heart sends it around the rest of the "
+      "l1": " that is "
+    },
+    {
+      "t": "weave",
+      "l1": "blue",
+      "l2": "blau",
+      "lemma": "blau",
+      "pos": "adjective",
+      "gloss": "blue",
+      "ipa": "blaʊ",
+      "weave_priority": 10
+    },
+    {
+      "t": "text",
+      "l1": " instead of red. Two of the hearts push blood through the "
+    },
+    {
+      "t": "weave",
+      "l1": "gills",
+      "l2": "Kiemen",
+      "lemma": "Kieme",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "gill",
+      "ipa": "ˈkiːmə",
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": ", while the third heart sends it around the rest of the "
     },
     {
       "t": "weave",
@@ -94,7 +137,7 @@
       "gender": "m",
       "gloss": "body",
       "ipa": "ˈkœʁpɐ",
-      "weave_priority": 5
+      "weave_priority": 3
     },
     {
       "t": "text",
@@ -109,11 +152,25 @@
       "gender": "n",
       "gloss": "brain",
       "ipa": "ɡəˈhɪʁn",
-      "weave_priority": 5
+      "weave_priority": 3
     },
     {
       "t": "text",
-      "l1": " of a kind: one central brain and a small one in each of its eight "
+      "l1": " of a kind: one "
+    },
+    {
+      "t": "weave",
+      "l1": "central",
+      "l2": "zentral",
+      "lemma": "zentral",
+      "pos": "adjective",
+      "gloss": "central",
+      "ipa": "tsɛnˈtʁaːl",
+      "weave_priority": 11
+    },
+    {
+      "t": "text",
+      "l1": " brain and a small one in each of its eight "
     },
     {
       "t": "weave",
@@ -124,11 +181,69 @@
       "gender": "m",
       "gloss": "arm",
       "ipa": "aʁm",
-      "weave_priority": 4
+      "weave_priority": 3
     },
     {
       "t": "text",
-      "l1": ". Each arm can taste, touch, and even make simple choices on its own. Some scientists think the octopus is close to a living alien. It shows us that a mind can be built in a shape completely different from our own."
+      "l1": ". Each arm can taste, touch, and even make "
+    },
+    {
+      "t": "weave",
+      "l1": "simple",
+      "l2": "einfach",
+      "lemma": "einfach",
+      "pos": "adjective",
+      "gloss": "simple",
+      "ipa": "ˈaɪnfax",
+      "weave_priority": 13
+    },
+    {
+      "t": "text",
+      "l1": " choices on its own. Some "
+    },
+    {
+      "t": "weave",
+      "l1": "scientists",
+      "l2": "Wissenschaftler",
+      "lemma": "Wissenschaftler",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "scientist",
+      "ipa": "ˈvɪsn̩ʃaftlɐ",
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": " think the octopus is close to a living "
+    },
+    {
+      "t": "weave",
+      "l1": "alien",
+      "l2": "Außerirdischer",
+      "lemma": "Außerirdischer",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "alien",
+      "ipa": "ˈaʊsɐʔɪʁdɪʃɐ",
+      "weave_priority": 7
+    },
+    {
+      "t": "text",
+      "l1": ". It shows us that a mind can be built in a shape completely "
+    },
+    {
+      "t": "weave",
+      "l1": "different",
+      "l2": "anders",
+      "lemma": "anders",
+      "pos": "adjective",
+      "gloss": "different",
+      "ipa": "ˈandɐs",
+      "weave_priority": 15
+    },
+    {
+      "t": "text",
+      "l1": " from our own."
     }
   ]
 }

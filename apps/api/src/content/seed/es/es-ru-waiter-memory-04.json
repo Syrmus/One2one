@@ -8,7 +8,50 @@
   "units": [
     {
       "t": "text",
-      "l1": "Однажды молодой психолог сидела в шумном "
+      "l1": "Однажды "
+    },
+    {
+      "t": "weave",
+      "l1": "молодой",
+      "l2": "joven",
+      "lemma": "joven",
+      "pos": "adjective",
+      "gloss": "молодой",
+      "ipa": "ˈxoβen",
+      "weave_priority": 8
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "психолог",
+      "l2": "psicólogo",
+      "lemma": "psicólogo",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "психолог",
+      "ipa": "psiˈkoloɣo",
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " сидела в "
+    },
+    {
+      "t": "weave",
+      "l1": "шумном",
+      "l2": "concurrido",
+      "lemma": "concurrido",
+      "pos": "adjective",
+      "gloss": "шумный",
+      "ipa": "konkuˈriðo",
+      "weave_priority": 10
+    },
+    {
+      "t": "text",
+      "l1": " "
     },
     {
       "t": "weave",
@@ -19,7 +62,7 @@
       "gender": "m",
       "gloss": "кафе",
       "ipa": "kaˈfe",
-      "weave_priority": 5
+      "weave_priority": 2
     },
     {
       "t": "text",
@@ -34,7 +77,7 @@
       "gender": "m",
       "gloss": "официант",
       "ipa": "kamaˈreɾo",
-      "weave_priority": 4
+      "weave_priority": 1
     },
     {
       "t": "text",
@@ -49,7 +92,7 @@
       "gender": "m",
       "gloss": "заказ",
       "ipa": "peˈðiðo",
-      "weave_priority": 6
+      "weave_priority": 3
     },
     {
       "t": "text",
@@ -64,11 +107,55 @@
       "gender": "f",
       "gloss": "счёт",
       "ipa": "ˈkwenta",
-      "weave_priority": 6
+      "weave_priority": 3
     },
     {
       "t": "text",
-      "l1": " был оплачен, весь заказ словно исчезал из его памяти. Её звали Блюма Зейгарник, и она превратила это маленькое наблюдение в знаменитую идею. Наш "
+      "l1": " был оплачен, весь заказ словно исчезал из его "
+    },
+    {
+      "t": "weave",
+      "l1": "памяти",
+      "l2": "memoria",
+      "lemma": "memoria",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "память",
+      "ipa": "meˈmoɾja",
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": ". Её звали Блюма Зейгарник, и она превратила это маленькое наблюдение в "
+    },
+    {
+      "t": "weave",
+      "l1": "знаменитую",
+      "l2": "famoso",
+      "lemma": "famoso",
+      "pos": "adjective",
+      "gloss": "знаменитый",
+      "ipa": "faˈmoso",
+      "weave_priority": 11
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "идею",
+      "l2": "idea",
+      "lemma": "idea",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "идея",
+      "ipa": "iˈðea",
+      "weave_priority": 7
+    },
+    {
+      "t": "text",
+      "l1": ". Наш "
     },
     {
       "t": "weave",
@@ -79,11 +166,54 @@
       "gender": "m",
       "gloss": "мозг",
       "ipa": "θeˈɾeβɾo",
-      "weave_priority": 5
+      "weave_priority": 3
     },
     {
       "t": "text",
-      "l1": " крепко держит задачи, которые ещё не завершены. Закрытая задача тихо отпускается и вскоре забывается. Вот почему недочитанная "
+      "l1": " крепко держит "
+    },
+    {
+      "t": "weave",
+      "l1": "задачи",
+      "l2": "tareas",
+      "lemma": "tarea",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "задача",
+      "ipa": "taˈɾea",
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": ", которые ещё не "
+    },
+    {
+      "t": "weave",
+      "l1": "завершены",
+      "l2": "terminada",
+      "lemma": "terminado",
+      "pos": "adjective",
+      "gloss": "завершённый",
+      "ipa": "teɾmiˈnaðo",
+      "weave_priority": 13
+    },
+    {
+      "t": "text",
+      "l1": ". Закрытая задача тихо отпускается и вскоре "
+    },
+    {
+      "t": "weave",
+      "l1": "забывается",
+      "l2": "olvidado",
+      "lemma": "olvidado",
+      "pos": "adjective",
+      "gloss": "забытый",
+      "ipa": "olβiˈðaðo",
+      "weave_priority": 15
+    },
+    {
+      "t": "text",
+      "l1": ". Вот почему недочитанная "
     },
     {
       "t": "weave",
@@ -94,7 +224,7 @@
       "gender": "m",
       "gloss": "книга",
       "ipa": "ˈliβɾo",
-      "weave_priority": 3
+      "weave_priority": 1
     },
     {
       "t": "text",
@@ -109,7 +239,7 @@
       "gender": "f",
       "gloss": "вопрос",
       "ipa": "preˈɣunta",
-      "weave_priority": 4
+      "weave_priority": 2
     },
     {
       "t": "text",

@@ -15,7 +15,7 @@
       "gender": "f",
       "gloss": "honey",
       "ipa": "mjel",
-      "weave_priority": 2
+      "weave_priority": 1
     },
     {
       "t": "text",
@@ -30,11 +30,41 @@
       "gender": "m",
       "gloss": "world",
       "ipa": "ˈmundo",
-      "weave_priority": 4
+      "weave_priority": 2
     },
     {
       "t": "text",
-      "l1": " that never goes bad. Archaeologists once opened an ancient Egyptian tomb and found a clay "
+      "l1": " that never goes bad. "
+    },
+    {
+      "t": "weave",
+      "l1": "Archaeologists",
+      "l2": "arqueólogos",
+      "lemma": "arqueólogo",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "archaeologist",
+      "ipa": "aɾkeˈoloɣo",
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " once opened an ancient Egyptian "
+    },
+    {
+      "t": "weave",
+      "l1": "tomb",
+      "l2": "tumba",
+      "lemma": "tumba",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "tomb",
+      "ipa": "ˈtumba",
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " and found a clay "
     },
     {
       "t": "weave",
@@ -45,7 +75,7 @@
       "gender": "m",
       "gloss": "jar",
       "ipa": "ˈtaro",
-      "weave_priority": 5
+      "weave_priority": 3
     },
     {
       "t": "text",
@@ -60,7 +90,7 @@
       "gender": "m",
       "gloss": "year",
       "ipa": "ˈaɲo",
-      "weave_priority": 5
+      "weave_priority": 3
     },
     {
       "t": "text",
@@ -74,11 +104,26 @@
       "pos": "verb",
       "gloss": "to eat",
       "ipa": "koˈmer",
-      "weave_priority": 7
+      "weave_priority": 11
     },
     {
       "t": "text",
-      "l1": ". The secret lies in the honey itself. It holds very little "
+      "l1": ". The "
+    },
+    {
+      "t": "weave",
+      "l1": "secret",
+      "l2": "secreto",
+      "lemma": "secreto",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "secret",
+      "ipa": "seˈkɾeto",
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": " lies in the honey itself. It holds very little "
     },
     {
       "t": "weave",
@@ -90,11 +135,69 @@
       "article": "el",
       "gloss": "water",
       "ipa": "ˈaɣwa",
-      "weave_priority": 3
+      "weave_priority": 1
     },
     {
       "t": "text",
-      "l1": ", so bacteria cannot grow in it. Bees also add a mild acid that keeps it safe for a very long time. Because of this, honey almost never spoils if you keep the jar closed and dry. People in many old cultures used it not only as sweet "
+      "l1": ", so bacteria cannot grow in it. "
+    },
+    {
+      "t": "weave",
+      "l1": "Bees",
+      "l2": "abejas",
+      "lemma": "abeja",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "bee",
+      "ipa": "aˈβexa",
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": " also add a mild acid that keeps it safe for a very long time. Because of this, honey almost never spoils if you keep the jar closed and "
+    },
+    {
+      "t": "weave",
+      "l1": "dry",
+      "l2": "seco",
+      "lemma": "seco",
+      "pos": "adjective",
+      "gloss": "dry",
+      "ipa": "ˈseko",
+      "weave_priority": 13
+    },
+    {
+      "t": "text",
+      "l1": ". People in many old "
+    },
+    {
+      "t": "weave",
+      "l1": "cultures",
+      "l2": "culturas",
+      "lemma": "cultura",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "culture",
+      "ipa": "kulˈtuɾa",
+      "weave_priority": 7
+    },
+    {
+      "t": "text",
+      "l1": " used it not only as "
+    },
+    {
+      "t": "weave",
+      "l1": "sweet",
+      "l2": "dulce",
+      "lemma": "dulce",
+      "pos": "adjective",
+      "gloss": "sweet",
+      "ipa": "ˈdulθe",
+      "weave_priority": 15
+    },
+    {
+      "t": "text",
+      "l1": " "
     },
     {
       "t": "weave",
@@ -105,11 +208,41 @@
       "gender": "f",
       "gloss": "food",
       "ipa": "koˈmiða",
-      "weave_priority": 4
+      "weave_priority": 2
     },
     {
       "t": "text",
-      "l1": ", but also as medicine for wounds. A simple jar of honey can outlive whole empires."
+      "l1": ", but also as "
+    },
+    {
+      "t": "weave",
+      "l1": "medicine",
+      "l2": "medicina",
+      "lemma": "medicina",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "medicine",
+      "ipa": "meðiˈθina",
+      "weave_priority": 8
+    },
+    {
+      "t": "text",
+      "l1": " for wounds. A simple jar of honey can outlive whole "
+    },
+    {
+      "t": "weave",
+      "l1": "empires",
+      "l2": "imperios",
+      "lemma": "imperio",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "empire",
+      "ipa": "imˈperjo",
+      "weave_priority": 10
+    },
+    {
+      "t": "text",
+      "l1": "."
     }
   ]
 }

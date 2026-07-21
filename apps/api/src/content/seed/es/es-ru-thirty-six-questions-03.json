@@ -8,7 +8,37 @@
   "units": [
     {
       "t": "text",
-      "l1": "Могут ли двое незнакомцев влюбиться нарочно? Психолог по имени Артур Арон верил, что могут. Он составил список из тридцати шести "
+      "l1": "Могут ли двое "
+    },
+    {
+      "t": "weave",
+      "l1": "незнакомцев",
+      "l2": "extraños",
+      "lemma": "extraño",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "незнакомец",
+      "ipa": "esˈtɾaɲo",
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " влюбиться нарочно? "
+    },
+    {
+      "t": "weave",
+      "l1": "Психолог",
+      "l2": "psicólogo",
+      "lemma": "psicólogo",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "психолог",
+      "ipa": "psiˈkoloɣo",
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": " по имени Артур Арон верил, что могут. Он составил список из тридцати шести "
     },
     {
       "t": "weave",
@@ -19,11 +49,25 @@
       "gender": "f",
       "gloss": "вопрос",
       "ipa": "preˈɣunta",
-      "weave_priority": 4
+      "weave_priority": 2
     },
     {
       "t": "text",
-      "l1": ", которые постепенно становятся всё более личными. Двое "
+      "l1": ", которые постепенно становятся всё более "
+    },
+    {
+      "t": "weave",
+      "l1": "личными",
+      "l2": "personal",
+      "lemma": "personal",
+      "pos": "adjective",
+      "gloss": "личный",
+      "ipa": "peɾsoˈnal",
+      "weave_priority": 8
+    },
+    {
+      "t": "text",
+      "l1": ". Двое "
     },
     {
       "t": "weave",
@@ -34,11 +78,25 @@
       "gender": "f",
       "gloss": "люди",
       "ipa": "ˈxente",
-      "weave_priority": 3
+      "weave_priority": 1
     },
     {
       "t": "text",
-      "l1": " садятся лицом к лицу и по очереди задают их. Первые вопросы лёгкие и простые. Более поздние спрашивают о "
+      "l1": " садятся лицом к лицу и по очереди задают их. Первые вопросы "
+    },
+    {
+      "t": "weave",
+      "l1": "лёгкие",
+      "l2": "fácil",
+      "lemma": "fácil",
+      "pos": "adjective",
+      "gloss": "лёгкий",
+      "ipa": "ˈfaθil",
+      "weave_priority": 10
+    },
+    {
+      "t": "text",
+      "l1": " и простые. Более поздние спрашивают о "
     },
     {
       "t": "weave",
@@ -49,11 +107,55 @@
       "gender": "f",
       "gloss": "семья",
       "ipa": "faˈmilja",
-      "weave_priority": 5
+      "weave_priority": 3
     },
     {
       "t": "text",
-      "l1": ", о страхе и о самых заветных мечтах. В самом конце двое партнёров молча смотрят друг другу в "
+      "l1": ", о "
+    },
+    {
+      "t": "weave",
+      "l1": "страхе",
+      "l2": "miedo",
+      "lemma": "miedo",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "страх",
+      "ipa": "ˈmjeðo",
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": " и о самых заветных мечтах. В самом конце двое "
+    },
+    {
+      "t": "weave",
+      "l1": "партнёров",
+      "l2": "compañeros",
+      "lemma": "compañero",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "партнёр",
+      "ipa": "kompaˈɲeɾo",
+      "weave_priority": 7
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "молча",
+      "l2": "callados",
+      "lemma": "callado",
+      "pos": "adjective",
+      "gloss": "молча",
+      "ipa": "kaˈʎaðo",
+      "weave_priority": 11
+    },
+    {
+      "t": "text",
+      "l1": " смотрят друг другу в "
     },
     {
       "t": "weave",
@@ -64,7 +166,7 @@
       "gender": "m",
       "gloss": "глаз",
       "ipa": "ˈoxo",
-      "weave_priority": 4
+      "weave_priority": 2
     },
     {
       "t": "text",
@@ -79,11 +181,39 @@
       "gender": "f",
       "gloss": "пара",
       "ipa": "paˈrexa",
-      "weave_priority": 6
+      "weave_priority": 3
     },
     {
       "t": "text",
-      "l1": ", что попробовали это, почувствовали неожиданную близость. Некоторые даже поженились. Идея проста, но сильна. "
+      "l1": ", что попробовали это, почувствовали неожиданную "
+    },
+    {
+      "t": "weave",
+      "l1": "близость",
+      "l2": "cercano",
+      "lemma": "cercano",
+      "pos": "adjective",
+      "gloss": "близость",
+      "ipa": "θeɾˈkano",
+      "weave_priority": 13
+    },
+    {
+      "t": "text",
+      "l1": ". Некоторые даже поженились. Идея проста, но "
+    },
+    {
+      "t": "weave",
+      "l1": "сильна",
+      "l2": "fuerte",
+      "lemma": "fuerte",
+      "pos": "adjective",
+      "gloss": "сильный",
+      "ipa": "ˈfweɾte",
+      "weave_priority": 15
+    },
+    {
+      "t": "text",
+      "l1": ". "
     },
     {
       "t": "weave",
@@ -94,7 +224,7 @@
       "gender": "m",
       "gloss": "любовь",
       "ipa": "aˈmor",
-      "weave_priority": 5
+      "weave_priority": 3
     },
     {
       "t": "text",
@@ -109,7 +239,7 @@
       "gender": "m",
       "gloss": "сердце",
       "ipa": "koɾaˈθon",
-      "weave_priority": 3
+      "weave_priority": 1
     },
     {
       "t": "text",

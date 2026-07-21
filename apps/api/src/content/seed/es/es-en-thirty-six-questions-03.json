@@ -8,7 +8,22 @@
   "units": [
     {
       "t": "text",
-      "l1": "Can two strangers fall in "
+      "l1": "Can two "
+    },
+    {
+      "t": "weave",
+      "l1": "strangers",
+      "l2": "extraños",
+      "lemma": "extraño",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "stranger",
+      "ipa": "esˈtɾaɲo",
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " fall in "
     },
     {
       "t": "weave",
@@ -19,11 +34,26 @@
       "gender": "m",
       "gloss": "love",
       "ipa": "aˈmor",
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " on purpose? A "
+    },
+    {
+      "t": "weave",
+      "l1": "psychologist",
+      "l2": "psicólogo",
+      "lemma": "psicólogo",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "psychologist",
+      "ipa": "psiˈkoloɣo",
       "weave_priority": 5
     },
     {
       "t": "text",
-      "l1": " on purpose? A psychologist named Arthur Aron believed they could. He built a list of thirty-six "
+      "l1": " named Arthur Aron believed they could. He built a list of thirty-six "
     },
     {
       "t": "weave",
@@ -34,11 +64,25 @@
       "gender": "f",
       "gloss": "question",
       "ipa": "preˈɣunta",
-      "weave_priority": 4
+      "weave_priority": 2
     },
     {
       "t": "text",
-      "l1": " that slowly grow more personal. Two "
+      "l1": " that slowly grow more "
+    },
+    {
+      "t": "weave",
+      "l1": "personal",
+      "l2": "personal",
+      "lemma": "personal",
+      "pos": "adjective",
+      "gloss": "personal",
+      "ipa": "peɾsoˈnal",
+      "weave_priority": 10
+    },
+    {
+      "t": "text",
+      "l1": ". Two "
     },
     {
       "t": "weave",
@@ -49,11 +93,25 @@
       "gender": "f",
       "gloss": "people",
       "ipa": "ˈxente",
-      "weave_priority": 3
+      "weave_priority": 1
     },
     {
       "t": "text",
-      "l1": " sit face to face and take turns asking them. The early questions are light and easy. Later ones ask about "
+      "l1": " sit face to face and take turns asking them. The early questions are light and "
+    },
+    {
+      "t": "weave",
+      "l1": "easy",
+      "l2": "fácil",
+      "lemma": "fácil",
+      "pos": "adjective",
+      "gloss": "easy",
+      "ipa": "ˈfaθil",
+      "weave_priority": 11
+    },
+    {
+      "t": "text",
+      "l1": ". Later ones ask about "
     },
     {
       "t": "weave",
@@ -64,11 +122,41 @@
       "gender": "f",
       "gloss": "family",
       "ipa": "faˈmilja",
-      "weave_priority": 5
+      "weave_priority": 3
     },
     {
       "t": "text",
-      "l1": ", fear, and your deepest dreams. At the very end, the two partners look into each other's "
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "fear",
+      "l2": "miedo",
+      "lemma": "miedo",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "fear",
+      "ipa": "ˈmjeðo",
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": ", and your deepest dreams. At the very end, the two "
+    },
+    {
+      "t": "weave",
+      "l1": "partners",
+      "l2": "compañeros",
+      "lemma": "compañero",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "partner",
+      "ipa": "kompaˈɲeɾo",
+      "weave_priority": 7
+    },
+    {
+      "t": "text",
+      "l1": " look into each other's "
     },
     {
       "t": "weave",
@@ -79,11 +167,26 @@
       "gender": "m",
       "gloss": "eye",
       "ipa": "ˈoxo",
-      "weave_priority": 4
+      "weave_priority": 2
     },
     {
       "t": "text",
-      "l1": " in silence for four long minutes. Many "
+      "l1": " in "
+    },
+    {
+      "t": "weave",
+      "l1": "silence",
+      "l2": "silencio",
+      "lemma": "silencio",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "silence",
+      "ipa": "siˈlenθjo",
+      "weave_priority": 8
+    },
+    {
+      "t": "text",
+      "l1": " for four long minutes. Many "
     },
     {
       "t": "weave",
@@ -94,11 +197,39 @@
       "gender": "f",
       "gloss": "couple",
       "ipa": "paˈrexa",
-      "weave_priority": 6
+      "weave_priority": 3
     },
     {
       "t": "text",
-      "l1": " who tried this said they felt surprisingly close afterwards. Some even married. The idea is simple but strong. Love does not only come by luck or by chance. It can also grow when two people choose to open their "
+      "l1": " who tried this said they felt surprisingly "
+    },
+    {
+      "t": "weave",
+      "l1": "close",
+      "l2": "cercano",
+      "lemma": "cercano",
+      "pos": "adjective",
+      "gloss": "close",
+      "ipa": "θeɾˈkano",
+      "weave_priority": 13
+    },
+    {
+      "t": "text",
+      "l1": " afterwards. Some even married. The idea is simple but "
+    },
+    {
+      "t": "weave",
+      "l1": "strong",
+      "l2": "fuerte",
+      "lemma": "fuerte",
+      "pos": "adjective",
+      "gloss": "strong",
+      "ipa": "ˈfweɾte",
+      "weave_priority": 15
+    },
+    {
+      "t": "text",
+      "l1": ". Love does not only come by luck or by chance. It can also grow when two people choose to open their "
     },
     {
       "t": "weave",
@@ -109,7 +240,7 @@
       "gender": "m",
       "gloss": "heart",
       "ipa": "koɾaˈθon",
-      "weave_priority": 3
+      "weave_priority": 1
     },
     {
       "t": "text",

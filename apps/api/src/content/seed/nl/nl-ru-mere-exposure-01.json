@@ -19,11 +19,40 @@
       "gender": "c",
       "gloss": "ум",
       "ipa": "ɣeːst",
-      "weave_priority": 6
+      "weave_priority": 3
     },
     {
       "t": "text",
-      "l1": " спрятано странное правило. Нам нравится вещь сильнее просто потому, что мы видели её много раз. "
+      "l1": " спрятано "
+    },
+    {
+      "t": "weave",
+      "l1": "странное",
+      "l2": "vreemd",
+      "lemma": "vreemd",
+      "pos": "adjective",
+      "gloss": "странный",
+      "ipa": "vreːmt",
+      "weave_priority": 11
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "правило",
+      "l2": "regel",
+      "lemma": "regel",
+      "pos": "noun",
+      "gender": "c",
+      "gloss": "правило",
+      "ipa": "ˈreːɣəl",
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": ". Нам нравится вещь сильнее просто потому, что мы видели её много раз. "
     },
     {
       "t": "weave",
@@ -34,11 +63,25 @@
       "gender": "n",
       "gloss": "песня",
       "ipa": "lit",
-      "weave_priority": 4
+      "weave_priority": 1
     },
     {
       "t": "text",
-      "l1": ", которая сначала не нравилась, может медленно стать любимой. "
+      "l1": ", которая сначала не нравилась, может медленно стать "
+    },
+    {
+      "t": "weave",
+      "l1": "любимой",
+      "l2": "favoriet",
+      "lemma": "favoriet",
+      "pos": "adjective",
+      "gloss": "любимый",
+      "ipa": "faːvoːˈrit",
+      "weave_priority": 15
+    },
+    {
+      "t": "text",
+      "l1": ". "
     },
     {
       "t": "weave",
@@ -49,11 +92,55 @@
       "gender": "n",
       "gloss": "лицо",
       "ipa": "ɣəˈzɪxt",
-      "weave_priority": 4
+      "weave_priority": 2
     },
     {
       "t": "text",
-      "l1": ", мимо которого мы проходим каждое утро, начинает казаться тёплым и родным. Учёные называют это эффектом простого предъявления и изучают его много "
+      "l1": ", мимо которого мы проходим каждое "
+    },
+    {
+      "t": "weave",
+      "l1": "утро",
+      "l2": "ochtend",
+      "lemma": "ochtend",
+      "pos": "noun",
+      "gender": "c",
+      "gloss": "утро",
+      "ipa": "ˈɔxtənt",
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": ", начинает казаться "
+    },
+    {
+      "t": "weave",
+      "l1": "тёплым",
+      "l2": "warm",
+      "lemma": "warm",
+      "pos": "adjective",
+      "gloss": "тёплый",
+      "ipa": "ʋɑrm",
+      "weave_priority": 13
+    },
+    {
+      "t": "text",
+      "l1": " и родным. "
+    },
+    {
+      "t": "weave",
+      "l1": "Учёные",
+      "l2": "wetenschappers",
+      "lemma": "wetenschapper",
+      "pos": "noun",
+      "gender": "c",
+      "gloss": "учёный",
+      "ipa": "ˈʋeːtənsxɑpər",
+      "weave_priority": 7
+    },
+    {
+      "t": "text",
+      "l1": " называют это эффектом простого предъявления и изучают его много "
     },
     {
       "t": "weave",
@@ -64,7 +151,7 @@
       "gender": "n",
       "gloss": "год",
       "ipa": "jaːr",
-      "weave_priority": 5
+      "weave_priority": 3
     },
     {
       "t": "text",
@@ -78,7 +165,7 @@
       "pos": "noun",
       "gloss": "люди",
       "ipa": "ˈmɛnsə",
-      "weave_priority": 3
+      "weave_priority": 1
     },
     {
       "t": "text",
@@ -93,7 +180,7 @@
       "gender": "c",
       "gloss": "музыка",
       "ipa": "myˈzik",
-      "weave_priority": 5
+      "weave_priority": 3
     },
     {
       "t": "text",
@@ -108,7 +195,7 @@
       "gender": "n",
       "gloss": "еда",
       "ipa": "ˈeːtə",
-      "weave_priority": 4
+      "weave_priority": 2
     },
     {
       "t": "text",
@@ -123,11 +210,39 @@
       "gender": "c",
       "gloss": "любовь",
       "ipa": "ˈlivdə",
-      "weave_priority": 5
+      "weave_priority": 3
     },
     {
       "t": "text",
-      "l1": ". Мы верим, что выбираем свободно, но многое из того, чего мы хотим, — это просто то, что мы уже знаем. Реклама давно пользуется этим: чем чаще мы видим товар, тем больше ему доверяем. Знакомое кажется нам безопасным, и мозг выбирает его почти без раздумий."
+      "l1": ". Мы "
+    },
+    {
+      "t": "weave",
+      "l1": "верим",
+      "l2": "geloven",
+      "lemma": "geloven",
+      "pos": "verb",
+      "gloss": "верить",
+      "ipa": "ɣəˈloːvə",
+      "weave_priority": 8
+    },
+    {
+      "t": "text",
+      "l1": ", что выбираем свободно, но многое из того, чего мы "
+    },
+    {
+      "t": "weave",
+      "l1": "хотим",
+      "l2": "willen",
+      "lemma": "willen",
+      "pos": "verb",
+      "gloss": "хотеть",
+      "ipa": "ˈʋɪlə",
+      "weave_priority": 10
+    },
+    {
+      "t": "text",
+      "l1": ", — это просто то, что мы уже знаем. Реклама давно пользуется этим: чем чаще мы видим товар, тем больше ему доверяем. Знакомое кажется нам безопасным, и мозг выбирает его почти без раздумий."
     }
   ]
 }

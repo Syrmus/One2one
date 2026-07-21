@@ -8,7 +8,36 @@
   "units": [
     {
       "t": "text",
-      "l1": "There is a strange rule hidden in the human "
+      "l1": "There is a "
+    },
+    {
+      "t": "weave",
+      "l1": "strange",
+      "l2": "seltsam",
+      "lemma": "seltsam",
+      "pos": "adjective",
+      "gloss": "strange",
+      "ipa": "ˈzɛltzaːm",
+      "weave_priority": 11
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "rule",
+      "l2": "Regel",
+      "lemma": "Regel",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "rule",
+      "ipa": "ˈʁeːɡəl",
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": " hidden in the human "
     },
     {
       "t": "weave",
@@ -19,7 +48,7 @@
       "gender": "m",
       "gloss": "mind",
       "ipa": "ɡaɪst",
-      "weave_priority": 6
+      "weave_priority": 3
     },
     {
       "t": "text",
@@ -34,11 +63,25 @@
       "gender": "n",
       "gloss": "song",
       "ipa": "liːt",
-      "weave_priority": 4
+      "weave_priority": 1
     },
     {
       "t": "text",
-      "l1": " we did not enjoy at first can slowly become a favourite. A "
+      "l1": " we did not enjoy at first can slowly become a "
+    },
+    {
+      "t": "weave",
+      "l1": "favourite",
+      "l2": "beliebt",
+      "lemma": "beliebt",
+      "pos": "adjective",
+      "gloss": "favourite",
+      "ipa": "bəˈliːpt",
+      "weave_priority": 15
+    },
+    {
+      "t": "text",
+      "l1": ". A "
     },
     {
       "t": "weave",
@@ -49,11 +92,55 @@
       "gender": "n",
       "gloss": "face",
       "ipa": "ɡəˈzɪçt",
-      "weave_priority": 4
+      "weave_priority": 2
     },
     {
       "t": "text",
-      "l1": " we pass every morning starts to feel warm and friendly. Scientists call this the mere exposure effect, and they have studied it for many "
+      "l1": " we pass every "
+    },
+    {
+      "t": "weave",
+      "l1": "morning",
+      "l2": "Morgen",
+      "lemma": "Morgen",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "morning",
+      "ipa": "ˈmɔʁɡn̩",
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": " starts to feel "
+    },
+    {
+      "t": "weave",
+      "l1": "warm",
+      "l2": "warm",
+      "lemma": "warm",
+      "pos": "adjective",
+      "gloss": "warm",
+      "ipa": "vaʁm",
+      "weave_priority": 13
+    },
+    {
+      "t": "text",
+      "l1": " and friendly. "
+    },
+    {
+      "t": "weave",
+      "l1": "Scientists",
+      "l2": "Wissenschaftler",
+      "lemma": "Wissenschaftler",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "scientist",
+      "ipa": "ˈvɪsn̩ʃaftlɐ",
+      "weave_priority": 7
+    },
+    {
+      "t": "text",
+      "l1": " call this the mere exposure effect, and they have studied it for many "
     },
     {
       "t": "weave",
@@ -65,7 +152,7 @@
       "case": "dat",
       "gloss": "year",
       "ipa": "jaːɐ̯",
-      "weave_priority": 5
+      "weave_priority": 3
     },
     {
       "t": "text",
@@ -79,7 +166,7 @@
       "pos": "noun",
       "gloss": "people",
       "ipa": "ˈlɔʏtə",
-      "weave_priority": 3
+      "weave_priority": 1
     },
     {
       "t": "text",
@@ -94,7 +181,7 @@
       "gender": "f",
       "gloss": "music",
       "ipa": "muˈziːk",
-      "weave_priority": 5
+      "weave_priority": 3
     },
     {
       "t": "text",
@@ -109,7 +196,7 @@
       "gender": "n",
       "gloss": "food",
       "ipa": "ˈɛsən",
-      "weave_priority": 4
+      "weave_priority": 2
     },
     {
       "t": "text",
@@ -124,11 +211,39 @@
       "gender": "f",
       "gloss": "love",
       "ipa": "ˈliːbə",
-      "weave_priority": 5
+      "weave_priority": 3
     },
     {
       "t": "text",
-      "l1": ". We believe we choose freely, yet much of what we want is simply what we already know. In the end, we may simply love the world that feels the most familiar to us, even when we cannot say exactly why."
+      "l1": ". We "
+    },
+    {
+      "t": "weave",
+      "l1": "believe",
+      "l2": "glauben",
+      "lemma": "glauben",
+      "pos": "verb",
+      "gloss": "to believe",
+      "ipa": "ˈɡlaʊbn̩",
+      "weave_priority": 8
+    },
+    {
+      "t": "text",
+      "l1": " we choose freely, yet much of what we "
+    },
+    {
+      "t": "weave",
+      "l1": "want",
+      "l2": "wollen",
+      "lemma": "wollen",
+      "pos": "verb",
+      "gloss": "to want",
+      "ipa": "ˈvɔlən",
+      "weave_priority": 10
+    },
+    {
+      "t": "text",
+      "l1": " is simply what we already know. In the end, we may simply love the world that feels the most familiar to us, even when we cannot say exactly why."
     }
   ]
 }

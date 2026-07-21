@@ -8,7 +8,50 @@
   "units": [
     {
       "t": "text",
-      "l1": "A young psychologist once sat in a busy "
+      "l1": "A "
+    },
+    {
+      "t": "weave",
+      "l1": "young",
+      "l2": "joven",
+      "lemma": "joven",
+      "pos": "adjective",
+      "gloss": "young",
+      "ipa": "ˈxoβen",
+      "weave_priority": 8
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "psychologist",
+      "l2": "psicólogo",
+      "lemma": "psicólogo",
+      "pos": "noun",
+      "gender": "m",
+      "gloss": "psychologist",
+      "ipa": "psiˈkoloɣo",
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " once sat in a "
+    },
+    {
+      "t": "weave",
+      "l1": "busy",
+      "l2": "concurrido",
+      "lemma": "concurrido",
+      "pos": "adjective",
+      "gloss": "busy",
+      "ipa": "konkuˈriðo",
+      "weave_priority": 10
+    },
+    {
+      "t": "text",
+      "l1": " "
     },
     {
       "t": "weave",
@@ -19,7 +62,7 @@
       "gender": "m",
       "gloss": "café",
       "ipa": "kaˈfe",
-      "weave_priority": 5
+      "weave_priority": 2
     },
     {
       "t": "text",
@@ -34,7 +77,7 @@
       "gender": "m",
       "gloss": "waiter",
       "ipa": "kamaˈreɾo",
-      "weave_priority": 4
+      "weave_priority": 1
     },
     {
       "t": "text",
@@ -49,7 +92,7 @@
       "gender": "m",
       "gloss": "order",
       "ipa": "peˈðiðo",
-      "weave_priority": 6
+      "weave_priority": 3
     },
     {
       "t": "text",
@@ -64,11 +107,55 @@
       "gender": "f",
       "gloss": "bill",
       "ipa": "ˈkwenta",
-      "weave_priority": 6
+      "weave_priority": 3
     },
     {
       "t": "text",
-      "l1": " was paid, the whole order seemed to vanish from his memory. Her name was Bluma Zeigarnik, and she turned this small observation into a famous idea. Our "
+      "l1": " was paid, the whole order seemed to vanish from his "
+    },
+    {
+      "t": "weave",
+      "l1": "memory",
+      "l2": "memoria",
+      "lemma": "memoria",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "memory",
+      "ipa": "meˈmoɾja",
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": ". Her name was Bluma Zeigarnik, and she turned this small observation into a "
+    },
+    {
+      "t": "weave",
+      "l1": "famous",
+      "l2": "famoso",
+      "lemma": "famoso",
+      "pos": "adjective",
+      "gloss": "famous",
+      "ipa": "faˈmoso",
+      "weave_priority": 11
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "idea",
+      "l2": "idea",
+      "lemma": "idea",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "idea",
+      "ipa": "iˈðea",
+      "weave_priority": 7
+    },
+    {
+      "t": "text",
+      "l1": ". Our "
     },
     {
       "t": "weave",
@@ -79,11 +166,54 @@
       "gender": "m",
       "gloss": "brain",
       "ipa": "θeˈɾeβɾo",
-      "weave_priority": 5
+      "weave_priority": 3
     },
     {
       "t": "text",
-      "l1": " holds on tightly to tasks that are not yet finished. A closed task is quietly released and soon forgotten. This is why an unfinished "
+      "l1": " holds on tightly to "
+    },
+    {
+      "t": "weave",
+      "l1": "tasks",
+      "l2": "tareas",
+      "lemma": "tarea",
+      "pos": "noun",
+      "gender": "f",
+      "gloss": "task",
+      "ipa": "taˈɾea",
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": " that are not yet "
+    },
+    {
+      "t": "weave",
+      "l1": "finished",
+      "l2": "terminada",
+      "lemma": "terminado",
+      "pos": "adjective",
+      "gloss": "finished",
+      "ipa": "teɾmiˈnaðo",
+      "weave_priority": 13
+    },
+    {
+      "t": "text",
+      "l1": ". A closed task is quietly released and soon "
+    },
+    {
+      "t": "weave",
+      "l1": "forgotten",
+      "l2": "olvidado",
+      "lemma": "olvidado",
+      "pos": "adjective",
+      "gloss": "forgotten",
+      "ipa": "olβiˈðaðo",
+      "weave_priority": 15
+    },
+    {
+      "t": "text",
+      "l1": ". This is why an unfinished "
     },
     {
       "t": "weave",
@@ -94,7 +224,7 @@
       "gender": "m",
       "gloss": "book",
       "ipa": "ˈliβɾo",
-      "weave_priority": 3
+      "weave_priority": 1
     },
     {
       "t": "text",
@@ -109,7 +239,7 @@
       "gender": "f",
       "gloss": "question",
       "ipa": "preˈɣunta",
-      "weave_priority": 4
+      "weave_priority": 2
     },
     {
       "t": "text",

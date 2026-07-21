@@ -90,7 +90,20 @@ The reader renders a story by concatenating the `l1` (or, for shown weave units,
    - Priority 11–15: adjectives (big, small, good, old)
    - Priority 16–20: adverbs and common phrases (nach Hause, immer, schnell)
    - Priority 21+: function words (prepositions, conjunctions, pronouns) — introduce last, and sparingly, since these carry the least standalone meaning and are hardest to guess from context
-4. **Density is a consequence of tagging, not a separate knob.** Tag as `weave` every unit you legitimately could weave (subject to the rules here); the reader controls how many actually show via the threshold `T` on `weave_priority`. Practical target: at the lowest reader setting (`T` covering roughly the 1–3 band), about 10–15% of the story's content words should surface in L2. For a 120–150-word story that means roughly 7–12 woven units across the priority bands at the entry level — do not front-load them into one sentence; spread them out.
+4. **Density is a consequence of tagging, not a separate knob.** Tag as `weave` every unit you legitimately could weave (subject to the rules here); the reader controls how many actually show via the threshold `T` on `weave_priority`. The app exposes three fixed presets (`packages/shared/src/density.ts`), and each must land within a target *count of woven words visible at that preset* — not a percentage — for a 120–150-word story:
+
+   | Preset | Threshold `T` | Target visible woven words |
+   |--------|---------------|------------------------------|
+   | A1-lite | ≤ 3 | 7–8 |
+   | A1 | ≤ 8 | 10–12 |
+   | A2 | ≤ 15 | 15–18 |
+
+   These are cumulative, not additive — a word visible at A1-lite stays visible at A1 and A2. Concretely, that means:
+   - **Priorities 1–3:** enough concrete nouns to reach 7–8 woven units on their own (several words may legitimately share the same priority number — e.g. three different nouns can all be priority 2).
+   - **Priorities 4–8** (remaining nouns + high-frequency verbs): add roughly 3–4 more units so the cumulative total at `T=8` reaches 10–12.
+   - **Priorities 9–15** (remaining verbs + adjectives): add roughly 5–6 more units so the cumulative total at `T=15` reaches 15–18.
+
+   A story should therefore end up with **15–18 `weave` units in total** (not 7–12 as in earlier drafts of this spec) — this is a substantially higher density than before, close to weaving every eligible concrete noun, high-frequency verb, and adjective in the text. Spread them across the story rather than front-loading them into the first few sentences; the tail of the story needs weave units too, not just the opening.
 5. **No orphan grammar.** Never weave a word in a form that requires grammatical knowledge the reader hasn't been given (e.g. don't weave a verb conjugated in a compound tense before the story has established simpler forms) — for A1/A2, stick to present tense and simple past.
 6. **Consistency of lemma.** If a word appears multiple times in the story, every occurrence must share the same `lemma` and `gloss`, even though `l2` (the inflected surface form) and `case`/`article` may differ per occurrence.
 7. **Don't weave what can't be guessed.** Function words, abstract words, and idioms with non-transparent meaning should either not be woven, or be woven only after level A2 and only with a very clear surrounding context.
@@ -167,7 +180,7 @@ Rules you must follow:
 1. Weave whole lexical units (e.g. article + noun, a verb + separable prefix, a fixed phrase), never bare words stripped of the grammar that makes them correct in context. Any article tied to a noun goes INSIDE the weave unit on both the l1 and l2 sides (or is absent on both) — never in an adjacent text unit, or it will double.
 2. Every woven l2 string must be grammatically correct for its exact position in the sentence: correct article, case (German), gender/number agreement (Spanish, Dutch).
 3. Assign weave_priority ascending in this order: concrete nouns (1-5) → high-frequency verbs (6-10) → adjectives (11-15) → adverbs/phrases (16-20) → function words (21+, use sparingly).
-4. Target starting density: 10-15% of content words woven at the lowest threshold.
+4. Target density (cumulative word counts, not percentages): 7-8 woven words visible at threshold T≤3 (A1-lite), 10-12 at T≤8 (A1), 15-18 at T≤15 (A2) — see §3.4. This means roughly 15-18 weave units total in the story, spread throughout rather than front-loaded.
 5. Keep the same lemma and gloss for every occurrence of a repeated word.
 6. Sentence and story length per level: {insert level guideline table row from §4}.
 7. {Language-specific note from §5 for the requested l2}
