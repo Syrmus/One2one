@@ -6,7 +6,7 @@ export const posSchema = z.enum([
   "adjective",
   "adverb",
   "phrase",
-  "function",
+  "function_word",
 ]);
 export type Pos = z.infer<typeof posSchema>;
 

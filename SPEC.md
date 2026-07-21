@@ -81,6 +81,7 @@ The app helps users learn a foreign language using the **diglot weave** method: 
 - MVP ships **2–3 stories per language** (6–9 total), level A1–A2, ~300–600 words each.
 - Stored as static files in the format from §5.2 (e.g., `content/seed/de/*.json`).
 - These can be generated once via an LLM during development and manually reviewed — a one-time task, not a runtime operation.
+- **Authoring rules:** every story — seed content or generated — must follow `STORY_GENERATION_SPEC.md` (repo root). It's the binding contract for weaving mechanics, `weave_priority` scale, and per-language morphology; this file only defines the storage shape.
 
 ### 5.2. Story Data Model (unified storage format)
 
@@ -138,6 +139,8 @@ Once added, store as a local DB/index; use it for (a) filling in hints and (b) v
 ---
 
 ## 6. LLM-Based Content Generation (Stage 2)
+
+**See `STORY_GENERATION_SPEC.md`** for the full generation contract — output schema, weaving rules, `weave_priority` scale, per-language morphology notes, validation rules, and a ready-to-use system prompt template. This section stays high-level; that file is what actually gets sent to the model.
 
 ### 6.1. Two Modes
 1. **Generate an original story:** input — {L2, level, topic, length}; output — a story object (§5.2).
@@ -261,11 +264,9 @@ All previously open questions are resolved:
 
 ---
 
-## Appendix A. Generation Prompt Contract (draft for §6.2)
+## Appendix A. Generation Prompt Contract (superseded)
 
-System prompt (paraphrased; finalize during implementation):
-
-> You are a generator of learning texts using the diglot weave method. Return ONLY valid JSON matching the given schema, with no markdown or explanations. Write a short, coherent story in the base language {L1} for level {level} on the topic "{topic}". Split the text into units. Mark some meaning units as weavable ("t":"weave") with an {L2} variant. Weave WHOLE lexical units with correct {L2} morphology (correct article, case, gender and number agreement), never single words stripped of grammar. Assign weave_priority: low values for concrete nouns (introduced earliest), medium for high-frequency verbs, higher for adjectives, highest for function words. Starting weave density is {start_density}. For nouns, fill in gender and article; for all weave units, fill in lemma, pos, gloss (translation into {L1}), and ipa.
+This section's draft prompt has been superseded by the full contract in **`STORY_GENERATION_SPEC.md`** (repo root, §8 has the ready-to-use system prompt template) — that document is now authoritative for §6.2; do not use the paraphrase that used to live here.
 
 ---
 
