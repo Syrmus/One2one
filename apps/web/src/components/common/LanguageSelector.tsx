@@ -21,8 +21,8 @@ export function LanguageSelector() {
         onClick={() => setTargetLanguage(null)}
         className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
           targetLanguage === null
-            ? "bg-blue-500 text-white"
-            : "bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300"
+            ? "bg-sage-500 text-white"
+            : "bg-cream-100 text-stone-600 dark:bg-slate-700 dark:text-slate-300"
         }`}
       >
         All languages
@@ -36,7 +36,7 @@ export function LanguageSelector() {
             type="button"
             onClick={() => setTargetLanguage(l.code)}
             className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
-              active ? "bg-blue-500 text-white" : info.className
+              active ? "bg-sage-500 text-white" : info.className
             }`}
           >
             {info.flag} {l.label}

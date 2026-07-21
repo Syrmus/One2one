@@ -1,6 +1,7 @@
 import { useReaderStore } from "../store/readerStore";
 import { langInfo } from "../lib/languages";
 import { LanguageSelector } from "../components/common/LanguageSelector";
+import { ProgressIcon } from "../components/nav/icons";
 
 export function ProgressPage() {
   const vocabulary = useReaderStore((s) => s.vocabulary);
@@ -11,9 +12,12 @@ export function ProgressPage() {
 
   return (
     <div className="mx-auto max-w-md px-4 py-6">
-      <h1 className="mb-4 text-xl font-bold text-slate-900 dark:text-slate-100">
-        My Vocabulary
-      </h1>
+      <div className="mb-4 flex items-center justify-between">
+        <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+          My Vocabulary
+        </h1>
+        <ProgressIcon className="h-6 w-6 text-stone-400 dark:text-slate-500" />
+      </div>
 
       <div className="mb-4">
         <LanguageSelector />
@@ -31,7 +35,7 @@ export function ProgressPage() {
           return (
             <div
               key={`${entry.lang}:${entry.lemma}`}
-              className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 dark:border-slate-700 dark:bg-slate-800"
+              className="flex items-center justify-between rounded-2xl border border-cream-100 bg-white px-4 py-3 dark:border-slate-700 dark:bg-slate-800"
             >
               <div>
                 <p className="font-medium text-slate-900 dark:text-slate-100">

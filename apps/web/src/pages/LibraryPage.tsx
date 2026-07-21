@@ -3,6 +3,7 @@ import type { Story } from "@weave/shared";
 import { getStories } from "../lib/api";
 import { StoryCard } from "../components/library/StoryCard";
 import { LanguageSelector } from "../components/common/LanguageSelector";
+import { LibraryIcon } from "../components/nav/icons";
 import { useReaderStore } from "../store/readerStore";
 
 export function LibraryPage() {
@@ -19,9 +20,12 @@ export function LibraryPage() {
 
   return (
     <div className="mx-auto max-w-md px-4 py-6">
-      <h1 className="mb-4 text-xl font-bold text-slate-900 dark:text-slate-100">
-        Library
-      </h1>
+      <div className="mb-4 flex items-center justify-between">
+        <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+          Library
+        </h1>
+        <LibraryIcon className="h-6 w-6 text-stone-400 dark:text-slate-500" />
+      </div>
 
       <div className="mb-4">
         <LanguageSelector />

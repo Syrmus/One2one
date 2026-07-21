@@ -60,7 +60,7 @@ export function ReaderPage() {
         <p className="text-slate-600 dark:text-slate-300">
           Story not found.
         </p>
-        <Link to="/" className="text-blue-500">
+        <Link to="/" className="text-dusk-600 dark:text-dusk-500">
           ← Library
         </Link>
       </div>

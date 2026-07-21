@@ -9,6 +9,7 @@ import { signIn, useSession } from './lib/authClient'
 function SignInScreen() {
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-6 px-4 text-center">
+      <img src="/cat-mascot.png" alt="" className="w-56" />
       <div>
         <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
           Weave
@@ -25,7 +26,7 @@ function SignInScreen() {
             callbackURL: window.location.origin + '/',
           })
         }
-        className="rounded-xl bg-blue-500 px-6 py-3 font-medium text-white active:bg-blue-600"
+        className="rounded-2xl bg-dusk-500 px-6 py-3 font-medium text-white active:bg-dusk-600"
       >
         Sign in with Google
       </button>
@@ -37,7 +38,7 @@ function App() {
   const { data: session, isPending } = useSession()
 
   return (
-    <div className="min-h-svh bg-slate-50 dark:bg-slate-900">
+    <div className="min-h-svh bg-cream-50 dark:bg-slate-900">
       {isPending ? (
         <div className="flex min-h-svh items-center justify-center">
           <p className="text-sm text-slate-500 dark:text-slate-400">

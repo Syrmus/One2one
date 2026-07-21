@@ -13,7 +13,7 @@ export function StoryCard({ story }: { story: Story }) {
   return (
     <Link
       to={`/reader/${story.id}`}
-      className="block rounded-2xl border border-slate-200 bg-white p-4 shadow-sm active:scale-[0.99] transition dark:border-slate-700 dark:bg-slate-800"
+      className="block rounded-3xl border border-cream-100 bg-white p-4 shadow-sm active:scale-[0.99] transition dark:border-slate-700 dark:bg-slate-800"
     >
       <div className="flex items-center justify-between gap-2">
         <h3 className="text-base font-semibold text-slate-900 dark:text-slate-100">
@@ -28,9 +28,9 @@ export function StoryCard({ story }: { story: Story }) {
       <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
         {story.level} · {wordCount(story)} words
       </p>
-      <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-700">
+      <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-cream-100 dark:bg-slate-700">
         <div
-          className="h-full rounded-full bg-blue-400"
+          className="h-full rounded-full bg-sage-500"
           style={{ width: `${Math.round(ratio * 100)}%` }}
         />
       </div>

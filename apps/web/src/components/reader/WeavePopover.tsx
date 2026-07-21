@@ -14,7 +14,7 @@ export function WeavePopover({ unit, seenCount, onClose }: Props) {
     <div className="fixed inset-0 z-50" onClick={onClose}>
       <div className="absolute inset-0 bg-black/30" />
       <div
-        className="absolute inset-x-0 bottom-0 rounded-t-2xl bg-white p-5 shadow-2xl dark:bg-slate-800"
+        className="absolute inset-x-0 bottom-0 rounded-t-3xl bg-white p-5 shadow-2xl dark:bg-slate-800"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mx-auto mb-3 h-1 w-10 rounded-full bg-slate-300 dark:bg-slate-600" />
@@ -59,7 +59,7 @@ export function WeavePopover({ unit, seenCount, onClose }: Props) {
           type="button"
           disabled={added}
           onClick={() => setAdded(true)}
-          className="mt-5 w-full rounded-xl bg-blue-500 py-3 text-center font-medium text-white active:bg-blue-600 disabled:bg-green-500"
+          className="mt-5 w-full rounded-2xl bg-dusk-500 py-3 text-center font-medium text-white active:bg-dusk-600 disabled:bg-sage-500"
         >
           {added ? "Added ✓" : "Add to my vocabulary"}
         </button>
