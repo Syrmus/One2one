@@ -10,9 +10,13 @@ export async function getLanguages(): Promise<Language[]> {
   return res.json();
 }
 
-export async function getStories(lang?: string): Promise<Story[]> {
+export async function getStories(
+  lang?: string,
+  nativeLang?: string,
+): Promise<Story[]> {
   const url = new URL(`${API_URL}/api/stories`);
   if (lang) url.searchParams.set("lang", lang);
+  if (nativeLang) url.searchParams.set("nativeLang", nativeLang);
   const res = await fetch(url, { credentials: "include" });
   if (!res.ok) throw new Error(`Failed to load stories: ${res.status}`);
   const data: unknown[] = await res.json();

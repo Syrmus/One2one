@@ -4,6 +4,7 @@ import {
   MAX_THRESHOLD,
   type LevelPreset,
 } from "@weave/shared";
+import { useT } from "../../lib/i18n";
 
 type Props = {
   threshold: number;
@@ -13,16 +14,17 @@ type Props = {
 const PRESETS = Object.keys(LEVEL_PRESETS) as LevelPreset[];
 
 export function DensitySlider({ threshold, onChange }: Props) {
+  const t = useT();
   const activePreset = PRESETS.find((p) => LEVEL_PRESETS[p] === threshold);
 
   return (
     <div className="rounded-3xl border border-cream-100 bg-cream-50/95 p-4 shadow-lg backdrop-blur dark:border-slate-700 dark:bg-slate-800/95">
       <div className="flex items-center justify-between">
         <span className="text-sm font-medium text-stone-600 dark:text-slate-300">
-          Density
+          {t.density}
         </span>
         <span className="rounded-full bg-cream-100 px-2 py-0.5 text-xs font-medium text-stone-600 dark:bg-slate-700 dark:text-slate-300">
-          {activePreset ?? "Custom"}
+          {activePreset ?? t.custom}
         </span>
       </div>
       <input

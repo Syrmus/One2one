@@ -6,8 +6,10 @@ import { useReaderStore } from "../store/readerStore";
 import { WeaveText } from "../components/reader/WeaveText";
 import { WeavePopover } from "../components/reader/WeavePopover";
 import { DensitySlider } from "../components/reader/DensitySlider";
+import { useT } from "../lib/i18n";
 
 export function ReaderPage() {
+  const t = useT();
   const { storyId } = useParams<{ storyId: string }>();
 
   const [story, setStory] = useState<Story | undefined | null>(null);
@@ -49,7 +51,7 @@ export function ReaderPage() {
   if (story === null) {
     return (
       <div className="mx-auto max-w-md px-4 py-6">
-        <p className="text-slate-500 dark:text-slate-400">Loading…</p>
+        <p className="text-slate-500 dark:text-slate-400">{t.loading}</p>
       </div>
     );
   }
@@ -58,10 +60,10 @@ export function ReaderPage() {
     return (
       <div className="mx-auto max-w-md px-4 py-6">
         <p className="text-slate-600 dark:text-slate-300">
-          Story not found.
+          {t.storyNotFound}
         </p>
         <Link to="/" className="text-dusk-600 dark:text-dusk-500">
-          ← Library
+          {t.backToLibrary}
         </Link>
       </div>
     );
@@ -74,8 +76,8 @@ export function ReaderPage() {
   return (
     <div className="mx-auto max-w-md px-4 py-6 pb-44">
       <div className="mb-4 flex items-center justify-between gap-2">
-        <Link to="/" className="text-sm text-blue-500">
-          ← Library
+        <Link to="/" className="text-sm text-dusk-600 dark:text-dusk-500">
+          {t.backToLibrary}
         </Link>
         <h1 className="truncate text-base font-semibold text-slate-900 dark:text-slate-100">
           {story.title}

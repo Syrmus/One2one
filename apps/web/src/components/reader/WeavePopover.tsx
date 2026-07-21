@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { WeaveUnit } from "@weave/shared";
+import { useT } from "../../lib/i18n";
 
 type Props = {
   unit: WeaveUnit;
@@ -8,6 +9,7 @@ type Props = {
 };
 
 export function WeavePopover({ unit, seenCount, onClose }: Props) {
+  const t = useT();
   const [added, setAdded] = useState(false);
 
   return (
@@ -19,14 +21,14 @@ export function WeavePopover({ unit, seenCount, onClose }: Props) {
       >
         <div className="mx-auto mb-3 h-1 w-10 rounded-full bg-slate-300 dark:bg-slate-600" />
         <p className="text-sm text-slate-500 dark:text-slate-400">
-          Original L1
+          {t.originalL1}
         </p>
         <p className="text-xl font-semibold text-slate-900 dark:text-slate-100">
           {unit.l1}
         </p>
 
         <dl className="mt-4 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-sm">
-          <dt className="text-slate-500 dark:text-slate-400">Lemma</dt>
+          <dt className="text-slate-500 dark:text-slate-400">{t.lemma}</dt>
           <dd className="text-slate-800 dark:text-slate-200">
             {unit.article ? `${unit.article} ` : ""}
             {unit.lemma}
@@ -34,24 +36,26 @@ export function WeavePopover({ unit, seenCount, onClose }: Props) {
 
           {unit.gender && (
             <>
-              <dt className="text-slate-500 dark:text-slate-400">Gender</dt>
+              <dt className="text-slate-500 dark:text-slate-400">
+                {t.gender}
+              </dt>
               <dd className="text-slate-800 dark:text-slate-200">
                 {unit.gender}
               </dd>
             </>
           )}
 
-          <dt className="text-slate-500 dark:text-slate-400">IPA</dt>
+          <dt className="text-slate-500 dark:text-slate-400">{t.ipa}</dt>
           <dd className="text-slate-800 dark:text-slate-200">/{unit.ipa}/</dd>
 
-          <dt className="text-slate-500 dark:text-slate-400">Gloss</dt>
+          <dt className="text-slate-500 dark:text-slate-400">{t.gloss}</dt>
           <dd className="text-slate-800 dark:text-slate-200">
             {unit.gloss}
           </dd>
 
-          <dt className="text-slate-500 dark:text-slate-400">Seen</dt>
+          <dt className="text-slate-500 dark:text-slate-400">{t.seen}</dt>
           <dd className="text-slate-800 dark:text-slate-200">
-            {seenCount} time{seenCount === 1 ? "" : "s"}
+            {t.seenTimes(seenCount)}
           </dd>
         </dl>
 
@@ -61,7 +65,7 @@ export function WeavePopover({ unit, seenCount, onClose }: Props) {
           onClick={() => setAdded(true)}
           className="mt-5 w-full rounded-2xl bg-dusk-500 py-3 text-center font-medium text-white active:bg-dusk-600 disabled:bg-sage-500"
         >
-          {added ? "Added ✓" : "Add to my vocabulary"}
+          {added ? t.added : t.addToVocabulary}
         </button>
       </div>
     </div>

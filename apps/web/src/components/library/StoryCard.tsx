@@ -4,8 +4,10 @@ import { useReaderStore } from "../../store/readerStore";
 import { storyProgress } from "../../lib/progress";
 import { wordCount } from "../../lib/text";
 import { langInfo } from "../../lib/languages";
+import { useT } from "../../lib/i18n";
 
 export function StoryCard({ story }: { story: Story }) {
+  const t = useT();
   const vocabulary = useReaderStore((s) => s.vocabulary);
   const { seen, total, ratio } = storyProgress(story, vocabulary);
   const lang = langInfo(story.l2);
@@ -26,7 +28,7 @@ export function StoryCard({ story }: { story: Story }) {
         </span>
       </div>
       <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-        {story.level} · {wordCount(story)} words
+        {story.level} · {t.wordsCount(wordCount(story))}
       </p>
       <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-cream-100 dark:bg-slate-700">
         <div
@@ -35,7 +37,7 @@ export function StoryCard({ story }: { story: Story }) {
         />
       </div>
       <p className="mt-1 text-xs text-slate-400">
-        {seen}/{total} lemmas seen
+        {t.lemmasSeen(seen, total)}
       </p>
     </Link>
   );

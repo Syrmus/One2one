@@ -1,13 +1,15 @@
 import { NavLink } from "react-router-dom";
 import { LibraryIcon, ProgressIcon, SettingsIcon } from "./icons";
-
-const TABS = [
-  { to: "/", label: "Library", Icon: LibraryIcon, end: true },
-  { to: "/progress", label: "Progress", Icon: ProgressIcon, end: false },
-  { to: "/settings", label: "Settings", Icon: SettingsIcon, end: false },
-];
+import { useT } from "../../lib/i18n";
 
 export function BottomNav() {
+  const t = useT();
+  const TABS = [
+    { to: "/", label: t.library, Icon: LibraryIcon, end: true },
+    { to: "/progress", label: t.progress, Icon: ProgressIcon, end: false },
+    { to: "/settings", label: t.settings, Icon: SettingsIcon, end: false },
+  ];
+
   return (
     <nav className="fixed inset-x-0 bottom-0 mx-auto flex max-w-md border-t border-cream-100 bg-cream-50/95 backdrop-blur dark:border-slate-700 dark:bg-slate-800/95">
       {TABS.map(({ to, label, Icon, end }) => (

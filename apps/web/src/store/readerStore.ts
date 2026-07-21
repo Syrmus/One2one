@@ -14,11 +14,9 @@ type ReaderState = {
   densityByStory: Record<string, number>;
   scrollByStory: Record<string, number>;
   vocabulary: Record<string, VocabEntry>;
-  targetLanguage: string | null;
   setDensity: (storyId: string, threshold: number) => void;
   setScroll: (storyId: string, position: number) => void;
   recordEncounter: (lang: string, lemma: string, gloss: string) => void;
-  setTargetLanguage: (lang: string | null) => void;
 };
 
 function vocabKey(lang: string, lemma: string) {
@@ -31,7 +29,6 @@ export const useReaderStore = create<ReaderState>()(
       densityByStory: {},
       scrollByStory: {},
       vocabulary: {},
-      targetLanguage: null,
       setDensity: (storyId, threshold) =>
         set((s) => ({
           densityByStory: { ...s.densityByStory, [storyId]: threshold },
@@ -53,7 +50,6 @@ export const useReaderStore = create<ReaderState>()(
         // this just persists the same encounter to the backend (FR-6).
         void postSeen(lang, lemma, gloss);
       },
-      setTargetLanguage: (lang) => set({ targetLanguage: lang }),
     }),
     { name: "weave-reader-store" },
   ),

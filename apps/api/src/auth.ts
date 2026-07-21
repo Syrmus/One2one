@@ -8,6 +8,12 @@ export const auth = betterAuth({
   basePath: "/api/auth",
   secret: process.env.BETTER_AUTH_SECRET,
   trustedOrigins: [process.env.WEB_ORIGIN ?? "http://localhost:5173"],
+  user: {
+    additionalFields: {
+      nativeLanguage: { type: "string", required: false, input: true },
+      targetLanguage: { type: "string", required: false, input: true },
+    },
+  },
   socialProviders: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID ?? "",

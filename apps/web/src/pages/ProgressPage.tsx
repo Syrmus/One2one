@@ -1,31 +1,30 @@
 import { useReaderStore } from "../store/readerStore";
 import { langInfo } from "../lib/languages";
-import { LanguageSelector } from "../components/common/LanguageSelector";
 import { ProgressIcon } from "../components/nav/icons";
+import { useSession } from "../lib/authClient";
+import { useT } from "../lib/i18n";
 
 export function ProgressPage() {
+  const t = useT();
+  const { data: session } = useSession();
+  const targetLanguage = session?.user.targetLanguage;
   const vocabulary = useReaderStore((s) => s.vocabulary);
-  const targetLanguage = useReaderStore((s) => s.targetLanguage);
   const entries = Object.values(vocabulary)
-    .filter((e) => targetLanguage === null || e.lang === targetLanguage)
+    .filter((e) => !targetLanguage || e.lang === targetLanguage)
     .sort((a, b) => b.firstSeenAt - a.firstSeenAt);
 
   return (
     <div className="mx-auto max-w-md px-4 py-6">
       <div className="mb-4 flex items-center justify-between">
         <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">
-          My Vocabulary
+          {t.myVocabulary}
         </h1>
         <ProgressIcon className="h-6 w-6 text-stone-400 dark:text-slate-500" />
       </div>
 
-      <div className="mb-4">
-        <LanguageSelector />
-      </div>
-
       {entries.length === 0 && (
         <p className="text-sm text-slate-500 dark:text-slate-400">
-          Words you tap in the reader will show up here.
+          {t.vocabularyEmpty}
         </p>
       )}
 
