@@ -1,16 +1,20 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { LibraryPage } from './pages/LibraryPage'
 import { ReaderPage } from './pages/ReaderPage'
 import { ProgressPage } from './pages/ProgressPage'
 import { SettingsPage } from './pages/SettingsPage'
 import { OnboardingPage } from './pages/OnboardingPage'
+import { AboutPage } from './pages/AboutPage'
 import { AppLayout } from './components/nav/AppLayout'
 import { signIn, useSession } from './lib/authClient'
 import { detectLocale, I18nProvider, useT, type Locale } from './lib/i18n'
+import { useLocaleStore } from './store/localeStore'
 
 function SignInScreen() {
+  const storedLocale = useLocaleStore((s) => s.locale)
+  const locale = storedLocale ?? detectLocale()
   return (
-    <I18nProvider locale={detectLocale()}>
+    <I18nProvider locale={locale}>
       <SignInScreenInner />
     </I18nProvider>
   )
@@ -18,8 +22,29 @@ function SignInScreen() {
 
 function SignInScreenInner() {
   const t = useT()
+  const storedLocale = useLocaleStore((s) => s.locale)
+  const setLocale = useLocaleStore((s) => s.setLocale)
+  const locale = storedLocale ?? detectLocale()
+
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-6 px-4 text-center">
+      <div className="flex gap-2">
+        {(['ru', 'en'] as Locale[]).map((code) => (
+          <button
+            key={code}
+            type="button"
+            onClick={() => setLocale(code)}
+            className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
+              locale === code
+                ? 'bg-sage-500 text-white'
+                : 'bg-cream-100 text-stone-600 dark:bg-slate-700 dark:text-slate-300'
+            }`}
+          >
+            {code === 'ru' ? 'Русский' : 'English'}
+          </button>
+        ))}
+      </div>
+
       <img src="/cat-mascot.png" alt="" className="w-56" />
       <div>
         <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
@@ -41,42 +66,68 @@ function SignInScreenInner() {
       >
         {t.signInWithGoogle}
       </button>
+
+      <Link to="/about" className="text-sm text-dusk-600 dark:text-dusk-500">
+        {t.aboutMethodLink}
+      </Link>
     </div>
   )
 }
 
-function App() {
+function AboutRoute() {
+  const { data: session } = useSession()
+  const storedLocale = useLocaleStore((s) => s.locale)
+  const locale =
+    (session?.user.nativeLanguage as Locale | undefined) ??
+    storedLocale ??
+    detectLocale()
+  return (
+    <I18nProvider locale={locale}>
+      <AboutPage locale={locale} />
+    </I18nProvider>
+  )
+}
+
+function MainApp() {
   const { data: session, isPending, refetch } = useSession()
 
   const needsOnboarding =
     !!session && (!session.user.nativeLanguage || !session.user.targetLanguage)
 
+  if (isPending) {
+    return (
+      <div className="flex min-h-svh items-center justify-center">
+        <p className="text-sm text-slate-500 dark:text-slate-400">Loading…</p>
+      </div>
+    )
+  }
+
+  if (!session) return <SignInScreen />
+  if (needsOnboarding) return <OnboardingPage onComplete={() => refetch()} />
+
+  return (
+    <I18nProvider locale={session.user.nativeLanguage as Locale}>
+      <Routes>
+        <Route element={<AppLayout />}>
+          <Route path="/" element={<LibraryPage />} />
+          <Route path="/progress" element={<ProgressPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
+        </Route>
+        <Route path="/reader/:storyId" element={<ReaderPage />} />
+      </Routes>
+    </I18nProvider>
+  )
+}
+
+function App() {
   return (
     <div className="min-h-svh bg-cream-50 dark:bg-slate-900">
-      {isPending ? (
-        <div className="flex min-h-svh items-center justify-center">
-          <p className="text-sm text-slate-500 dark:text-slate-400">
-            Loading…
-          </p>
-        </div>
-      ) : !session ? (
-        <SignInScreen />
-      ) : needsOnboarding ? (
-        <OnboardingPage onComplete={() => refetch()} />
-      ) : (
-        <I18nProvider locale={session.user.nativeLanguage as Locale}>
-          <BrowserRouter>
-            <Routes>
-              <Route element={<AppLayout />}>
-                <Route path="/" element={<LibraryPage />} />
-                <Route path="/progress" element={<ProgressPage />} />
-                <Route path="/settings" element={<SettingsPage />} />
-              </Route>
-              <Route path="/reader/:storyId" element={<ReaderPage />} />
-            </Routes>
-          </BrowserRouter>
-        </I18nProvider>
-      )}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/about" element={<AboutRoute />} />
+          <Route path="/*" element={<MainApp />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { signOut, useSession, updateUser } from "../lib/authClient";
 import { SettingsIcon } from "../components/nav/icons";
 import { getLanguages, type Language } from "../lib/api";
@@ -108,6 +109,13 @@ export function SettingsPage() {
       >
         {t.signOut}
       </button>
+
+      <Link
+        to="/about"
+        className="mt-4 block text-center text-sm text-dusk-600 dark:text-dusk-500"
+      >
+        {t.aboutMethodLink}
+      </Link>
 
       <img
         src="/cat-mascot.png"

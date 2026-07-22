@@ -38,6 +38,8 @@ const dict = {
     seenTimes: (n: number) => `${n} time${n === 1 ? "" : "s"}`,
     added: "Added ✓",
     addToVocabulary: "Add to my vocabulary",
+    aboutMethodLink: "About the method",
+    back: "← Back",
   },
   ru: {
     appName: "Weave",
@@ -74,6 +76,8 @@ const dict = {
     seenTimes: (n: number) => `${n} раз`,
     added: "Добавлено ✓",
     addToVocabulary: "Добавить в словарь",
+    aboutMethodLink: "О методе",
+    back: "← Назад",
   },
 } satisfies Record<Locale, Record<string, unknown>>;
 
