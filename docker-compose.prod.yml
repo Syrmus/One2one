@@ -34,8 +34,11 @@ services:
         condition: service_healthy
     # Bound to localhost only — the host's Nginx (already running outside Docker)
     # is what actually terminates TLS and faces the internet; see DEPLOY.md.
+    # Host port is 3011, not 3001 — 3001 is already taken by an unrelated
+    # project (plane-admin) on this box. The container's internal port stays
+    # 3001 (PORT env var), only the host-side mapping changes.
     ports:
-      - "127.0.0.1:3001:3001"
+      - "127.0.0.1:3011:3001"
     restart: unless-stopped
 
   frontend:
