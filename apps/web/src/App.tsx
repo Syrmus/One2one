@@ -28,23 +28,6 @@ function SignInScreenInner() {
 
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-6 px-4 text-center">
-      <div className="flex gap-2">
-        {(['ru', 'en'] as Locale[]).map((code) => (
-          <button
-            key={code}
-            type="button"
-            onClick={() => setLocale(code)}
-            className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
-              locale === code
-                ? 'bg-sage-500 text-white'
-                : 'bg-cream-100 text-stone-600 dark:bg-slate-700 dark:text-slate-300'
-            }`}
-          >
-            {code === 'ru' ? 'Русский' : 'English'}
-          </button>
-        ))}
-      </div>
-
       <img src="/cat-mascot.png" alt="" className="w-56" />
       <div>
         <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
@@ -70,6 +53,23 @@ function SignInScreenInner() {
       <Link to="/about" className="text-sm text-dusk-600 dark:text-dusk-500">
         {t.aboutMethodLink}
       </Link>
+
+      <div className="flex gap-2">
+        {(['en', 'ru'] as Locale[]).map((code) => (
+          <button
+            key={code}
+            type="button"
+            onClick={() => setLocale(code)}
+            className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
+              locale === code
+                ? 'bg-sage-500 text-white'
+                : 'bg-cream-100 text-stone-600 dark:bg-slate-700 dark:text-slate-300'
+            }`}
+          >
+            {code === 'ru' ? 'Русский' : 'English'}
+          </button>
+        ))}
+      </div>
     </div>
   )
 }

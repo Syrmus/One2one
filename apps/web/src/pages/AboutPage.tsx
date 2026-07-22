@@ -4,7 +4,7 @@ import { ABOUT_METHOD } from "../content/aboutMethod";
 
 export function AboutPage({ locale }: { locale: Locale }) {
   const t = useT();
-  const { title, paragraphs } = ABOUT_METHOD[locale];
+  const { title, paragraphs, author } = ABOUT_METHOD[locale];
 
   return (
     <div className="mx-auto max-w-md px-4 py-6">
@@ -30,10 +30,12 @@ export function AboutPage({ locale }: { locale: Locale }) {
         ))}
       </div>
 
+      <p className="mt-6 text-center text-xs text-slate-400">{author}</p>
+
       <img
         src="/cat-mascot.png"
         alt=""
-        className="mx-auto mt-8 w-32 opacity-90"
+        className="mx-auto mt-4 w-32 opacity-90"
       />
     </div>
   );
