@@ -28,7 +28,7 @@ export function WeaveText({ story, step, onSelectWeave }: Props) {
             key={i}
             type="button"
             onClick={() => onSelectWeave(i)}
-            className="mx-0.5 rounded px-0.5 bg-blue-50 text-blue-700 underline decoration-blue-400 decoration-2 underline-offset-2 dark:bg-blue-950 dark:text-blue-300"
+            className="appearance-none border-0 bg-transparent p-0 font-medium text-dusk-600 dark:text-dusk-500"
           >
             {unit.l2}
           </button>
