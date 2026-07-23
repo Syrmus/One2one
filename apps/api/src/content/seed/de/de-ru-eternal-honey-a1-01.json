@@ -266,7 +266,7 @@
       "gender": "n",
       "article": null,
       "case": "dat",
-      "gloss": "много лет",
+      "gloss": "год",
       "ipa": null,
       "weave_priority": 5
     },
@@ -300,7 +300,7 @@
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "никогда не портиться",
+      "gloss": "портиться",
       "ipa": null,
       "weave_priority": 22
     },
@@ -317,7 +317,7 @@
       "gender": "n",
       "article": null,
       "case": "dat",
-      "gloss": "в Египте",
+      "gloss": "Египет",
       "ipa": null,
       "weave_priority": 6
     },
@@ -640,7 +640,7 @@
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "никогда не умирать",
+      "gloss": "исчезать",
       "ipa": null,
       "weave_priority": 26
     },
