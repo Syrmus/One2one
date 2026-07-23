@@ -20,6 +20,7 @@ export type DensityStep = {
 // "app-configurable array" the spec calls for. Swap this to try the
 // alternative (§4.3) coarser list without touching the reveal algorithm.
 export const DEFAULT_STEPS: DensityStep[] = [
+  { phase: "A", target: 0 },
   { phase: "A", target: 25 },
   { phase: "A", target: 50 },
   { phase: "A", target: 75 },

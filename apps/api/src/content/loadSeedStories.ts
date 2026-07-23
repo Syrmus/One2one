@@ -31,7 +31,14 @@ function loadAll(): Story[] {
   return stories.sort((a, b) => a.title.localeCompare(b.title));
 }
 
-const stories = loadAll();
+// The old B1 stories predate the v2 full-coverage weaving model (they only
+// weave ~16 words out of ~130 and never reach true 100% density) and haven't
+// been reworked yet — STORY_GENERATION_SPEC.md §3 flags this explicitly as
+// still-needed follow-up work. Hidden from the app for now without deleting
+// the files, so they're easy to bring back once a reworked B1 set replaces
+// them — just remove this filter.
+const HIDDEN_LEVELS = new Set(["B1"]);
+const stories = loadAll().filter((s) => !HIDDEN_LEVELS.has(s.level));
 
 export function getStories(lang?: string, nativeLang?: string): Story[] {
   return stories.filter(

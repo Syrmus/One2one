@@ -40,10 +40,10 @@ const dict = {
     addToVocabulary: "Add to my vocabulary",
     aboutMethodLink: "About the app and method",
     back: "← Back",
-    densityLight: "Light",
-    densityMedium: "Medium",
-    densityFull: "Full",
+    densityOriginal: "Original",
+    densityFull: "Fully translated",
     densityPercent: (n: number) => `${n}% of words`,
+    densityStepOf: (step: number, total: number) => `${step}/${total}`,
   },
   ru: {
     appName: "Weave",
@@ -82,10 +82,10 @@ const dict = {
     addToVocabulary: "Добавить в словарь",
     aboutMethodLink: "О приложении и методе",
     back: "← Назад",
-    densityLight: "Лёгкая",
-    densityMedium: "Средняя",
-    densityFull: "Полная",
+    densityOriginal: "Оригинал",
+    densityFull: "Полностью переведено",
     densityPercent: (n: number) => `${n}% слов`,
+    densityStepOf: (step: number, total: number) => `${step}/${total}`,
   },
 } satisfies Record<Locale, Record<string, unknown>>;
 
