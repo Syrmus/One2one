@@ -26,6 +26,7 @@ export function ReaderPage() {
   const setScroll = useReaderStore((s) => s.setScroll);
   const vocabulary = useReaderStore((s) => s.vocabulary);
   const recordEncounter = useReaderStore((s) => s.recordEncounter);
+  const markAdded = useReaderStore((s) => s.markAdded);
 
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const restoredRef = useRef(false);
@@ -108,6 +109,8 @@ export function ReaderPage() {
           seenCount={
             vocabulary[`${story.l2}:${weaveUnit.lemma}`]?.seenCount ?? 0
           }
+          added={vocabulary[`${story.l2}:${weaveUnit.lemma}`]?.added ?? false}
+          onAdd={() => markAdded(story.l2, weaveUnit.lemma)}
           onClose={() => setSelectedIndex(null)}
         />
       )}

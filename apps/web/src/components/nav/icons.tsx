@@ -17,7 +17,7 @@ export function LibraryIcon({ className }: IconProps) {
   );
 }
 
-export function ProgressIcon({ className }: IconProps) {
+export function VocabularyIcon({ className }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"

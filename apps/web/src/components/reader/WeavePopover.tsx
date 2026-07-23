@@ -1,16 +1,16 @@
-import { useState } from "react";
 import type { WeaveUnit } from "@weave/shared";
 import { useT } from "../../lib/i18n";
 
 type Props = {
   unit: WeaveUnit;
   seenCount: number;
+  added: boolean;
+  onAdd: () => void;
   onClose: () => void;
 };
 
-export function WeavePopover({ unit, seenCount, onClose }: Props) {
+export function WeavePopover({ unit, seenCount, added, onAdd, onClose }: Props) {
   const t = useT();
-  const [added, setAdded] = useState(false);
 
   return (
     <div className="fixed inset-0 z-50" onClick={onClose}>
@@ -68,7 +68,7 @@ export function WeavePopover({ unit, seenCount, onClose }: Props) {
         <button
           type="button"
           disabled={added}
-          onClick={() => setAdded(true)}
+          onClick={onAdd}
           className="mt-5 w-full rounded-2xl bg-dusk-500 py-3 text-center font-medium text-white active:bg-dusk-600 disabled:bg-sage-500"
         >
           {added ? t.added : t.addToVocabulary}

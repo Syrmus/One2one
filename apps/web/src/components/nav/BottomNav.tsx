@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { LibraryIcon, ProgressIcon, SettingsIcon } from "./icons";
+import { LibraryIcon, VocabularyIcon, SettingsIcon } from "./icons";
 import { useT } from "../../lib/i18n";
 
 export function BottomNav() {
   const t = useT();
   const TABS = [
     { to: "/", label: t.library, Icon: LibraryIcon, end: true },
-    { to: "/progress", label: t.progress, Icon: ProgressIcon, end: false },
+    { to: "/progress", label: t.vocabularyTab, Icon: VocabularyIcon, end: false },
     { to: "/settings", label: t.settings, Icon: SettingsIcon, end: false },
   ];
 

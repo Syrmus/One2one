@@ -8,6 +8,10 @@ export type VocabEntry = {
   gloss: string;
   firstSeenAt: number;
   seenCount: number;
+  // Set only when the user explicitly taps "Add to my vocabulary" in the
+  // popover — distinct from just having encountered the word by tapping it
+  // in the reader (which alone only affects seenCount/firstSeenAt).
+  added: boolean;
 };
 
 type ReaderState = {
@@ -17,6 +21,7 @@ type ReaderState = {
   setDensity: (storyId: string, step: number) => void;
   setScroll: (storyId: string, position: number) => void;
   recordEncounter: (lang: string, lemma: string, gloss: string) => void;
+  markAdded: (lang: string, lemma: string) => void;
 };
 
 function vocabKey(lang: string, lemma: string) {
@@ -43,12 +48,29 @@ export const useReaderStore = create<ReaderState>()(
           const existing = s.vocabulary[key];
           const entry: VocabEntry = existing
             ? { ...existing, seenCount: existing.seenCount + 1 }
-            : { lemma, lang, gloss, firstSeenAt: Date.now(), seenCount: 1 };
+            : {
+                lemma,
+                lang,
+                gloss,
+                firstSeenAt: Date.now(),
+                seenCount: 1,
+                added: false,
+              };
           return { vocabulary: { ...s.vocabulary, [key]: entry } };
         });
         // Fire-and-forget: localStorage above already keeps the UI instant,
         // this just persists the same encounter to the backend (FR-6).
         void postSeen(lang, lemma, gloss);
+      },
+      markAdded: (lang, lemma) => {
+        set((s) => {
+          const key = vocabKey(lang, lemma);
+          const existing = s.vocabulary[key];
+          if (!existing) return s;
+          return {
+            vocabulary: { ...s.vocabulary, [key]: { ...existing, added: true } },
+          };
+        });
       },
     }),
     { name: "weave-reader-store" },
