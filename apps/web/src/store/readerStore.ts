@@ -14,7 +14,7 @@ type ReaderState = {
   densityByStory: Record<string, number>;
   scrollByStory: Record<string, number>;
   vocabulary: Record<string, VocabEntry>;
-  setDensity: (storyId: string, threshold: number) => void;
+  setDensity: (storyId: string, step: number) => void;
   setScroll: (storyId: string, position: number) => void;
   recordEncounter: (lang: string, lemma: string, gloss: string) => void;
 };
@@ -29,9 +29,9 @@ export const useReaderStore = create<ReaderState>()(
       densityByStory: {},
       scrollByStory: {},
       vocabulary: {},
-      setDensity: (storyId, threshold) =>
+      setDensity: (storyId, step) =>
         set((s) => ({
-          densityByStory: { ...s.densityByStory, [storyId]: threshold },
+          densityByStory: { ...s.densityByStory, [storyId]: step },
         })),
       setScroll: (storyId, position) =>
         set((s) => ({

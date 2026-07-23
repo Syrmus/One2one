@@ -1,0 +1,669 @@
+{
+  "id": "de-ru-sleepy-cat-01",
+  "l1": "ru",
+  "l2": "de",
+  "level": "A1",
+  "topic": "животные",
+  "title": "Сонный кот",
+  "units": [
+    {
+      "t": "weave",
+      "l1": "Это",
+      "l2": "Das ist",
+      "lemma": "sein",
+      "pos": "auxiliary",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "это / быть",
+      "ipa": null,
+      "weave_priority": 52
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "кот",
+      "l2": "ein Kater",
+      "lemma": "Kater",
+      "pos": "noun",
+      "gender": "m",
+      "article": "ein",
+      "case": "nom",
+      "gloss": "кот",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Кот",
+      "l2": "Der Kater",
+      "lemma": "Kater",
+      "pos": "noun",
+      "gender": "m",
+      "article": "der",
+      "case": "nom",
+      "gloss": "кот",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "маленький",
+      "l2": "ist klein",
+      "lemma": "klein",
+      "pos": "adjective",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "маленький",
+      "ipa": null,
+      "weave_priority": 30
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "чёрный",
+      "l2": "schwarz",
+      "lemma": "schwarz",
+      "pos": "adjective",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "чёрный",
+      "ipa": null,
+      "weave_priority": 31
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Кот",
+      "l2": "Ein Kater",
+      "lemma": "Kater",
+      "pos": "noun",
+      "gender": "m",
+      "article": "ein",
+      "case": "nom",
+      "gloss": "кот",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "спит",
+      "l2": "schläft",
+      "lemma": "schlafen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "спать",
+      "ipa": null,
+      "weave_priority": 20
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "много",
+      "l2": "viel",
+      "lemma": "viel",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "много",
+      "ipa": null,
+      "weave_priority": 40
+    },
+    {
+      "t": "text",
+      "l1": " — "
+    },
+    {
+      "t": "weave",
+      "l1": "около",
+      "l2": "etwa",
+      "lemma": "etwa",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "около",
+      "ipa": null,
+      "weave_priority": 41
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "шестнадцати",
+      "l2": "sechzehn",
+      "lemma": "sechzehn",
+      "pos": "numeral",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "шестнадцать",
+      "ipa": null,
+      "weave_priority": 60
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "часов",
+      "l2": "Stunden",
+      "lemma": "Stunde",
+      "pos": "noun",
+      "gender": "f",
+      "article": null,
+      "case": "acc",
+      "gloss": "час",
+      "ipa": null,
+      "weave_priority": 2
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "каждый",
+      "l2": "jeden",
+      "lemma": "jeder",
+      "pos": "pronoun",
+      "gender": null,
+      "article": null,
+      "case": "acc",
+      "gloss": "каждый",
+      "ipa": null,
+      "weave_priority": 53
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "день",
+      "l2": "Tag",
+      "lemma": "Tag",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "acc",
+      "gloss": "день",
+      "ipa": null,
+      "weave_priority": 2
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Мой",
+      "l2": "Mein",
+      "lemma": "mein",
+      "pos": "pronoun",
+      "gender": null,
+      "article": null,
+      "case": "nom",
+      "gloss": "мой",
+      "ipa": null,
+      "weave_priority": 54
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "кот",
+      "l2": "Kater",
+      "lemma": "Kater",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "nom",
+      "gloss": "кот",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "спит",
+      "l2": "schläft",
+      "lemma": "schlafen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "спать",
+      "ipa": null,
+      "weave_priority": 20
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "на",
+      "l2": "auf",
+      "lemma": "auf",
+      "pos": "preposition",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "на",
+      "ipa": null,
+      "weave_priority": 56
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "кровати",
+      "l2": "dem Bett",
+      "lemma": "Bett",
+      "pos": "noun",
+      "gender": "n",
+      "article": "dem",
+      "case": "dat",
+      "gloss": "кровать",
+      "ipa": null,
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "на",
+      "l2": "auf",
+      "lemma": "auf",
+      "pos": "preposition",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "на",
+      "ipa": null,
+      "weave_priority": 56
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "диване",
+      "l2": "dem Sofa",
+      "lemma": "Sofa",
+      "pos": "noun",
+      "gender": "n",
+      "article": "dem",
+      "case": "dat",
+      "gloss": "диван",
+      "ipa": null,
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "на солнце",
+      "l2": "in der Sonne",
+      "lemma": "Sonne",
+      "pos": "noun",
+      "gender": "f",
+      "article": "der",
+      "case": "dat",
+      "gloss": "на солнце",
+      "ipa": null,
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Кот",
+      "l2": "Der Kater",
+      "lemma": "Kater",
+      "pos": "noun",
+      "gender": "m",
+      "article": "der",
+      "case": "nom",
+      "gloss": "кот",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "ещё ест",
+      "l2": "frisst auch",
+      "lemma": "fressen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "есть / ещё",
+      "ipa": null,
+      "weave_priority": 21
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "рыбу",
+      "l2": "Fisch",
+      "lemma": "Fisch",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "acc",
+      "gloss": "рыба",
+      "ipa": null,
+      "weave_priority": 4
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "играет",
+      "l2": "spielt",
+      "lemma": "spielen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "играть",
+      "ipa": null,
+      "weave_priority": 22
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "с",
+      "l2": "mit",
+      "lemma": "mit",
+      "pos": "preposition",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "с",
+      "ipa": null,
+      "weave_priority": 56
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "мячом",
+      "l2": "einem Ball",
+      "lemma": "Ball",
+      "pos": "noun",
+      "gender": "m",
+      "article": "einem",
+      "case": "dat",
+      "gloss": "мяч",
+      "ipa": null,
+      "weave_priority": 4
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Ночью",
+      "l2": "In der Nacht",
+      "lemma": "Nacht",
+      "pos": "noun",
+      "gender": "f",
+      "article": "der",
+      "case": "dat",
+      "gloss": "ночью",
+      "ipa": null,
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "кот не спит",
+      "l2": "schläft der Kater nicht",
+      "lemma": "schlafen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "кот не спит",
+      "ipa": null,
+      "weave_priority": 23
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Он",
+      "l2": "Er",
+      "lemma": "er",
+      "pos": "pronoun",
+      "gender": null,
+      "article": null,
+      "case": "nom",
+      "gloss": "он",
+      "ipa": null,
+      "weave_priority": 54
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "смотрит в окно",
+      "l2": "schaut aus dem Fenster",
+      "lemma": "aus dem Fenster schauen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "смотреть в окно",
+      "ipa": null,
+      "weave_priority": 24
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "наблюдает за",
+      "l2": "beobachtet",
+      "lemma": "beobachten",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "наблюдать за",
+      "ipa": null,
+      "weave_priority": 25
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "луной",
+      "l2": "den Mond",
+      "lemma": "Mond",
+      "pos": "noun",
+      "gender": "m",
+      "article": "den",
+      "case": "acc",
+      "gloss": "луна",
+      "ipa": null,
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Коты",
+      "l2": "Kater",
+      "lemma": "Kater",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "nom",
+      "gloss": "кот",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "weave",
+      "l1": " — тихие и счастливые животные",
+      "l2": " sind ruhige und glückliche Tiere",
+      "lemma": "sein",
+      "pos": "auxiliary",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "быть тихими и счастливыми животными",
+      "ipa": null,
+      "weave_priority": 52
+    },
+    {
+      "t": "text",
+      "l1": "."
+    }
+  ]
+}

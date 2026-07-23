@@ -1,21 +1,21 @@
-import {
-  LEVEL_PRESETS,
-  MIN_THRESHOLD,
-  MAX_THRESHOLD,
-  type LevelPreset,
-} from "@weave/shared";
+import { DEFAULT_STEPS, MIN_STEP, MAX_STEP } from "@weave/shared";
 import { useT } from "../../lib/i18n";
 
 type Props = {
-  threshold: number;
-  onChange: (t: number) => void;
+  step: number;
+  onChange: (step: number) => void;
 };
 
-const PRESETS = Object.keys(LEVEL_PRESETS) as LevelPreset[];
+// Quick-select shortcuts mapped to representative steps — replaces the old
+// CEFR-named presets (A1-lite/A1/A2), which no longer make sense now that a
+// story's level and the reader's density are independent axes (see
+// STORY_GENERATION_SPEC.md §2).
+const SHORTCUTS = [0, 3, MAX_STEP] as const;
 
-export function DensitySlider({ threshold, onChange }: Props) {
+export function DensitySlider({ step, onChange }: Props) {
   const t = useT();
-  const activePreset = PRESETS.find((p) => LEVEL_PRESETS[p] === threshold);
+  const config = DEFAULT_STEPS[step];
+  const shortcutLabels = [t.densityLight, t.densityMedium, t.densityFull];
 
   return (
     <div className="rounded-3xl border border-cream-100 bg-cream-50/95 p-4 shadow-lg backdrop-blur dark:border-slate-700 dark:bg-slate-800/95">
@@ -24,30 +24,31 @@ export function DensitySlider({ threshold, onChange }: Props) {
           {t.density}
         </span>
         <span className="rounded-full bg-cream-100 px-2 py-0.5 text-xs font-medium text-stone-600 dark:bg-slate-700 dark:text-slate-300">
-          {activePreset ?? t.custom}
+          {t.densityPercent(config.target)}
         </span>
       </div>
       <input
         type="range"
-        min={MIN_THRESHOLD}
-        max={MAX_THRESHOLD}
-        value={threshold}
+        min={MIN_STEP}
+        max={MAX_STEP}
+        step={1}
+        value={step}
         onChange={(e) => onChange(Number(e.target.value))}
         className="range-paw mt-3 w-full"
       />
       <div className="mt-3 flex gap-2">
-        {PRESETS.map((preset) => (
+        {SHORTCUTS.map((shortcutStep, i) => (
           <button
-            key={preset}
+            key={shortcutStep}
             type="button"
-            onClick={() => onChange(LEVEL_PRESETS[preset])}
+            onClick={() => onChange(shortcutStep)}
             className={`flex-1 rounded-xl py-2 text-xs font-medium transition ${
-              activePreset === preset
+              step === shortcutStep
                 ? "bg-sage-500 text-white"
                 : "bg-cream-100 text-stone-600 dark:bg-slate-700 dark:text-slate-300"
             }`}
           >
-            {preset}
+            {shortcutLabels[i]}
           </button>
         ))}
       </div>

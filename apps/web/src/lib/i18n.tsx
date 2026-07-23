@@ -40,6 +40,10 @@ const dict = {
     addToVocabulary: "Add to my vocabulary",
     aboutMethodLink: "About the app and method",
     back: "← Back",
+    densityLight: "Light",
+    densityMedium: "Medium",
+    densityFull: "Full",
+    densityPercent: (n: number) => `${n}% of words`,
   },
   ru: {
     appName: "Weave",
@@ -78,6 +82,10 @@ const dict = {
     addToVocabulary: "Добавить в словарь",
     aboutMethodLink: "О приложении и методе",
     back: "← Назад",
+    densityLight: "Лёгкая",
+    densityMedium: "Средняя",
+    densityFull: "Полная",
+    densityPercent: (n: number) => `${n}% слов`,
   },
 } satisfies Record<Locale, Record<string, unknown>>;
 

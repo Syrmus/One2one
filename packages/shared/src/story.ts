@@ -5,8 +5,13 @@ export const posSchema = z.enum([
   "verb",
   "adjective",
   "adverb",
-  "phrase",
-  "function_word",
+  "article",
+  "preposition",
+  "pronoun",
+  "conjunction",
+  "auxiliary",
+  "numeral",
+  "particle",
 ]);
 export type Pos = z.infer<typeof posSchema>;
 
@@ -23,11 +28,11 @@ export const weaveUnitSchema = z.object({
   lemma: z.string(),
   pos: posSchema,
   // "c" = common gender (Dutch de-words; German/Spanish use m/f/n)
-  gender: z.enum(["m", "f", "n", "c"]).optional(),
-  article: z.string().optional(),
-  case: z.string().optional(),
+  gender: z.enum(["m", "f", "n", "c"]).nullable().optional(),
+  article: z.string().nullable().optional(),
+  case: z.string().nullable().optional(),
   gloss: z.string(),
-  ipa: z.string(),
+  ipa: z.string().nullable().optional(),
   weave_priority: z.number(),
 });
 export type WeaveUnit = z.infer<typeof weaveUnitSchema>;

@@ -45,8 +45,14 @@ export function WeavePopover({ unit, seenCount, onClose }: Props) {
             </>
           )}
 
-          <dt className="text-slate-500 dark:text-slate-400">{t.ipa}</dt>
-          <dd className="text-slate-800 dark:text-slate-200">/{unit.ipa}/</dd>
+          {unit.ipa && (
+            <>
+              <dt className="text-slate-500 dark:text-slate-400">{t.ipa}</dt>
+              <dd className="text-slate-800 dark:text-slate-200">
+                /{unit.ipa}/
+              </dd>
+            </>
+          )}
 
           <dt className="text-slate-500 dark:text-slate-400">{t.gloss}</dt>
           <dd className="text-slate-800 dark:text-slate-200">

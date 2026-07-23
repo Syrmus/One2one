@@ -1,0 +1,652 @@
+{
+  "id": "de-ru-eternal-honey-a1-01",
+  "l1": "ru",
+  "l2": "de",
+  "level": "A1",
+  "topic": "еда",
+  "title": "Вечный мёд",
+  "units": [
+    {
+      "t": "weave",
+      "l1": "Мёд",
+      "l2": "Honig",
+      "lemma": "Honig",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "nom",
+      "gloss": "мёд",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "сладкий",
+      "l2": "ist süß",
+      "lemma": "süß",
+      "pos": "adjective",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "сладкий",
+      "ipa": null,
+      "weave_priority": 30
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "жёлтый",
+      "l2": "gelb",
+      "lemma": "gelb",
+      "pos": "adjective",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "жёлтый",
+      "ipa": null,
+      "weave_priority": 31
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Пчёлы",
+      "l2": "Bienen",
+      "lemma": "Biene",
+      "pos": "noun",
+      "gender": "f",
+      "article": null,
+      "case": "nom",
+      "gloss": "пчела",
+      "ipa": null,
+      "weave_priority": 2
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "делают",
+      "l2": "machen",
+      "lemma": "machen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "делать",
+      "ipa": null,
+      "weave_priority": 20
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "мёд",
+      "l2": "Honig",
+      "lemma": "Honig",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "acc",
+      "gloss": "мёд",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "из",
+      "l2": "aus",
+      "lemma": "aus",
+      "pos": "preposition",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "из",
+      "ipa": null,
+      "weave_priority": 56
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "цветов",
+      "l2": "Blüten",
+      "lemma": "Blüte",
+      "pos": "noun",
+      "gender": "f",
+      "article": null,
+      "case": "dat",
+      "gloss": "цветок",
+      "ipa": null,
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Мёд",
+      "l2": "Honig",
+      "lemma": "Honig",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "nom",
+      "gloss": "мёд",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "weave",
+      "l1": " — очень старая еда",
+      "l2": " ist ein sehr altes Lebensmittel",
+      "lemma": "sein",
+      "pos": "auxiliary",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "быть очень старой едой",
+      "ipa": null,
+      "weave_priority": 52
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Люди",
+      "l2": "Die Menschen",
+      "lemma": "Mensch",
+      "pos": "noun",
+      "gender": "m",
+      "article": "die",
+      "case": "nom",
+      "gloss": "люди",
+      "ipa": null,
+      "weave_priority": 4
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "едят",
+      "l2": "essen",
+      "lemma": "essen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "есть",
+      "ipa": null,
+      "weave_priority": 21
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "мёд",
+      "l2": "Honig",
+      "lemma": "Honig",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "acc",
+      "gloss": "мёд",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "уже",
+      "l2": "schon",
+      "lemma": "schon",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "уже",
+      "ipa": null,
+      "weave_priority": 40
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "много лет",
+      "l2": "seit vielen Jahren",
+      "lemma": "Jahr",
+      "pos": "noun",
+      "gender": "n",
+      "article": null,
+      "case": "dat",
+      "gloss": "много лет",
+      "ipa": null,
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Мёд",
+      "l2": "Honig",
+      "lemma": "Honig",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "nom",
+      "gloss": "мёд",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "никогда не портится",
+      "l2": "verdirbt nie",
+      "lemma": "verderben",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "никогда не портиться",
+      "ipa": null,
+      "weave_priority": 22
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "В Египте",
+      "l2": "In Ägypten",
+      "lemma": "Ägypten",
+      "pos": "noun",
+      "gender": "n",
+      "article": null,
+      "case": "dat",
+      "gloss": "в Египте",
+      "ipa": null,
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "люди нашли",
+      "l2": "fanden Menschen",
+      "lemma": "finden",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "люди нашли",
+      "ipa": null,
+      "weave_priority": 23
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "старый",
+      "l2": "alten",
+      "lemma": "alt",
+      "pos": "adjective",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "старый",
+      "ipa": null,
+      "weave_priority": 32
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "мёд",
+      "l2": "Honig",
+      "lemma": "Honig",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "acc",
+      "gloss": "мёд",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "в",
+      "l2": "in",
+      "lemma": "in",
+      "pos": "preposition",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "в",
+      "ipa": null,
+      "weave_priority": 56
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "гробнице",
+      "l2": "einem Grab",
+      "lemma": "Grab",
+      "pos": "noun",
+      "gender": "n",
+      "article": "einem",
+      "case": "dat",
+      "gloss": "гробница",
+      "ipa": null,
+      "weave_priority": 7
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Мёду было три тысячи лет",
+      "l2": "Der Honig war dreitausend Jahre alt",
+      "lemma": "alt sein",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "мёду было три тысячи лет",
+      "ipa": null,
+      "weave_priority": 24
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Но",
+      "l2": "Aber",
+      "lemma": "aber",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "но",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "он",
+      "l2": "er",
+      "lemma": "er",
+      "pos": "pronoun",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "он",
+      "ipa": null,
+      "weave_priority": 54
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "был",
+      "l2": "war",
+      "lemma": "sein",
+      "pos": "auxiliary",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "был",
+      "ipa": null,
+      "weave_priority": 52
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "ещё",
+      "l2": "immer noch",
+      "lemma": "immer noch",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "ещё",
+      "ipa": null,
+      "weave_priority": 42
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "хороший",
+      "l2": "gut",
+      "lemma": "gut",
+      "pos": "adjective",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "хороший",
+      "ipa": null,
+      "weave_priority": 33
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Его можно есть и сегодня",
+      "l2": "Man kann ihn auch heute noch essen",
+      "lemma": "essen können",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "его можно есть и сегодня",
+      "ipa": null,
+      "weave_priority": 25
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Мёд",
+      "l2": "Honig",
+      "lemma": "Honig",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "nom",
+      "gloss": "мёд",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "крепкий",
+      "l2": "ist haltbar",
+      "lemma": "haltbar",
+      "pos": "adjective",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "крепкий",
+      "ipa": null,
+      "weave_priority": 34
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "сладкий",
+      "l2": "süß",
+      "lemma": "süß",
+      "pos": "adjective",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "сладкий",
+      "ipa": null,
+      "weave_priority": 30
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "он",
+      "l2": "er",
+      "lemma": "er",
+      "pos": "pronoun",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "он",
+      "ipa": null,
+      "weave_priority": 54
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "никогда не умирает",
+      "l2": "vergeht nie",
+      "lemma": "vergehen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "никогда не умирать",
+      "ipa": null,
+      "weave_priority": 26
+    },
+    {
+      "t": "text",
+      "l1": "."
+    }
+  ]
+}

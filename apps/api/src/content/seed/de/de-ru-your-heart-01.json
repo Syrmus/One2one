@@ -1,0 +1,478 @@
+{
+  "id": "de-ru-your-heart-01",
+  "l1": "ru",
+  "l2": "de",
+  "level": "A1",
+  "topic": "тело",
+  "title": "Твоё сердце",
+  "units": [
+    {
+      "t": "weave",
+      "l1": "Положи",
+      "l2": "Lege",
+      "lemma": "legen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "положить",
+      "ipa": null,
+      "weave_priority": 20
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "руку",
+      "l2": "deine Hand",
+      "lemma": "Hand",
+      "pos": "noun",
+      "gender": "f",
+      "article": "deine",
+      "case": "acc",
+      "gloss": "рука",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "на",
+      "l2": "auf",
+      "lemma": "auf",
+      "pos": "preposition",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "на",
+      "ipa": null,
+      "weave_priority": 56
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "грудь",
+      "l2": "die Brust",
+      "lemma": "Brust",
+      "pos": "noun",
+      "gender": "f",
+      "article": "die",
+      "case": "acc",
+      "gloss": "грудь",
+      "ipa": null,
+      "weave_priority": 2
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Ты чувствуешь",
+      "l2": "Spürst du",
+      "lemma": "spüren",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "ты чувствуешь",
+      "ipa": null,
+      "weave_priority": 21
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "своё сердце",
+      "l2": "dein Herz",
+      "lemma": "Herz",
+      "pos": "noun",
+      "gender": "n",
+      "article": "dein",
+      "case": "acc",
+      "gloss": "своё сердце",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": "? "
+    },
+    {
+      "t": "weave",
+      "l1": "Сердце",
+      "l2": "Das Herz",
+      "lemma": "Herz",
+      "pos": "noun",
+      "gender": "n",
+      "article": "das",
+      "case": "nom",
+      "gloss": "сердце",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "weave",
+      "l1": " — это маленький насос",
+      "l2": " ist eine kleine Pumpe",
+      "lemma": "sein",
+      "pos": "auxiliary",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "быть маленьким насосом",
+      "ipa": null,
+      "weave_priority": 52
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Оно",
+      "l2": "Es",
+      "lemma": "es",
+      "pos": "pronoun",
+      "gender": null,
+      "article": null,
+      "case": "nom",
+      "gloss": "оно",
+      "ipa": null,
+      "weave_priority": 54
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "красное",
+      "l2": "ist rot",
+      "lemma": "rot",
+      "pos": "adjective",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "красный",
+      "ipa": null,
+      "weave_priority": 30
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "сильное",
+      "l2": "stark",
+      "lemma": "stark",
+      "pos": "adjective",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "сильный",
+      "ipa": null,
+      "weave_priority": 31
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Сердце",
+      "l2": "Das Herz",
+      "lemma": "Herz",
+      "pos": "noun",
+      "gender": "n",
+      "article": "das",
+      "case": "nom",
+      "gloss": "сердце",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "гонит",
+      "l2": "pumpt",
+      "lemma": "pumpen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "гнать",
+      "ipa": null,
+      "weave_priority": 22
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "кровь",
+      "l2": "Blut",
+      "lemma": "Blut",
+      "pos": "noun",
+      "gender": "n",
+      "article": null,
+      "case": "acc",
+      "gloss": "кровь",
+      "ipa": null,
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "по телу",
+      "l2": "durch den Körper",
+      "lemma": "Körper",
+      "pos": "noun",
+      "gender": "m",
+      "article": "den",
+      "case": "acc",
+      "gloss": "по телу",
+      "ipa": null,
+      "weave_priority": 4
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Оно",
+      "l2": "Es",
+      "lemma": "es",
+      "pos": "pronoun",
+      "gender": null,
+      "article": null,
+      "case": "nom",
+      "gloss": "оно",
+      "ipa": null,
+      "weave_priority": 54
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "работает",
+      "l2": "arbeitet",
+      "lemma": "arbeiten",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "работать",
+      "ipa": null,
+      "weave_priority": 23
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "день и ночь",
+      "l2": "Tag und Nacht",
+      "lemma": "Tag und Nacht",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "день и ночь",
+      "ipa": null,
+      "weave_priority": 40
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Твоё сердце",
+      "l2": "Dein Herz",
+      "lemma": "Herz",
+      "pos": "noun",
+      "gender": "n",
+      "article": "dein",
+      "case": "nom",
+      "gloss": "твоё сердце",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "бьётся",
+      "l2": "schlägt",
+      "lemma": "schlagen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "биться",
+      "ipa": null,
+      "weave_priority": 24
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "сто тысяч раз каждый день",
+      "l2": "jeden Tag hunderttausend Mal",
+      "lemma": "hunderttausend Mal",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "сто тысяч раз каждый день",
+      "ipa": null,
+      "weave_priority": 41
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Когда ты бежишь",
+      "l2": "Wenn du läufst",
+      "lemma": "laufen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "когда ты бежишь",
+      "ipa": null,
+      "weave_priority": 25
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "сердце быстрое",
+      "l2": "schlägt das Herz schnell",
+      "lemma": "schlagen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "сердце быстрое",
+      "ipa": null,
+      "weave_priority": 26
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Когда ты спишь",
+      "l2": "Wenn du schläfst",
+      "lemma": "schlafen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "когда ты спишь",
+      "ipa": null,
+      "weave_priority": 27
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "оно медленное",
+      "l2": "schlägt es langsam",
+      "lemma": "schlagen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "оно медленное",
+      "ipa": null,
+      "weave_priority": 28
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Счастливое сердце",
+      "l2": "Ein glückliches Herz",
+      "lemma": "Herz",
+      "pos": "noun",
+      "gender": "n",
+      "article": "ein",
+      "case": "nom",
+      "gloss": "счастливое сердце",
+      "ipa": null,
+      "weave_priority": 5
+    },
+    {
+      "t": "weave",
+      "l1": " — здоровое сердце",
+      "l2": " ist ein gesundes Herz",
+      "lemma": "sein",
+      "pos": "auxiliary",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "быть здоровым сердцем",
+      "ipa": null,
+      "weave_priority": 52
+    },
+    {
+      "t": "text",
+      "l1": "."
+    }
+  ]
+}

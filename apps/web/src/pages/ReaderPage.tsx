@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { LEVEL_PRESETS, type Story } from "@weave/shared";
+import { MIN_STEP, type Story } from "@weave/shared";
 import { getStory } from "../lib/api";
 import { useReaderStore } from "../store/readerStore";
 import { WeaveText } from "../components/reader/WeaveText";
@@ -30,9 +30,7 @@ export function ReaderPage() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const restoredRef = useRef(false);
 
-  const threshold = story
-    ? (densityByStory[story.id] ?? LEVEL_PRESETS["A1-lite"])
-    : 0;
+  const step = story ? (densityByStory[story.id] ?? MIN_STEP) : MIN_STEP;
 
   useEffect(() => {
     if (!story || restoredRef.current) return;
@@ -87,7 +85,7 @@ export function ReaderPage() {
 
       <WeaveText
         story={story}
-        threshold={threshold}
+        step={step}
         onSelectWeave={(index) => {
           setSelectedIndex(index);
           const unit = story.units[index];
@@ -99,8 +97,8 @@ export function ReaderPage() {
 
       <div className="fixed inset-x-0 bottom-0 mx-auto max-w-md px-4 pb-4">
         <DensitySlider
-          threshold={threshold}
-          onChange={(t) => setDensity(story.id, t)}
+          step={step}
+          onChange={(newStep) => setDensity(story.id, newStep)}
         />
       </div>
 

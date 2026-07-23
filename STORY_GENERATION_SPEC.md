@@ -1,251 +1,297 @@
-# Story Generation Specification — Diglot-Weave Content
+# Story Generation Specification v2.0 — Diglot-Weave Content
 
-**Companion document to `SPEC.md`.** This file is the contract for *generating* diglot-weave stories — usable directly as (or turned into) a system prompt for Claude, MiniMax, Grok, or a local model via Ollama. It's deliberately self-contained: a model given this file plus a single request (`{language, level, topic}`) should be able to produce a valid story with no other context.
+**Supersedes `STORY_GENERATION_SPEC.md` (v1).** Companion to `SPEC.md` (app spec). This is the contract for *creating* diglot-weave stories — usable as a system prompt for Claude / MiniMax / Grok / a local model, and as the spec the app's reader logic must implement.
+
+**What changed from v1:**
+1. Three difficulty levels defined: **A1, A2, B1** (v1 had one, effectively B1).
+2. The old density mechanism (A1-lite / A1 / A2 tiers via a `weave_priority` threshold) is **removed**.
+3. Density is now a **percentage-of-text scale** applied inside every story, with a two-phase counting rule (content words first, then all words).
+4. Text difficulty level and weave density are **two independent axes** (see §2).
+5. Deliverable: **5 texts per level × 3 levels = 15 base texts**, each authored in **Russian + English**, each woven into **German, Dutch, Spanish**.
 
 ---
 
 ## 1. Purpose
 
-Given a target language (L2), a CEFR level, and a topic, produce a short story in the base language (L1: Russian) with certain lexical units woven in from L2, following the diglot-weave pedagogy, and output it in the exact JSON format consumed by the reader app (see `SPEC.md` §5.2).
+Given a difficulty level, a base language, a target language, and a topic, produce a short story in the base language (L1) with a **fully aligned target-language (L2) version**, so the reader app can progressively reveal L2 from a light dusting up to 100% of the text. Output is the JSON described in §5, consumed by the reader.
 
-Two entry points use this same contract:
-1. **Generate from scratch:** input is `{l2, level, topic, length}` (where `length` defaults to 120–150 words) → output is a new story.
-2. **Weave existing text:** input is `{l2, level, l1_text}` → output is the same story split into units, with weaving applied — no new content invented, no plot changes, no added/removed sentences.
+Two entry points share this contract:
+1. **Generate from scratch:** input `{level, l1, l2, topic}` → a new story.
+2. **Weave existing text:** input `{level, l1, l2, l1_text}` → the same text split into units with the aligned L2, no content changes.
 
-Note on `id`: the model may propose a slug, but the app assigns the final, collision-free `id` on save (the model can't know which IDs are already taken). The `{NN}` suffix in the schema example is illustrative — treat it as app-controlled.
+Note on `id`: the model may propose a slug; the app assigns the final collision-free `id` on save.
 
 ---
 
-## 2. Output Contract
+## 2. Two independent axes (read this first)
 
-The model must return **one JSON object, and nothing else** — no markdown fences, no preamble ("Here is your story:"), no trailing commentary. If the model cannot comply, it is a failure (see §7 validation).
+The single most important concept in v2: **text difficulty and weave density are orthogonal.**
 
-### 2.1. Schema
+- **Axis 1 — Text level (A1 / A2 / B1).** Chosen per story. Because the L1 scaffold is always fully understood by the reader, "level" here does **not** govern comprehensibility of the base text. It governs (a) the **frequency/difficulty band of the L2 words** that get woven and (b) the **conceptual sophistication and length** of the content. An A1 story weaves only the most frequent, concrete L2 words; a B1 story weaves a broader, less frequent set into richer content.
+
+- **Axis 2 — Weave density (the percentage scale, §4).** Applied *within* a chosen story by the reader's difficulty slider. It controls how much of that story is currently shown in L2, from a light start up to 100%. The **same density mechanism applies to every level** — an A1 story and a B1 story both run the full 20%→100% progression; they differ only in *which* words are woven, not in *how far* the slider can go.
+
+Consequence: level is a property of the **stored story**; density is a **runtime view** of it. Do not encode density into the level, or cap density by level.
+
+---
+
+## 3. Level definitions (Axis 1)
+
+Length is measured in words of L1 text. Russian renders ~15–20% shorter in word count than English for the same content, so counts are per language, not forced to match.
+
+| Level | L1 length | Sentences | L2 vocabulary woven | L2 grammar reached at high density | Topics |
+|-------|-----------|-----------|---------------------|-------------------------------------|--------|
+| **A1** | 60–90 words | very short, simple SVO | ~top 500 frequency; concrete everyday nouns, a few high-frequency verbs | present tense; singular/plural; basic articles | self, family, home, food, daily routine, numbers, colours |
+| **A2** | 100–130 words | short; at most one subordinate clause | ~top 1500; broader concrete nouns, common verbs, basic adjectives | present + simple past; common prepositions; comparatives | travel, work, shopping, hobbies, simple past events, plans |
+| **B1** | 130–160 words | longer; subordinate clauses, varied tenses | ~top 3000; some abstract nouns, richer verbs/adjectives/adverbs | past/present/future; subordinate clauses; modal verbs | psychology, science facts, relationships, opinions, explanations |
+
+The current seed stories (`seed_stories.md`) are B1 and **must be reworked** to (a) fit the new density model of §4 — i.e. every content word is a weave unit and function words are marked — and (b) sit cleanly alongside new A1 and A2 sets.
+
+**Deliverable matrix**
+
+| | Base RU | Base EN |
+|---|---|---|
+| A1 (5 texts) | ×3 target langs = 15 | ×3 = 15 |
+| A2 (5 texts) | ×3 = 15 | ×3 = 15 |
+| B1 (5 texts, reworked) | ×3 = 15 | ×3 = 15 |
+
+15 base texts × 2 base languages × 3 target languages = **90 story objects**. The base text of a given story is shared across its three target-language versions; only the woven L2 layer differs.
+
+---
+
+## 4. Weave density scale (Axis 2) — the core of v2
+
+### 4.1 Principle
+
+Every content word in a story is a weave unit; function words are also weave units but sit in a higher priority band (see §4.4). The reader's slider picks a **density step**. The app reveals weave units **in ascending `weave_priority` order** until the woven share reaches the step's target. Two phases, with **different denominators**, matching the intended pedagogy (meaning-bearing words first, grammatical glue last):
+
+- **Phase A — content words only.** Function words stay in L1. The percentage is measured against the **count of content words** (nouns, verbs, adjectives, adverbs).
+- **Phase B — all words.** Content is already fully woven; function words now begin to appear. The percentage is measured against the **count of all words**.
+
+### 4.2 Recommended step list (default)
+
+Chosen for a smooth, monotonic rise in the actual share of visible L2, with no cliff between phases. `≈ all-words` assumes content words are ~55% of tokens (compute per text at build time).
+
+| Step | Phase | Denominator | Target | ≈ share of all words | What newly appears |
+|------|-------|-------------|--------|----------------------|--------------------|
+| 1 | A | content words | 25% | ~14% | most frequent concrete nouns |
+| 2 | A | content words | 50% | ~27% | + more nouns, top verbs |
+| 3 | A | content words | 75% | ~41% | + remaining nouns/verbs, adjectives |
+| 4 | A | content words | 100% | ~55% | + adverbs; all content now L2, function words still L1 |
+| 5 | B | all words | 70% | 70% | function words begin (articles, prepositions, pronouns, auxiliaries) |
+| 6 | B | all words | 85% | 85% | + most remaining function words |
+| 7 | B | all words | 100% | 100% | fully L2 |
+
+### 4.3 Alternative step list (user's original)
+
+Documented so it can be selected instead. Same two-phase principle, but coarser at the top and with a jump between steps 4 and 5:
+
+Phase A (content words): **20 / 40 / 60 / 70** → Phase B (all words): **80 / 90 / 100**.
+
+Caveat: 70% of content words is only ~38% of all words, and step 5 jumps straight to 80% of all words (~+42 points) — a large single leap. The recommended list in §4.2 avoids this. **The step list must be an app-configurable array**, so either can be chosen (or a smooth slider used with these as presets); do not hard-code the numbers.
+
+### 4.4 Priority ordering (what makes the phases work)
+
+`weave_priority` is a positive integer, ascending = revealed earlier, on a scale **global across the whole library** so the slider means the same thing everywhere. Two hard rules:
+
+- **All content-word units must have lower priority than any function-word unit.** This guarantees Phase A (content) is exhausted before any function word appears in Phase B.
+- Within content, order by part of speech then frequency: concrete nouns (lowest) → high-frequency verbs → adjectives → adverbs. Within function words, order by frequency.
+
+Suggested bands: content words `1–49`, function words `50+`. Exact numbers are free as long as the content/function split holds.
+
+### 4.5 Reveal algorithm (the app must implement this)
+
+```
+render(story, step):
+    cw = [u for weave units u if is_content(u)]      # ordered by weave_priority
+    fw = [u for weave units u if not is_content(u)]   # ordered by weave_priority
+    if step in PHASE_A:
+        target = ceil(step.percent * count_words(cw))
+        reveal content units in priority order until woven content words >= target
+        # function words stay L1
+    else: # PHASE_B
+        reveal ALL content units (Phase A complete)
+        target = ceil(step.percent * count_words(all weave units))
+        already = count_words(cw)
+        reveal function units in priority order until total woven words >= target
+    unrevealed units render their l1; revealed units render their l2
+```
+
+`is_content(u)` = `u.pos in {noun, verb, adjective, adverb}` and `u.pos` is not an auxiliary/modal marked as function. Counting is **by words**: a multi-word lexical unit (e.g. `der Hund`) counts its words toward both numerator and denominator, and is revealed atomically (all-or-nothing), so partial reveals never split an article from its noun.
+
+### 4.6 Reorder groups — how fluent 100% is actually achieved
+
+Toggling single L2 words into an L1 sentence in place works only as long as L1 and L2 share the same local word order. They often don't: German pushes the finite verb to position two in main clauses and to the very end in subordinate clauses; adverbs, separable prefixes, and adjective/noun order shift between languages; some slots need an article in L2 that L1 has no word for at all. A naive one-word-at-a-time toggle at high density produces L2 vocabulary in L1 order — readable as a gloss, not fluent L2. Rather than adding a second rendering mode for "high density," the fix is to **make the atomic weave unit bigger exactly where reordering is needed**, using the multi-word-unit mechanism already defined in §4.5/§5.1 — this keeps one single mechanism across the entire 20%→100% range.
+
+**Rule.** A weave unit's `l1` must still be an exact contiguous span of the L1 text (so concatenation stays valid — see §5.1), but its `l2` is free to reorder words *within that span* however L2 grammar requires. This is the same principle already used for `nach Hause` or `der Hund`; §4.6 just applies it deliberately to fix word order, not only to fix fixed phrases or determiners.
+
+- **Local reordering** (adverb position, separable-verb prefixes, Romance adjective-noun order): group only the words whose relative order actually changes into one unit. Example: English "also eats" (adverb-verb) → group as one unit `l1:"also eats"` / `l2:"isst auch"` (verb-adverb) instead of two separate word-for-word units. This keeps granularity fine everywhere else in the sentence.
+- **Missing-word insertion**: if L2 needs an article/word L1 doesn't have (e.g. English "At night" has no article, German needs "In der Nacht"), fold the extra word into the unit's `l2` rather than trying to source it from L1: `l1:"At night"` / `l2:"In der Nacht"`. The `l1` side still matches the source text exactly; only `l2` gains the word.
+- **Clause-level reordering** (German subordinate clauses sending the verb to the end): when the reorder spans more than a couple of words, granularity should coarsen to match — the whole subordinate clause becomes one atomic unit at a single `weave_priority`, rather than forcing per-word units that can't reproduce verb-final order. This trades fine-grained partial reveal *within that specific clause* for correctness; it does not affect other clauses in the same sentence, which keep normal word-level granularity.
+- **Priority of a group** = the priority appropriate to its head word for content/function classification (e.g. a verb+adverb group counts as content, priority in the verb band); its word count (for §4.5's percentage math) is the total word count of `l1`.
+
+This is a modeling choice the generator makes per-sentence, not a fixed rule of thumb — the model should default to the finest granularity that stays grammatical, and only widen a unit when a narrower one would be ungrammatical.
+
+**Second validated case — subject-verb inversion.** German requires the finite verb in position two; if a sentence opens with a fronted adverbial (as one does here: "At night..." → "In der Nacht..."), the subject and verb invert: "In der Nacht **ist die Katze** wach," not "In der Nacht die Katze ist wach." Testing found exactly this bug. The fix groups the copula with the subject it inverts with — `l1:"the cat is"` / `l2:"ist die Katze"` — tagged `pos:"auxiliary"` (matching the copula's classification elsewhere in the same story) so it still sorts into the function band for §4.4's priority split, even though the group's `l1` span contains a noun. **This is the accepted trade-off:** the individual word "cat" inside this specific occurrence isn't separately gated by the density slider — it arrives bundled with the grammar fix — but the lemma `Katze` is still introduced earlier in the story through its other (ungrouped) occurrences, so vocabulary exposure isn't lost, only slightly reshuffled at this one spot.
+
+---
+
+## 5. Output contract & schema
+
+Return **one JSON object, nothing else** — no markdown fences, no preamble. The object now aligns the *entire* text (every non-punctuation word is a weave unit at some priority), because density can reach 100%.
 
 ```jsonc
 {
-  "id": "string",              // slug: "{l2}-{topic-slug}-{NN}", e.g. "de-broken-window-01"
-  "l1": "ru",
-  "l2": "de | nl | es",         // ISO 639-1 code of the target language
-  "level": "A1 | A2",
-  "topic": "string",            // short human-readable topic, in l1
-  "title": "string",            // story title, in l1
-  "units": [ /* see 2.2 */ ]
+  "id": "string",                 // app finalizes; model may propose "{l2}-{l1}-{slug}"
+  "l1": "ru | en",                // base language
+  "l2": "de | nl | es",            // target language
+  "level": "A1 | A2 | B1",
+  "topic": "string",               // in l1
+  "title": "string",               // in l1
+  "units": [ /* text or weave */ ]
 }
 ```
 
-### 2.2. Unit types
-
-Every unit is either `text` (fixed L1 content — never shown in L2) or `weave` (a lexical unit that can appear in L1 or L2 depending on the reader's density threshold).
-
-**`text` unit:**
+**`text` unit** — fixed L1 content never shown in L2: punctuation, spacing, and (optionally) words you choose not to weave at all.
 ```jsonc
-{ "t": "text", "l1": "Однажды старый " }
+{ "t": "text", "l1": ". " }
 ```
-- Contains punctuation, spacing, and any words the method has not yet introduced.
-- Preserve exact whitespace: units concatenate directly, so a unit must include the space that separates it from its neighbors (see §2.3).
 
-**`weave` unit:**
+**`weave` unit** — a lexical unit revealed in L1 or L2 depending on the density step:
 ```jsonc
 {
   "t": "weave",
-  "l1": "пёс",              // the L1 word/phrase as it appears in natural flow
-  "l2": "Hund",              // the L2 equivalent, correctly inflected for THIS occurrence
-  "lemma": "Hund",           // L2 dictionary/base form — same for every occurrence of this word across the story
-  "pos": "noun | verb | adjective | adverb | phrase | function_word",
-  "gender": "m | f | n | c | null",   // use values appropriate to the language: m/f/n for de, m/f for es, c (common)/n (neuter) for nl; null/omit for non-nouns
-  "article": "string | null",     // the article as it appears in THIS occurrence (e.g. "der", "den", "dem", "de", "het", "el", "la"); null if the noun takes no article here
-  "case": "nom | acc | dat | gen | null",  // German only; null for nl/es
-  "gloss": "string",         // L1 translation of the lemma (dictionary form), NOT of the inflected occurrence
-  "ipa": "string",           // IPA for the L2 lemma (not per-occurrence)
-  "weave_priority": integer  // see §4
+  "l1": "пса",                 // L1 surface form as it appears in flow
+  "l2": "den Hund",             // L2 surface, correctly inflected for THIS position
+  "lemma": "Hund",              // L2 dictionary form; identical for every occurrence
+  "pos": "noun | verb | adjective | adverb | article | preposition | pronoun | conjunction | auxiliary | numeral | particle",
+  "gender": "m | f | n | c | null",
+  "article": "string | null",   // article as it appears here, if folded into l2
+  "case": "nom | acc | dat | gen | null",
+  "gloss": "string",            // translation of the lemma into l1
+  "ipa": "string | null",       // IPA of the l2 lemma; null is acceptable (fill from reference layer later)
+  "weave_priority": 3
 }
 ```
 
-### 2.3. Concatenation and interchangeability rule (critical)
+`pos` now spans content **and** function categories, because at 100% density function words are woven too. `is_content` is derived from `pos` (§4.5).
 
-The reader renders a story by concatenating the `l1` (or, for shown weave units, `l2`) values of consecutive units in order, with no automatic spacing inserted. Two consequences:
+### 5.1 Concatenation & interchangeability (unchanged, still critical)
 
-- **Whitespace lives inside the unit strings.** `"Она идёт в "` (trailing space) followed by a weave unit `"l1": "кухню"` followed by `" и готовит "` is correct; dropping the trailing space glues words together.
-- **A weave unit's `l1` and `l2` must be drop-in interchangeable in place.** Whatever renders in that slot must be grammatical whether the L1 or the L2 variant is shown. This has one non-obvious implication that is the most common source of bugs:
+Joining every unit's `l1` in order must reproduce the exact L1 text (whitespace lives inside unit strings). Each weave unit's `l1` and `l2` must be swap-safe in place: any determiner tied to a noun lives **inside** the weave unit on both sides (or is absent on both) — never in an adjacent `text` unit, or it doubles/drops at partial density. Because partial reveals mix L1 and L2 words in one sentence, keeping each lexical unit self-contained is what keeps those mixed sentences readable. Where L2 word order or an extra required word differs from L1 within a span, that span becomes one multi-word unit per the **reorder-group** mechanism in §4.6 — `l1` still matches the source text exactly; only `l2` is reordered/extended.
 
-  **Any determiner/article tied to a woven noun must live INSIDE the weave unit — on both the `l1` and `l2` sides — never in an adjacent `text` unit.** Otherwise the article doubles or drops when the variant switches.
+### 5.2 Full-coverage requirement (new in v2)
 
-  - Wrong: `text` = `"...into the "`, then weave `l1:"kitchen" / l2:"die Küche"`. L2 render → `"into the die Küche"` (double article).
-  - Right (L1 has articles, e.g. English): weave `l1:"the kitchen" / l2:"die Küche"`; preceding `text` = `"...into "`. Both variants render cleanly.
-  - Right (L1 has no articles, e.g. Russian — the production case): weave `l1:"кухню" / l2:"die Küche"`; no determiner exists on the L1 side and none is placed in surrounding text, so `"...в кухню..."` ↔ `"...в die Küche..."` both read correctly.
-
-  In short: the determiner is part of the lexical unit, present on both sides or absent on both sides — but never split across a unit boundary.
-- Do not put punctuation inside `l2` that isn't in `l1`: if `l1:"пёс"` has no comma, don't write `l2:"Hund,"` — put the comma in the following `text` unit so both variants stay swap-safe.
+To support density up to 100%, **every word of the sentence must belong to a weave unit** (only punctuation/spacing may remain permanent `text`). In effect the model produces a complete, grammatically correct L2 translation of the story, aligned to the L1 lexical-unit by lexical-unit, then assigns each unit a priority. **Fluency at 100% density is achieved through reorder groups (§4.6), not through a separate rendering mode** — the same unit-by-unit reveal mechanism runs across the whole 20%→100% range; units simply widen to a phrase or a whole subordinate clause exactly where L2 word order demands it. At 100% density the concatenated `l2` values must read as fluent, correct L2 prose — this is a full translation, not isolated word swaps.
 
 ---
 
-## 3. Method Rules (must be followed by the generator)
+## 6. Method & morphology rules
 
-1. **Whole lexical units, not bare words — determiner included.** Weave `nach Hause` as one unit, not `Hause` glued to a separately-woven `nach`. When a noun needs an article, fold the article into the `l2` string (`"l2": "der Hund"`) AND record it in the `article` field (for the popover). Per §2.3, the matching determiner must be present on the `l1` side too (if L1 has one) or absent on both — never parked in an adjacent `text` unit. Do not split one lexical unit across several weave units.
-2. **Correct morphology, every time.** Case, gender, and number agreement in the L2 string must be grammatically correct for that exact sentence position — a wrong article or case ending is worse than not weaving the word at all, since it teaches an error.
-3. **Introduction order** (via `weave_priority`, ascending = introduced earlier). **This is a GLOBAL, absolute scale shared across the entire library, not relative within one story** — otherwise the reader's threshold `T` would mean different things in different stories and cross-story progress would break. Anchor it to frequency where possible (more frequent word ⇒ lower number). A single short story just samples a few points on this scale; it does not need to span all bands.
-   - Priority 1–5: concrete, high-imageability nouns (dog, house, table, water, door)
-   - Priority 6–10: high-frequency verbs (go, eat, see, want, have)
-   - Priority 11–15: adjectives (big, small, good, old)
-   - Priority 16–20: adverbs and common phrases (nach Hause, immer, schnell)
-   - Priority 21+: function words (prepositions, conjunctions, pronouns) — introduce last, and sparingly, since these carry the least standalone meaning and are hardest to guess from context
-4. **Density is a consequence of tagging, not a separate knob.** Tag as `weave` every unit you legitimately could weave (subject to the rules here); the reader controls how many actually show via the threshold `T` on `weave_priority`. The app exposes three fixed presets (`packages/shared/src/density.ts`), and each must land within a target *count of woven words visible at that preset* — not a percentage — for a 120–150-word story:
+1. **Whole lexical units, and whole reorder groups.** Weave `nach Hause`, `der Hund`, a separable verb + its prefix, as single units — never bare fragments that are ungrammatical alone. Where L2 word order differs locally from L1, group the affected words into one unit so `l2` can be reordered internally (§4.6) — e.g. `l1:"also eats"` / `l2:"isst auch"` — rather than toggling each word independently and producing L2 vocabulary in L1 order.
+2. **Correct morphology at every position.** Case, gender, number, and agreement in each `l2` string must be correct for that exact slot. A wrong article/ending teaches an error and is worse than leaving the word in L1.
+3. **Introduction order** via `weave_priority` (§4.4): concrete nouns → frequent verbs → adjectives → adverbs → (function words last).
+4. **Consistent lemma/gloss** across all occurrences of a word.
+5. **Level-appropriate L2 vocabulary** per §3 — an A1 story must not require B1-level L2 words.
+6. **Partial-reveal coherence.** Design units so that at any density step the mixed L1/L2 sentence stays readable (follows from §5.1).
 
-   | Preset | Threshold `T` | Target visible woven words |
-   |--------|---------------|------------------------------|
-   | A1-lite | ≤ 3 | 7–8 |
-   | A1 | ≤ 8 | 10–12 |
-   | A2 | ≤ 15 | 15–18 |
-
-   These are cumulative, not additive — a word visible at A1-lite stays visible at A1 and A2. Concretely, that means:
-   - **Priorities 1–3:** enough concrete nouns to reach 7–8 woven units on their own (several words may legitimately share the same priority number — e.g. three different nouns can all be priority 2).
-   - **Priorities 4–8** (remaining nouns + high-frequency verbs): add roughly 3–4 more units so the cumulative total at `T=8` reaches 10–12.
-   - **Priorities 9–15** (remaining verbs + adjectives): add roughly 5–6 more units so the cumulative total at `T=15` reaches 15–18.
-
-   A story should therefore end up with **15–18 `weave` units in total** (not 7–12 as in earlier drafts of this spec) — this is a substantially higher density than before, close to weaving every eligible concrete noun, high-frequency verb, and adjective in the text. Spread them across the story rather than front-loading them into the first few sentences; the tail of the story needs weave units too, not just the opening.
-5. **No orphan grammar.** Never weave a word in a form that requires grammatical knowledge the reader hasn't been given (e.g. don't weave a verb conjugated in a compound tense before the story has established simpler forms) — for A1/A2, stick to present tense and simple past.
-6. **Consistency of lemma.** If a word appears multiple times in the story, every occurrence must share the same `lemma` and `gloss`, even though `l2` (the inflected surface form) and `case`/`article` may differ per occurrence.
-7. **Don't weave what can't be guessed.** Function words, abstract words, and idioms with non-transparent meaning should either not be woven, or be woven only after level A2 and only with a very clear surrounding context.
+### 6.1 Language-specific notes
+- **German (de):** three genders, four cases — `article` + `case` mandatory on nouns; fold article into `l2`. Separable-prefix verbs woven as one unit; compound nouns are single lemmas.
+- **Dutch (nl):** `de`/`het` gender has no reliable rule — set `gender` `c`/`n` and `article` accordingly. Verb-second word order must survive weaving.
+- **Spanish (es):** gender/number agreement between noun and any woven adjective; `el`/`la`. Mind `ser`/`estar` and `por`/`para` at B1.
 
 ---
 
-## 4. Level Guidelines
+## 7. Validation contract
 
-| Level | Sentence length | Vocabulary | Tense | Topics |
-|-------|-----------------|-----------|-------|--------|
-| A1 | short, mostly simple (subject-verb-object) | very high-frequency, concrete | present tense, simple past for narration | daily routine, family, food, weather, simple errands |
-| A2 | can include one subordinate clause | still frequent but broader; some abstract nouns allowed | present + simple past; occasional modal verbs | travel, work, shopping, simple past events, plans |
+The app validates before accepting output:
+1. **JSON parses** — no fences, no extra text.
+2. **Schema** — required fields present; `pos`/`gender`/`case` within allowed enums for the language; `weave_priority` integer.
+3. **Concatenation** — joined `l1` reproduces the L1 text exactly; joined `l2` (all revealed) is fluent, correct L2.
+4. **Full coverage (§5.2)** — every non-punctuation word is inside a weave unit (so 100% density = fully L2).
+5. **Priority split (§4.4)** — every content unit's priority < every function unit's priority.
+6. **Density reachability (§4.5)** — for each configured step, the reveal algorithm produces a woven share within one lexical unit of the target.
+7. **Word order at high density (§4.6)** — with all units revealed, verb position, adverb placement, and article insertion must be correct for {l2} grammar; this is what reorder groups exist to guarantee. Spot-check verb-second/verb-final placement in German specifically, since it's the most common failure mode found in testing.
+8. **Length** — L1 word count within the level's range (§3), enforced here, not trusted to the model.
+9. **Interchangeability** — no article doubles or drops at any partial step (determiner rule).
+10. **(Reference layer, later)** — gender/article/IPA cross-checked against Wiktionary; mismatches flagged.
 
-**Length.** Target length is a request parameter (`length`), defaulting to **120–150 words** of `l1` text — the story as the reader sees it at zero weave density, counting every `l1` field (text and weave units alike). This default is the same across levels; level is distinguished by the columns above (sentence complexity, tense, vocabulary), not by length. At 120–150 words expect a short, self-contained paragraph — a small scene, anecdote, or fact with a beginning and end. Note that a Russian rendering of the same content is typically ~15–20% shorter in word count than English, so translated pairs are counted per language, not forced to match.
-
-Topic should be concrete and visualizable — avoid topics that require abstract vocabulary too early (philosophy, emotions-as-topic, politics).
-
----
-
-## 5. Language-Specific Morphology Notes
-
-### German (de)
-- Three genders (`der`/`die`/`das`), four cases. The `article` and `case` fields are mandatory for every woven noun.
-- Separable-prefix verbs (`aufstehen`, `mitkommen`) — weave as a single `phrase`-type lemma when the prefix separates in the sentence (e.g. "steht ... auf"), or note in `gloss` that it's separable. Prefer simple, non-separable-verb sentences at A1 to avoid this complexity in the reader.
-- Compound nouns (`Haustür`) are single lemmas — don't split them into weave units.
-
-### Dutch (nl)
-- Two articles (`de`/`het`) with no reliable synchronic rule — the model must know or look up the correct article per noun; `gender` field can be `c` (common) or `n` (neuter) with `article` holding `de`/`het` accordingly.
-- Word order: verb-second in main clauses — don't let weaving disrupt this.
-
-### Spanish (es)
-- Two genders (`el`/`la`), adjectives agree in gender and number with the noun — if an adjective is woven alongside a noun, both must agree; if only the noun is woven, the surrounding L1 adjective is untouched (that's fine — mixed L1/L2 within a phrase is expected at low density).
-- Ser vs. estar distinction — at A1, prefer simple, unambiguous uses of each to avoid teaching the wrong one via bad context.
+On failure: one automatic retry appending the specific errors, asking the model to fix only the failing part.
 
 ---
 
-## 6. Weaving Existing User Text (mode 2)
+## 8. Ready-to-use system prompt template
 
-When given `l1_text` instead of a generation prompt:
-- **Do not alter the story.** No new sentences, no removed content, no changed plot or facts. The only transformation is: split into units, and mark some units as `weave` with L2 equivalents.
-- If the source text contains vocabulary far above the target level, weave conservatively (lower density) rather than forcing unsuitable words — flag this in a `"notes"` field outside `units` if the format is extended to support it (optional, not in the current app schema — omit unless requested).
-- Preserve the original tone, punctuation, and paragraph breaks as `text` units.
-
----
-
-## 7. Validation Contract
-
-The calling application will validate output before accepting it:
-1. **JSON parses.** No markdown fences, no leading/trailing text.
-2. **Schema conformance.** All required fields present per §2.2; `weave_priority` is an integer; `pos`/`gender`/`case` use only the allowed enum values for the requested language.
-3. **Length.** Total word count of all `l1` fields (in order) is within the requested `length` range (default 120–150 words). Enforced here rather than trusted to the model.
-4. **Concatenation & interchangeability.** Joining all `l1` fields in order reproduces coherent, grammatical L1 text; rendering every weave unit's `l2` at max threshold produces grammatical L2 text with no doubled or dropped articles (the determiner check from §2.3).
-5. **Lemma consistency.** Same surface word ⇒ same `lemma` and `gloss` throughout the story.
-6. **(If reference layer connected, Stage 2)** Gender/article cross-checked against Wiktionary data; mismatches flagged.
-
-**On validation failure:** one automatic retry, appending the specific validation error(s) to the prompt and asking the model to correct only the failing part while preserving everything else. A second failure surfaces to the developer rather than silently degrading.
-
----
-
-## 8. Ready-to-Use System Prompt Template
-
-This is the literal template to send as the system prompt (fill in `{...}` placeholders from the request parameters):
+Fill `{...}` from the request; insert the §5 schema verbatim.
 
 ```
-You are a content generator for a language-learning app that uses the "diglot weave" method.
+You are a content generator for a language-learning app using the diglot-weave method.
 
-Return ONLY a single valid JSON object matching this schema — no markdown fences, no preamble, no explanation:
+Return ONLY one valid JSON object matching this schema — no markdown, no preamble:
+{schema from §5}
 
-{schema from §2.1–2.2, inserted verbatim}
+Task: {"Write an original short story" | "Weave the text below, changing no content"} in the base language {l1} for CEFR level {level}, target language {l2}, topic "{topic}".
 
-Task: {"Write an original short story" | "Weave the following user-provided text"} in the base language Russian (l1) {"on the topic: " + topic | "— text follows below, do not alter its content"}, for CEFR level {level}, targeting the language {l2} as the woven language (l2).
+Level {level} constraints: {row from §3 — length, sentence complexity, L2 vocabulary band}.
 
-Rules you must follow:
-1. Weave whole lexical units (e.g. article + noun, a verb + separable prefix, a fixed phrase), never bare words stripped of the grammar that makes them correct in context. Any article tied to a noun goes INSIDE the weave unit on both the l1 and l2 sides (or is absent on both) — never in an adjacent text unit, or it will double.
-2. Every woven l2 string must be grammatically correct for its exact position in the sentence: correct article, case (German), gender/number agreement (Spanish, Dutch).
-3. Assign weave_priority ascending in this order: concrete nouns (1-5) → high-frequency verbs (6-10) → adjectives (11-15) → adverbs/phrases (16-20) → function words (21+, use sparingly).
-4. Target density (cumulative word counts, not percentages): 7-8 woven words visible at threshold T≤3 (A1-lite), 10-12 at T≤8 (A1), 15-18 at T≤15 (A2) — see §3.4. This means roughly 15-18 weave units total in the story, spread throughout rather than front-loaded.
-5. Keep the same lemma and gloss for every occurrence of a repeated word.
-6. Sentence and story length per level: {insert level guideline table row from §4}.
-7. {Language-specific note from §5 for the requested l2}
-8. Whitespace must be embedded inside unit strings so that concatenating units in order reproduces correct spacing — see the concatenation rule.
+Hard rules:
+1. Produce a COMPLETE, grammatically correct {l2} translation aligned to the {l1} text: every word of every sentence must be a weave unit (only punctuation stays as plain text), so the reader can reach 100% {l2}.
+2. Weave whole lexical units with correct {l2} morphology (article, case, gender/number agreement). Any article tied to a noun goes INSIDE the weave unit on both l1 and l2 sides, never in an adjacent text unit. Where {l2} word order differs from {l1} within a span (e.g. verb position, adverb placement, adjective-noun order) or {l2} needs a word {l1} doesn't have (e.g. a missing article), group the affected words into ONE weave unit and reorder/extend only inside l2 — l1 must still match the source text exactly. For subordinate clauses where {l2} moves the verb to the end, it is acceptable to make the whole clause one larger unit rather than forcing per-word units that would be ungrammatical.
+3. weave_priority (global ascending scale): ALL content words (noun/verb/adjective/adverb) must have LOWER priority than ANY function word (article/preposition/pronoun/conjunction/auxiliary/numeral/particle). Within content: concrete nouns lowest, then frequent verbs, then adjectives, then adverbs. Within function: by frequency. Suggested bands: content 1-49, function 50+.
+4. Keep the same lemma and gloss for every occurrence of a word. gloss is the {l1} translation of the lemma.
+5. Whitespace lives inside unit strings so concatenating all l1 reproduces the source exactly.
+6. {language-specific note from §6.1 for {l2}}
 
-{If mode 2 (weave existing text): "Do not invent, remove, or alter any content from the source text below. Only split it into units and mark weavable units. Source text: {l1_text}"}
+{If weaving existing text: "Do not invent, remove, or reorder content. Only split into units and add the aligned l2. Source: {l1_text}"}
 ```
 
 ---
 
-## 9. Worked Example (German, A1, "morning routine")
+## 9. Worked example (schematic)
 
-**Note:** in production, `l1` is Russian (per `SPEC.md` §2). This example uses English for `l1` to keep the document readable without mixing scripts — but article handling is exactly the place where the L1 language matters, so read the note under the JSON. The `l1` text in this short illustration is well under the 120–150-word production range from §4 — it is trimmed only to keep the example readable; real seed/generated stories are full 120–150-word paragraphs.
+A1, base EN, target DE, two fragments chosen to show **why reorder groups matter** — both are real cases found while validating a full-coverage German weave of an A1 story.
 
-```json
-{
-  "id": "de-morning-routine-01",
-  "l1": "en",
-  "l2": "de",
-  "level": "A1",
-  "topic": "morning routine",
-  "title": "An Ordinary Morning",
-  "units": [
-    { "t": "text", "l1": "Anna gets up early every day. She goes into " },
-    {
-      "t": "weave", "l1": "the kitchen", "l2": "die Küche",
-      "lemma": "Küche", "pos": "noun", "gender": "f", "article": "die", "case": "acc",
-      "gloss": "kitchen", "ipa": "ˈkʏçə", "weave_priority": 2
-    },
-    { "t": "text", "l1": " and makes hot " },
-    {
-      "t": "weave", "l1": "coffee", "l2": "Kaffee",
-      "lemma": "Kaffee", "pos": "noun", "gender": "m", "article": null, "case": "acc",
-      "gloss": "coffee", "ipa": "ˈkafeː", "weave_priority": 1
-    },
-    { "t": "text", "l1": ". Then she " },
-    {
-      "t": "weave", "l1": "eats", "l2": "isst",
-      "lemma": "essen", "pos": "verb", "gender": null, "article": null, "case": null,
-      "gloss": "to eat", "ipa": "ɪst", "weave_priority": 7
-    },
-    { "t": "text", "l1": " bread with butter and drinks some tea." }
-  ]
-}
+**Fragment 1 — local reordering (adverb + verb).** English "The cat also eats fish" is SVO with the adverb before the verb; German puts the adverb after the verb: "Die Katze isst auch Fisch." A naive word-for-word toggle of "also"→"auch" and "eats"→"isst" independently would render "...auch isst Fisch" or "...isst auch..." depending on toggle order — fragile and, in the actual test, produced "auch frisst" (wrong order). The fix is one reorder-group unit spanning both words:
+
+```jsonc
+{ "t": "weave", "l1": "also eats", "l2": "isst auch", "lemma": "essen",
+  "pos": "verb", "gender": null, "article": null, "case": null,
+  "gloss": "to eat / also", "ipa": null, "weave_priority": 21 }
 ```
 
-Key points this example demonstrates:
-- **Determiner inside the weave unit (§2.3).** The first weave unit carries `l1:"the kitchen"` / `l2:"die Küche"` — the article "the" is NOT left in the preceding `text` unit (which ends at "goes into "). L1 renders "…into the kitchen…", L2 renders "…into die Küche…" — no doubled article either way.
-- **How Russian differs.** In the production Russian version, that unit would be `l1:"кухню"` / `l2:"die Küche"` with no article on the L1 side (Russian has none), and the surrounding text would carry no determiner either — so "…в кухню…" ↔ "…в die Küche…" both stay grammatical. The article-placement rule is what makes both languages work; the mechanics are NOT identical across L1 languages precisely at the article.
-- **Correct case marking** — `die Küche` is feminine, so accusative keeps `die`.
-- **A noun with no article in context** (`Kaffee`, mass noun in the accusative here) — `article: null`.
-- **Verb with the infinitive as `lemma`** (`isst` → `essen`), priorities reflecting noun-first (1–2), verb-later (7) ordering on the global scale.
+`l1` is still the exact contiguous source span ("also eats"); `l2` is freely reordered inside it. The unit reveals atomically — you never see "also isst" or "auch eats."
+
+**Fragment 2 — missing word.** English "At night" has no article; German requires one: "In der Nacht." Word-for-word toggling has nowhere to source "der" from, so in testing it was either dropped ("In Nacht") or wrongly duplicated from a neighboring unit. The fix folds the extra word into `l2`:
+
+```jsonc
+{ "t": "weave", "l1": "At night", "l2": "In der Nacht", "lemma": "Nacht",
+  "pos": "noun", "gender": "f", "article": "die", "case": "dat", "ipa": "naxt", "gloss": "night", "weave_priority": 5 }
+```
+
+**Fragment 3 — clause-level reordering (subject-verb inversion).** German puts the finite verb in position two; a sentence opening with a fronted adverbial forces subject and verb to swap. English "At night the cat is awake" (no inversion) → German "In der Nacht **ist die Katze** wach" (verb before subject). Testing initially produced "In der Nacht die Katze ist wach" (no inversion) — wrong. The fix groups the copula with the subject it inverts with:
+
+```jsonc
+{ "t": "weave", "l1": "the cat is", "l2": "ist die Katze", "lemma": "sein",
+  "pos": "auxiliary", "gender": null, "article": null, "case": null,
+  "gloss": "is / cat", "ipa": null, "weave_priority": 52 }
+```
+
+Tagging it `auxiliary` (matching how the copula is classified everywhere else in this story) keeps it in the function priority band per §4.4, even though its `l1` span contains a noun. The trade-off: this particular occurrence of "cat" isn't separately gated by the slider, but the lemma is already introduced through its other occurrences elsewhere in the story, so nothing is lost — only reshuffled.
+
+**A simple case for contrast — no reordering needed.** "The dog runs home":
+
+```jsonc
+{ "t": "weave", "l1": "The dog", "l2": "Der Hund", "lemma": "Hund", "pos": "noun",
+  "gender": "m", "article": "der", "case": "nom", "gloss": "dog", "ipa": "hʊnt", "weave_priority": 2 }
+{ "t": "weave", "l1": "runs", "l2": "läuft", "lemma": "laufen", "pos": "verb",
+  "gender": null, "article": null, "case": null, "gloss": "to run", "ipa": "ˈlaʊfn̩", "weave_priority": 8 }
+{ "t": "weave", "l1": "home", "l2": "nach Hause", "lemma": "nach Hause", "pos": "adverb",
+  "gender": null, "article": null, "case": null, "gloss": "home", "ipa": "naːx ˈhaʊzə", "weave_priority": 16 }
+{ "t": "text", "l1": "." }
+```
+
+Here word order already matches between EN and DE, so each word stays its own unit — fine-grained partial reveal is preserved. The lesson: **default to word-level units; widen to a reorder group only where a narrower unit would be ungrammatical.**
 
 ---
 
-## 10. Common Mistakes to Avoid (negative examples)
-
-- **Article left in the text unit** → doubling. `text:"…into the "` + `weave l1:"kitchen"/l2:"die Küche"` renders "into the die Küche". Fix: `weave l1:"the kitchen"/l2:"die Küche"`, `text:"…into "`.
-- **Markdown fences or preamble** around the JSON ("```json", "Here is the story:"). Return the raw object only.
-- **Per-story relative priorities.** Numbering weave units 1,2,3… within one story breaks cross-library thresholds. Use the global frequency-anchored scale (§3.3).
-- **Inconsistent lemma/gloss** for the same word across occurrences (e.g. `essen` in one unit, `isst` as lemma in another). The lemma is always the dictionary form.
-- **Punctuation smuggled into `l2`** (`"l2":"Hund,"`) while `l1` has none — breaks interchangeability. Keep punctuation in `text` units.
-- **Wrong morphology to force a weave.** If you can't produce the correct case/gender/agreement for a word in its position, leave it as L1 `text` rather than weaving an incorrect form — a wrong article teaches an error.
-- **Ignoring the length check.** Padding to look longer or truncating mid-sentence to hit the count. Write a naturally complete paragraph within the word range.
-
----
-
-*This document, together with `SPEC.md`, is sufficient context for Claude Code (or another model) to implement and call the generation endpoint described in `SPEC.md` §6 and §7.3.*
+*This document, with `SPEC.md`, is sufficient context for Claude Code to implement the reader's density logic (§4.5) and the generation endpoint (§8), and to produce the 90-story deliverable of §3.*

@@ -1,20 +1,26 @@
+import { useMemo } from "react";
 import type { Story } from "@weave/shared";
-import { isWoven } from "@weave/shared";
+import { computeRevealedIndices, isWoven } from "@weave/shared";
 
 type Props = {
   story: Story;
-  threshold: number;
+  step: number;
   onSelectWeave: (unitIndex: number) => void;
 };
 
-export function WeaveText({ story, threshold, onSelectWeave }: Props) {
+export function WeaveText({ story, step, onSelectWeave }: Props) {
+  const revealed = useMemo(
+    () => computeRevealedIndices(story, step),
+    [story, step],
+  );
+
   return (
     <p className="text-lg leading-relaxed text-slate-800 dark:text-slate-100">
       {story.units.map((unit, i) => {
         if (unit.t === "text") {
           return <span key={i}>{unit.l1}</span>;
         }
-        if (!isWoven(unit, threshold)) {
+        if (!isWoven(unit, revealed, i)) {
           return <span key={i}>{unit.l1}</span>;
         }
         return (
