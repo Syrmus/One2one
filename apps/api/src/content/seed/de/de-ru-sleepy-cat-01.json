@@ -15,7 +15,7 @@
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "это / быть",
+      "gloss": "быть",
       "ipa": null,
       "weave_priority": 52
     },
@@ -542,7 +542,7 @@
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "кот не спит",
+      "gloss": "спать",
       "ipa": null,
       "weave_priority": 23
     },
@@ -657,7 +657,7 @@
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "быть тихими и счастливыми животными",
+      "gloss": "быть",
       "ipa": null,
       "weave_priority": 52
     },

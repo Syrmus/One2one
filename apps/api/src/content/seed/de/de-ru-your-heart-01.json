@@ -100,7 +100,7 @@
       "gender": "n",
       "article": "dein",
       "case": "acc",
-      "gloss": "своё сердце",
+      "gloss": "сердце",
       "ipa": null,
       "weave_priority": 1
     },
@@ -130,7 +130,7 @@
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "быть маленьким насосом",
+      "gloss": "быть",
       "ipa": null,
       "weave_priority": 52
     },
@@ -334,7 +334,7 @@
       "gender": "n",
       "article": "dein",
       "case": "nom",
-      "gloss": "твоё сердце",
+      "gloss": "сердце",
       "ipa": null,
       "weave_priority": 1
     },
@@ -402,7 +402,7 @@
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "сердце быстрое",
+      "gloss": "биться",
       "ipa": null,
       "weave_priority": 26
     },
@@ -436,7 +436,7 @@
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "оно медленное",
+      "gloss": "биться",
       "ipa": null,
       "weave_priority": 28
     },
@@ -453,7 +453,7 @@
       "gender": "n",
       "article": "ein",
       "case": "nom",
-      "gloss": "счастливое сердце",
+      "gloss": "сердце",
       "ipa": null,
       "weave_priority": 5
     },
@@ -466,7 +466,7 @@
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "быть здоровым сердцем",
+      "gloss": "быть",
       "ipa": null,
       "weave_priority": 52
     },
