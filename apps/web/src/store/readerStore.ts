@@ -22,6 +22,7 @@ type ReaderState = {
   setScroll: (storyId: string, position: number) => void;
   recordEncounter: (lang: string, lemma: string, gloss: string) => void;
   markAdded: (lang: string, lemma: string) => void;
+  unmarkAdded: (lang: string, lemma: string) => void;
 };
 
 function vocabKey(lang: string, lemma: string) {
@@ -69,6 +70,16 @@ export const useReaderStore = create<ReaderState>()(
           if (!existing) return s;
           return {
             vocabulary: { ...s.vocabulary, [key]: { ...existing, added: true } },
+          };
+        });
+      },
+      unmarkAdded: (lang, lemma) => {
+        set((s) => {
+          const key = vocabKey(lang, lemma);
+          const existing = s.vocabulary[key];
+          if (!existing) return s;
+          return {
+            vocabulary: { ...s.vocabulary, [key]: { ...existing, added: false } },
           };
         });
       },

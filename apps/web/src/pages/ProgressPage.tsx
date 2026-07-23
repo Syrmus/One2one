@@ -4,7 +4,14 @@ import { VocabularyIcon } from "../components/nav/icons";
 import { useSession } from "../lib/authClient";
 import { useT } from "../lib/i18n";
 
-function VocabEntryRow({ entry }: { entry: VocabEntry }) {
+function VocabEntryRow({
+  entry,
+  onRemove,
+}: {
+  entry: VocabEntry;
+  onRemove?: () => void;
+}) {
+  const t = useT();
   const info = langInfo(entry.lang);
   return (
     <div className="flex items-center justify-between rounded-2xl border border-cream-100 bg-white px-4 py-3 dark:border-slate-700 dark:bg-slate-800">
@@ -23,6 +30,16 @@ function VocabEntryRow({ entry }: { entry: VocabEntry }) {
           {info.flag} {info.label}
         </span>
         <span className="text-xs text-slate-400">{entry.seenCount}×</span>
+        {onRemove && (
+          <button
+            type="button"
+            onClick={onRemove}
+            aria-label={t.removeFromVocabulary}
+            className="text-lg leading-none text-slate-400 active:text-slate-600 dark:active:text-slate-200"
+          >
+            ×
+          </button>
+        )}
       </div>
     </div>
   );
@@ -33,6 +50,7 @@ export function ProgressPage() {
   const { data: session } = useSession();
   const targetLanguage = session?.user.targetLanguage;
   const vocabulary = useReaderStore((s) => s.vocabulary);
+  const unmarkAdded = useReaderStore((s) => s.unmarkAdded);
   const entries = Object.values(vocabulary)
     .filter((e) => !targetLanguage || e.lang === targetLanguage)
     .sort((a, b) => b.firstSeenAt - a.firstSeenAt);
@@ -60,7 +78,11 @@ export function ProgressPage() {
           </h2>
           <div className="flex flex-col gap-2">
             {addedEntries.map((entry) => (
-              <VocabEntryRow key={`${entry.lang}:${entry.lemma}`} entry={entry} />
+              <VocabEntryRow
+                key={`${entry.lang}:${entry.lemma}`}
+                entry={entry}
+                onRemove={() => unmarkAdded(entry.lang, entry.lemma)}
+              />
             ))}
           </div>
         </div>

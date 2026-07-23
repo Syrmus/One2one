@@ -6,10 +6,18 @@ type Props = {
   seenCount: number;
   added: boolean;
   onAdd: () => void;
+  onRemove: () => void;
   onClose: () => void;
 };
 
-export function WeavePopover({ unit, seenCount, added, onAdd, onClose }: Props) {
+export function WeavePopover({
+  unit,
+  seenCount,
+  added,
+  onAdd,
+  onRemove,
+  onClose,
+}: Props) {
   const t = useT();
 
   return (
@@ -67,11 +75,14 @@ export function WeavePopover({ unit, seenCount, added, onAdd, onClose }: Props) 
 
         <button
           type="button"
-          disabled={added}
-          onClick={onAdd}
-          className="mt-5 w-full rounded-2xl bg-dusk-500 py-3 text-center font-medium text-white active:bg-dusk-600 disabled:bg-sage-500"
+          onClick={added ? onRemove : onAdd}
+          className={
+            added
+              ? "mt-5 w-full rounded-2xl border border-slate-300 bg-transparent py-3 text-center font-medium text-slate-600 active:bg-slate-100 dark:border-slate-600 dark:text-slate-300 dark:active:bg-slate-700"
+              : "mt-5 w-full rounded-2xl bg-dusk-500 py-3 text-center font-medium text-white active:bg-dusk-600"
+          }
         >
-          {added ? t.added : t.addToVocabulary}
+          {added ? t.removeFromVocabulary : t.addToVocabulary}
         </button>
       </div>
     </div>
