@@ -6,6 +6,7 @@ import { SettingsPage } from './pages/SettingsPage'
 import { OnboardingPage } from './pages/OnboardingPage'
 import { AboutPage } from './pages/AboutPage'
 import { AppLayout } from './components/nav/AppLayout'
+import { BottomNav } from './components/nav/BottomNav'
 import { signIn, useSession } from './lib/authClient'
 import { detectLocale, I18nProvider, useT, type Locale } from './lib/i18n'
 import { useLocaleStore } from './store/localeStore'
@@ -83,7 +84,16 @@ function AboutRoute() {
     detectLocale()
   return (
     <I18nProvider locale={locale}>
-      <AboutPage locale={locale} />
+      {session ? (
+        <>
+          <div className="pb-20">
+            <AboutPage locale={locale} />
+          </div>
+          <BottomNav />
+        </>
+      ) : (
+        <AboutPage locale={locale} />
+      )}
     </I18nProvider>
   )
 }
@@ -112,8 +122,8 @@ function MainApp() {
           <Route path="/" element={<LibraryPage />} />
           <Route path="/progress" element={<ProgressPage />} />
           <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/reader/:storyId" element={<ReaderPage />} />
         </Route>
-        <Route path="/reader/:storyId" element={<ReaderPage />} />
       </Routes>
     </I18nProvider>
   )

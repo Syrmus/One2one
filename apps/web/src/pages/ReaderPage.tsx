@@ -74,7 +74,7 @@ export function ReaderPage() {
   const weaveUnit = selectedUnit?.t === "weave" ? selectedUnit : undefined;
 
   return (
-    <div className="mx-auto max-w-md px-4 py-6 pb-44">
+    <div className="mx-auto max-w-md px-4 py-6 pb-32">
       <div className="mb-4 flex items-center justify-between gap-2">
         <Link to="/" className="text-sm text-dusk-600 dark:text-dusk-500">
           {t.backToLibrary}
@@ -97,7 +97,7 @@ export function ReaderPage() {
         }}
       />
 
-      <div className="fixed inset-x-0 bottom-0 mx-auto max-w-md px-4 pb-4">
+      <div className="fixed inset-x-0 bottom-20 mx-auto max-w-md px-4">
         <DensitySlider
           step={step}
           onChange={(newStep) => setDensity(story.id, newStep)}
