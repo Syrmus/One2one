@@ -1,33 +1,33 @@
 import type { Story, StoryUnit, WeaveUnit, Pos } from "./story";
 
-// Content vs. function-word classification drives the two-phase reveal
-// (STORY_GENERATION_SPEC.md §4.1/§4.4): every content unit must have a lower
-// weave_priority than any function unit, so Phase A (content) is guaranteed
-// to finish before Phase B (function words) starts.
+// Content vs. function-word classification. Every content unit has a lower
+// weave_priority than any function unit (STORY_GENERATION_SPEC.md §4.4), so
+// walking all weave units in priority order naturally reveals content words
+// (meaning-bearing) before function words (grammatical glue) — no separate
+// phase/denominator needed to get that ordering.
 const CONTENT_POS = new Set<Pos>(["noun", "verb", "adjective", "adverb"]);
 
 export function isContent(pos: Pos): boolean {
   return CONTENT_POS.has(pos);
 }
 
-export type DensityStep = {
-  phase: "A" | "B";
-  /** Percent of the phase's denominator (content words for A, all words for B). */
-  target: number;
-};
+/** Percent of the story's total word count revealed in L2 at this step. */
+export type DensityStep = { target: number };
 
-// Recommended step list from STORY_GENERATION_SPEC.md §4.2 — the
-// "app-configurable array" the spec calls for. Swap this to try the
-// alternative (§4.3) coarser list without touching the reveal algorithm.
+// A single, evenly-spaced scale over "% of the whole text" — deliberately
+// uniform (unlike the earlier two-denominator content/function-word split,
+// which produced uneven jumps per story, occasionally a dead 0-point step
+// when a story's content words alone already exceeded a later step's
+// target). Content-before-function ordering still holds via weave_priority.
 export const DEFAULT_STEPS: DensityStep[] = [
-  { phase: "A", target: 0 },
-  { phase: "A", target: 25 },
-  { phase: "A", target: 50 },
-  { phase: "A", target: 75 },
-  { phase: "A", target: 100 },
-  { phase: "B", target: 70 },
-  { phase: "B", target: 85 },
-  { phase: "B", target: 100 },
+  { target: 0 },
+  { target: 15 },
+  { target: 30 },
+  { target: 45 },
+  { target: 60 },
+  { target: 75 },
+  { target: 90 },
+  { target: 100 },
 ];
 
 export const MIN_STEP = 0;
@@ -40,13 +40,11 @@ function wordCount(text: string): number {
 type IndexedWeaveUnit = { unit: WeaveUnit; index: number };
 
 /**
- * STORY_GENERATION_SPEC.md §4.5 reveal algorithm: at a given step, decide
- * which weave-unit indices in `story.units` should render as L2 ("revealed").
- * Phase A reveals content units (by weave_priority) until the woven share of
- * content words hits the step's target; Phase B first reveals all content,
- * then function units until the woven share of *all* words hits the target.
- * Multi-word reorder-group units (STORY_GENERATION_SPEC.md §4.6) are
- * revealed atomically — never partially — since we walk unit-by-unit.
+ * Decide which weave-unit indices in `story.units` render as L2 ("revealed")
+ * at a given step: walk every weave unit in ascending weave_priority order,
+ * revealing whole units (never partially — see STORY_GENERATION_SPEC.md
+ * §4.6 reorder groups) until the revealed word count reaches the step's
+ * target share of the story's total word count.
  */
 export function computeRevealedIndices(
   story: Story,
@@ -55,47 +53,21 @@ export function computeRevealedIndices(
   const clamped = Math.max(MIN_STEP, Math.min(MAX_STEP, step));
   const config = DEFAULT_STEPS[clamped] ?? DEFAULT_STEPS[MIN_STEP]!;
 
-  const weaveEntries: IndexedWeaveUnit[] = story.units
-    .map((unit, index) => ({ unit, index }))
-    .filter(
-      (entry): entry is IndexedWeaveUnit => entry.unit.t === "weave",
-    ) as unknown as IndexedWeaveUnit[];
+  const weaveEntries: IndexedWeaveUnit[] = (
+    story.units
+      .map((unit, index) => ({ unit, index }))
+      .filter((entry) => entry.unit.t === "weave") as unknown as IndexedWeaveUnit[]
+  ).sort((a, b) => a.unit.weave_priority - b.unit.weave_priority);
 
-  const content = weaveEntries
-    .filter((e) => isContent(e.unit.pos))
-    .sort((a, b) => a.unit.weave_priority - b.unit.weave_priority);
-  const functionWords = weaveEntries
-    .filter((e) => !isContent(e.unit.pos))
-    .sort((a, b) => a.unit.weave_priority - b.unit.weave_priority);
-
-  const revealed = new Set<number>();
-
-  const contentWordTotal = content.reduce(
+  const wordTotal = weaveEntries.reduce(
     (sum, e) => sum + wordCount(e.unit.l1),
     0,
   );
+  const target = Math.ceil((config.target / 100) * wordTotal);
 
-  if (config.phase === "A") {
-    const target = Math.ceil((config.target / 100) * contentWordTotal);
-    let revealedWords = 0;
-    for (const entry of content) {
-      if (revealedWords >= target) break;
-      revealed.add(entry.index);
-      revealedWords += wordCount(entry.unit.l1);
-    }
-    return revealed;
-  }
-
-  // Phase B: Phase A is complete — all content words are revealed — then
-  // function words are added in priority order against the all-words target.
-  for (const entry of content) revealed.add(entry.index);
-
-  const allWordTotal =
-    contentWordTotal +
-    functionWords.reduce((sum, e) => sum + wordCount(e.unit.l1), 0);
-  const target = Math.ceil((config.target / 100) * allWordTotal);
-  let revealedWords = contentWordTotal;
-  for (const entry of functionWords) {
+  const revealed = new Set<number>();
+  let revealedWords = 0;
+  for (const entry of weaveEntries) {
     if (revealedWords >= target) break;
     revealed.add(entry.index);
     revealedWords += wordCount(entry.unit.l1);

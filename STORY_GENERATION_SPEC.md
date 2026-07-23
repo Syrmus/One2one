@@ -5,7 +5,7 @@
 **What changed from v1:**
 1. Three difficulty levels defined: **A1, A2, B1** (v1 had one, effectively B1).
 2. The old density mechanism (A1-lite / A1 / A2 tiers via a `weave_priority` threshold) is **removed**.
-3. Density is now a **percentage-of-text scale** applied inside every story, with a two-phase counting rule (content words first, then all words).
+3. Density is now a **single, uniform percentage-of-total-words scale** (§4) — content-before-function ordering comes from `weave_priority` banding alone, not from a separate phase/denominator (an initial two-phase design was tried and dropped: it produced uneven, occasionally zero-progress steps).
 4. Text difficulty level and weave density are **two independent axes** (see §2).
 5. Deliverable: **5 texts per level × 3 levels = 15 base texts**, each authored in **Russian + English**, each woven into **German, Dutch, Spanish**.
 
@@ -29,7 +29,7 @@ The single most important concept in v2: **text difficulty and weave density are
 
 - **Axis 1 — Text level (A1 / A2 / B1).** Chosen per story. Because the L1 scaffold is always fully understood by the reader, "level" here does **not** govern comprehensibility of the base text. It governs (a) the **frequency/difficulty band of the L2 words** that get woven and (b) the **conceptual sophistication and length** of the content. An A1 story weaves only the most frequent, concrete L2 words; a B1 story weaves a broader, less frequent set into richer content.
 
-- **Axis 2 — Weave density (the percentage scale, §4).** Applied *within* a chosen story by the reader's difficulty slider. It controls how much of that story is currently shown in L2, from a light start up to 100%. The **same density mechanism applies to every level** — an A1 story and a B1 story both run the full 20%→100% progression; they differ only in *which* words are woven, not in *how far* the slider can go.
+- **Axis 2 — Weave density (the percentage scale, §4).** Applied *within* a chosen story by the reader's difficulty slider. It controls how much of that story is currently shown in L2, from a light start up to 100%. The **same density mechanism applies to every level** — an A1 story and a B1 story both run the full 0%→100% progression; they differ only in *which* words are woven, not in *how far* the slider can go.
 
 Consequence: level is a property of the **stored story**; density is a **runtime view** of it. Do not encode density into the level, or cap density by level.
 
@@ -63,38 +63,38 @@ The current seed stories (`seed_stories.md`) are B1 and **must be reworked** to 
 
 ### 4.1 Principle
 
-Every content word in a story is a weave unit; function words are also weave units but sit in a higher priority band (see §4.4). The reader's slider picks a **density step**. The app reveals weave units **in ascending `weave_priority` order** until the woven share reaches the step's target. Two phases, with **different denominators**, matching the intended pedagogy (meaning-bearing words first, grammatical glue last):
+Every word in a story is a weave unit (content or function — see §4.4 for the split). The reader's slider picks a **density step**: a single target percentage of the **story's total word count**. The app reveals whole weave units **in ascending `weave_priority` order** until the revealed share of the total word count reaches the step's target.
 
-- **Phase A — content words only.** Function words stay in L1. The percentage is measured against the **count of content words** (nouns, verbs, adjectives, adverbs).
-- **Phase B — all words.** Content is already fully woven; function words now begin to appear. The percentage is measured against the **count of all words**.
+This is a single uniform scale — one denominator (total words), not two. Content-before-function ordering (meaning-bearing words first, grammatical glue last) is achieved purely through `weave_priority` banding (§4.4): since every content unit's priority is lower than every function unit's, walking the list in priority order reveals all content long before any function word is reached, with no need for a separate phase or a second percentage base.
+
+An earlier revision of this spec used two phases with different denominators (percent of content words, then percent of all words). That produced uneven, sometimes-zero steps in practice — when a story's content words already exceeded a later step's all-words target, that step revealed nothing at all. The single-scale model in §4.2 doesn't have this failure mode: every step's target is expressed against the same denominator, so steps are monotonic by construction and their size only varies with each story's actual weave-unit word-length distribution (typically ±5 points around the nominal step size, never zero).
 
 ### 4.2 Recommended step list (default)
 
-Chosen for a smooth, monotonic rise in the actual share of visible L2, with no cliff between phases. `≈ all-words` assumes content words are ~55% of tokens (compute per text at build time).
+Evenly spaced against total word count — deliberately uniform, so consecutive steps always add a comparable, predictable amount of visible L2.
 
-| Step | Phase | Denominator | Target | ≈ share of all words | What newly appears |
-|------|-------|-------------|--------|----------------------|--------------------|
-| 1 | A | content words | 25% | ~14% | most frequent concrete nouns |
-| 2 | A | content words | 50% | ~27% | + more nouns, top verbs |
-| 3 | A | content words | 75% | ~41% | + remaining nouns/verbs, adjectives |
-| 4 | A | content words | 100% | ~55% | + adverbs; all content now L2, function words still L1 |
-| 5 | B | all words | 70% | 70% | function words begin (articles, prepositions, pronouns, auxiliaries) |
-| 6 | B | all words | 85% | 85% | + most remaining function words |
-| 7 | B | all words | 100% | 100% | fully L2 |
+| Step | Target (% of all words) | What's happening |
+|------|--------------------------|-------------------|
+| 1 | 0% | original L1 text, nothing woven |
+| 2 | 15% | most frequent concrete nouns |
+| 3 | 30% | + more nouns, top verbs |
+| 4 | 45% | + remaining nouns/verbs, adjectives |
+| 5 | 60% | + adverbs; content words mostly done |
+| 6 | 75% | function words begin (articles, prepositions, pronouns, auxiliaries) |
+| 7 | 90% | + most remaining function words |
+| 8 | 100% | fully L2 |
 
-### 4.3 Alternative step list (user's original)
+**The step list must be an app-configurable array** (`packages/shared/src/density.ts`'s `DEFAULT_STEPS`) — swap in a coarser or finer list without touching the reveal algorithm in §4.5, which only ever reads `{ target }` percentages against the one total-word denominator.
 
-Documented so it can be selected instead. Same two-phase principle, but coarser at the top and with a jump between steps 4 and 5:
+### 4.3 (removed)
 
-Phase A (content words): **20 / 40 / 60 / 70** → Phase B (all words): **80 / 90 / 100**.
+The two-phase alternative step list formerly documented here is obsolete — it depended on the two-denominator model replaced in §4.1. Any step list works under the single-scale model as long as targets are ascending percentages of total words.
 
-Caveat: 70% of content words is only ~38% of all words, and step 5 jumps straight to 80% of all words (~+42 points) — a large single leap. The recommended list in §4.2 avoids this. **The step list must be an app-configurable array**, so either can be chosen (or a smooth slider used with these as presets); do not hard-code the numbers.
+### 4.4 Priority ordering
 
-### 4.4 Priority ordering (what makes the phases work)
+`weave_priority` is a positive integer, ascending = revealed earlier, on a scale **global across the whole library** so the slider means the same thing everywhere. One hard rule:
 
-`weave_priority` is a positive integer, ascending = revealed earlier, on a scale **global across the whole library** so the slider means the same thing everywhere. Two hard rules:
-
-- **All content-word units must have lower priority than any function-word unit.** This guarantees Phase A (content) is exhausted before any function word appears in Phase B.
+- **Every content-word unit must have a lower priority than every function-word unit.** This is what guarantees content is fully revealed before any function word appears, even though both now share one percentage scale (§4.1) — the ordering comes from priority, not from a phase boundary.
 - Within content, order by part of speech then frequency: concrete nouns (lowest) → high-frequency verbs → adjectives → adverbs. Within function words, order by frequency.
 
 Suggested bands: content words `1–49`, function words `50+`. Exact numbers are free as long as the content/function split holds.
@@ -103,25 +103,19 @@ Suggested bands: content words `1–49`, function words `50+`. Exact numbers are
 
 ```
 render(story, step):
-    cw = [u for weave units u if is_content(u)]      # ordered by weave_priority
-    fw = [u for weave units u if not is_content(u)]   # ordered by weave_priority
-    if step in PHASE_A:
-        target = ceil(step.percent * count_words(cw))
-        reveal content units in priority order until woven content words >= target
-        # function words stay L1
-    else: # PHASE_B
-        reveal ALL content units (Phase A complete)
-        target = ceil(step.percent * count_words(all weave units))
-        already = count_words(cw)
-        reveal function units in priority order until total woven words >= target
+    units = [u for weave units u]                    # ordered by weave_priority (content-before-function
+                                                       # falls out of the priority bands in §4.4, not from
+                                                       # any special-casing here)
+    target = ceil(step.percent * count_words(units))
+    reveal units in priority order until woven words >= target
     unrevealed units render their l1; revealed units render their l2
 ```
 
-`is_content(u)` = `u.pos in {noun, verb, adjective, adverb}` and `u.pos` is not an auxiliary/modal marked as function. Counting is **by words**: a multi-word lexical unit (e.g. `der Hund`) counts its words toward both numerator and denominator, and is revealed atomically (all-or-nothing), so partial reveals never split an article from its noun.
+`is_content(u)` = `u.pos in {noun, verb, adjective, adverb}` and `u.pos` is not an auxiliary/modal marked as function — used only for §4.4's priority banding, not for the reveal math itself. Counting is **by words**: a multi-word lexical unit (e.g. `der Hund`) counts its words toward the denominator and is revealed atomically (all-or-nothing), so partial reveals never split an article from its noun.
 
 ### 4.6 Reorder groups — how fluent 100% is actually achieved
 
-Toggling single L2 words into an L1 sentence in place works only as long as L1 and L2 share the same local word order. They often don't: German pushes the finite verb to position two in main clauses and to the very end in subordinate clauses; adverbs, separable prefixes, and adjective/noun order shift between languages; some slots need an article in L2 that L1 has no word for at all. A naive one-word-at-a-time toggle at high density produces L2 vocabulary in L1 order — readable as a gloss, not fluent L2. Rather than adding a second rendering mode for "high density," the fix is to **make the atomic weave unit bigger exactly where reordering is needed**, using the multi-word-unit mechanism already defined in §4.5/§5.1 — this keeps one single mechanism across the entire 20%→100% range.
+Toggling single L2 words into an L1 sentence in place works only as long as L1 and L2 share the same local word order. They often don't: German pushes the finite verb to position two in main clauses and to the very end in subordinate clauses; adverbs, separable prefixes, and adjective/noun order shift between languages; some slots need an article in L2 that L1 has no word for at all. A naive one-word-at-a-time toggle at high density produces L2 vocabulary in L1 order — readable as a gloss, not fluent L2. Rather than adding a second rendering mode for "high density," the fix is to **make the atomic weave unit bigger exactly where reordering is needed**, using the multi-word-unit mechanism already defined in §4.5/§5.1 — this keeps one single mechanism across the entire 0%→100% range.
 
 **Rule.** A weave unit's `l1` must still be an exact contiguous span of the L1 text (so concatenation stays valid — see §5.1), but its `l2` is free to reorder words *within that span* however L2 grammar requires. This is the same principle already used for `nach Hause` or `der Hund`; §4.6 just applies it deliberately to fix word order, not only to fix fixed phrases or determiners.
 
@@ -182,7 +176,7 @@ Joining every unit's `l1` in order must reproduce the exact L1 text (whitespace 
 
 ### 5.2 Full-coverage requirement (new in v2)
 
-To support density up to 100%, **every word of the sentence must belong to a weave unit** (only punctuation/spacing may remain permanent `text`). In effect the model produces a complete, grammatically correct L2 translation of the story, aligned to the L1 lexical-unit by lexical-unit, then assigns each unit a priority. **Fluency at 100% density is achieved through reorder groups (§4.6), not through a separate rendering mode** — the same unit-by-unit reveal mechanism runs across the whole 20%→100% range; units simply widen to a phrase or a whole subordinate clause exactly where L2 word order demands it. At 100% density the concatenated `l2` values must read as fluent, correct L2 prose — this is a full translation, not isolated word swaps.
+To support density up to 100%, **every word of the sentence must belong to a weave unit** (only punctuation/spacing may remain permanent `text`). In effect the model produces a complete, grammatically correct L2 translation of the story, aligned to the L1 lexical-unit by lexical-unit, then assigns each unit a priority. **Fluency at 100% density is achieved through reorder groups (§4.6), not through a separate rendering mode** — the same unit-by-unit reveal mechanism runs across the whole 0%→100% range; units simply widen to a phrase or a whole subordinate clause exactly where L2 word order demands it. At 100% density the concatenated `l2` values must read as fluent, correct L2 prose — this is a full translation, not isolated word swaps.
 
 ---
 
