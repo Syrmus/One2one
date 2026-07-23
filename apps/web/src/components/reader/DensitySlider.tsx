@@ -6,34 +6,6 @@ type Props = {
   onChange: (step: number) => void;
 };
 
-function ChevronLeftIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
-      <path
-        d="M15 6l-6 6 6 6"
-        stroke="currentColor"
-        strokeWidth={2}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function ChevronRightIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
-      <path
-        d="M9 6l6 6-6 6"
-        stroke="currentColor"
-        strokeWidth={2}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 export function DensitySlider({ step, onChange }: Props) {
   const t = useT();
   // Defends against stale localStorage values from before the v2 density
@@ -56,35 +28,19 @@ export function DensitySlider({ step, onChange }: Props) {
           {t.density}
         </span>
         <span className="rounded-full bg-cream-100 px-2 py-0.5 text-xs font-medium text-stone-600 dark:bg-slate-700 dark:text-slate-300">
-          {t.densityStepOf(clampedStep + 1, DEFAULT_STEPS.length)}
-        </span>
-      </div>
-
-      <div className="mt-3 flex items-center justify-between gap-4">
-        <button
-          type="button"
-          aria-label="previous"
-          disabled={clampedStep <= MIN_STEP}
-          onClick={() => onChange(clampedStep - 1)}
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-cream-100 text-stone-600 transition disabled:opacity-30 dark:bg-slate-700 dark:text-slate-300"
-        >
-          <ChevronLeftIcon />
-        </button>
-
-        <span className="flex-1 text-center text-sm font-medium text-stone-700 dark:text-slate-200">
           {label}
         </span>
-
-        <button
-          type="button"
-          aria-label="next"
-          disabled={clampedStep >= MAX_STEP}
-          onClick={() => onChange(clampedStep + 1)}
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-cream-100 text-stone-600 transition disabled:opacity-30 dark:bg-slate-700 dark:text-slate-300"
-        >
-          <ChevronRightIcon />
-        </button>
       </div>
+
+      <input
+        type="range"
+        className="range-paw mt-3 w-full"
+        min={MIN_STEP}
+        max={MAX_STEP}
+        step={1}
+        value={clampedStep}
+        onChange={(e) => onChange(Number(e.target.value))}
+      />
     </div>
   );
 }
