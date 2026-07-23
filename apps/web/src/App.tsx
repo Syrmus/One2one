@@ -5,6 +5,7 @@ import { ProgressPage } from './pages/ProgressPage'
 import { SettingsPage } from './pages/SettingsPage'
 import { OnboardingPage } from './pages/OnboardingPage'
 import { AboutPage } from './pages/AboutPage'
+import { QuizPage } from './pages/QuizPage'
 import { AppLayout } from './components/nav/AppLayout'
 import { BottomNav } from './components/nav/BottomNav'
 import { signIn, useSession } from './lib/authClient'
@@ -123,6 +124,8 @@ function MainApp() {
           <Route path="/progress" element={<ProgressPage />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="/reader/:storyId" element={<ReaderPage />} />
+          <Route path="/quiz/story/:storyId" element={<QuizPage mode="story" />} />
+          <Route path="/quiz/vocab" element={<QuizPage mode="vocab" />} />
         </Route>
       </Routes>
     </I18nProvider>

@@ -1,11 +1,14 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import type { Pos } from "@weave/shared";
 import { postSeen } from "../lib/api";
 
 export type VocabEntry = {
   lemma: string;
   lang: string;
   gloss: string;
+  // Absent for entries recorded before this field was introduced.
+  pos?: Pos;
   firstSeenAt: number;
   seenCount: number;
   // Set only when the user explicitly taps "Add to my vocabulary" in the
@@ -20,7 +23,12 @@ type ReaderState = {
   vocabulary: Record<string, VocabEntry>;
   setDensity: (storyId: string, step: number) => void;
   setScroll: (storyId: string, position: number) => void;
-  recordEncounter: (lang: string, lemma: string, gloss: string) => void;
+  recordEncounter: (
+    lang: string,
+    lemma: string,
+    gloss: string,
+    pos?: Pos,
+  ) => void;
   markAdded: (lang: string, lemma: string) => void;
   unmarkAdded: (lang: string, lemma: string) => void;
 };
@@ -43,16 +51,17 @@ export const useReaderStore = create<ReaderState>()(
         set((s) => ({
           scrollByStory: { ...s.scrollByStory, [storyId]: position },
         })),
-      recordEncounter: (lang, lemma, gloss) => {
+      recordEncounter: (lang, lemma, gloss, pos) => {
         set((s) => {
           const key = vocabKey(lang, lemma);
           const existing = s.vocabulary[key];
           const entry: VocabEntry = existing
-            ? { ...existing, seenCount: existing.seenCount + 1 }
+            ? { ...existing, seenCount: existing.seenCount + 1, pos: pos ?? existing.pos }
             : {
                 lemma,
                 lang,
                 gloss,
+                pos,
                 firstSeenAt: Date.now(),
                 seenCount: 1,
                 added: false,

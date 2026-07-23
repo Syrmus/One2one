@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { MIN_STEP, type Story } from "@weave/shared";
 import { getStory } from "../lib/api";
@@ -6,6 +6,7 @@ import { useReaderStore } from "../store/readerStore";
 import { WeaveText } from "../components/reader/WeaveText";
 import { WeavePopover } from "../components/reader/WeavePopover";
 import { DensitySlider } from "../components/reader/DensitySlider";
+import { buildStoryQuizPairs } from "../lib/quiz";
 import { useT } from "../lib/i18n";
 
 export function ReaderPage() {
@@ -33,6 +34,11 @@ export function ReaderPage() {
   const restoredRef = useRef(false);
 
   const step = story ? (densityByStory[story.id] ?? MIN_STEP) : MIN_STEP;
+
+  const canQuiz = useMemo(
+    () => (story ? buildStoryQuizPairs(story).length >= 5 : false),
+    [story],
+  );
 
   useEffect(() => {
     if (!story || restoredRef.current) return;
@@ -82,7 +88,16 @@ export function ReaderPage() {
         <h1 className="truncate text-base font-semibold text-slate-900 dark:text-slate-100">
           {story.title}
         </h1>
-        <span className="w-12 shrink-0" />
+        {canQuiz ? (
+          <Link
+            to={`/quiz/story/${story.id}`}
+            className="w-12 shrink-0 text-right text-sm text-dusk-600 dark:text-dusk-500"
+          >
+            {t.quizShort}
+          </Link>
+        ) : (
+          <span className="w-12 shrink-0" />
+        )}
       </div>
 
       <WeaveText
@@ -92,7 +107,7 @@ export function ReaderPage() {
           setSelectedIndex(index);
           const unit = story.units[index];
           if (unit?.t === "weave") {
-            recordEncounter(story.l2, unit.lemma, unit.gloss);
+            recordEncounter(story.l2, unit.lemma, unit.gloss, unit.pos);
           }
         }}
       />

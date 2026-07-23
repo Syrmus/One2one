@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { isContent } from "@weave/shared";
 import { useReaderStore, type VocabEntry } from "../store/readerStore";
 import { langInfo } from "../lib/languages";
 import { VocabularyIcon } from "../components/nav/icons";
@@ -55,6 +57,9 @@ export function ProgressPage() {
     .filter((e) => !targetLanguage || e.lang === targetLanguage)
     .sort((a, b) => b.firstSeenAt - a.firstSeenAt);
   const addedEntries = entries.filter((e) => e.added);
+  const quizEligibleCount = addedEntries.filter(
+    (e) => !e.pos || isContent(e.pos),
+  ).length;
 
   return (
     <div className="mx-auto max-w-md px-4 py-6">
@@ -73,9 +78,19 @@ export function ProgressPage() {
 
       {addedEntries.length > 0 && (
         <div className="mb-6">
-          <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-500 dark:text-slate-400">
-            {t.addedWords}
-          </h2>
+          <div className="mb-2 flex items-center justify-between">
+            <h2 className="text-xs font-semibold uppercase tracking-wide text-stone-500 dark:text-slate-400">
+              {t.addedWords}
+            </h2>
+            {quizEligibleCount >= 5 && (
+              <Link
+                to="/quiz/vocab"
+                className="text-xs font-medium text-dusk-600 dark:text-dusk-500"
+              >
+                {t.startQuiz}
+              </Link>
+            )}
+          </div>
           <div className="flex flex-col gap-2">
             {addedEntries.map((entry) => (
               <VocabEntryRow

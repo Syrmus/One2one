@@ -47,6 +47,12 @@ const dict = {
     densityFull: "Fully translated",
     densityPercent: (n: number) => `${n}% of words`,
     densityStepOf: (step: number, total: number) => `${step}/${total}`,
+    quizShort: "Test",
+    startQuiz: "Test yourself",
+    quizNotEnoughWords: "Not enough words yet for a quiz.",
+    quizFinished: "Done!",
+    quizNoMistakes: "No mistakes — well done!",
+    quizMistakes: (n: number) => `${n} mistake${n === 1 ? "" : "s"}`,
   },
   ru: {
     appName: "Weave",
@@ -92,6 +98,12 @@ const dict = {
     densityFull: "Полностью переведено",
     densityPercent: (n: number) => `${n}% слов`,
     densityStepOf: (step: number, total: number) => `${step}/${total}`,
+    quizShort: "Тест",
+    startQuiz: "Пройти тест",
+    quizNotEnoughWords: "Пока недостаточно слов для теста.",
+    quizFinished: "Готово!",
+    quizNoMistakes: "Без ошибок — отлично!",
+    quizMistakes: (n: number) => `Ошибок: ${n}`,
   },
 } satisfies Record<Locale, Record<string, unknown>>;
 
