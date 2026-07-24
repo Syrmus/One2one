@@ -10,7 +10,7 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'cat-mascot.png'],
+      includeAssets: ['favicon.ico', 'favicon.png', 'cat-mascot.png'],
       manifest: {
         name: 'Weave: Diglot Reader',
         short_name: 'Weave',
