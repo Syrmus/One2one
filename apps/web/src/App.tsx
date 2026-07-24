@@ -89,7 +89,7 @@ function AboutRoute() {
     <I18nProvider locale={locale}>
       {session ? (
         <>
-          <div className="pb-20">
+          <div className="pb-[calc(5rem+env(safe-area-inset-bottom))]">
             <AboutPage locale={locale} />
           </div>
           <BottomNav />
@@ -141,7 +141,7 @@ function MainApp() {
 
 function App() {
   return (
-    <div className="min-h-svh bg-cream-50 dark:bg-slate-900">
+    <div className="min-h-svh bg-cream-50 pt-[env(safe-area-inset-top)] dark:bg-slate-900">
       <BrowserRouter>
         <Routes>
           <Route path="/about" element={<AboutRoute />} />

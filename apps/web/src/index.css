@@ -28,10 +28,24 @@
   color-scheme: light dark;
 }
 
+html,
 body {
   margin: 0;
+  /* Guaranteed base layer under the whole app — the app shell's own
+     min-h-svh background can fall a few pixels short of the real visual
+     viewport on mobile Safari (dynamic toolbar / overscroll bounce),
+     letting the browser's default white peek through at the top or
+     bottom edge otherwise. */
+  background-color: var(--color-cream-50);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    background-color: #0f172a;
+  }
 }
 
 #root {
