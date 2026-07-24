@@ -131,7 +131,7 @@ export function SettingsPage() {
             onClick={() => setFontScale(FONT_SCALES[fontScaleIndex - 1]!)}
             className="flex h-11 w-11 items-center justify-center rounded-full bg-cream-100 text-base font-semibold text-stone-600 transition disabled:opacity-30 dark:bg-slate-700 dark:text-slate-300"
           >
-            A
+            A<span className="align-super text-xs">-</span>
           </button>
           <button
             type="button"
