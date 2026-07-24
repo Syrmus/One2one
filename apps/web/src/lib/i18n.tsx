@@ -63,6 +63,8 @@ const dict = {
     fontSizeNormal: "Normal",
     fontSizeLarge: "Larger",
     fontSizeXLarge: "Largest",
+    fontSizeSmaller: "Smaller text",
+    fontSizeBigger: "Bigger text",
   },
   ru: {
     appName: "Weave",
@@ -124,6 +126,8 @@ const dict = {
     fontSizeNormal: "Обычный",
     fontSizeLarge: "Крупнее",
     fontSizeXLarge: "Ещё крупнее",
+    fontSizeSmaller: "Уменьшить текст",
+    fontSizeBigger: "Увеличить текст",
   },
 } satisfies Record<Locale, Record<string, unknown>>;
 

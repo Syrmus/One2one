@@ -7,11 +7,7 @@ import { langInfo, NATIVE_LANGUAGES } from "../lib/languages";
 import { useFontSizeStore, type FontScale } from "../store/fontSizeStore";
 import { useT, type Locale } from "../lib/i18n";
 
-const FONT_SCALES: { scale: FontScale; px: number }[] = [
-  { scale: "normal", px: 15 },
-  { scale: "large", px: 19 },
-  { scale: "xlarge", px: 23 },
-];
+const FONT_SCALES: FontScale[] = ["normal", "large", "xlarge"];
 
 type Picker = "native" | "target" | null;
 
@@ -29,6 +25,7 @@ export function SettingsPage() {
     large: t.fontSizeLarge,
     xlarge: t.fontSizeXLarge,
   };
+  const fontScaleIndex = FONT_SCALES.indexOf(fontScale);
 
   useEffect(() => {
     getLanguages()
@@ -118,26 +115,33 @@ export function SettingsPage() {
       </div>
 
       <div className="mb-6 rounded-2xl border border-cream-100 bg-cream-100/60 p-4 dark:border-slate-700 dark:bg-slate-800">
-        <p className="mb-3 text-sm font-semibold text-stone-600 dark:text-slate-300">
-          {t.fontSize}
-        </p>
-        <div className="flex items-end justify-around">
-          {FONT_SCALES.map(({ scale, px }) => (
-            <button
-              key={scale}
-              type="button"
-              onClick={() => setFontScale(scale)}
-              aria-label={fontScaleLabel[scale]}
-              className={`flex h-14 w-14 items-end justify-center rounded-full pb-2 font-semibold transition ${
-                fontScale === scale
-                  ? "bg-sage-500 text-white"
-                  : "text-stone-400 active:bg-cream-100 dark:text-slate-500 dark:active:bg-slate-700"
-              }`}
-              style={{ fontSize: `${px}px` }}
-            >
-              A
-            </button>
-          ))}
+        <div className="flex items-center justify-between">
+          <p className="text-sm font-semibold text-stone-600 dark:text-slate-300">
+            {t.fontSize}
+          </p>
+          <p className="text-sm text-stone-500 dark:text-slate-400">
+            {fontScaleLabel[fontScale]}
+          </p>
+        </div>
+        <div className="mt-3 flex items-center justify-center gap-4">
+          <button
+            type="button"
+            aria-label={t.fontSizeSmaller}
+            disabled={fontScaleIndex <= 0}
+            onClick={() => setFontScale(FONT_SCALES[fontScaleIndex - 1]!)}
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-cream-100 text-base font-semibold text-stone-600 transition disabled:opacity-30 dark:bg-slate-700 dark:text-slate-300"
+          >
+            A
+          </button>
+          <button
+            type="button"
+            aria-label={t.fontSizeBigger}
+            disabled={fontScaleIndex >= FONT_SCALES.length - 1}
+            onClick={() => setFontScale(FONT_SCALES[fontScaleIndex + 1]!)}
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-cream-100 text-xl font-semibold text-stone-600 transition disabled:opacity-30 dark:bg-slate-700 dark:text-slate-300"
+          >
+            A<span className="align-super text-xs">+</span>
+          </button>
         </div>
       </div>
 
