@@ -17,7 +17,8 @@
       "case": "nom",
       "gloss": "Анна",
       "ipa": null,
-      "weave_priority": 1
+      "weave_priority": 1,
+      "proper_noun": true
     },
     {
       "t": "text",
@@ -102,7 +103,8 @@
       "case": "dat",
       "gloss": "Берлин",
       "ipa": null,
-      "weave_priority": 3
+      "weave_priority": 3,
+      "proper_noun": true
     },
     {
       "t": "text",
@@ -127,8 +129,8 @@
     },
     {
       "t": "weave",
-      "l1": "она встаёт",
-      "l2": "steht sie",
+      "l1": "она встаёт в семь часов",
+      "l2": "steht sie um sieben Uhr auf",
       "lemma": "aufstehen",
       "pos": "verb",
       "gender": null,
@@ -137,23 +139,6 @@
       "gloss": "вставать",
       "ipa": null,
       "weave_priority": 21
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "в семь часов",
-      "l2": "um sieben Uhr auf",
-      "lemma": "sieben Uhr",
-      "pos": "verb",
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "семь часов",
-      "ipa": null,
-      "weave_priority": 22
     },
     {
       "t": "text",
@@ -280,8 +265,8 @@
     },
     {
       "t": "weave",
-      "l1": "она готовит",
-      "l2": "bereitet sie",
+      "l1": "она готовит простой завтрак",
+      "l2": "bereitet sie ein einfaches Frühstück zu",
       "lemma": "zubereiten",
       "pos": "verb",
       "gender": null,
@@ -290,23 +275,6 @@
       "gloss": "готовить",
       "ipa": null,
       "weave_priority": 25
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "простой завтрак",
-      "l2": "ein einfaches Frühstück zu",
-      "lemma": "Frühstück",
-      "pos": "noun",
-      "gender": "n",
-      "article": "ein",
-      "case": "acc",
-      "gloss": "завтрак",
-      "ipa": null,
-      "weave_priority": 7
     },
     {
       "t": "text",
