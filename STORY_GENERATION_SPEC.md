@@ -235,12 +235,15 @@ Hard rules:
 1. Produce a COMPLETE, grammatically correct {l2} translation aligned to the {l1} text: every word of every sentence must be a weave unit (only punctuation stays as plain text), so the reader can reach 100% {l2}.
 2. Weave whole lexical units with correct {l2} morphology (article, case, gender/number agreement). Any article tied to a noun goes INSIDE the weave unit on both l1 and l2 sides, never in an adjacent text unit. Where {l2} word order differs from {l1} within a span (e.g. verb position, adverb placement, adjective-noun order) or {l2} needs a word {l1} doesn't have (e.g. a missing article), group the affected words into ONE weave unit and reorder/extend only inside l2 — l1 must still match the source text exactly. For subordinate clauses where {l2} moves the verb to the end, it is acceptable to make the whole clause one larger unit rather than forcing per-word units that would be ungrammatical.
 3. weave_priority (global ascending scale): ALL content words (noun/verb/adjective/adverb) must have LOWER priority than ANY function word (article/preposition/pronoun/conjunction/auxiliary/numeral/particle). Within content: concrete nouns lowest, then frequent verbs, then adjectives, then adverbs. Within function: by frequency. Suggested bands: content 1-49, function 50+.
-4. Keep the same lemma and gloss for every occurrence of a word. gloss is the {l1} translation of the lemma.
+4. Keep the same lemma and gloss for every occurrence of a word. gloss is the {l1} translation of the lemma ONLY — never the whole l1/l2 span a reorder-group unit happens to cover (subject pronouns, neighboring adjectives/prepositions must NOT leak into gloss just because they're bundled into l1/l2 for grammar). See §10.1.
 5. Whitespace lives inside unit strings so concatenating all l1 reproduces the source exactly.
-6. {language-specific note from §6.1 for {l2}}
+6. Proper nouns (people/places/brands) get "proper_noun": true in addition to pos: "noun". See §10.4.
+7. {language-specific note from §6.1 for {l2}}
 
 {If weaving existing text: "Do not invent, remove, or reorder content. Only split into units and add the aligned l2. Source: {l1_text}"}
 ```
+
+Before returning output, check it against §10 (common mistakes) and §7 (validation contract) — in particular: group units by lemma and confirm every group has exactly one gloss (§10.2), and count l1 words against the §3 range for the requested level (§10.5).
 
 ---
 
@@ -270,10 +273,10 @@ A1, base EN, target DE, two fragments chosen to show **why reorder groups matter
 ```jsonc
 { "t": "weave", "l1": "the cat is", "l2": "ist die Katze", "lemma": "sein",
   "pos": "auxiliary", "gender": null, "article": null, "case": null,
-  "gloss": "is / cat", "ipa": null, "weave_priority": 52 }
+  "gloss": "is", "ipa": null, "weave_priority": 52 }
 ```
 
-Tagging it `auxiliary` (matching how the copula is classified everywhere else in this story) keeps it in the function priority band per §4.4, even though its `l1` span contains a noun. The trade-off: this particular occurrence of "cat" isn't separately gated by the slider, but the lemma is already introduced through its other occurrences elsewhere in the story, so nothing is lost — only reshuffled.
+Tagging it `auxiliary` (matching how the copula is classified everywhere else in this story) keeps it in the function priority band per §4.4, even though its `l1` span contains a noun. The trade-off: this particular occurrence of "cat" isn't separately gated by the slider, but the lemma is already introduced through its other occurrences elsewhere in the story, so nothing is lost — only reshuffled. **`gloss` stays "is" — not "is / cat".** The unit's `lemma` is `sein`; "cat" isn't a second lemma this unit introduces, it's along for the ride because the grammar required bundling. See §10.1 for why this distinction matters.
 
 **A simple case for contrast — no reordering needed.** "The dog runs home":
 
@@ -288,6 +291,48 @@ Tagging it `auxiliary` (matching how the copula is classified everywhere else in
 ```
 
 Here word order already matches between EN and DE, so each word stays its own unit — fine-grained partial reveal is preserved. The lesson: **default to word-level units; widen to a reorder group only where a narrower unit would be ungrammatical.**
+
+---
+
+## 10. Common mistakes found in practice (read before generating)
+
+Every one of these was found by validating real generated stories — not hypothetical. They account for the large majority of post-generation fixes needed so far. Check for all five before returning output.
+
+### 10.1 Gloss scope creep — by far the most common bug
+
+`gloss` translates **the lemma only**, never the whole `l1`/`l2` span a unit happens to cover. When a unit is widened into a reorder group (§4.6) for grammar reasons, the extra words that ride along **do not** get folded into `gloss` unless they have no lemma identity of their own anywhere else in the story.
+
+```jsonc
+// WRONG — gloss is the whole clause, not the lemma "aufstehen"
+{ "lemma": "aufstehen", "gloss": "она встаёт в семь часов", "l1": "она встаёт в семь часов" }
+
+// RIGHT — gloss translates only the lemma; the full clause still renders correctly in l1/l2
+{ "lemma": "aufstehen", "gloss": "вставать", "l1": "она встаёт в семь часов" }
+```
+
+Concrete real cases this produced: a verb's gloss swallowing its subject pronoun (`gehen` → "Анна идёт" instead of "идти"), a noun's gloss swallowing a neighboring adjective (`Insel` → "маленький остров" instead of "остров") or a preposition (`Arbeit` → "на работу" instead of "работа"), and a name swallowing an entire sentence (`sein` → "они никогда не одиноки" instead of "быть").
+
+**The only exception:** a unit whose `lemma` is itself a genuine multi-word compound (a fixed phrase, separable-verb-plus-particle, or two words locally reordered together, e.g. `lemma: "essen"` for a bundled "also eats"/"isst auch") may have a gloss covering that same compound scope — because the compound *is* the lemma. Test: **would this word ever get its own separate weave unit elsewhere in the story?** If yes (a subject noun, an adjective that's clearly its own vocabulary item), it must NOT be folded into this unit's gloss even if it's folded into `l1`/`l2` for grammar. If no (a particle/adverb with no independent existence, like "auch" in "isst auch"), a compact `"word / word"` gloss is fine.
+
+### 10.2 Lemma/gloss must be identical at every occurrence
+
+If `Jahr` appears three times in a story, all three units need the exact same `gloss` string. Scan your own output for this before returning it: group weave units by `lemma`, and if any group has more than one distinct `gloss`, that's a bug — pick one (the shortest, most dictionary-like one) and make every occurrence match.
+
+### 10.3 German separable verbs: keep the prefix with its verb, not with a neighbor
+
+`aufstehen`, `zubereiten`, `ankommen` etc. split in main clauses: `steht sie ... auf`. **Do not** put the fronted part (`steht sie`) in one unit and the stranded prefix (`auf`) in a *different* unit that also happens to contain unrelated content (like a time phrase). At partial density the two units can reveal out of sync, and the stranded prefix renders with nothing to attach to — e.g. `"она готовит ein einfaches Frühstück zu"`, with `zu` dangling.
+
+Two acceptable fixes, in order of preference:
+1. **Merge the whole construction into one atomic unit** — `l1: "она готовит простой завтрак"`, `l2: "bereitet sie ein einfaches Frühstück zu"`, one `lemma`/`gloss` for the verb. Simplest and always safe.
+2. If keeping it split for finer-grained partial reveal genuinely matters, give the prefix-carrying unit its own honest `lemma`/`gloss` for whatever *else* it introduces (e.g. the time phrase), and make sure both units share close `weave_priority` values so they reveal together in practice — but prefer option 1 unless you have a specific reason not to.
+
+### 10.4 Proper nouns
+
+Person names, place names, brand names (`Anna`, `Berlin`) get `pos: "noun"` as usual (they're still woven and revealed on the normal content-word schedule) **plus** `"proper_noun": true` (§5). Do not gloss them as if they were vocabulary — the app already skips them for quizzes and blocks adding them to the reader's word list, but only if this flag is set.
+
+### 10.5 Length is enforced strictly
+
+Hit the §3 word-count range for the requested level (A1: 60–90, A2: 100–130, B1: 130–160), counting `l1` words only. Stories under range have shipped before (91/89/70-word "A2" stories were generated against a 100–130 target) — treat the range as a hard constraint, not a rough target, and count before returning output.
 
 ---
 
