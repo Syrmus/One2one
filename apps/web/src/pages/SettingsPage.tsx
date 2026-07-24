@@ -7,7 +7,11 @@ import { langInfo, NATIVE_LANGUAGES } from "../lib/languages";
 import { useFontSizeStore, type FontScale } from "../store/fontSizeStore";
 import { useT, type Locale } from "../lib/i18n";
 
-const FONT_SCALES: FontScale[] = ["normal", "large", "xlarge"];
+const FONT_SCALES: { scale: FontScale; px: number }[] = [
+  { scale: "normal", px: 15 },
+  { scale: "large", px: 19 },
+  { scale: "xlarge", px: 23 },
+];
 
 type Picker = "native" | "target" | null;
 
@@ -117,23 +121,21 @@ export function SettingsPage() {
         <p className="mb-3 text-sm font-semibold text-stone-600 dark:text-slate-300">
           {t.fontSize}
         </p>
-        <div className="flex gap-2">
-          {FONT_SCALES.map((scale) => (
+        <div className="flex items-end justify-around">
+          {FONT_SCALES.map(({ scale, px }) => (
             <button
               key={scale}
               type="button"
               onClick={() => setFontScale(scale)}
-              className={`flex-1 rounded-2xl border-2 py-2 text-sm font-medium ${
+              aria-label={fontScaleLabel[scale]}
+              className={`flex h-14 w-14 items-end justify-center rounded-full pb-2 font-semibold transition ${
                 fontScale === scale
-                  ? "border-sage-500 text-slate-900 dark:text-slate-100"
-                  : "border-cream-100 text-stone-500 dark:border-slate-700 dark:text-slate-400"
+                  ? "bg-sage-500 text-white"
+                  : "text-stone-400 active:bg-cream-100 dark:text-slate-500 dark:active:bg-slate-700"
               }`}
-              style={{
-                fontSize:
-                  scale === "large" ? "1.0625rem" : scale === "xlarge" ? "1.125rem" : undefined,
-              }}
+              style={{ fontSize: `${px}px` }}
             >
-              {fontScaleLabel[scale]}
+              A
             </button>
           ))}
         </div>
