@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { Story } from "@weave/shared";
 import { getStories } from "../lib/api";
 import { StoryCard } from "../components/library/StoryCard";
+import { DailyGoalCard } from "../components/library/DailyGoalCard";
 import { WeeklySummary } from "../components/library/WeeklySummary";
 import { LibraryIcon } from "../components/nav/icons";
 import { useSession } from "../lib/authClient";
@@ -40,6 +41,7 @@ export function LibraryPage() {
         </div>
       </div>
 
+      <DailyGoalCard targetLanguage={targetLanguage} />
       <WeeklySummary targetLanguage={targetLanguage} />
 
       {error && <p className="text-sm text-red-500">{error}</p>}

@@ -22,6 +22,13 @@
       "when": 1784838494089,
       "tag": "0002_quiet_silver_fox",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1784926922429,
+      "tag": "0003_curvy_romulus",
+      "breakpoints": true
     }
   ]
 }

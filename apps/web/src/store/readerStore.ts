@@ -5,6 +5,7 @@ import {
   postSeen,
   postAdded,
   postReadingProgress,
+  postStoryCompleted,
   getProgress,
   getReadingProgress,
 } from "../lib/api";
@@ -30,6 +31,12 @@ export type VocabEntry = {
 type ReaderState = {
   densityByStory: Record<string, number>;
   scrollByStory: Record<string, number>;
+  // storyId -> timestamp of the most recent "reached the end at density >= 1" event.
+  reachedEndByStory: Record<string, number>;
+  // storyId -> highest densityStep at which the story has ever been read to the end.
+  maxCompletedStepByStory: Record<string, number>;
+  // storyId -> furthest reading position reached, as a % of the story.
+  maxReadPercentByStory: Record<string, number>;
   vocabulary: Record<string, VocabEntry>;
   hydrated: boolean;
   // Highest vocabulary-size milestone already celebrated, per language —
@@ -39,6 +46,12 @@ type ReaderState = {
   milestoneToast: { lang: string; count: number } | null;
   setDensity: (storyId: string, step: number) => void;
   setScroll: (storyId: string, position: number) => void;
+  setReadPercent: (storyId: string, percent: number) => void;
+  // Records reaching the end of a story. No-op (returns false) below step 1 —
+  // finishing at 0% density is just reading plain L1, not a language milestone.
+  // Returns true when this pushes maxCompletedStep to a new high for this
+  // story, which callers use to decide whether to show the completion screen.
+  markReachedEnd: (storyId: string, step: number) => boolean;
   recordEncounter: (
     lang: string,
     lemma: string,
@@ -60,14 +73,19 @@ function vocabKey(lang: string, lemma: string) {
 // doesn't lose a pending write for the previous one.
 const scrollSyncTimers = new Map<string, ReturnType<typeof setTimeout>>();
 
-function scheduleScrollSync(storyId: string, step: number, position: number) {
+function scheduleScrollSync(
+  storyId: string,
+  step: number,
+  position: number,
+  readPercent: number,
+) {
   const existing = scrollSyncTimers.get(storyId);
   if (existing) clearTimeout(existing);
   scrollSyncTimers.set(
     storyId,
     setTimeout(() => {
       scrollSyncTimers.delete(storyId);
-      void postReadingProgress(storyId, step, position);
+      void postReadingProgress(storyId, step, position, readPercent);
     }, 1500),
   );
 }
@@ -77,6 +95,9 @@ export const useReaderStore = create<ReaderState>()(
     (set, get) => ({
       densityByStory: {},
       scrollByStory: {},
+      reachedEndByStory: {},
+      maxCompletedStepByStory: {},
+      maxReadPercentByStory: {},
       vocabulary: {},
       hydrated: false,
       milestonesShown: {},
@@ -86,14 +107,46 @@ export const useReaderStore = create<ReaderState>()(
           densityByStory: { ...s.densityByStory, [storyId]: step },
         }));
         const position = get().scrollByStory[storyId] ?? 0;
-        void postReadingProgress(storyId, step, position);
+        const readPercent = get().maxReadPercentByStory[storyId] ?? 0;
+        void postReadingProgress(storyId, step, position, readPercent);
       },
       setScroll: (storyId, position) => {
         set((s) => ({
           scrollByStory: { ...s.scrollByStory, [storyId]: position },
         }));
         const step = get().densityByStory[storyId] ?? 0;
-        scheduleScrollSync(storyId, step, position);
+        const readPercent = get().maxReadPercentByStory[storyId] ?? 0;
+        scheduleScrollSync(storyId, step, position, readPercent);
+      },
+      setReadPercent: (storyId, percent) => {
+        let changed = false;
+        set((s) => {
+          const prev = s.maxReadPercentByStory[storyId] ?? 0;
+          if (percent <= prev) return s;
+          changed = true;
+          return {
+            maxReadPercentByStory: { ...s.maxReadPercentByStory, [storyId]: percent },
+          };
+        });
+        if (!changed) return;
+        const step = get().densityByStory[storyId] ?? 0;
+        const position = get().scrollByStory[storyId] ?? 0;
+        const readPercent = get().maxReadPercentByStory[storyId] ?? 0;
+        scheduleScrollSync(storyId, step, position, readPercent);
+      },
+      markReachedEnd: (storyId, step) => {
+        if (step < 1) return false;
+        const prevMax = get().maxCompletedStepByStory[storyId] ?? 0;
+        const isNewMax = step > prevMax;
+        set((s) => ({
+          reachedEndByStory: { ...s.reachedEndByStory, [storyId]: Date.now() },
+          maxCompletedStepByStory: {
+            ...s.maxCompletedStepByStory,
+            [storyId]: Math.max(prevMax, step),
+          },
+        }));
+        void postStoryCompleted(storyId, step);
+        return isNewMax;
       },
       recordEncounter: (lang, lemma, gloss, pos) => {
         set((s) => {
@@ -192,6 +245,9 @@ export const useReaderStore = create<ReaderState>()(
 
             const densityByStory = { ...s.densityByStory };
             const scrollByStory = { ...s.scrollByStory };
+            const reachedEndByStory = { ...s.reachedEndByStory };
+            const maxCompletedStepByStory = { ...s.maxCompletedStepByStory };
+            const maxReadPercentByStory = { ...s.maxReadPercentByStory };
             for (const row of readingRows) {
               if (!(row.storyId in densityByStory)) {
                 densityByStory[row.storyId] = row.densityStep;
@@ -199,9 +255,26 @@ export const useReaderStore = create<ReaderState>()(
               if (!(row.storyId in scrollByStory)) {
                 scrollByStory[row.storyId] = row.scrollPosition;
               }
+              if (!(row.storyId in reachedEndByStory) && row.reachedEndAt) {
+                reachedEndByStory[row.storyId] = Date.parse(row.reachedEndAt);
+              }
+              if (!(row.storyId in maxCompletedStepByStory)) {
+                maxCompletedStepByStory[row.storyId] = row.maxCompletedStep;
+              }
+              if (!(row.storyId in maxReadPercentByStory)) {
+                maxReadPercentByStory[row.storyId] = row.maxReadPercent;
+              }
             }
 
-            return { vocabulary, densityByStory, scrollByStory, hydrated: true };
+            return {
+              vocabulary,
+              densityByStory,
+              scrollByStory,
+              reachedEndByStory,
+              maxCompletedStepByStory,
+              maxReadPercentByStory,
+              hydrated: true,
+            };
           });
         } catch (err) {
           console.error("Failed to hydrate progress from server:", err);

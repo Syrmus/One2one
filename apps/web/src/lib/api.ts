@@ -51,6 +51,9 @@ export type ReadingProgressRow = {
   storyId: string;
   densityStep: number;
   scrollPosition: number;
+  reachedEndAt: string | null;
+  maxCompletedStep: number;
+  maxReadPercent: number;
   updatedAt: string;
 };
 
@@ -103,13 +106,14 @@ export async function postReadingProgress(
   storyId: string,
   densityStep: number,
   scrollPosition: number,
+  readPercent?: number,
 ): Promise<void> {
   try {
     await fetch(`${API_URL}/api/reading-progress`, {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ storyId, densityStep, scrollPosition }),
+      body: JSON.stringify({ storyId, densityStep, scrollPosition, readPercent }),
     });
   } catch (err) {
     console.error("Failed to record reading progress:", err);
@@ -124,4 +128,20 @@ export async function getReadingProgress(): Promise<ReadingProgressRow[]> {
     throw new Error(`Failed to load reading progress: ${res.status}`);
   }
   return res.json();
+}
+
+export async function postStoryCompleted(
+  storyId: string,
+  densityStep: number,
+): Promise<void> {
+  try {
+    await fetch(`${API_URL}/api/reading-progress/completed`, {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ storyId, densityStep }),
+    });
+  } catch (err) {
+    console.error("Failed to record story completion:", err);
+  }
 }
