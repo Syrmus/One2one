@@ -18,7 +18,7 @@ export function BottomNav() {
           to={to}
           end={end}
           className={({ isActive }) =>
-            `flex flex-1 flex-col items-center gap-1 py-2.5 text-xs font-medium ${
+            `flex flex-1 flex-col items-center gap-1 pt-2.5 pb-[calc(env(safe-area-inset-bottom)+0.5rem)] text-xs font-medium ${
               isActive
                 ? "text-stone-900 dark:text-slate-100"
                 : "text-stone-400 dark:text-slate-500"

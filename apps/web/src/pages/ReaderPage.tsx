@@ -112,7 +112,7 @@ export function ReaderPage() {
         }}
       />
 
-      <div className="fixed inset-x-0 bottom-20 mx-auto max-w-md px-4">
+      <div className="fixed inset-x-0 bottom-[calc(5rem+env(safe-area-inset-bottom))] mx-auto max-w-md px-4">
         <DensitySlider
           step={step}
           onChange={(newStep) => setDensity(story.id, newStep)}

@@ -6,7 +6,7 @@ export function AppLayout() {
   return (
     <>
       <MilestoneToast />
-      <div className="pb-20">
+      <div className="pb-[calc(5rem+env(safe-area-inset-bottom))]">
         <Outlet />
       </div>
       <BottomNav />
