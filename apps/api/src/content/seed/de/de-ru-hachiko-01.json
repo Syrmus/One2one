@@ -1,0 +1,730 @@
+{
+  "id": "de-ru-hachiko-01",
+  "l1": "ru",
+  "l2": "de",
+  "level": "A2",
+  "topic": "отношения",
+  "title": "Хатико",
+  "units": [
+    {
+      "t": "weave",
+      "l1": "В Японии",
+      "l2": "In Japan",
+      "lemma": "Japan",
+      "pos": "noun",
+      "proper_noun": true,
+      "gender": "n",
+      "article": null,
+      "case": "dat",
+      "gloss": "Япония",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "жил пёс",
+      "l2": "lebte ein Hund",
+      "lemma": "Hund",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": "ein",
+      "case": "nom",
+      "gloss": "пёс",
+      "ipa": null,
+      "weave_priority": 2
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "по имени Хатико",
+      "l2": "namens Hachiko",
+      "lemma": "Hachiko",
+      "pos": "noun",
+      "proper_noun": true,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "Хатико",
+      "ipa": null,
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Каждое утро",
+      "l2": "Jeden Morgen",
+      "lemma": "Morgen",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": null,
+      "case": "acc",
+      "gloss": "утро",
+      "ipa": null,
+      "weave_priority": 4
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "его хозяин ехал на работу на поезде",
+      "l2": "fuhr sein Herrchen mit dem Zug zur Arbeit",
+      "lemma": "fahren",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "ехать",
+      "ipa": null,
+      "weave_priority": 20
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "а каждый вечер",
+      "l2": "und jeden Abend",
+      "lemma": "Abend",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": null,
+      "case": "acc",
+      "gloss": "вечер",
+      "ipa": null,
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "Хатико ждал его на станции",
+      "l2": "wartete Hachiko am Bahnhof auf ihn",
+      "lemma": "warten auf",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "ждать",
+      "ipa": null,
+      "weave_priority": 21
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Однажды",
+      "l2": "Eines Tages",
+      "lemma": "Tag",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": null,
+      "case": "gen",
+      "gloss": "день",
+      "ipa": null,
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "хозяин не вернулся",
+      "l2": "kam sein Herrchen nicht zurück",
+      "lemma": "zurückkommen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "возвращаться",
+      "ipa": null,
+      "weave_priority": 22
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "потому что умер на работе",
+      "l2": "weil er bei der Arbeit gestorben war",
+      "lemma": "sterben",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "умирать",
+      "ipa": null,
+      "weave_priority": 23
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Но",
+      "l2": "Aber",
+      "lemma": "aber",
+      "pos": "conjunction",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "но",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "Хатико",
+      "l2": "Hachiko",
+      "lemma": "Hachiko",
+      "pos": "noun",
+      "proper_noun": true,
+      "gender": null,
+      "article": null,
+      "case": "nom",
+      "gloss": "Хатико",
+      "ipa": null,
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "этого не понимал",
+      "l2": "verstand das nicht",
+      "lemma": "verstehen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "понимать",
+      "ipa": null,
+      "weave_priority": 24
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "На следующий день",
+      "l2": "Am nächsten Tag",
+      "lemma": "Tag",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": "dem",
+      "case": "dat",
+      "gloss": "день",
+      "ipa": null,
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "пёс снова пришёл на станцию и ждал",
+      "l2": "kam der Hund wieder zum Bahnhof und wartete",
+      "lemma": "kommen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "приходить",
+      "ipa": null,
+      "weave_priority": 25
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Он",
+      "l2": "Er",
+      "lemma": "er",
+      "pos": "pronoun",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": "nom",
+      "gloss": "он",
+      "ipa": null,
+      "weave_priority": 54
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "приходил туда и потом",
+      "l2": "kam auch danach immer wieder dorthin",
+      "lemma": "kommen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "приходить",
+      "ipa": null,
+      "weave_priority": 25
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "в дождь, снег и жару",
+      "l2": "bei Regen, Schnee und Hitze",
+      "lemma": "Wetter",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "n",
+      "article": null,
+      "case": "dat",
+      "gloss": "погода",
+      "ipa": null,
+      "weave_priority": 7
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Почти десять лет Хатико каждый вечер возвращался на то же место",
+      "l2": "Fast zehn Jahre lang kehrte Hachiko jeden Abend an denselben Ort zurück",
+      "lemma": "zurückkehren",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "возвращаться",
+      "ipa": null,
+      "weave_priority": 26
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и надеялся, что его друг однажды появится",
+      "l2": "und hoffte, dass sein Freund eines Tages wiederkommen würde",
+      "lemma": "hoffen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "надеяться",
+      "ipa": null,
+      "weave_priority": 27
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Люди на станции",
+      "l2": "Die Menschen am Bahnhof",
+      "lemma": "Mensch",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": "die",
+      "case": "nom",
+      "gloss": "человек",
+      "ipa": null,
+      "weave_priority": 9
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "узнали верного пса",
+      "l2": "kannten den treuen Hund bald",
+      "lemma": "kennen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "знать",
+      "ipa": null,
+      "weave_priority": 28
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "приносили",
+      "l2": "brachten",
+      "lemma": "bringen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "приносить",
+      "ipa": null,
+      "weave_priority": 29
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "ему",
+      "l2": "ihm",
+      "lemma": "er",
+      "pos": "pronoun",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": "dat",
+      "gloss": "он",
+      "ipa": null,
+      "weave_priority": 55
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "еду",
+      "l2": "Futter",
+      "lemma": "Futter",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "n",
+      "article": null,
+      "case": "acc",
+      "gloss": "корм",
+      "ipa": null,
+      "weave_priority": 10
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "заботились о нём",
+      "l2": "kümmerten sich um ihn",
+      "lemma": "sich kümmern um",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "заботиться",
+      "ipa": null,
+      "weave_priority": 30
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "История Хатико",
+      "l2": "Hachikos Geschichte",
+      "lemma": "Geschichte",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "f",
+      "article": null,
+      "case": "nom",
+      "gloss": "история",
+      "ipa": null,
+      "weave_priority": 11
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "стала известна всей стране",
+      "l2": "wurde im ganzen Land bekannt",
+      "lemma": "bekannt werden",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "становиться известным",
+      "ipa": null,
+      "weave_priority": 31
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Сегодня",
+      "l2": "Heute",
+      "lemma": "heute",
+      "pos": "adverb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "сегодня",
+      "ipa": null,
+      "weave_priority": 40
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "у станции стоит",
+      "l2": "steht am Bahnhof",
+      "lemma": "stehen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "стоять",
+      "ipa": null,
+      "weave_priority": 32
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "его бронзовый памятник",
+      "l2": "sein Bronzedenkmal",
+      "lemma": "Denkmal",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "n",
+      "article": "sein",
+      "case": "nom",
+      "gloss": "памятник",
+      "ipa": null,
+      "weave_priority": 12
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Он",
+      "l2": "Es",
+      "lemma": "es",
+      "pos": "pronoun",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": "nom",
+      "gloss": "оно",
+      "ipa": null,
+      "weave_priority": 54
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "напоминает",
+      "l2": "erinnert",
+      "lemma": "erinnern",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "напоминать",
+      "ipa": null,
+      "weave_priority": 33
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "людям",
+      "l2": "die Menschen",
+      "lemma": "Mensch",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": "die",
+      "case": "acc",
+      "gloss": "человек",
+      "ipa": null,
+      "weave_priority": 9
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "о псе",
+      "l2": "an den Hund",
+      "lemma": "Hund",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": "den",
+      "case": "acc",
+      "gloss": "пёс",
+      "ipa": null,
+      "weave_priority": 2
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "который до конца жизни не переставал ждать любимого хозяина",
+      "l2": "der bis an sein Lebensende nie aufhörte, auf sein geliebtes Herrchen zu warten",
+      "lemma": "aufhören zu warten",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "переставать ждать",
+      "ipa": null,
+      "weave_priority": 34
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Так",
+      "l2": "So",
+      "lemma": "so",
+      "pos": "adverb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "так",
+      "ipa": null,
+      "weave_priority": 41
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "верность Хатико",
+      "l2": "wurde Hachikos Treue",
+      "lemma": "Treue",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "f",
+      "article": null,
+      "case": "nom",
+      "gloss": "верность",
+      "ipa": null,
+      "weave_priority": 13
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "стала символом настоящей дружбы",
+      "l2": "zu einem Symbol wahrer Freundschaft",
+      "lemma": "Symbol",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "n",
+      "article": "einem",
+      "case": "dat",
+      "gloss": "символ",
+      "ipa": null,
+      "weave_priority": 14
+    },
+    {
+      "t": "text",
+      "l1": "."
+    }
+  ]
+}
