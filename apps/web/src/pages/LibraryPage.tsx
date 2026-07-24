@@ -27,7 +27,14 @@ export function LibraryPage() {
         <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">
           {t.library}
         </h1>
-        <LibraryIcon className="h-6 w-6 text-stone-400 dark:text-slate-500" />
+        <div className="flex items-center gap-2">
+          {nativeLanguage && targetLanguage && (
+            <span className="rounded-full bg-cream-100 px-2 py-0.5 text-xs font-semibold text-stone-600 dark:bg-slate-700 dark:text-slate-300">
+              {nativeLanguage.toUpperCase()}-{targetLanguage.toUpperCase()}
+            </span>
+          )}
+          <LibraryIcon className="h-6 w-6 text-stone-400 dark:text-slate-500" />
+        </div>
       </div>
 
       {error && <p className="text-sm text-red-500">{error}</p>}
