@@ -1,0 +1,532 @@
+{
+  "id": "de-ru-wood-wide-web-01",
+  "l1": "ru",
+  "l2": "de",
+  "level": "A2",
+  "topic": "природа",
+  "title": "Лесная паутина",
+  "units": [
+    {
+      "t": "weave",
+      "l1": "Под лесной землёй",
+      "l2": "Unter dem Waldboden",
+      "lemma": "Waldboden",
+      "pos": "noun",
+      "gender": "m",
+      "article": "dem",
+      "case": "dat",
+      "gloss": "лесная почва",
+      "ipa": null,
+      "weave_priority": 1,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "скрывается огромная живая сеть",
+      "l2": "verbirgt sich ein riesiges lebendiges Netzwerk",
+      "lemma": "sich verbergen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "скрываться",
+      "ipa": null,
+      "weave_priority": 20,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Корни деревьев",
+      "l2": "Die Wurzeln der Bäume",
+      "lemma": "Wurzel",
+      "pos": "noun",
+      "gender": "f",
+      "article": "die",
+      "case": "nom",
+      "gloss": "корень",
+      "ipa": null,
+      "weave_priority": 2,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "соединены тонкими нитями грибов",
+      "l2": "sind durch dünne Pilzfäden verbunden",
+      "lemma": "verbinden",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "соединять",
+      "ipa": null,
+      "weave_priority": 21,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "которые тянутся между растениями на большие расстояния",
+      "l2": "die sich über große Entfernungen zwischen den Pflanzen erstrecken",
+      "lemma": "sich erstrecken",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "тянуться",
+      "ipa": null,
+      "weave_priority": 22,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Через эти нити",
+      "l2": "Durch diese Fäden",
+      "lemma": "Faden",
+      "pos": "noun",
+      "gender": "m",
+      "article": "diese",
+      "case": "acc",
+      "gloss": "нить",
+      "ipa": null,
+      "weave_priority": 3,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "деревья передают друг другу воду, питательные вещества и даже химические сообщения",
+      "l2": "geben die Bäume einander Wasser, Nährstoffe und sogar chemische Botschaften weiter",
+      "lemma": "weitergeben",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "передавать",
+      "ipa": null,
+      "weave_priority": 23,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Большое старое дерево",
+      "l2": "Ein großer alter Baum",
+      "lemma": "Baum",
+      "pos": "noun",
+      "gender": "m",
+      "article": "ein",
+      "case": "nom",
+      "gloss": "дерево",
+      "ipa": null,
+      "weave_priority": 6,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "может делиться пищей с молодым деревом",
+      "l2": "kann Nahrung mit einem jungen Baum teilen",
+      "lemma": "teilen können",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "делиться",
+      "ipa": null,
+      "weave_priority": 25,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "которому не хватает солнечного света",
+      "l2": "dem es an Sonnenlicht fehlt",
+      "lemma": "an etwas fehlen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "не хватать",
+      "ipa": null,
+      "weave_priority": 26,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Если на одно дерево нападают насекомые",
+      "l2": "Wenn ein Baum von Insekten angegriffen wird",
+      "lemma": "angreifen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "нападать",
+      "ipa": null,
+      "weave_priority": 27,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "оно посылает предупреждение соседям",
+      "l2": "sendet er seinen Nachbarn eine Warnung",
+      "lemma": "Warnung senden",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "посылать предупреждение",
+      "ipa": null,
+      "weave_priority": 28,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Получив сигнал,",
+      "l2": "Nach dem Empfang des Signals",
+      "lemma": "Signal",
+      "pos": "noun",
+      "gender": "n",
+      "article": "dem",
+      "case": "dat",
+      "gloss": "сигнал",
+      "ipa": null,
+      "weave_priority": 7,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "другие деревья начинают вырабатывать вещества",
+      "l2": "beginnen die anderen Bäume, Stoffe zu produzieren",
+      "lemma": "produzieren beginnen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "начинать производить",
+      "ipa": null,
+      "weave_priority": 29,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "которые помогают им защищаться",
+      "l2": "die ihnen helfen, sich zu verteidigen",
+      "lemma": "helfen / sich verteidigen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "помогать защищаться",
+      "ipa": null,
+      "weave_priority": 30,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Иногда",
+      "l2": "Manchmal",
+      "lemma": "manchmal",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "иногда",
+      "ipa": null,
+      "weave_priority": 40,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "сильные деревья поддерживают",
+      "l2": "unterstützen starke Bäume",
+      "lemma": "unterstützen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "поддерживать",
+      "ipa": null,
+      "weave_priority": 31,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "больные или повреждённые растения",
+      "l2": "kranke oder beschädigte Pflanzen",
+      "lemma": "Pflanze",
+      "pos": "noun",
+      "gender": "f",
+      "article": null,
+      "case": "acc",
+      "gloss": "растение",
+      "ipa": null,
+      "weave_priority": 8,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Учёные",
+      "l2": "Wissenschaftler",
+      "lemma": "Wissenschaftler",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "nom",
+      "gloss": "учёный",
+      "ipa": null,
+      "weave_priority": 9,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "называют",
+      "l2": "nennen",
+      "lemma": "nennen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "называть",
+      "ipa": null,
+      "weave_priority": 32,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "эту скрытую систему",
+      "l2": "dieses verborgene System",
+      "lemma": "System",
+      "pos": "noun",
+      "gender": "n",
+      "article": "dieses",
+      "case": "acc",
+      "gloss": "система",
+      "ipa": null,
+      "weave_priority": 10,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "лесной паутиной",
+      "l2": "das Wood Wide Web",
+      "lemma": "Wood Wide Web",
+      "pos": "noun",
+      "gender": "n",
+      "article": "das",
+      "case": "acc",
+      "gloss": "лесная паутина",
+      "ipa": null,
+      "weave_priority": 11,
+      "proper_noun": true
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Благодаря ей",
+      "l2": "Dank ihm",
+      "lemma": "es",
+      "pos": "pronoun",
+      "gender": null,
+      "article": null,
+      "case": "dat",
+      "gloss": "он / оно",
+      "ipa": null,
+      "weave_priority": 55,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "лес ведёт себя",
+      "l2": "verhält sich der Wald",
+      "lemma": "sich verhalten",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "вести себя",
+      "ipa": null,
+      "weave_priority": 33,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "не как толпа отдельных деревьев, а как большое сообщество",
+      "l2": "nicht wie eine Ansammlung einzelner Bäume, sondern wie eine große Gemeinschaft",
+      "lemma": "Gemeinschaft",
+      "pos": "noun",
+      "gender": "f",
+      "article": "eine",
+      "case": "acc",
+      "gloss": "сообщество",
+      "ipa": null,
+      "weave_priority": 12,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Под землёй",
+      "l2": "Unter der Erde",
+      "lemma": "Erde",
+      "pos": "noun",
+      "gender": "f",
+      "article": "der",
+      "case": "dat",
+      "gloss": "земля",
+      "ipa": null,
+      "weave_priority": 13,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "растения постоянно обмениваются ресурсами и информацией",
+      "l2": "tauschen die Pflanzen ständig Ressourcen und Informationen aus",
+      "lemma": "austauschen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "обмениваться",
+      "ipa": null,
+      "weave_priority": 34,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Поэтому",
+      "l2": "Deshalb",
+      "lemma": "deshalb",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "поэтому",
+      "ipa": null,
+      "weave_priority": 41,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "жизнь леса зависит не только от каждого дерева, но и от связей между ними",
+      "l2": "hängt das Leben des Waldes nicht nur von jedem einzelnen Baum, sondern auch von den Verbindungen zwischen ihnen ab",
+      "lemma": "abhängen von",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "зависеть от",
+      "ipa": null,
+      "weave_priority": 36,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": "."
+    }
+  ]
+}
