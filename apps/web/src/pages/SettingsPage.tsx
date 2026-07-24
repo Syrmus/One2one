@@ -4,7 +4,10 @@ import { signOut, useSession, updateUser } from "../lib/authClient";
 import { SettingsIcon } from "../components/nav/icons";
 import { getLanguages, type Language } from "../lib/api";
 import { langInfo, NATIVE_LANGUAGES } from "../lib/languages";
+import { useFontSizeStore, type FontScale } from "../store/fontSizeStore";
 import { useT, type Locale } from "../lib/i18n";
+
+const FONT_SCALES: FontScale[] = ["normal", "large", "xlarge"];
 
 type Picker = "native" | "target" | null;
 
@@ -14,6 +17,14 @@ export function SettingsPage() {
   const [languages, setLanguages] = useState<Language[]>([]);
   const [picker, setPicker] = useState<Picker>(null);
   const [saving, setSaving] = useState(false);
+  const fontScale = useFontSizeStore((s) => s.fontScale);
+  const setFontScale = useFontSizeStore((s) => s.setFontScale);
+
+  const fontScaleLabel: Record<FontScale, string> = {
+    normal: t.fontSizeNormal,
+    large: t.fontSizeLarge,
+    xlarge: t.fontSizeXLarge,
+  };
 
   useEffect(() => {
     getLanguages()
@@ -100,6 +111,32 @@ export function SettingsPage() {
           </div>
           <span className="text-stone-400">›</span>
         </button>
+      </div>
+
+      <div className="mb-6 rounded-2xl border border-cream-100 bg-cream-100/60 p-4 dark:border-slate-700 dark:bg-slate-800">
+        <p className="mb-3 text-sm font-semibold text-stone-600 dark:text-slate-300">
+          {t.fontSize}
+        </p>
+        <div className="flex gap-2">
+          {FONT_SCALES.map((scale) => (
+            <button
+              key={scale}
+              type="button"
+              onClick={() => setFontScale(scale)}
+              className={`flex-1 rounded-2xl border-2 py-2 text-sm font-medium ${
+                fontScale === scale
+                  ? "border-sage-500 text-slate-900 dark:text-slate-100"
+                  : "border-cream-100 text-stone-500 dark:border-slate-700 dark:text-slate-400"
+              }`}
+              style={{
+                fontSize:
+                  scale === "large" ? "1.0625rem" : scale === "xlarge" ? "1.125rem" : undefined,
+              }}
+            >
+              {fontScaleLabel[scale]}
+            </button>
+          ))}
+        </div>
       </div>
 
       <button

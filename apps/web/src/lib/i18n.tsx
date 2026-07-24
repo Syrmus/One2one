@@ -59,6 +59,10 @@ const dict = {
     thisWeek: "This week",
     weeklyNewWords: (n: number) => `New words: ${n}`,
     weeklyAddedWords: (n: number) => `Added: ${n}`,
+    fontSize: "Font size",
+    fontSizeNormal: "Normal",
+    fontSizeLarge: "Larger",
+    fontSizeXLarge: "Largest",
   },
   ru: {
     appName: "Weave",
@@ -116,6 +120,10 @@ const dict = {
     thisWeek: "На этой неделе",
     weeklyNewWords: (n: number) => `Новые слова: ${n}`,
     weeklyAddedWords: (n: number) => `Добавлено: ${n}`,
+    fontSize: "Размер шрифта",
+    fontSizeNormal: "Обычный",
+    fontSizeLarge: "Крупнее",
+    fontSizeXLarge: "Ещё крупнее",
   },
 } satisfies Record<Locale, Record<string, unknown>>;
 

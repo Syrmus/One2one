@@ -13,6 +13,7 @@ import { signIn, useSession } from './lib/authClient'
 import { detectLocale, I18nProvider, useT, type Locale } from './lib/i18n'
 import { useLocaleStore } from './store/localeStore'
 import { useReaderStore } from './store/readerStore'
+import { useFontSizeStore } from './store/fontSizeStore'
 
 function SignInScreen() {
   const storedLocale = useLocaleStore((s) => s.locale)
@@ -140,6 +141,15 @@ function MainApp() {
 }
 
 function App() {
+  const fontScale = useFontSizeStore((s) => s.fontScale)
+
+  useEffect(() => {
+    document.documentElement.classList.remove('font-scale-large', 'font-scale-xlarge')
+    if (fontScale !== 'normal') {
+      document.documentElement.classList.add(`font-scale-${fontScale}`)
+    }
+  }, [fontScale])
+
   return (
     <div className="min-h-svh bg-cream-50 pt-[env(safe-area-inset-top)] dark:bg-slate-900">
       <BrowserRouter>

@@ -52,6 +52,16 @@ body {
   min-height: 100svh;
 }
 
+/* App-wide font-size scale (Settings). Rem-based Tailwind utilities scale
+   proportionally with the root font-size, so this alone resizes the whole
+   UI without touching individual components. */
+html.font-scale-large {
+  font-size: 112.5%;
+}
+html.font-scale-xlarge {
+  font-size: 125%;
+}
+
 /* Paw-print slider thumb (density control) */
 input[type="range"].range-paw {
   -webkit-appearance: none;
