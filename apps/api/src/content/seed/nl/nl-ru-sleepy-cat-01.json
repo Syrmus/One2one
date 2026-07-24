@@ -8,25 +8,8 @@
   "units": [
     {
       "t": "weave",
-      "l1": "Это",
-      "l2": "Dit is",
-      "lemma": "zijn",
-      "pos": "auxiliary",
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "быть",
-      "ipa": null,
-      "weave_priority": 52
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "кот",
-      "l2": "een kat",
+      "l1": "Это кот",
+      "l2": "Dit is een kat",
       "lemma": "kat",
       "pos": "noun",
       "gender": "c",
@@ -34,7 +17,8 @@
       "case": null,
       "gloss": "кот",
       "ipa": null,
-      "weave_priority": 1
+      "weave_priority": 1,
+      "proper_noun": false
     },
     {
       "t": "text",
@@ -51,7 +35,8 @@
       "case": null,
       "gloss": "кот",
       "ipa": null,
-      "weave_priority": 1
+      "weave_priority": 1,
+      "proper_noun": false
     },
     {
       "t": "text",
@@ -59,8 +44,8 @@
     },
     {
       "t": "weave",
-      "l1": "маленький",
-      "l2": "is klein",
+      "l1": "маленький и чёрный",
+      "l2": "is klein en zwart",
       "lemma": "klein",
       "pos": "adjective",
       "gender": null,
@@ -68,41 +53,8 @@
       "case": null,
       "gloss": "маленький",
       "ipa": null,
-      "weave_priority": 30
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "и",
-      "l2": "en",
-      "lemma": "en",
-      "pos": "conjunction",
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "и",
-      "ipa": null,
-      "weave_priority": 51
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "чёрный",
-      "l2": "zwart",
-      "lemma": "zwart",
-      "pos": "adjective",
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "чёрный",
-      "ipa": null,
-      "weave_priority": 31
+      "weave_priority": 30,
+      "proper_noun": false
     },
     {
       "t": "text",
@@ -110,25 +62,8 @@
     },
     {
       "t": "weave",
-      "l1": "Кот",
-      "l2": "Een kat",
-      "lemma": "kat",
-      "pos": "noun",
-      "gender": "c",
-      "article": "een",
-      "case": null,
-      "gloss": "кот",
-      "ipa": null,
-      "weave_priority": 1
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "спит",
-      "l2": "slaapt",
+      "l1": "Кот спит",
+      "l2": "Een kat slaapt",
       "lemma": "slapen",
       "pos": "verb",
       "gender": null,
@@ -136,7 +71,8 @@
       "case": null,
       "gloss": "спать",
       "ipa": null,
-      "weave_priority": 20
+      "weave_priority": 20,
+      "proper_noun": false
     },
     {
       "t": "text",
@@ -144,84 +80,17 @@
     },
     {
       "t": "weave",
-      "l1": "много — около",
-      "l2": "veel: ongeveer",
-      "lemma": "veel / ongeveer",
+      "l1": "много — около шестнадцати часов каждый день",
+      "l2": "veel: ongeveer zestien uur per dag",
+      "lemma": "veel",
       "pos": "adverb",
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "много — около",
+      "gloss": "много",
       "ipa": null,
-      "weave_priority": 40
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "шестнадцати",
-      "l2": "zestien",
-      "lemma": "zestien",
-      "pos": "numeral",
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "шестнадцать",
-      "ipa": null,
-      "weave_priority": 60
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "часов",
-      "l2": "uur",
-      "lemma": "uur",
-      "pos": "noun",
-      "gender": "n",
-      "article": null,
-      "case": null,
-      "gloss": "час",
-      "ipa": null,
-      "weave_priority": 2
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "каждый",
-      "l2": "per",
-      "lemma": "per",
-      "pos": "preposition",
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "каждый",
-      "ipa": null,
-      "weave_priority": 56
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "день",
-      "l2": "dag",
-      "lemma": "dag",
-      "pos": "noun",
-      "gender": "c",
-      "article": null,
-      "case": null,
-      "gloss": "день",
-      "ipa": null,
-      "weave_priority": 2
+      "weave_priority": 40,
+      "proper_noun": false
     },
     {
       "t": "text",
@@ -229,42 +98,8 @@
     },
     {
       "t": "weave",
-      "l1": "Мой",
-      "l2": "Mijn",
-      "lemma": "mijn",
-      "pos": "pronoun",
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "мой",
-      "ipa": null,
-      "weave_priority": 54
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "кот",
-      "l2": "kat",
-      "lemma": "kat",
-      "pos": "noun",
-      "gender": "c",
-      "article": null,
-      "case": null,
-      "gloss": "кот",
-      "ipa": null,
-      "weave_priority": 1
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "спит",
-      "l2": "slaapt",
+      "l1": "Мой кот спит",
+      "l2": "Mijn kat slaapt",
       "lemma": "slapen",
       "pos": "verb",
       "gender": null,
@@ -272,7 +107,8 @@
       "case": null,
       "gloss": "спать",
       "ipa": null,
-      "weave_priority": 20
+      "weave_priority": 20,
+      "proper_noun": false
     },
     {
       "t": "text",
@@ -280,25 +116,8 @@
     },
     {
       "t": "weave",
-      "l1": "на",
-      "l2": "op",
-      "lemma": "op",
-      "pos": "preposition",
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "на",
-      "ipa": null,
-      "weave_priority": 56
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "кровати",
-      "l2": "het bed",
+      "l1": "на кровати, на диване и на солнце",
+      "l2": "op het bed, op de bank en in de zon",
       "lemma": "bed",
       "pos": "noun",
       "gender": "n",
@@ -306,75 +125,8 @@
       "case": null,
       "gloss": "кровать",
       "ipa": null,
-      "weave_priority": 3
-    },
-    {
-      "t": "text",
-      "l1": ", "
-    },
-    {
-      "t": "weave",
-      "l1": "на",
-      "l2": "op",
-      "lemma": "op",
-      "pos": "preposition",
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "на",
-      "ipa": null,
-      "weave_priority": 56
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "диване",
-      "l2": "de bank",
-      "lemma": "bank",
-      "pos": "noun",
-      "gender": "c",
-      "article": "de",
-      "case": null,
-      "gloss": "диван",
-      "ipa": null,
-      "weave_priority": 3
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "и",
-      "l2": "en",
-      "lemma": "en",
-      "pos": "conjunction",
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "и",
-      "ipa": null,
-      "weave_priority": 51
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "на солнце",
-      "l2": "in de zon",
-      "lemma": "zon",
-      "pos": "noun",
-      "gender": "c",
-      "article": "de",
-      "case": null,
-      "gloss": "солнце",
-      "ipa": null,
-      "weave_priority": 3
+      "weave_priority": 2,
+      "proper_noun": false
     },
     {
       "t": "text",
@@ -382,33 +134,17 @@
     },
     {
       "t": "weave",
-      "l1": "Кот",
-      "l2": "De kat",
-      "lemma": "kat",
-      "pos": "noun",
-      "gender": "c",
-      "article": "de",
-      "case": null,
-      "gloss": "кот",
-      "ipa": null,
-      "weave_priority": 1
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "ещё ест",
-      "l2": "eet ook",
+      "l1": "Кот ещё ест рыбу",
+      "l2": "De kat eet ook vis",
       "lemma": "eten",
       "pos": "verb",
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "есть / ещё",
+      "gloss": "есть",
       "ipa": null,
-      "weave_priority": 21
+      "weave_priority": 21,
+      "proper_noun": false
     },
     {
       "t": "text",
@@ -416,42 +152,8 @@
     },
     {
       "t": "weave",
-      "l1": "рыбу",
-      "l2": "vis",
-      "lemma": "vis",
-      "pos": "noun",
-      "gender": "c",
-      "article": null,
-      "case": null,
-      "gloss": "рыба",
-      "ipa": null,
-      "weave_priority": 4
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "и",
-      "l2": "en",
-      "lemma": "en",
-      "pos": "conjunction",
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "и",
-      "ipa": null,
-      "weave_priority": 51
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "играет",
-      "l2": "speelt",
+      "l1": "и играет с мячом",
+      "l2": "en speelt met een bal",
       "lemma": "spelen",
       "pos": "verb",
       "gender": null,
@@ -459,41 +161,8 @@
       "case": null,
       "gloss": "играть",
       "ipa": null,
-      "weave_priority": 22
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "с",
-      "l2": "met",
-      "lemma": "met",
-      "pos": "preposition",
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "с",
-      "ipa": null,
-      "weave_priority": 56
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "мячом",
-      "l2": "een bal",
-      "lemma": "bal",
-      "pos": "noun",
-      "gender": "c",
-      "article": "een",
-      "case": null,
-      "gloss": "мяч",
-      "ipa": null,
-      "weave_priority": 4
+      "weave_priority": 22,
+      "proper_noun": false
     },
     {
       "t": "text",
@@ -502,7 +171,7 @@
     {
       "t": "weave",
       "l1": "Ночью",
-      "l2": "'s Nachts",
+      "l2": "’s Nachts",
       "lemma": "nacht",
       "pos": "adverb",
       "gender": null,
@@ -510,7 +179,8 @@
       "case": null,
       "gloss": "ночью",
       "ipa": null,
-      "weave_priority": 41
+      "weave_priority": 41,
+      "proper_noun": false
     },
     {
       "t": "text",
@@ -527,7 +197,8 @@
       "case": null,
       "gloss": "спать",
       "ipa": null,
-      "weave_priority": 23
+      "weave_priority": 20,
+      "proper_noun": false
     },
     {
       "t": "text",
@@ -535,25 +206,8 @@
     },
     {
       "t": "weave",
-      "l1": "Он",
-      "l2": "Hij",
-      "lemma": "hij",
-      "pos": "pronoun",
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "он",
-      "ipa": null,
-      "weave_priority": 54
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "смотрит в окно",
-      "l2": "kijkt uit het raam",
+      "l1": "Он смотрит в окно",
+      "l2": "Hij kijkt uit het raam",
       "lemma": "uit het raam kijken",
       "pos": "verb",
       "gender": null,
@@ -561,7 +215,8 @@
       "case": null,
       "gloss": "смотреть в окно",
       "ipa": null,
-      "weave_priority": 24
+      "weave_priority": 23,
+      "proper_noun": false
     },
     {
       "t": "text",
@@ -569,33 +224,17 @@
     },
     {
       "t": "weave",
-      "l1": "и",
-      "l2": "en",
-      "lemma": "en",
-      "pos": "conjunction",
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "и",
-      "ipa": null,
-      "weave_priority": 51
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "наблюдает за луной",
-      "l2": "kijkt naar de maan",
+      "l1": "и наблюдает за луной",
+      "l2": "en kijkt naar de maan",
       "lemma": "naar de maan kijken",
       "pos": "verb",
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "наблюдать за луной",
+      "gloss": "наблюдать",
       "ipa": null,
-      "weave_priority": 25
+      "weave_priority": 24,
+      "proper_noun": false
     },
     {
       "t": "text",
@@ -612,20 +251,26 @@
       "case": null,
       "gloss": "кот",
       "ipa": null,
-      "weave_priority": 1
+      "weave_priority": 1,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
     },
     {
       "t": "weave",
-      "l1": " — тихие и счастливые животные",
-      "l2": " zijn rustige en gelukkige dieren",
-      "lemma": "zijn",
-      "pos": "auxiliary",
-      "gender": null,
+      "l1": "— тихие и счастливые животные",
+      "l2": "zijn rustige en gelukkige dieren",
+      "lemma": "dier",
+      "pos": "noun",
+      "gender": "n",
       "article": null,
       "case": null,
-      "gloss": "быть",
+      "gloss": "животное",
       "ipa": null,
-      "weave_priority": 52
+      "weave_priority": 3,
+      "proper_noun": false
     },
     {
       "t": "text",

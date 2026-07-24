@@ -1,0 +1,298 @@
+{
+  "id": "nl-ru-eternal-honey-a1-01",
+  "l1": "ru",
+  "l2": "nl",
+  "level": "A1",
+  "topic": "еда",
+  "title": "Вечный мёд",
+  "units": [
+    {
+      "t": "weave",
+      "l1": "Мёд",
+      "l2": "Honing",
+      "lemma": "honing",
+      "pos": "noun",
+      "gender": "c",
+      "article": null,
+      "case": null,
+      "gloss": "мёд",
+      "ipa": null,
+      "weave_priority": 1,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "сладкий и жёлтый",
+      "l2": "is zoet en geel",
+      "lemma": "zoet",
+      "pos": "adjective",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "сладкий",
+      "ipa": null,
+      "weave_priority": 30,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Пчёлы делают мёд",
+      "l2": "Bijen maken honing",
+      "lemma": "maken",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "делать",
+      "ipa": null,
+      "weave_priority": 20,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "из цветов",
+      "l2": "van bloemen",
+      "lemma": "bloem",
+      "pos": "noun",
+      "gender": "c",
+      "article": null,
+      "case": null,
+      "gloss": "цветок",
+      "ipa": null,
+      "weave_priority": 2,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Мёд",
+      "l2": "Honing",
+      "lemma": "honing",
+      "pos": "noun",
+      "gender": "c",
+      "article": null,
+      "case": null,
+      "gloss": "мёд",
+      "ipa": null,
+      "weave_priority": 1,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "— очень старая еда",
+      "l2": "is een heel oud voedingsmiddel",
+      "lemma": "voedingsmiddel",
+      "pos": "noun",
+      "gender": "n",
+      "article": null,
+      "case": null,
+      "gloss": "продукт питания",
+      "ipa": null,
+      "weave_priority": 3,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Люди едят мёд",
+      "l2": "Mensen eten al",
+      "lemma": "eten",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "есть",
+      "ipa": null,
+      "weave_priority": 21,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "уже много лет",
+      "l2": "jaren honing",
+      "lemma": "jaar",
+      "pos": "noun",
+      "gender": "n",
+      "article": null,
+      "case": null,
+      "gloss": "год",
+      "ipa": null,
+      "weave_priority": 4,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Мёд никогда не портится",
+      "l2": "Honing bederft nooit",
+      "lemma": "bederven",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "портиться",
+      "ipa": null,
+      "weave_priority": 22,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "В Египте",
+      "l2": "In Egypte",
+      "lemma": "Egypte",
+      "pos": "noun",
+      "gender": "n",
+      "article": null,
+      "case": null,
+      "gloss": "Египет",
+      "ipa": null,
+      "weave_priority": 5,
+      "proper_noun": true
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "люди нашли старый мёд в гробнице",
+      "l2": "vonden mensen oude honing in een graf",
+      "lemma": "vinden",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "находить",
+      "ipa": null,
+      "weave_priority": 23,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Мёду было три тысячи лет",
+      "l2": "De honing was drieduizend jaar oud",
+      "lemma": "oud zijn",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "быть старым",
+      "ipa": null,
+      "weave_priority": 24,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Но он был ещё хороший",
+      "l2": "Maar hij was nog steeds goed",
+      "lemma": "goed",
+      "pos": "adjective",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "хороший",
+      "ipa": null,
+      "weave_priority": 31,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Его можно есть и сегодня",
+      "l2": "Je kunt hem ook vandaag nog eten",
+      "lemma": "kunnen eten",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "можно есть",
+      "ipa": null,
+      "weave_priority": 25,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Мёд крепкий и сладкий,",
+      "l2": "Honing is houdbaar en zoet,",
+      "lemma": "houdbaar",
+      "pos": "adjective",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "стойкий",
+      "ipa": null,
+      "weave_priority": 32,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и он никогда не умирает",
+      "l2": "en hij vergaat nooit",
+      "lemma": "vergaan",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "исчезать",
+      "ipa": null,
+      "weave_priority": 26,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": "."
+    }
+  ]
+}

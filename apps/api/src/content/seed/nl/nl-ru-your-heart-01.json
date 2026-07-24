@@ -1,0 +1,262 @@
+{
+  "id": "nl-ru-your-heart-01",
+  "l1": "ru",
+  "l2": "nl",
+  "level": "A1",
+  "topic": "тело",
+  "title": "Твоё сердце",
+  "units": [
+    {
+      "t": "weave",
+      "l1": "Положи руку на грудь",
+      "l2": "Leg je hand op je borst",
+      "lemma": "leggen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "класть",
+      "ipa": null,
+      "weave_priority": 20,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Ты чувствуешь своё сердце",
+      "l2": "Voel je je hart",
+      "lemma": "voelen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "чувствовать",
+      "ipa": null,
+      "weave_priority": 21,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": "? "
+    },
+    {
+      "t": "weave",
+      "l1": "Сердце",
+      "l2": "Het hart",
+      "lemma": "hart",
+      "pos": "noun",
+      "gender": "n",
+      "article": "het",
+      "case": null,
+      "gloss": "сердце",
+      "ipa": null,
+      "weave_priority": 1,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "— это маленький насос",
+      "l2": "is een kleine pomp",
+      "lemma": "pomp",
+      "pos": "noun",
+      "gender": "c",
+      "article": "een",
+      "case": null,
+      "gloss": "насос",
+      "ipa": null,
+      "weave_priority": 2,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Оно красное и сильное",
+      "l2": "Het is rood en sterk",
+      "lemma": "sterk",
+      "pos": "adjective",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "сильный",
+      "ipa": null,
+      "weave_priority": 30,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Сердце гонит кровь по телу",
+      "l2": "Het hart pompt bloed door het lichaam",
+      "lemma": "pompen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "качать",
+      "ipa": null,
+      "weave_priority": 22,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Оно работает день и ночь",
+      "l2": "Het werkt dag en nacht",
+      "lemma": "werken",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "работать",
+      "ipa": null,
+      "weave_priority": 23,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Твоё сердце бьётся сто тысяч раз каждый день",
+      "l2": "Je hart klopt elke dag honderdduizend keer",
+      "lemma": "kloppen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "биться",
+      "ipa": null,
+      "weave_priority": 24,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Когда ты бежишь,",
+      "l2": "Wanneer je rent,",
+      "lemma": "rennen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "бежать",
+      "ipa": null,
+      "weave_priority": 25,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "сердце быстрое",
+      "l2": "klopt het hart snel",
+      "lemma": "kloppen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "биться",
+      "ipa": null,
+      "weave_priority": 24,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Когда ты спишь,",
+      "l2": "Wanneer je slaapt,",
+      "lemma": "slapen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "спать",
+      "ipa": null,
+      "weave_priority": 26,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "оно медленное",
+      "l2": "klopt het langzaam",
+      "lemma": "kloppen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "биться",
+      "ipa": null,
+      "weave_priority": 24,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Счастливое сердце",
+      "l2": "Een gelukkig hart",
+      "lemma": "hart",
+      "pos": "noun",
+      "gender": "n",
+      "article": "een",
+      "case": null,
+      "gloss": "сердце",
+      "ipa": null,
+      "weave_priority": 1,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "— здоровое сердце",
+      "l2": "is een gezond hart",
+      "lemma": "gezond",
+      "pos": "adjective",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "здоровый",
+      "ipa": null,
+      "weave_priority": 31,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": "."
+    }
+  ]
+}

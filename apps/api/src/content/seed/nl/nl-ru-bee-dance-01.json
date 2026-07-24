@@ -1,0 +1,262 @@
+{
+  "id": "nl-ru-bee-dance-01",
+  "l1": "ru",
+  "l2": "nl",
+  "level": "A1",
+  "topic": "природа",
+  "title": "Танец пчёл",
+  "units": [
+    {
+      "t": "weave",
+      "l1": "Пчёлы живут",
+      "l2": "Bijen leven",
+      "lemma": "leven",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "жить",
+      "ipa": null,
+      "weave_priority": 20,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "в большом доме из воска",
+      "l2": "in een groot huis van was",
+      "lemma": "huis",
+      "pos": "noun",
+      "gender": "n",
+      "article": "een",
+      "case": null,
+      "gloss": "дом",
+      "ipa": null,
+      "weave_priority": 1,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Они любят цветы",
+      "l2": "Ze houden van bloemen",
+      "lemma": "houden van",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "любить",
+      "ipa": null,
+      "weave_priority": 21,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Цветы дают им сладкую еду",
+      "l2": "Bloemen geven hun zoet voedsel",
+      "lemma": "geven",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "давать",
+      "ipa": null,
+      "weave_priority": 22,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Пчела находит цветы",
+      "l2": "Een bij vindt bloemen",
+      "lemma": "vinden",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "находить",
+      "ipa": null,
+      "weave_priority": 23,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и летит домой",
+      "l2": "en vliegt naar huis",
+      "lemma": "naar huis vliegen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "лететь домой",
+      "ipa": null,
+      "weave_priority": 24,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Потом",
+      "l2": "Dan",
+      "lemma": "dan",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "потом",
+      "ipa": null,
+      "weave_priority": 40,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "пчела танцует",
+      "l2": "danst de bij",
+      "lemma": "dansen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "танцевать",
+      "ipa": null,
+      "weave_priority": 25,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Она движется по кругу",
+      "l2": "Ze beweegt in een cirkel",
+      "lemma": "bewegen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "двигаться",
+      "ipa": null,
+      "weave_priority": 26,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и трясёт телом",
+      "l2": "en schudt haar lichaam",
+      "lemma": "schudden",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "трясти",
+      "ipa": null,
+      "weave_priority": 27,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Танец говорит другим пчёлам:",
+      "l2": "De dans vertelt de andere bijen:",
+      "lemma": "vertellen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "говорить",
+      "ipa": null,
+      "weave_priority": 28,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "цветы рядом",
+      "l2": "de bloemen zijn dichtbij",
+      "lemma": "dichtbij",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "рядом",
+      "ipa": null,
+      "weave_priority": 41,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Пчёлы смотрят, а потом летят к цветам",
+      "l2": "De bijen kijken en vliegen daarna naar de bloemen",
+      "lemma": "vliegen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "лететь",
+      "ipa": null,
+      "weave_priority": 29,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Пчёлы говорят танцем",
+      "l2": "Bijen communiceren door te dansen",
+      "lemma": "communiceren",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "общаться",
+      "ipa": null,
+      "weave_priority": 30,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": "."
+    }
+  ]
+}

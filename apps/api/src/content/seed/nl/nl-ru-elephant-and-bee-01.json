@@ -1,0 +1,262 @@
+{
+  "id": "nl-ru-elephant-and-bee-01",
+  "l1": "ru",
+  "l2": "nl",
+  "level": "A1",
+  "topic": "животные",
+  "title": "Слон и пчела",
+  "units": [
+    {
+      "t": "weave",
+      "l1": "Слон",
+      "l2": "Een olifant",
+      "lemma": "olifant",
+      "pos": "noun",
+      "gender": "c",
+      "article": "een",
+      "case": null,
+      "gloss": "слон",
+      "ipa": null,
+      "weave_priority": 1,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "очень большой и сильный",
+      "l2": "is heel groot en sterk",
+      "lemma": "sterk",
+      "pos": "adjective",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "сильный",
+      "ipa": null,
+      "weave_priority": 30,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Он не боится львов или тигров",
+      "l2": "Hij is niet bang voor leeuwen of tijgers",
+      "lemma": "bang zijn voor",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "бояться",
+      "ipa": null,
+      "weave_priority": 20,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Но слон боится",
+      "l2": "Maar de olifant is bang voor",
+      "lemma": "bang zijn voor",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "бояться",
+      "ipa": null,
+      "weave_priority": 20,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "одного маленького животного — пчелы",
+      "l2": "één klein dier: de bij",
+      "lemma": "dier",
+      "pos": "noun",
+      "gender": "n",
+      "article": "één",
+      "case": null,
+      "gloss": "животное",
+      "ipa": null,
+      "weave_priority": 2,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Когда прилетают пчёлы,",
+      "l2": "Wanneer de bijen komen,",
+      "lemma": "komen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "прилетать",
+      "ipa": null,
+      "weave_priority": 21,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "большой слон убегает",
+      "l2": "rent de grote olifant weg",
+      "lemma": "wegrennen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "убегать",
+      "ipa": null,
+      "weave_priority": 22,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Фермеры знают этот трюк",
+      "l2": "Boeren kennen deze truc",
+      "lemma": "kennen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "знать",
+      "ipa": null,
+      "weave_priority": 23,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Они ставят пчёл у полей",
+      "l2": "Ze zetten bijenkorven bij de velden neer",
+      "lemma": "neerzetten",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "ставить",
+      "ipa": null,
+      "weave_priority": 24,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Теперь",
+      "l2": "Nu",
+      "lemma": "nu",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "теперь",
+      "ipa": null,
+      "weave_priority": 40,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "слоны держатся подальше,",
+      "l2": "blijven de olifanten weg,",
+      "lemma": "wegblijven",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "держаться подальше",
+      "ipa": null,
+      "weave_priority": 25,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и фермеры счастливы",
+      "l2": "en zijn de boeren blij",
+      "lemma": "blij",
+      "pos": "adjective",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "счастливый",
+      "ipa": null,
+      "weave_priority": 31,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Иногда",
+      "l2": "Soms",
+      "lemma": "soms",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "иногда",
+      "ipa": null,
+      "weave_priority": 41,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "маленькое сильнее большого",
+      "l2": "is het kleine sterker dan het grote",
+      "lemma": "sterk",
+      "pos": "adjective",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "сильный",
+      "ipa": null,
+      "weave_priority": 30,
+      "proper_noun": false
+    },
+    {
+      "t": "text",
+      "l1": "."
+    }
+  ]
+}
