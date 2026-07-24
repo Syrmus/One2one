@@ -1,0 +1,657 @@
+{
+  "id": "de-ru-blue-zones-01",
+  "l1": "ru",
+  "l2": "de",
+  "level": "A2",
+  "topic": "здоровье",
+  "title": "Голубые зоны",
+  "units": [
+    {
+      "t": "weave",
+      "l1": "В нескольких особых местах",
+      "l2": "An einigen besonderen Orten",
+      "lemma": "Ort",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "dat",
+      "gloss": "место",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "люди часто доживают до ста лет",
+      "l2": "werden Menschen oft hundert Jahre alt",
+      "lemma": "alt werden",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "стареть",
+      "ipa": null,
+      "weave_priority": 20
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Учёные",
+      "l2": "Wissenschaftler",
+      "lemma": "Wissenschaftler",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "nom",
+      "gloss": "учёные",
+      "ipa": null,
+      "weave_priority": 2
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "называют",
+      "l2": "nennen",
+      "lemma": "nennen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "называют",
+      "ipa": null,
+      "weave_priority": 21
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "эти места",
+      "l2": "diese Orte",
+      "lemma": "Ort",
+      "pos": "noun",
+      "gender": "m",
+      "article": "diese",
+      "case": "acc",
+      "gloss": "место",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "голубыми зонами",
+      "l2": "blaue Zonen",
+      "lemma": "Zone",
+      "pos": "noun",
+      "gender": "f",
+      "article": null,
+      "case": "acc",
+      "gloss": "зона",
+      "ipa": null,
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Одна из них",
+      "l2": "Eine davon",
+      "lemma": "eine davon",
+      "pos": "pronoun",
+      "gender": null,
+      "article": null,
+      "case": "nom",
+      "gloss": "одна из них",
+      "ipa": null,
+      "weave_priority": 54
+    },
+    {
+      "t": "weave",
+      "l1": " — маленький остров в Италии",
+      "l2": " ist eine kleine Insel in Italien",
+      "lemma": "Insel",
+      "pos": "noun",
+      "gender": "f",
+      "article": "eine",
+      "case": "nom",
+      "gloss": "остров",
+      "ipa": null,
+      "weave_priority": 4
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "другая",
+      "l2": "eine andere",
+      "lemma": "eine andere",
+      "pos": "pronoun",
+      "gender": null,
+      "article": null,
+      "case": "nom",
+      "gloss": "другая",
+      "ipa": null,
+      "weave_priority": 55
+    },
+    {
+      "t": "weave",
+      "l1": " — в Японии",
+      "l2": " liegt in Japan",
+      "lemma": "liegen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "находиться",
+      "ipa": null,
+      "weave_priority": 22
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "В чём их секрет",
+      "l2": "Was ist ihr Geheimnis",
+      "lemma": "Geheimnis",
+      "pos": "noun",
+      "gender": "n",
+      "article": "ihr",
+      "case": "nom",
+      "gloss": "секрет",
+      "ipa": null,
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": "? "
+    },
+    {
+      "t": "weave",
+      "l1": "Люди там",
+      "l2": "Die Menschen dort",
+      "lemma": "Mensch",
+      "pos": "noun",
+      "gender": "m",
+      "article": "die",
+      "case": "nom",
+      "gloss": "люди",
+      "ipa": null,
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "не бегают",
+      "l2": "laufen keine",
+      "lemma": "laufen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "бегать",
+      "ipa": null,
+      "weave_priority": 23
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "марафоны",
+      "l2": "Marathons",
+      "lemma": "Marathon",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "acc",
+      "gloss": "марафоны",
+      "ipa": null,
+      "weave_priority": 7
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "не пьют",
+      "l2": "nehmen keine",
+      "lemma": "nehmen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "принимать",
+      "ipa": null,
+      "weave_priority": 24
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "странные таблетки",
+      "l2": "seltsamen Tabletten",
+      "lemma": "Tablette",
+      "pos": "noun",
+      "gender": "f",
+      "article": null,
+      "case": "acc",
+      "gloss": "таблетка",
+      "ipa": null,
+      "weave_priority": 8
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Они",
+      "l2": "Sie",
+      "lemma": "sie",
+      "pos": "pronoun",
+      "gender": null,
+      "article": null,
+      "case": "nom",
+      "gloss": "они",
+      "ipa": null,
+      "weave_priority": 54
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "каждый день",
+      "l2": "gehen jeden Tag",
+      "lemma": "jeden Tag",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "каждый день",
+      "ipa": null,
+      "weave_priority": 25
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "гуляют",
+      "l2": "spazieren",
+      "lemma": "spazieren",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "гуляют",
+      "ipa": null,
+      "weave_priority": 26
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "едят",
+      "l2": "essen",
+      "lemma": "essen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "едят",
+      "ipa": null,
+      "weave_priority": 27
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "простую еду",
+      "l2": "einfache Lebensmittel",
+      "lemma": "Lebensmittel",
+      "pos": "noun",
+      "gender": "n",
+      "article": null,
+      "case": "acc",
+      "gloss": "еда",
+      "ipa": null,
+      "weave_priority": 9
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "со своих огородов",
+      "l2": "aus ihren Gärten",
+      "lemma": "Garten",
+      "pos": "noun",
+      "gender": "m",
+      "article": "ihren",
+      "case": "dat",
+      "gloss": "огород",
+      "ipa": null,
+      "weave_priority": 10
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "пьют",
+      "l2": "trinken",
+      "lemma": "trinken",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "пьют",
+      "ipa": null,
+      "weave_priority": 28
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "немного вина",
+      "l2": "ein wenig Wein",
+      "lemma": "Wein",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "acc",
+      "gloss": "вино",
+      "ipa": null,
+      "weave_priority": 11
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "с друзьями",
+      "l2": "mit Freunden",
+      "lemma": "Freund",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "dat",
+      "gloss": "друг",
+      "ipa": null,
+      "weave_priority": 12
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Самое важное",
+      "l2": "Am wichtigsten",
+      "lemma": "wichtig",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "важный",
+      "ipa": null,
+      "weave_priority": 40
+    },
+    {
+      "t": "weave",
+      "l1": " — они никогда не одиноки",
+      "l2": " ist, dass sie nie allein sind",
+      "lemma": "sein",
+      "pos": "auxiliary",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "быть",
+      "ipa": null,
+      "weave_priority": 52
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "потому что семья и соседи часто их навещают",
+      "l2": "weil Familie und Nachbarn sie oft besuchen",
+      "lemma": "besuchen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "навещать",
+      "ipa": null,
+      "weave_priority": 29
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "У них есть",
+      "l2": "Sie haben",
+      "lemma": "haben",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "иметь",
+      "ipa": null,
+      "weave_priority": 30
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "причина",
+      "l2": "einen Grund,",
+      "lemma": "Grund",
+      "pos": "noun",
+      "gender": "m",
+      "article": "einen",
+      "case": "acc",
+      "gloss": "причина",
+      "ipa": null,
+      "weave_priority": 13
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "просыпаться по утрам",
+      "l2": "morgens aufzuwachen",
+      "lemma": "aufwachen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "просыпаться",
+      "ipa": null,
+      "weave_priority": 31
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Их долгая жизнь",
+      "l2": "Ihr langes Leben",
+      "lemma": "Leben",
+      "pos": "noun",
+      "gender": "n",
+      "article": "ihr",
+      "case": "nom",
+      "gloss": "жизнь",
+      "ipa": null,
+      "weave_priority": 14
+    },
+    {
+      "t": "weave",
+      "l1": " — не магия",
+      "l2": " ist keine Magie",
+      "lemma": "Magie",
+      "pos": "noun",
+      "gender": "f",
+      "article": "keine",
+      "case": "nom",
+      "gloss": "магия",
+      "ipa": null,
+      "weave_priority": 15
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Она",
+      "l2": "Es",
+      "lemma": "es",
+      "pos": "pronoun",
+      "gender": null,
+      "article": null,
+      "case": "nom",
+      "gloss": "она",
+      "ipa": null,
+      "weave_priority": 54
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "состоит из",
+      "l2": "besteht aus",
+      "lemma": "bestehen aus",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "состоит из",
+      "ipa": null,
+      "weave_priority": 32
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "маленьких тёплых привычек",
+      "l2": "kleinen, wohltuenden Gewohnheiten",
+      "lemma": "Gewohnheit",
+      "pos": "noun",
+      "gender": "f",
+      "article": null,
+      "case": "dat",
+      "gloss": "привычка",
+      "ipa": null,
+      "weave_priority": 16
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "повторяемых много лет",
+      "l2": "die über viele Jahre beibehalten werden",
+      "lemma": "beibehalten",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "сохранять",
+      "ipa": null,
+      "weave_priority": 33
+    },
+    {
+      "t": "text",
+      "l1": "."
+    }
+  ]
+}

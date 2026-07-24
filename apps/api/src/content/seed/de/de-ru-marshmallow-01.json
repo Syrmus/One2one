@@ -1,0 +1,673 @@
+{
+  "id": "de-ru-marshmallow-01",
+  "l1": "ru",
+  "l2": "de",
+  "level": "A2",
+  "topic": "психология",
+  "title": "Зефирный тест",
+  "units": [
+    {
+      "t": "weave",
+      "l1": "Много лет назад",
+      "l2": "Vor vielen Jahren",
+      "lemma": "Jahr",
+      "pos": "noun",
+      "gender": "n",
+      "article": null,
+      "case": "dat",
+      "gloss": "год",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "учёные дали",
+      "l2": "gaben Wissenschaftler",
+      "lemma": "geben",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "давать",
+      "ipa": null,
+      "weave_priority": 20
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "детям",
+      "l2": "Kindern",
+      "lemma": "Kind",
+      "pos": "noun",
+      "gender": "n",
+      "article": null,
+      "case": "dat",
+      "gloss": "ребёнок",
+      "ipa": null,
+      "weave_priority": 2
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "маленький тест",
+      "l2": "einen kleinen Test",
+      "lemma": "Test",
+      "pos": "noun",
+      "gender": "m",
+      "article": "einen",
+      "case": "acc",
+      "gloss": "тест",
+      "ipa": null,
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Они",
+      "l2": "Sie",
+      "lemma": "sie",
+      "pos": "pronoun",
+      "gender": null,
+      "article": null,
+      "case": "nom",
+      "gloss": "они",
+      "ipa": null,
+      "weave_priority": 54
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "клали на стол одну конфету",
+      "l2": "legten eine Süßigkeit auf den Tisch",
+      "lemma": "legen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "класть",
+      "ipa": null,
+      "weave_priority": 21
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "говорили",
+      "l2": "sagten",
+      "lemma": "sagen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "говорили",
+      "ipa": null,
+      "weave_priority": 22
+    },
+    {
+      "t": "text",
+      "l1": ": "
+    },
+    {
+      "t": "weave",
+      "l1": "можешь съесть её сейчас",
+      "l2": "Du kannst sie jetzt essen",
+      "lemma": "essen können",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "мочь съесть",
+      "ipa": null,
+      "weave_priority": 23
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "но",
+      "l2": "aber",
+      "lemma": "aber",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "но",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "если подождёшь десять минут",
+      "l2": "wenn du zehn Minuten wartest",
+      "lemma": "warten",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "ждать",
+      "ipa": null,
+      "weave_priority": 24
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "получишь две",
+      "l2": "bekommst du zwei",
+      "lemma": "bekommen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "получать",
+      "ipa": null,
+      "weave_priority": 25
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Потом",
+      "l2": "Dann",
+      "lemma": "dann",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "потом",
+      "ipa": null,
+      "weave_priority": 40
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "они выходили из комнаты",
+      "l2": "verließen sie das Zimmer",
+      "lemma": "verlassen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "покидать",
+      "ipa": null,
+      "weave_priority": 26
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Одни дети",
+      "l2": "Einige Kinder",
+      "lemma": "Kind",
+      "pos": "noun",
+      "gender": "n",
+      "article": null,
+      "case": "nom",
+      "gloss": "ребёнок",
+      "ipa": null,
+      "weave_priority": 2
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "съедали",
+      "l2": "aßen",
+      "lemma": "essen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "съедали",
+      "ipa": null,
+      "weave_priority": 27
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "сладость",
+      "l2": "die Süßigkeit",
+      "lemma": "Süßigkeit",
+      "pos": "noun",
+      "gender": "f",
+      "article": "die",
+      "case": "acc",
+      "gloss": "сладость",
+      "ipa": null,
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "сразу",
+      "l2": "sofort",
+      "lemma": "sofort",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "сразу",
+      "ipa": null,
+      "weave_priority": 41
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Другие",
+      "l2": "Andere",
+      "lemma": "andere",
+      "pos": "pronoun",
+      "gender": null,
+      "article": null,
+      "case": "nom",
+      "gloss": "другие",
+      "ipa": null,
+      "weave_priority": 55
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "закрывали",
+      "l2": "schlossen",
+      "lemma": "schließen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "закрывали",
+      "ipa": null,
+      "weave_priority": 28
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "глаза",
+      "l2": "die Augen",
+      "lemma": "Auge",
+      "pos": "noun",
+      "gender": "n",
+      "article": "die",
+      "case": "acc",
+      "gloss": "глаза",
+      "ipa": null,
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "пели",
+      "l2": "sangen",
+      "lemma": "singen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "пели",
+      "ipa": null,
+      "weave_priority": 29
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "песни",
+      "l2": "Lieder",
+      "lemma": "Lied",
+      "pos": "noun",
+      "gender": "n",
+      "article": null,
+      "case": "acc",
+      "gloss": "песни",
+      "ipa": null,
+      "weave_priority": 7
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "или",
+      "l2": "oder",
+      "lemma": "oder",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "или",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "садились на руки",
+      "l2": "setzten sich auf die Hände",
+      "lemma": "sich auf die Hände setzen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "садились на руки",
+      "ipa": null,
+      "weave_priority": 30
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "чтобы дождаться",
+      "l2": "um warten zu können",
+      "lemma": "warten können",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "чтобы дождаться",
+      "ipa": null,
+      "weave_priority": 31
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Спустя годы",
+      "l2": "Jahre später",
+      "lemma": "Jahr",
+      "pos": "noun",
+      "gender": "n",
+      "article": null,
+      "case": "nom",
+      "gloss": "год",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "учёные нашли",
+      "l2": "entdeckten die Wissenschaftler",
+      "lemma": "entdecken",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "обнаруживать",
+      "ipa": null,
+      "weave_priority": 32
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "кое-что удивительное",
+      "l2": "etwas Erstaunliches",
+      "lemma": "etwas Erstaunliches",
+      "pos": "noun",
+      "gender": "n",
+      "article": null,
+      "case": "acc",
+      "gloss": "кое-что удивительное",
+      "ipa": null,
+      "weave_priority": 8
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Дети",
+      "l2": "Die Kinder",
+      "lemma": "Kind",
+      "pos": "noun",
+      "gender": "n",
+      "article": "die",
+      "case": "nom",
+      "gloss": "ребёнок",
+      "ipa": null,
+      "weave_priority": 2
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "которые дождались",
+      "l2": "die gewartet hatten",
+      "lemma": "warten",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "ждать",
+      "ipa": null,
+      "weave_priority": 33
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "часто лучше учились в школе и в жизни",
+      "l2": "schnitten später in der Schule und im Leben oft besser ab",
+      "lemma": "besser abschneiden",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "справляться лучше",
+      "ipa": null,
+      "weave_priority": 34
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Тест",
+      "l2": "Bei dem Test",
+      "lemma": "Test",
+      "pos": "noun",
+      "gender": "m",
+      "article": "dem",
+      "case": "dat",
+      "gloss": "тест",
+      "ipa": null,
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "был вовсе не про конфеты",
+      "l2": "ging es überhaupt nicht um Süßigkeiten",
+      "lemma": "um etwas gehen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "быть о чём-то",
+      "ipa": null,
+      "weave_priority": 35
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Он",
+      "l2": "Es",
+      "lemma": "es",
+      "pos": "pronoun",
+      "gender": null,
+      "article": null,
+      "case": "nom",
+      "gloss": "он",
+      "ipa": null,
+      "weave_priority": 54
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "был про терпение",
+      "l2": "ging um Geduld",
+      "lemma": "um etwas gehen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "быть о чём-то",
+      "ipa": null,
+      "weave_priority": 36
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "про то, как мы говорим «нет» себе сегодня",
+      "l2": "darum, wie wir heute zu uns selbst „Nein“ sagen",
+      "lemma": "Nein sagen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "говорить нет",
+      "ipa": null,
+      "weave_priority": 37
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "чтобы получить нечто лучшее завтра",
+      "l2": "um morgen etwas Besseres zu bekommen",
+      "lemma": "bekommen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "получать",
+      "ipa": null,
+      "weave_priority": 38
+    },
+    {
+      "t": "text",
+      "l1": "."
+    }
+  ]
+}
