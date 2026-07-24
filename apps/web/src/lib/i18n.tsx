@@ -53,6 +53,12 @@ const dict = {
     quizFinished: "Done!",
     quizNoMistakes: "No mistakes — well done!",
     quizMistakes: (n: number) => `${n} mistake${n === 1 ? "" : "s"}`,
+    vocabMilestone: (n: number) => `${n} words in your vocabulary!`,
+    vocabMilestoneProgress: (n: number, next: number) =>
+      `${n}/${next} words to next milestone`,
+    thisWeek: "This week",
+    weeklyNewWords: (n: number) => `${n} new word${n === 1 ? "" : "s"}`,
+    weeklyAddedWords: (n: number) => `${n} added`,
   },
   ru: {
     appName: "Weave",
@@ -104,6 +110,12 @@ const dict = {
     quizFinished: "Готово!",
     quizNoMistakes: "Без ошибок — отлично!",
     quizMistakes: (n: number) => `Ошибок: ${n}`,
+    vocabMilestone: (n: number) => `${n} слов в словаре!`,
+    vocabMilestoneProgress: (n: number, next: number) =>
+      `${n}/${next} слов до следующей вехи`,
+    thisWeek: "На этой неделе",
+    weeklyNewWords: (n: number) => `${n} новых слов`,
+    weeklyAddedWords: (n: number) => `${n} добавлено`,
   },
 } satisfies Record<Locale, Record<string, unknown>>;
 

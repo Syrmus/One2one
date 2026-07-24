@@ -8,6 +8,7 @@ import {
   getProgress,
   getReadingProgress,
 } from "../lib/api";
+import { VOCAB_MILESTONES } from "../lib/milestones";
 
 export type VocabEntry = {
   lemma: string;
@@ -21,6 +22,9 @@ export type VocabEntry = {
   // popover — distinct from just having encountered the word by tapping it
   // in the reader (which alone only affects seenCount/firstSeenAt).
   added: boolean;
+  // When `added` was last set to true. Local-only (not synced to the
+  // server) — just used for the "this week" summary.
+  addedAt?: number;
 };
 
 type ReaderState = {
@@ -28,6 +32,11 @@ type ReaderState = {
   scrollByStory: Record<string, number>;
   vocabulary: Record<string, VocabEntry>;
   hydrated: boolean;
+  // Highest vocabulary-size milestone already celebrated, per language —
+  // prevents re-showing the toast for a milestone already crossed.
+  milestonesShown: Record<string, number>;
+  // Set when a new milestone was just crossed; cleared by dismissMilestoneToast.
+  milestoneToast: { lang: string; count: number } | null;
   setDensity: (storyId: string, step: number) => void;
   setScroll: (storyId: string, position: number) => void;
   recordEncounter: (
@@ -39,6 +48,7 @@ type ReaderState = {
   markAdded: (lang: string, lemma: string) => void;
   unmarkAdded: (lang: string, lemma: string) => void;
   hydrateFromServer: () => Promise<void>;
+  dismissMilestoneToast: () => void;
 };
 
 function vocabKey(lang: string, lemma: string) {
@@ -69,6 +79,8 @@ export const useReaderStore = create<ReaderState>()(
       scrollByStory: {},
       vocabulary: {},
       hydrated: false,
+      milestonesShown: {},
+      milestoneToast: null,
       setDensity: (storyId, step) => {
         set((s) => ({
           densityByStory: { ...s.densityByStory, [storyId]: step },
@@ -98,7 +110,27 @@ export const useReaderStore = create<ReaderState>()(
                 seenCount: 1,
                 added: false,
               };
-          return { vocabulary: { ...s.vocabulary, [key]: entry } };
+          const vocabulary = { ...s.vocabulary, [key]: entry };
+
+          if (existing) return { vocabulary };
+
+          // A brand-new distinct word for this language — check whether it
+          // just pushed the count for that language up to a milestone.
+          const count = Object.values(vocabulary).filter(
+            (e) => e.lang === lang,
+          ).length;
+          const alreadyShown = s.milestonesShown[lang] ?? 0;
+          const justCrossed = VOCAB_MILESTONES.find(
+            (m) => m === count && m > alreadyShown,
+          );
+          if (justCrossed) {
+            return {
+              vocabulary,
+              milestonesShown: { ...s.milestonesShown, [lang]: justCrossed },
+              milestoneToast: { lang, count: justCrossed },
+            };
+          }
+          return { vocabulary };
         });
         // Fire-and-forget: localStorage above already keeps the UI instant,
         // this just persists the same encounter to the backend (FR-6).
@@ -110,13 +142,14 @@ export const useReaderStore = create<ReaderState>()(
           const key = vocabKey(lang, lemma);
           const existing = s.vocabulary[key];
           if (!existing) return s;
-          entryForSync = { ...existing, added: true };
+          entryForSync = { ...existing, added: true, addedAt: Date.now() };
           return { vocabulary: { ...s.vocabulary, [key]: entryForSync } };
         });
         if (entryForSync) {
           void postAdded(lang, lemma, entryForSync.gloss, true, entryForSync.pos);
         }
       },
+      dismissMilestoneToast: () => set({ milestoneToast: null }),
       unmarkAdded: (lang, lemma) => {
         let entryForSync: VocabEntry | undefined;
         set((s) => {
@@ -178,9 +211,10 @@ export const useReaderStore = create<ReaderState>()(
     {
       name: "weave-reader-store",
       // `hydrated` is a per-page-load guard (avoid double-fetching on
-      // server), not something that should survive a reload.
+      // server); `milestoneToast` is transient UI state. Neither should
+      // survive a reload.
       partialize: (s) => {
-        const { hydrated: _hydrated, ...rest } = s;
+        const { hydrated: _hydrated, milestoneToast: _toast, ...rest } = s;
         return rest;
       },
     },

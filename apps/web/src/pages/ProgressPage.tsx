@@ -4,6 +4,31 @@ import { useReaderStore, type VocabEntry } from "../store/readerStore";
 import { VocabularyIcon } from "../components/nav/icons";
 import { useSession } from "../lib/authClient";
 import { useT } from "../lib/i18n";
+import { nextMilestone, previousMilestone } from "../lib/milestones";
+
+function MilestoneProgress({ count }: { count: number }) {
+  const t = useT();
+  const next = nextMilestone(count);
+  if (!next) return null;
+  const floor = previousMilestone(count);
+  const ratio = (count - floor) / (next - floor);
+
+  return (
+    <div className="mb-6 rounded-2xl border border-cream-100 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+      <div className="flex items-center justify-between text-sm">
+        <span className="font-medium text-slate-700 dark:text-slate-200">
+          {t.vocabMilestoneProgress(count, next)}
+        </span>
+      </div>
+      <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-cream-100 dark:bg-slate-700">
+        <div
+          className="h-full rounded-full bg-sage-500"
+          style={{ width: `${Math.round(ratio * 100)}%` }}
+        />
+      </div>
+    </div>
+  );
+}
 
 function VocabEntryRow({
   entry,
@@ -70,6 +95,8 @@ export function ProgressPage() {
           <VocabularyIcon className="h-6 w-6 text-stone-400 dark:text-slate-500" />
         </div>
       </div>
+
+      <MilestoneProgress count={entries.length} />
 
       {entries.length === 0 && (
         <p className="text-sm text-slate-500 dark:text-slate-400">
