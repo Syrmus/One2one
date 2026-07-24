@@ -7,6 +7,8 @@ import { LibraryIcon } from "../components/nav/icons";
 import { useSession } from "../lib/authClient";
 import { useT } from "../lib/i18n";
 
+const LEVEL_ORDER = ["A1", "A2", "B1"] as const;
+
 export function LibraryPage() {
   const t = useT();
   const { data: session } = useSession();
@@ -51,11 +53,22 @@ export function LibraryPage() {
           {t.noStoriesForLanguage}
         </p>
       )}
-      <div className="flex flex-col gap-3">
-        {stories?.map((story) => (
-          <StoryCard key={story.id} story={story} />
-        ))}
-      </div>
+      {LEVEL_ORDER.map((level) => {
+        const levelStories = stories?.filter((s) => s.level === level) ?? [];
+        if (levelStories.length === 0) return null;
+        return (
+          <div key={level} className="mb-6">
+            <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-500 dark:text-slate-400">
+              {t.levelSection(level)}
+            </h2>
+            <div className="flex flex-col gap-3">
+              {levelStories.map((story) => (
+                <StoryCard key={story.id} story={story} />
+              ))}
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
