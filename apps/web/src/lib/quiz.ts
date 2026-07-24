@@ -18,6 +18,7 @@ export function buildStoryQuizPairs(story: Story): QuizPair[] {
   for (const unit of story.units) {
     if (unit.t !== "weave") continue;
     if (!isContent(unit.pos)) continue;
+    if (unit.proper_noun) continue;
     if (seen.has(unit.lemma)) continue;
     seen.add(unit.lemma);
     const l2 = unit.article ? `${unit.article} ${unit.lemma}` : unit.lemma;

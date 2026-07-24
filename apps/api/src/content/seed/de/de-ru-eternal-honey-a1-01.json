@@ -319,7 +319,8 @@
       "case": "dat",
       "gloss": "Египет",
       "ipa": null,
-      "weave_priority": 6
+      "weave_priority": 6,
+      "proper_noun": true
     },
     {
       "t": "text",

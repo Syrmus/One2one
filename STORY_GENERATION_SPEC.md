@@ -164,11 +164,14 @@ Return **one JSON object, nothing else** — no markdown fences, no preamble. Th
   "case": "nom | acc | dat | gen | null",
   "gloss": "string",            // translation of the lemma into l1
   "ipa": "string | null",       // IPA of the l2 lemma; null is acceptable (fill from reference layer later)
-  "weave_priority": 3
+  "weave_priority": 3,
+  "proper_noun": false          // true for person/place/brand names (optional, default false)
 }
 ```
 
 `pos` now spans content **and** function categories, because at 100% density function words are woven too. `is_content` is derived from `pos` (§4.5).
+
+**`proper_noun`.** Set `true` on names (characters, cities, brands — e.g. `Anna`, `Berlin`) tagged `pos: "noun"`. They're still woven and revealed on the normal content-word schedule, but the reader can't add them to its vocabulary and quizzes skip them — translating a name isn't a vocabulary item. Everything else (`weave_priority` banding, `gloss`, `lemma`) still applies normally; this is purely a downstream-filtering hint, not a new `pos` value.
 
 ### 5.1 Concatenation & interchangeability (unchanged, still critical)
 

@@ -73,17 +73,23 @@ export function WeavePopover({
           </dd>
         </dl>
 
-        <button
-          type="button"
-          onClick={added ? onRemove : onAdd}
-          className={
-            added
-              ? "mt-5 w-full rounded-2xl border border-slate-300 bg-transparent py-3 text-center font-medium text-slate-600 active:bg-slate-100 dark:border-slate-600 dark:text-slate-300 dark:active:bg-slate-700"
-              : "mt-5 w-full rounded-2xl bg-dusk-500 py-3 text-center font-medium text-white active:bg-dusk-600"
-          }
-        >
-          {added ? t.removeFromVocabulary : t.addToVocabulary}
-        </button>
+        {unit.proper_noun ? (
+          <p className="mt-5 text-center text-sm text-slate-400 dark:text-slate-500">
+            {t.properNounNote}
+          </p>
+        ) : (
+          <button
+            type="button"
+            onClick={added ? onRemove : onAdd}
+            className={
+              added
+                ? "mt-5 w-full rounded-2xl border border-slate-300 bg-transparent py-3 text-center font-medium text-slate-600 active:bg-slate-100 dark:border-slate-600 dark:text-slate-300 dark:active:bg-slate-700"
+                : "mt-5 w-full rounded-2xl bg-dusk-500 py-3 text-center font-medium text-white active:bg-dusk-600"
+            }
+          >
+            {added ? t.removeFromVocabulary : t.addToVocabulary}
+          </button>
+        )}
       </div>
     </div>
   );
