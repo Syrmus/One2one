@@ -1,0 +1,792 @@
+{
+  "id": "de-ru-annas-morning-01",
+  "l1": "ru",
+  "l2": "de",
+  "level": "A1",
+  "topic": "повседневная жизнь",
+  "title": "Утро Анны",
+  "units": [
+    {
+      "t": "weave",
+      "l1": "Анна",
+      "l2": "Anna",
+      "lemma": "Anna",
+      "pos": "noun",
+      "gender": null,
+      "article": null,
+      "case": "nom",
+      "gloss": "Анна",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "живёт",
+      "l2": "wohnt",
+      "lemma": "wohnen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "жить",
+      "ipa": null,
+      "weave_priority": 20
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "в",
+      "l2": "in",
+      "lemma": "in",
+      "pos": "preposition",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "в",
+      "ipa": null,
+      "weave_priority": 56
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "маленькой квартире",
+      "l2": "einer kleinen Wohnung",
+      "lemma": "Wohnung",
+      "pos": "noun",
+      "gender": "f",
+      "article": "einer",
+      "case": "dat",
+      "gloss": "квартира",
+      "ipa": null,
+      "weave_priority": 2
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "в",
+      "l2": "in",
+      "lemma": "in",
+      "pos": "preposition",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "в",
+      "ipa": null,
+      "weave_priority": 56
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "Берлине",
+      "l2": "Berlin",
+      "lemma": "Berlin",
+      "pos": "noun",
+      "gender": "n",
+      "article": null,
+      "case": "dat",
+      "gloss": "Берлин",
+      "ipa": null,
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Каждое утро",
+      "l2": "Jeden Morgen",
+      "lemma": "Morgen",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "acc",
+      "gloss": "утро",
+      "ipa": null,
+      "weave_priority": 4
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "она встаёт",
+      "l2": "steht sie",
+      "lemma": "aufstehen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "вставать",
+      "ipa": null,
+      "weave_priority": 21
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "в семь часов",
+      "l2": "um sieben Uhr auf",
+      "lemma": "sieben Uhr",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "семь часов",
+      "ipa": null,
+      "weave_priority": 22
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Сначала",
+      "l2": "Zuerst",
+      "lemma": "zuerst",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "сначала",
+      "ipa": null,
+      "weave_priority": 40
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "Анна открывает",
+      "l2": "öffnet Anna",
+      "lemma": "öffnen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "открывать",
+      "ipa": null,
+      "weave_priority": 23
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "окно",
+      "l2": "das Fenster",
+      "lemma": "Fenster",
+      "pos": "noun",
+      "gender": "n",
+      "article": "das",
+      "case": "acc",
+      "gloss": "окно",
+      "ipa": null,
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "пьёт",
+      "l2": "trinkt",
+      "lemma": "trinken",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "пить",
+      "ipa": null,
+      "weave_priority": 24
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "воду",
+      "l2": "Wasser",
+      "lemma": "Wasser",
+      "pos": "noun",
+      "gender": "n",
+      "article": null,
+      "case": "acc",
+      "gloss": "вода",
+      "ipa": null,
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Потом",
+      "l2": "Dann",
+      "lemma": "dann",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "потом",
+      "ipa": null,
+      "weave_priority": 41
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "она готовит",
+      "l2": "bereitet sie",
+      "lemma": "zubereiten",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "готовить",
+      "ipa": null,
+      "weave_priority": 25
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "простой завтрак",
+      "l2": "ein einfaches Frühstück zu",
+      "lemma": "Frühstück",
+      "pos": "noun",
+      "gender": "n",
+      "article": "ein",
+      "case": "acc",
+      "gloss": "завтрак",
+      "ipa": null,
+      "weave_priority": 7
+    },
+    {
+      "t": "text",
+      "l1": ": "
+    },
+    {
+      "t": "weave",
+      "l1": "хлеб",
+      "l2": "Brot",
+      "lemma": "Brot",
+      "pos": "noun",
+      "gender": "n",
+      "article": null,
+      "case": "acc",
+      "gloss": "хлеб",
+      "ipa": null,
+      "weave_priority": 8
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "сыр",
+      "l2": "Käse",
+      "lemma": "Käse",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "acc",
+      "gloss": "сыр",
+      "ipa": null,
+      "weave_priority": 9
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "яблоко",
+      "l2": "einen Apfel",
+      "lemma": "Apfel",
+      "pos": "noun",
+      "gender": "m",
+      "article": "einen",
+      "case": "acc",
+      "gloss": "яблоко",
+      "ipa": null,
+      "weave_priority": 10
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "После завтрака",
+      "l2": "Nach dem Frühstück",
+      "lemma": "Frühstück",
+      "pos": "noun",
+      "gender": "n",
+      "article": "dem",
+      "case": "dat",
+      "gloss": "завтрак",
+      "ipa": null,
+      "weave_priority": 7
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "Анна идёт",
+      "l2": "geht Anna",
+      "lemma": "gehen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "идти",
+      "ipa": null,
+      "weave_priority": 26
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "на работу",
+      "l2": "zur Arbeit",
+      "lemma": "Arbeit",
+      "pos": "noun",
+      "gender": "f",
+      "article": "der",
+      "case": "dat",
+      "gloss": "работа",
+      "ipa": null,
+      "weave_priority": 11
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "пешком",
+      "l2": "zu Fuß",
+      "lemma": "zu Fuß",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "пешком",
+      "ipa": null,
+      "weave_priority": 42
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "По дороге",
+      "l2": "Unterwegs",
+      "lemma": "unterwegs",
+      "pos": "adverb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "по дороге",
+      "ipa": null,
+      "weave_priority": 43
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "она видит",
+      "l2": "sieht sie",
+      "lemma": "sehen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "видеть",
+      "ipa": null,
+      "weave_priority": 27
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "парк",
+      "l2": "einen Park",
+      "lemma": "Park",
+      "pos": "noun",
+      "gender": "m",
+      "article": "einen",
+      "case": "acc",
+      "gloss": "парк",
+      "ipa": null,
+      "weave_priority": 12
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "маленькую пекарню",
+      "l2": "eine kleine Bäckerei",
+      "lemma": "Bäckerei",
+      "pos": "noun",
+      "gender": "f",
+      "article": "eine",
+      "case": "acc",
+      "gloss": "пекарня",
+      "ipa": null,
+      "weave_priority": 13
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Вечером",
+      "l2": "Am Abend",
+      "lemma": "Abend",
+      "pos": "noun",
+      "gender": "m",
+      "article": "dem",
+      "case": "dat",
+      "gloss": "вечером",
+      "ipa": null,
+      "weave_priority": 14
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "Анна возвращается домой",
+      "l2": "kommt Anna nach Hause zurück",
+      "lemma": "zurückkommen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "возвращаться",
+      "ipa": null,
+      "weave_priority": 28
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "готовит",
+      "l2": "macht",
+      "lemma": "machen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "готовить",
+      "ipa": null,
+      "weave_priority": 29
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "чай",
+      "l2": "Tee",
+      "lemma": "Tee",
+      "pos": "noun",
+      "gender": "m",
+      "article": null,
+      "case": "acc",
+      "gloss": "чай",
+      "ipa": null,
+      "weave_priority": 15
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "читает",
+      "l2": "liest",
+      "lemma": "lesen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "читать",
+      "ipa": null,
+      "weave_priority": 30
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "книгу",
+      "l2": "ein Buch",
+      "lemma": "Buch",
+      "pos": "noun",
+      "gender": "n",
+      "article": "ein",
+      "case": "acc",
+      "gloss": "книга",
+      "ipa": null,
+      "weave_priority": 16
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Перед сном",
+      "l2": "Vor dem Schlafengehen",
+      "lemma": "Schlafengehen",
+      "pos": "noun",
+      "gender": "n",
+      "article": "dem",
+      "case": "dat",
+      "gloss": "сон",
+      "ipa": null,
+      "weave_priority": 17
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "она пишет",
+      "l2": "schreibt sie",
+      "lemma": "schreiben",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "писать",
+      "ipa": null,
+      "weave_priority": 31
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "сообщение",
+      "l2": "eine Nachricht",
+      "lemma": "Nachricht",
+      "pos": "noun",
+      "gender": "f",
+      "article": "eine",
+      "case": "acc",
+      "gloss": "сообщение",
+      "ipa": null,
+      "weave_priority": 18
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "подруге",
+      "l2": "an ihre Freundin",
+      "lemma": "Freundin",
+      "pos": "noun",
+      "gender": "f",
+      "article": "ihre",
+      "case": "acc",
+      "gloss": "подруга",
+      "ipa": null,
+      "weave_priority": 19
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "желает",
+      "l2": "wünscht",
+      "lemma": "wünschen",
+      "pos": "verb",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "желать",
+      "ipa": null,
+      "weave_priority": 32
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "ей",
+      "l2": "ihr",
+      "lemma": "sie",
+      "pos": "pronoun",
+      "gender": null,
+      "article": null,
+      "case": "dat",
+      "gloss": "ей",
+      "ipa": null,
+      "weave_priority": 55
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "спокойной ночи",
+      "l2": "eine gute Nacht",
+      "lemma": "Nacht",
+      "pos": "noun",
+      "gender": "f",
+      "article": "eine",
+      "case": "acc",
+      "gloss": "ночь",
+      "ipa": null,
+      "weave_priority": 19
+    },
+    {
+      "t": "text",
+      "l1": "."
+    }
+  ]
+}
