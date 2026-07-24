@@ -25,8 +25,12 @@ export function WeeklySummary({ targetLanguage }: { targetLanguage?: string }) {
       </p>
       <p className="mt-1 text-sm text-slate-700 dark:text-slate-200">
         {t.weeklyNewWords(newWords)}
-        {addedWords > 0 && ` · ${t.weeklyAddedWords(addedWords)}`}
       </p>
+      {addedWords > 0 && (
+        <p className="text-sm text-slate-700 dark:text-slate-200">
+          {t.weeklyAddedWords(addedWords)}
+        </p>
+      )}
     </div>
   );
 }

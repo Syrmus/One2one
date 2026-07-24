@@ -57,8 +57,8 @@ const dict = {
     vocabMilestoneProgress: (n: number, next: number) =>
       `${n}/${next} words to next milestone`,
     thisWeek: "This week",
-    weeklyNewWords: (n: number) => `${n} new word${n === 1 ? "" : "s"}`,
-    weeklyAddedWords: (n: number) => `${n} added`,
+    weeklyNewWords: (n: number) => `New words: ${n}`,
+    weeklyAddedWords: (n: number) => `Added: ${n}`,
   },
   ru: {
     appName: "Weave",
@@ -114,8 +114,8 @@ const dict = {
     vocabMilestoneProgress: (n: number, next: number) =>
       `${n}/${next} слов до следующей вехи`,
     thisWeek: "На этой неделе",
-    weeklyNewWords: (n: number) => `${n} новых слов`,
-    weeklyAddedWords: (n: number) => `${n} добавлено`,
+    weeklyNewWords: (n: number) => `Новые слова: ${n}`,
+    weeklyAddedWords: (n: number) => `Добавлено: ${n}`,
   },
 } satisfies Record<Locale, Record<string, unknown>>;
 

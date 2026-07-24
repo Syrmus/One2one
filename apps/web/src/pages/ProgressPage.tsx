@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { isContent } from "@weave/shared";
 import { useReaderStore, type VocabEntry } from "../store/readerStore";
 import { VocabularyIcon } from "../components/nav/icons";
+import { WeeklySummary } from "../components/library/WeeklySummary";
 import { useSession } from "../lib/authClient";
 import { useT } from "../lib/i18n";
 import { nextMilestone, previousMilestone } from "../lib/milestones";
@@ -96,6 +97,7 @@ export function ProgressPage() {
         </div>
       </div>
 
+      <WeeklySummary targetLanguage={targetLanguage ?? undefined} />
       <MilestoneProgress count={entries.length} />
 
       {entries.length === 0 && (
