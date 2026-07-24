@@ -1,0 +1,970 @@
+{
+  "id": "de-ru-overview-effect-01",
+  "l1": "ru",
+  "l2": "de",
+  "level": "A2",
+  "topic": "психология",
+  "title": "Эффект обзора",
+  "units": [
+    {
+      "t": "weave",
+      "l1": "Космонавты",
+      "l2": "Astronauten",
+      "lemma": "Astronaut",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": null,
+      "case": "nom",
+      "gloss": "космонавт",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "часто возвращаются из космоса другими людьми",
+      "l2": "kehren oft als veränderte Menschen aus dem Weltraum zurück",
+      "lemma": "zurückkehren",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "возвращаться",
+      "ipa": null,
+      "weave_priority": 20
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Когда они смотрят",
+      "l2": "Wenn sie",
+      "lemma": "betrachten",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "рассматривать",
+      "ipa": null,
+      "weave_priority": 21
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "на Землю",
+      "l2": "die Erde",
+      "lemma": "Erde",
+      "pos": "noun",
+      "proper_noun": true,
+      "gender": "f",
+      "article": "die",
+      "case": "acc",
+      "gloss": "Земля",
+      "ipa": null,
+      "weave_priority": 2
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "издалека",
+      "l2": "aus der Ferne betrachten",
+      "lemma": "betrachten",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "рассматривать",
+      "ipa": null,
+      "weave_priority": 21
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "они не видят",
+      "l2": "sehen sie keine",
+      "lemma": "sehen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "видеть",
+      "ipa": null,
+      "weave_priority": 22
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "границ",
+      "l2": "Grenzen",
+      "lemma": "Grenze",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "f",
+      "article": null,
+      "case": "acc",
+      "gloss": "граница",
+      "ipa": null,
+      "weave_priority": 3
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и стран",
+      "l2": "und Länder",
+      "lemma": "Land",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "n",
+      "article": null,
+      "case": "acc",
+      "gloss": "страна",
+      "ipa": null,
+      "weave_priority": 4
+    },
+    {
+      "t": "weave",
+      "l1": " — только одну маленькую голубую планету в темноте",
+      "l2": ", sondern nur einen kleinen blauen Planeten in der Dunkelheit",
+      "lemma": "Planet",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": "einen",
+      "case": "acc",
+      "gloss": "планета",
+      "ipa": null,
+      "weave_priority": 5
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "С такой высоты",
+      "l2": "Aus dieser Höhe",
+      "lemma": "Höhe",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "f",
+      "article": "dieser",
+      "case": "dat",
+      "gloss": "высота",
+      "ipa": null,
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "города",
+      "l2": "werden Städte",
+      "lemma": "Stadt",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "f",
+      "article": null,
+      "case": "nom",
+      "gloss": "город",
+      "ipa": null,
+      "weave_priority": 7
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "моря",
+      "l2": "Meere",
+      "lemma": "Meer",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "n",
+      "article": null,
+      "case": "nom",
+      "gloss": "море",
+      "ipa": null,
+      "weave_priority": 8
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "облака",
+      "l2": "Wolken",
+      "lemma": "Wolke",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "f",
+      "article": null,
+      "case": "nom",
+      "gloss": "облако",
+      "ipa": null,
+      "weave_priority": 9
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "становятся частью одной картины",
+      "l2": "zu Teilen eines einzigen Bildes",
+      "lemma": "Teil",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": null,
+      "case": "dat",
+      "gloss": "часть",
+      "ipa": null,
+      "weave_priority": 10
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Вдруг",
+      "l2": "Plötzlich",
+      "lemma": "plötzlich",
+      "pos": "adverb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "вдруг",
+      "ipa": null,
+      "weave_priority": 40
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "ссоры между народами кажутся",
+      "l2": "wirken die Streitigkeiten zwischen den Völkern",
+      "lemma": "wirken",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "казаться",
+      "ipa": null,
+      "weave_priority": 23
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "крошечными",
+      "l2": "winzig",
+      "lemma": "winzig",
+      "pos": "adjective",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "крошечный",
+      "ipa": null,
+      "weave_priority": 30
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "глупыми",
+      "l2": "töricht",
+      "lemma": "töricht",
+      "pos": "adjective",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "глупый",
+      "ipa": null,
+      "weave_priority": 31
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Это чувство",
+      "l2": "Dieses Gefühl",
+      "lemma": "Gefühl",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "n",
+      "article": "dieses",
+      "case": "nom",
+      "gloss": "чувство",
+      "ipa": null,
+      "weave_priority": 11
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "настолько сильное",
+      "l2": "ist so stark",
+      "lemma": "stark",
+      "pos": "adjective",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "сильный",
+      "ipa": null,
+      "weave_priority": 32
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "что у него есть имя",
+      "l2": "dass es einen Namen hat",
+      "lemma": "Name",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": "einen",
+      "case": "acc",
+      "gloss": "имя",
+      "ipa": null,
+      "weave_priority": 12
+    },
+    {
+      "t": "weave",
+      "l1": " — эффект обзора",
+      "l2": ": den Overview-Effekt",
+      "lemma": "Overview-Effekt",
+      "pos": "noun",
+      "proper_noun": true,
+      "gender": "m",
+      "article": "den",
+      "case": "acc",
+      "gloss": "эффект обзора",
+      "ipa": null,
+      "weave_priority": 13
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Многие космонавты",
+      "l2": "Viele Astronauten",
+      "lemma": "Astronaut",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": null,
+      "case": "nom",
+      "gloss": "космонавт",
+      "ipa": null,
+      "weave_priority": 1
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "говорят",
+      "l2": "sagen",
+      "lemma": "sagen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "говорить",
+      "ipa": null,
+      "weave_priority": 24
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "что ощутили глубокую любовь",
+      "l2": "dass sie eine tiefe Liebe",
+      "lemma": "empfinden",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "чувствовать",
+      "ipa": null,
+      "weave_priority": 25
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "к Земле",
+      "l2": "zur Erde",
+      "lemma": "Erde",
+      "pos": "noun",
+      "proper_noun": true,
+      "gender": "f",
+      "article": "der",
+      "case": "dat",
+      "gloss": "Земля",
+      "ipa": null,
+      "weave_priority": 2
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и ко всем людям на ней",
+      "l2": "und zu allen Menschen auf ihr empfunden haben",
+      "lemma": "empfinden",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "чувствовать",
+      "ipa": null,
+      "weave_priority": 25
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Они",
+      "l2": "Sie",
+      "lemma": "sie",
+      "pos": "pronoun",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": "nom",
+      "gloss": "они",
+      "ipa": null,
+      "weave_priority": 54
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "поняли",
+      "l2": "verstanden",
+      "lemma": "verstehen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "понимать",
+      "ipa": null,
+      "weave_priority": 26
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "насколько хрупка наша планета",
+      "l2": "wie verletzlich unser Planet ist",
+      "lemma": "verletzlich",
+      "pos": "adjective",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "хрупкий",
+      "ipa": null,
+      "weave_priority": 33
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "как важно её защищать",
+      "l2": "wie wichtig es ist, ihn zu schützen",
+      "lemma": "schützen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "защищать",
+      "ipa": null,
+      "weave_priority": 27
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Некоторые",
+      "l2": "Einige",
+      "lemma": "einige",
+      "pos": "pronoun",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": "nom",
+      "gloss": "некоторые",
+      "ipa": null,
+      "weave_priority": 54
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "после возвращения стали",
+      "l2": "wurden nach ihrer Rückkehr",
+      "lemma": "werden",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "становиться",
+      "ipa": null,
+      "weave_priority": 28
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "художниками",
+      "l2": "Künstler",
+      "lemma": "Künstler",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": null,
+      "case": "nom",
+      "gloss": "художник",
+      "ipa": null,
+      "weave_priority": 14
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "или",
+      "l2": "oder",
+      "lemma": "oder",
+      "pos": "conjunction",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "или",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "учителями",
+      "l2": "Lehrer",
+      "lemma": "Lehrer",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": null,
+      "case": "nom",
+      "gloss": "учитель",
+      "ipa": null,
+      "weave_priority": 15
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Другие",
+      "l2": "Andere",
+      "lemma": "andere",
+      "pos": "pronoun",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": "nom",
+      "gloss": "другие",
+      "ipa": null,
+      "weave_priority": 55
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "начали рассказывать людям о природе и мире без границ",
+      "l2": "begannen den Menschen von der Natur und von einer Welt ohne Grenzen zu erzählen",
+      "lemma": "erzählen beginnen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "начинать рассказывать",
+      "ipa": null,
+      "weave_priority": 29
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Они",
+      "l2": "Sie",
+      "lemma": "sie",
+      "pos": "pronoun",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": "nom",
+      "gloss": "они",
+      "ipa": null,
+      "weave_priority": 54
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "улетали пилотами",
+      "l2": "flogen als Piloten fort",
+      "lemma": "fortfliegen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "улетать",
+      "ipa": null,
+      "weave_priority": 30
+    },
+    {
+      "t": "weave",
+      "l1": ", а вернулись домой мечтателями",
+      "l2": " und kehrten als Träumer nach Hause zurück",
+      "lemma": "zurückkehren",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "возвращаться",
+      "ipa": null,
+      "weave_priority": 20
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Вид",
+      "l2": "Der Anblick",
+      "lemma": "Anblick",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": "der",
+      "case": "nom",
+      "gloss": "вид",
+      "ipa": null,
+      "weave_priority": 19
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "Земли",
+      "l2": "der Erde",
+      "lemma": "Erde",
+      "pos": "noun",
+      "proper_noun": true,
+      "gender": "f",
+      "article": "der",
+      "case": "gen",
+      "gloss": "Земля",
+      "ipa": null,
+      "weave_priority": 2
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "из космоса",
+      "l2": "aus dem Weltraum",
+      "lemma": "Weltraum",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": "dem",
+      "case": "dat",
+      "gloss": "космос",
+      "ipa": null,
+      "weave_priority": 20
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "изменил",
+      "l2": "veränderte",
+      "lemma": "verändern",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "изменять",
+      "ipa": null,
+      "weave_priority": 31
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "их мысли",
+      "l2": "ihre Gedanken",
+      "lemma": "Gedanke",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": "ihre",
+      "case": "acc",
+      "gloss": "мысль",
+      "ipa": null,
+      "weave_priority": 21
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "ценности",
+      "l2": "Werte",
+      "lemma": "Wert",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": null,
+      "case": "acc",
+      "gloss": "ценность",
+      "ipa": null,
+      "weave_priority": 22
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "und",
+      "lemma": "und",
+      "pos": "conjunction",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "планы на будущее",
+      "l2": "Zukunftspläne",
+      "lemma": "Zukunftsplan",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": null,
+      "case": "acc",
+      "gloss": "план на будущее",
+      "ipa": null,
+      "weave_priority": 23
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "и",
+      "l2": "sowie",
+      "lemma": "sowie",
+      "pos": "conjunction",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "и",
+      "ipa": null,
+      "weave_priority": 52
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "отношение к дому",
+      "l2": "ihre Sicht auf die Heimat",
+      "lemma": "Sicht",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "f",
+      "article": "ihre",
+      "case": "acc",
+      "gloss": "отношение",
+      "ipa": null,
+      "weave_priority": 24
+    },
+    {
+      "t": "text",
+      "l1": "."
+    }
+  ]
+}
