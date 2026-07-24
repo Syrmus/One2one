@@ -1,7 +1,13 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { Pos } from "@weave/shared";
-import { postSeen } from "../lib/api";
+import {
+  postSeen,
+  postAdded,
+  postReadingProgress,
+  getProgress,
+  getReadingProgress,
+} from "../lib/api";
 
 export type VocabEntry = {
   lemma: string;
@@ -21,6 +27,7 @@ type ReaderState = {
   densityByStory: Record<string, number>;
   scrollByStory: Record<string, number>;
   vocabulary: Record<string, VocabEntry>;
+  hydrated: boolean;
   setDensity: (storyId: string, step: number) => void;
   setScroll: (storyId: string, position: number) => void;
   recordEncounter: (
@@ -31,26 +38,51 @@ type ReaderState = {
   ) => void;
   markAdded: (lang: string, lemma: string) => void;
   unmarkAdded: (lang: string, lemma: string) => void;
+  hydrateFromServer: () => Promise<void>;
 };
 
 function vocabKey(lang: string, lemma: string) {
   return `${lang}:${lemma}`;
 }
 
+// Scroll position changes on every scroll tick locally, but only needs to
+// reach the server occasionally — debounced per story so switching stories
+// doesn't lose a pending write for the previous one.
+const scrollSyncTimers = new Map<string, ReturnType<typeof setTimeout>>();
+
+function scheduleScrollSync(storyId: string, step: number, position: number) {
+  const existing = scrollSyncTimers.get(storyId);
+  if (existing) clearTimeout(existing);
+  scrollSyncTimers.set(
+    storyId,
+    setTimeout(() => {
+      scrollSyncTimers.delete(storyId);
+      void postReadingProgress(storyId, step, position);
+    }, 1500),
+  );
+}
+
 export const useReaderStore = create<ReaderState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       densityByStory: {},
       scrollByStory: {},
       vocabulary: {},
-      setDensity: (storyId, step) =>
+      hydrated: false,
+      setDensity: (storyId, step) => {
         set((s) => ({
           densityByStory: { ...s.densityByStory, [storyId]: step },
-        })),
-      setScroll: (storyId, position) =>
+        }));
+        const position = get().scrollByStory[storyId] ?? 0;
+        void postReadingProgress(storyId, step, position);
+      },
+      setScroll: (storyId, position) => {
         set((s) => ({
           scrollByStory: { ...s.scrollByStory, [storyId]: position },
-        })),
+        }));
+        const step = get().densityByStory[storyId] ?? 0;
+        scheduleScrollSync(storyId, step, position);
+      },
       recordEncounter: (lang, lemma, gloss, pos) => {
         set((s) => {
           const key = vocabKey(lang, lemma);
@@ -70,29 +102,87 @@ export const useReaderStore = create<ReaderState>()(
         });
         // Fire-and-forget: localStorage above already keeps the UI instant,
         // this just persists the same encounter to the backend (FR-6).
-        void postSeen(lang, lemma, gloss);
+        void postSeen(lang, lemma, gloss, pos);
       },
       markAdded: (lang, lemma) => {
+        let entryForSync: VocabEntry | undefined;
         set((s) => {
           const key = vocabKey(lang, lemma);
           const existing = s.vocabulary[key];
           if (!existing) return s;
-          return {
-            vocabulary: { ...s.vocabulary, [key]: { ...existing, added: true } },
-          };
+          entryForSync = { ...existing, added: true };
+          return { vocabulary: { ...s.vocabulary, [key]: entryForSync } };
         });
+        if (entryForSync) {
+          void postAdded(lang, lemma, entryForSync.gloss, true, entryForSync.pos);
+        }
       },
       unmarkAdded: (lang, lemma) => {
+        let entryForSync: VocabEntry | undefined;
         set((s) => {
           const key = vocabKey(lang, lemma);
           const existing = s.vocabulary[key];
           if (!existing) return s;
-          return {
-            vocabulary: { ...s.vocabulary, [key]: { ...existing, added: false } },
-          };
+          entryForSync = { ...existing, added: false };
+          return { vocabulary: { ...s.vocabulary, [key]: entryForSync } };
         });
+        if (entryForSync) {
+          void postAdded(lang, lemma, entryForSync.gloss, false, entryForSync.pos);
+        }
+      },
+      hydrateFromServer: async () => {
+        if (get().hydrated) return;
+        try {
+          const [progressRows, readingRows] = await Promise.all([
+            getProgress(),
+            getReadingProgress(),
+          ]);
+
+          set((s) => {
+            const vocabulary = { ...s.vocabulary };
+            for (const row of progressRows) {
+              const key = vocabKey(row.lang, row.lemma);
+              const existing = vocabulary[key];
+              vocabulary[key] = {
+                lemma: row.lemma,
+                lang: row.lang,
+                gloss: existing?.gloss ?? row.gloss,
+                pos: (existing?.pos ?? row.pos ?? undefined) as Pos | undefined,
+                firstSeenAt: Math.min(
+                  existing?.firstSeenAt ?? Date.parse(row.firstSeenAt),
+                  Date.parse(row.firstSeenAt),
+                ),
+                seenCount: Math.max(existing?.seenCount ?? 0, row.seenCount),
+                added: (existing?.added ?? false) || row.added,
+              };
+            }
+
+            const densityByStory = { ...s.densityByStory };
+            const scrollByStory = { ...s.scrollByStory };
+            for (const row of readingRows) {
+              if (!(row.storyId in densityByStory)) {
+                densityByStory[row.storyId] = row.densityStep;
+              }
+              if (!(row.storyId in scrollByStory)) {
+                scrollByStory[row.storyId] = row.scrollPosition;
+              }
+            }
+
+            return { vocabulary, densityByStory, scrollByStory, hydrated: true };
+          });
+        } catch (err) {
+          console.error("Failed to hydrate progress from server:", err);
+        }
       },
     }),
-    { name: "weave-reader-store" },
+    {
+      name: "weave-reader-store",
+      // `hydrated` is a per-page-load guard (avoid double-fetching on
+      // server), not something that should survive a reload.
+      partialize: (s) => {
+        const { hydrated: _hydrated, ...rest } = s;
+        return rest;
+      },
+    },
   ),
 );

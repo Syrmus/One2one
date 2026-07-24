@@ -4,6 +4,7 @@ import { cors } from "hono/cors";
 import { languagesRoute } from "./routes/languages";
 import { storiesRoute } from "./routes/stories";
 import { progressRoute } from "./routes/progress";
+import { readingProgressRoute } from "./routes/readingProgress";
 import { authRoute } from "./routes/auth";
 import { requireSession } from "./middleware/requireSession";
 import type { AppEnv } from "./types";
@@ -24,8 +25,10 @@ app.route("/api/auth", authRoute);
 // Everything below requires a real session (SPEC §7.3/§7.4).
 app.use("/api/stories/*", requireSession);
 app.use("/api/progress/*", requireSession);
+app.use("/api/reading-progress/*", requireSession);
 app.route("/api/stories", storiesRoute);
 app.route("/api/progress", progressRoute);
+app.route("/api/reading-progress", readingProgressRoute);
 
 const port = Number(process.env.PORT ?? 3001);
 serve({ fetch: app.fetch, port }, (info) => {

@@ -15,6 +15,13 @@
       "when": 1784623107848,
       "tag": "0001_lazy_thundra",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1784838494089,
+      "tag": "0002_quiet_silver_fox",
+      "breakpoints": true
     }
   ]
 }

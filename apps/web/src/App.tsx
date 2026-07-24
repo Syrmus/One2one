@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { LibraryPage } from './pages/LibraryPage'
 import { ReaderPage } from './pages/ReaderPage'
@@ -11,6 +12,7 @@ import { BottomNav } from './components/nav/BottomNav'
 import { signIn, useSession } from './lib/authClient'
 import { detectLocale, I18nProvider, useT, type Locale } from './lib/i18n'
 import { useLocaleStore } from './store/localeStore'
+import { useReaderStore } from './store/readerStore'
 
 function SignInScreen() {
   const storedLocale = useLocaleStore((s) => s.locale)
@@ -101,9 +103,14 @@ function AboutRoute() {
 
 function MainApp() {
   const { data: session, isPending, refetch } = useSession()
+  const hydrateFromServer = useReaderStore((s) => s.hydrateFromServer)
 
   const needsOnboarding =
     !!session && (!session.user.nativeLanguage || !session.user.targetLanguage)
+
+  useEffect(() => {
+    if (session && !needsOnboarding) void hydrateFromServer()
+  }, [session, needsOnboarding, hydrateFromServer])
 
   if (isPending) {
     return (
