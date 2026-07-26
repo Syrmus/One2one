@@ -110,7 +110,7 @@ function MainApp() {
     !!session && (!session.user.nativeLanguage || !session.user.targetLanguage)
 
   useEffect(() => {
-    if (session && !needsOnboarding) void hydrateFromServer()
+    if (session && !needsOnboarding) void hydrateFromServer(session.user.id)
   }, [session, needsOnboarding, hydrateFromServer])
 
   if (isPending) {

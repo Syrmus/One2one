@@ -54,12 +54,15 @@ export const progressRoute = new Hono<AppEnv>()
       );
     }
 
+    // Stamp added_at when adding, clear it when un-adding, so the client's
+    // "added this week / today" metrics are correct across devices.
+    const addedAt = added ? sql`now()` : null;
     const [row] = await db
       .insert(progress)
-      .values({ userId, lang, lemma, gloss, pos, added })
+      .values({ userId, lang, lemma, gloss, pos, added, addedAt })
       .onConflictDoUpdate({
         target: [progress.userId, progress.lang, progress.lemma],
-        set: { added, updatedAt: sql`now()` },
+        set: { added, addedAt, updatedAt: sql`now()` },
       })
       .returning();
 

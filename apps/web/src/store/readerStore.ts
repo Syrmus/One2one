@@ -23,8 +23,8 @@ export type VocabEntry = {
   // popover — distinct from just having encountered the word by tapping it
   // in the reader (which alone only affects seenCount/firstSeenAt).
   added: boolean;
-  // When `added` was last set to true. Local-only (not synced to the
-  // server) — just used for the "this week" summary.
+  // When `added` was last set to true (synced to the server's added_at, so
+  // "this week / today" added metrics survive across devices).
   addedAt?: number;
 };
 
@@ -35,10 +35,12 @@ type ReaderState = {
   reachedEndByStory: Record<string, number>;
   // storyId -> highest densityStep at which the story has ever been read to the end.
   maxCompletedStepByStory: Record<string, number>;
-  // storyId -> furthest reading position reached, as a % of the story.
-  maxReadPercentByStory: Record<string, number>;
   vocabulary: Record<string, VocabEntry>;
   hydrated: boolean;
+  // Which logged-in user the persisted per-user data (vocabulary, reading
+  // progress, milestones) belongs to. Used to wipe another user's local data
+  // when a different account logs in on the same browser.
+  ownerUserId: string | null;
   // Highest vocabulary-size milestone already celebrated, per language —
   // prevents re-showing the toast for a milestone already crossed.
   milestonesShown: Record<string, number>;
@@ -46,11 +48,11 @@ type ReaderState = {
   milestoneToast: { lang: string; count: number } | null;
   setDensity: (storyId: string, step: number) => void;
   setScroll: (storyId: string, position: number) => void;
-  setReadPercent: (storyId: string, percent: number) => void;
   // Records reaching the end of a story. No-op (returns false) below step 1 —
   // finishing at 0% density is just reading plain L1, not a language milestone.
   // Returns true when this pushes maxCompletedStep to a new high for this
-  // story, which callers use to decide whether to show the completion screen.
+  // story. Called explicitly when the reader takes a forward action from the
+  // end-of-story panel (raise density / test / next), never from scrolling.
   markReachedEnd: (storyId: string, step: number) => boolean;
   recordEncounter: (
     lang: string,
@@ -60,9 +62,21 @@ type ReaderState = {
   ) => void;
   markAdded: (lang: string, lemma: string) => void;
   unmarkAdded: (lang: string, lemma: string) => void;
-  hydrateFromServer: () => Promise<void>;
+  hydrateFromServer: (userId: string) => Promise<void>;
+  // Clears all per-user data (used on sign-out so it isn't left at rest for
+  // the next person on a shared browser).
+  resetUserData: () => void;
   dismissMilestoneToast: () => void;
 };
+
+const EMPTY_USER_DATA = {
+  densityByStory: {},
+  scrollByStory: {},
+  reachedEndByStory: {},
+  maxCompletedStepByStory: {},
+  vocabulary: {},
+  milestonesShown: {},
+} as const;
 
 function vocabKey(lang: string, lemma: string) {
   return `${lang}:${lemma}`;
@@ -73,19 +87,14 @@ function vocabKey(lang: string, lemma: string) {
 // doesn't lose a pending write for the previous one.
 const scrollSyncTimers = new Map<string, ReturnType<typeof setTimeout>>();
 
-function scheduleScrollSync(
-  storyId: string,
-  step: number,
-  position: number,
-  readPercent: number,
-) {
+function scheduleScrollSync(storyId: string, step: number, position: number) {
   const existing = scrollSyncTimers.get(storyId);
   if (existing) clearTimeout(existing);
   scrollSyncTimers.set(
     storyId,
     setTimeout(() => {
       scrollSyncTimers.delete(storyId);
-      void postReadingProgress(storyId, step, position, readPercent);
+      void postReadingProgress(storyId, step, position);
     }, 1500),
   );
 }
@@ -97,9 +106,9 @@ export const useReaderStore = create<ReaderState>()(
       scrollByStory: {},
       reachedEndByStory: {},
       maxCompletedStepByStory: {},
-      maxReadPercentByStory: {},
       vocabulary: {},
       hydrated: false,
+      ownerUserId: null,
       milestonesShown: {},
       milestoneToast: null,
       setDensity: (storyId, step) => {
@@ -107,32 +116,14 @@ export const useReaderStore = create<ReaderState>()(
           densityByStory: { ...s.densityByStory, [storyId]: step },
         }));
         const position = get().scrollByStory[storyId] ?? 0;
-        const readPercent = get().maxReadPercentByStory[storyId] ?? 0;
-        void postReadingProgress(storyId, step, position, readPercent);
+        void postReadingProgress(storyId, step, position);
       },
       setScroll: (storyId, position) => {
         set((s) => ({
           scrollByStory: { ...s.scrollByStory, [storyId]: position },
         }));
         const step = get().densityByStory[storyId] ?? 0;
-        const readPercent = get().maxReadPercentByStory[storyId] ?? 0;
-        scheduleScrollSync(storyId, step, position, readPercent);
-      },
-      setReadPercent: (storyId, percent) => {
-        let changed = false;
-        set((s) => {
-          const prev = s.maxReadPercentByStory[storyId] ?? 0;
-          if (percent <= prev) return s;
-          changed = true;
-          return {
-            maxReadPercentByStory: { ...s.maxReadPercentByStory, [storyId]: percent },
-          };
-        });
-        if (!changed) return;
-        const step = get().densityByStory[storyId] ?? 0;
-        const position = get().scrollByStory[storyId] ?? 0;
-        const readPercent = get().maxReadPercentByStory[storyId] ?? 0;
-        scheduleScrollSync(storyId, step, position, readPercent);
+        scheduleScrollSync(storyId, step, position);
       },
       markReachedEnd: (storyId, step) => {
         if (step < 1) return false;
@@ -216,7 +207,14 @@ export const useReaderStore = create<ReaderState>()(
           void postAdded(lang, lemma, entryForSync.gloss, false, entryForSync.pos);
         }
       },
-      hydrateFromServer: async () => {
+      resetUserData: () =>
+        set({ ...EMPTY_USER_DATA, ownerUserId: null, hydrated: false }),
+      hydrateFromServer: async (userId) => {
+        // A different account on this browser: drop the previous user's local
+        // data before pulling this user's, so nothing bleeds across accounts.
+        if (get().ownerUserId && get().ownerUserId !== userId) {
+          set({ ...EMPTY_USER_DATA, hydrated: false });
+        }
         if (get().hydrated) return;
         try {
           const [progressRows, readingRows] = await Promise.all([
@@ -240,6 +238,9 @@ export const useReaderStore = create<ReaderState>()(
                 ),
                 seenCount: Math.max(existing?.seenCount ?? 0, row.seenCount),
                 added: (existing?.added ?? false) || row.added,
+                addedAt:
+                  existing?.addedAt ??
+                  (row.addedAt ? Date.parse(row.addedAt) : undefined),
               };
             }
 
@@ -247,7 +248,6 @@ export const useReaderStore = create<ReaderState>()(
             const scrollByStory = { ...s.scrollByStory };
             const reachedEndByStory = { ...s.reachedEndByStory };
             const maxCompletedStepByStory = { ...s.maxCompletedStepByStory };
-            const maxReadPercentByStory = { ...s.maxReadPercentByStory };
             for (const row of readingRows) {
               if (!(row.storyId in densityByStory)) {
                 densityByStory[row.storyId] = row.densityStep;
@@ -261,9 +261,6 @@ export const useReaderStore = create<ReaderState>()(
               if (!(row.storyId in maxCompletedStepByStory)) {
                 maxCompletedStepByStory[row.storyId] = row.maxCompletedStep;
               }
-              if (!(row.storyId in maxReadPercentByStory)) {
-                maxReadPercentByStory[row.storyId] = row.maxReadPercent;
-              }
             }
 
             return {
@@ -272,7 +269,7 @@ export const useReaderStore = create<ReaderState>()(
               scrollByStory,
               reachedEndByStory,
               maxCompletedStepByStory,
-              maxReadPercentByStory,
+              ownerUserId: userId,
               hydrated: true,
             };
           });

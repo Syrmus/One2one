@@ -1,14 +1,15 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { MAX_STEP, MIN_STEP, type Story } from "@weave/shared";
+import { DEFAULT_STEPS, MAX_STEP, MIN_STEP, type Story } from "@weave/shared";
 import { getStory } from "../lib/api";
 import { useReaderStore } from "../store/readerStore";
 import { WeaveText } from "../components/reader/WeaveText";
 import { WeavePopover } from "../components/reader/WeavePopover";
 import { DensitySlider } from "../components/reader/DensitySlider";
-import { StoryCompletionScreen } from "../components/reader/StoryCompletionScreen";
+import { EndOfStoryPanel } from "../components/reader/EndOfStoryPanel";
+import { StoryStatusBadge } from "../components/library/StoryStatusBadge";
 import { buildStoryQuizPairs } from "../lib/quiz";
-import { storyLemmas, storyProgress } from "../lib/progress";
+import { storyLemmas, storyProgress, storyStatus } from "../lib/progress";
 import { useT } from "../lib/i18n";
 
 export function ReaderPage() {
@@ -18,17 +19,11 @@ export function ReaderPage() {
 
   const [story, setStory] = useState<Story | undefined | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [completionOpen, setCompletionOpen] = useState(false);
   const restoredRef = useRef(false);
-  // Guards against re-showing the completion screen for the same
-  // (story, step) pair when the sentence anchor re-fires (e.g. scroll jitter
-  // around the last sentence) within one mount.
-  const reachedGuardRef = useRef<Set<string>>(new Set());
 
   useEffect(() => {
     if (!storyId) return;
     setStory(null);
-    setCompletionOpen(false);
     getStory(storyId).then((s) => setStory(s ?? undefined));
   }, [storyId]);
 
@@ -36,8 +31,10 @@ export function ReaderPage() {
   const setDensity = useReaderStore((s) => s.setDensity);
   const scrollByStory = useReaderStore((s) => s.scrollByStory);
   const setScroll = useReaderStore((s) => s.setScroll);
-  const setReadPercent = useReaderStore((s) => s.setReadPercent);
   const markReachedEnd = useReaderStore((s) => s.markReachedEnd);
+  const maxCompletedStepByStory = useReaderStore(
+    (s) => s.maxCompletedStepByStory,
+  );
   const vocabulary = useReaderStore((s) => s.vocabulary);
   const recordEncounter = useReaderStore((s) => s.recordEncounter);
   const markAdded = useReaderStore((s) => s.markAdded);
@@ -64,23 +61,6 @@ export function ReaderPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [story, setScroll]);
 
-  const handleTextProgress = useCallback(
-    (furthest: number, total: number) => {
-      if (!story) return;
-      const percent = Math.round(((furthest + 1) / total) * 100);
-      setReadPercent(story.id, percent);
-
-      if (furthest !== total - 1) return; // not the last sentence yet
-      const guardKey = `${story.id}:${step}`;
-      if (reachedGuardRef.current.has(guardKey)) return;
-      reachedGuardRef.current.add(guardKey);
-
-      const isNewMax = markReachedEnd(story.id, step);
-      if (isNewMax) setCompletionOpen(true);
-    },
-    [story, step, setReadPercent, markReachedEnd],
-  );
-
   if (story === null) {
     return (
       <div className="mx-auto max-w-md px-4 py-6">
@@ -106,14 +86,32 @@ export function ReaderPage() {
     selectedIndex !== null ? story.units[selectedIndex] : undefined;
   const weaveUnit = selectedUnit?.t === "weave" ? selectedUnit : undefined;
 
-  const { seen, total } = storyProgress(story, vocabulary);
+  const { seen } = storyProgress(story, vocabulary);
   const addedInStory = storyLemmas(story).filter(
     (lemma) => vocabulary[`${story.l2}:${lemma}`]?.added,
   ).length;
 
+  const hasProgress =
+    story.id in densityByStory || story.id in scrollByStory;
+  const status = storyStatus({
+    hasProgress,
+    maxCompletedStep: maxCompletedStepByStory[story.id] ?? 0,
+  });
+  const densityLabel =
+    step === MIN_STEP
+      ? t.densityOriginal
+      : step === MAX_STEP
+        ? t.densityFull
+        : t.densityPercent(DEFAULT_STEPS[step]!.target);
+
+  // Any forward action from the end panel is what records the story as read at
+  // the current density (no-op below step 1). Leaving via the back link does
+  // not — that's "didn't finish".
+  const finishAtCurrent = () => markReachedEnd(story.id, step);
+
   return (
-    <div className="mx-auto max-w-md px-4 py-6 pb-32">
-      <div className="mb-4 flex items-center justify-between gap-2">
+    <div className="mx-auto max-w-md px-4 py-6 pb-44">
+      <div className="mb-3 flex items-center justify-between gap-2">
         <Link to="/" className="text-sm text-dusk-600 dark:text-dusk-500">
           {t.backToLibrary}
         </Link>
@@ -132,6 +130,13 @@ export function ReaderPage() {
         )}
       </div>
 
+      <div className="mb-4 flex items-center gap-2">
+        <StoryStatusBadge status={status} />
+        <span className="rounded-full bg-cream-100 px-2 py-0.5 text-xs font-medium text-stone-600 dark:bg-slate-700 dark:text-slate-300">
+          {densityLabel}
+        </span>
+      </div>
+
       <WeaveText
         story={story}
         step={step}
@@ -142,7 +147,26 @@ export function ReaderPage() {
             recordEncounter(story.l2, unit.lemma, unit.gloss, unit.pos);
           }
         }}
-        onProgress={handleTextProgress}
+      />
+
+      <EndOfStoryPanel
+        step={step}
+        seen={seen}
+        addedInStory={addedInStory}
+        canQuiz={canQuiz}
+        onRaiseDensity={() => {
+          finishAtCurrent();
+          setDensity(story.id, step + 1);
+          window.scrollTo(0, 0);
+        }}
+        onQuiz={() => {
+          finishAtCurrent();
+          navigate(`/quiz/story/${story.id}`);
+        }}
+        onNext={() => {
+          finishAtCurrent();
+          navigate("/");
+        }}
       />
 
       <div className="fixed inset-x-0 bottom-[calc(5rem+env(safe-area-inset-bottom))] mx-auto max-w-md px-4">
@@ -162,31 +186,6 @@ export function ReaderPage() {
           onAdd={() => markAdded(story.l2, weaveUnit.lemma)}
           onRemove={() => unmarkAdded(story.l2, weaveUnit.lemma)}
           onClose={() => setSelectedIndex(null)}
-        />
-      )}
-
-      {completionOpen && (
-        <StoryCompletionScreen
-          step={step}
-          seen={seen}
-          total={total}
-          addedInStory={addedInStory}
-          canRaiseDensity={step < MAX_STEP}
-          canQuiz={canQuiz}
-          onRaiseDensity={() => {
-            setDensity(story.id, step + 1);
-            window.scrollTo(0, 0);
-            setCompletionOpen(false);
-          }}
-          onQuiz={() => {
-            setCompletionOpen(false);
-            navigate(`/quiz/story/${story.id}`);
-          }}
-          onNext={() => {
-            setCompletionOpen(false);
-            navigate("/");
-          }}
-          onClose={() => setCompletionOpen(false)}
         />
       )}
     </div>

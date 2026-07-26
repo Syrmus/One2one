@@ -40,6 +40,7 @@ export type ProgressRow = {
   gloss: string;
   pos: string | null;
   added: boolean;
+  addedAt: string | null;
   firstSeenAt: string;
   seenCount: number;
   updatedAt: string;

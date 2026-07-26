@@ -5,6 +5,7 @@ import { SettingsIcon } from "../components/nav/icons";
 import { getLanguages, type Language } from "../lib/api";
 import { langInfo, NATIVE_LANGUAGES } from "../lib/languages";
 import { useFontSizeStore, type FontScale } from "../store/fontSizeStore";
+import { useReaderStore } from "../store/readerStore";
 import { useT, type Locale } from "../lib/i18n";
 
 const FONT_SCALES: FontScale[] = ["normal", "large", "xlarge"];
@@ -18,6 +19,7 @@ export function SettingsPage() {
   const [picker, setPicker] = useState<Picker>(null);
   const [saving, setSaving] = useState(false);
   const fontScale = useFontSizeStore((s) => s.fontScale);
+  const resetUserData = useReaderStore((s) => s.resetUserData);
   const setFontScale = useFontSizeStore((s) => s.setFontScale);
 
   const fontScaleLabel: Record<FontScale, string> = {
@@ -147,7 +149,10 @@ export function SettingsPage() {
 
       <button
         type="button"
-        onClick={() => signOut()}
+        onClick={() => {
+          resetUserData();
+          void signOut();
+        }}
         className="w-full rounded-2xl border border-red-200 py-3 text-center font-medium text-red-600 dark:border-red-900 dark:text-red-400"
       >
         {t.signOut}

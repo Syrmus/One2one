@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import type { Story } from "@weave/shared";
+import { useNavigate, useParams, Link } from "react-router-dom";
+import { DEFAULT_STEPS, MAX_STEP, MIN_STEP, type Story } from "@weave/shared";
 import { getStory } from "../lib/api";
 import { useReaderStore } from "../store/readerStore";
 import { useSession } from "../lib/authClient";
@@ -17,12 +17,15 @@ type Mode = "story" | "vocab";
 
 export function QuizPage({ mode }: { mode: Mode }) {
   const t = useT();
+  const navigate = useNavigate();
   const { storyId } = useParams<{ storyId: string }>();
   const { data: session } = useSession();
   const targetLanguage = session?.user.targetLanguage;
 
   const vocabulary = useReaderStore((s) => s.vocabulary);
   const recordEncounter = useReaderStore((s) => s.recordEncounter);
+  const densityByStory = useReaderStore((s) => s.densityByStory);
+  const setDensity = useReaderStore((s) => s.setDensity);
 
   const [story, setStory] = useState<Story | undefined | null>(
     mode === "story" ? null : undefined,
@@ -94,13 +97,65 @@ export function QuizPage({ mode }: { mode: Mode }) {
   }
 
   if (finished) {
+    const accuracy = mistakes === 0 ? t.quizNoMistakes : t.quizMistakes(mistakes);
+
+    // Story mode drives the next step off the current reading density; vocab
+    // mode has no density, so it keeps the plain "done → back" screen.
+    if (mode === "story" && storyId) {
+      const step = densityByStory[storyId] ?? MIN_STEP;
+      const primaryClass =
+        "block rounded-full bg-sage-500 px-4 py-3 text-sm font-semibold text-white active:scale-[0.99]";
+      const secondaryClass =
+        "block rounded-full border border-cream-100 px-4 py-3 text-sm font-semibold text-slate-700 active:scale-[0.99] dark:border-slate-700 dark:text-slate-200";
+
+      return (
+        <div className="mx-auto max-w-md px-4 py-6 text-center">
+          <h1 className="mb-2 text-xl font-bold text-slate-900 dark:text-slate-100">
+            {t.quizSuccessTitle}
+          </h1>
+          <p className="mb-6 text-sm text-slate-500 dark:text-slate-400">
+            {accuracy}
+          </p>
+          <div className="mx-auto flex max-w-xs flex-col gap-2">
+            {step < MAX_STEP ? (
+              <button
+                type="button"
+                onClick={() => {
+                  setDensity(storyId, step + 1);
+                  navigate(`/reader/${storyId}`);
+                }}
+                className={primaryClass}
+              >
+                {t.endRaiseDensity(DEFAULT_STEPS[step + 1]!.target)}
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => navigate("/")}
+                className={primaryClass}
+              >
+                {t.quizFinishStory}
+              </button>
+            )}
+            <button
+              type="button"
+              onClick={() => navigate(`/reader/${storyId}`)}
+              className={secondaryClass}
+            >
+              {t.quizBackToStory}
+            </button>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="mx-auto max-w-md px-4 py-6 text-center">
         <h1 className="mb-2 text-xl font-bold text-slate-900 dark:text-slate-100">
           {t.quizFinished}
         </h1>
         <p className="mb-6 text-sm text-slate-500 dark:text-slate-400">
-          {mistakes === 0 ? t.quizNoMistakes : t.quizMistakes(mistakes)}
+          {accuracy}
         </p>
         <Link
           to={backTo}
@@ -126,6 +181,7 @@ export function QuizPage({ mode }: { mode: Mode }) {
       </div>
 
       <MatchScreen
+        key={screenIndex}
         pairs={currentPairs}
         direction={direction}
         onComplete={handleScreenComplete}

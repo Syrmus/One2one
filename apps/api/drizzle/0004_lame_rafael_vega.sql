@@ -1,0 +1,1 @@
+ALTER TABLE "progress" ADD COLUMN "added_at" timestamp with time zone;

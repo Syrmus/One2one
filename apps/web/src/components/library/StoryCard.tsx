@@ -15,9 +15,6 @@ export function StoryCard({ story }: { story: Story }) {
   const maxStep = useReaderStore(
     (s) => s.maxCompletedStepByStory[story.id] ?? 0,
   );
-  const readPercent = useReaderStore(
-    (s) => s.maxReadPercentByStory[story.id] ?? 0,
-  );
   const hasProgress = useReaderStore(
     (s) => story.id in s.densityByStory || story.id in s.scrollByStory,
   );
@@ -45,8 +42,7 @@ export function StoryCard({ story }: { story: Story }) {
         />
       </div>
       <p className="mt-1 text-xs text-slate-400">
-        {t.storyReadPercent(readPercent)} · {t.storyMaxDensity(maxDensityTarget)} ·{" "}
-        {t.lemmasSeen(seen, total)}
+        {t.storyMaxDensity(maxDensityTarget)} · {t.lemmasSeen(seen, total)}
       </p>
     </Link>
   );

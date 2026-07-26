@@ -2,6 +2,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { QuizPair } from "../../lib/quiz";
 import { shuffle } from "../../lib/quiz";
 
+// This component is remounted per screen (keyed on screenIndex in QuizPage),
+// so state starts fresh each screen — no manual reset effect needed.
+
 type Card = { cardId: string; pairId: string; text: string };
 
 type Props = {
@@ -34,14 +37,6 @@ export function MatchScreen({ pairs, direction, onComplete }: Props) {
   const [wrongPair, setWrongPair] = useState<[string, string] | null>(null);
   const [mistakes, setMistakes] = useState(0);
   const firedRef = useRef(false);
-
-  useEffect(() => {
-    setMatched(new Set());
-    setSelectedLeft(null);
-    setWrongPair(null);
-    setMistakes(0);
-    firedRef.current = false;
-  }, [pairs]);
 
   useEffect(() => {
     if (firedRef.current) return;

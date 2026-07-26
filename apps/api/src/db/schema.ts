@@ -23,6 +23,9 @@ export const progress = pgTable(
     gloss: text("gloss").notNull(),
     pos: text("pos"),
     added: boolean("added").notNull().default(false),
+    // When `added` was last flipped to true (null when never added / unmarked).
+    // Lets "added this week / today" metrics survive across devices.
+    addedAt: timestamp("added_at", { withTimezone: true }),
     firstSeenAt: timestamp("first_seen_at", { withTimezone: true })
       .notNull()
       .defaultNow(),
