@@ -16,7 +16,10 @@ export function StoryCard({ story }: { story: Story }) {
     (s) => s.maxCompletedStepByStory[story.id] ?? 0,
   );
   const hasProgress = useReaderStore(
-    (s) => story.id in s.densityByStory || story.id in s.scrollByStory,
+    (s) =>
+      story.id in s.openedByStory ||
+      story.id in s.densityByStory ||
+      story.id in s.scrollByStory,
   );
   const status = storyStatus({ hasProgress, maxCompletedStep: maxStep });
   const maxDensityTarget = DEFAULT_STEPS[maxStep]?.target ?? 0;

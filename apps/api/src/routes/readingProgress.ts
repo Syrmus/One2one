@@ -9,7 +9,6 @@ type SaveBody = {
   storyId?: string;
   densityStep?: number;
   scrollPosition?: number;
-  readPercent?: number;
 };
 
 type CompletedBody = {
@@ -27,7 +26,7 @@ export const readingProgressRoute = new Hono<AppEnv>()
   })
   .post("/", async (c) => {
     const userId = c.get("userId");
-    const { storyId, densityStep, scrollPosition, readPercent } =
+    const { storyId, densityStep, scrollPosition } =
       await c.req.json<SaveBody>();
     if (
       !storyId ||
@@ -39,26 +38,15 @@ export const readingProgressRoute = new Hono<AppEnv>()
         400,
       );
     }
-    const clampedReadPercent = Math.max(
-      0,
-      Math.min(100, readPercent ?? 0),
-    );
 
     const [row] = await db
       .insert(readingProgress)
-      .values({
-        userId,
-        storyId,
-        densityStep,
-        scrollPosition,
-        maxReadPercent: clampedReadPercent,
-      })
+      .values({ userId, storyId, densityStep, scrollPosition })
       .onConflictDoUpdate({
         target: [readingProgress.userId, readingProgress.storyId],
         set: {
           densityStep,
           scrollPosition,
-          maxReadPercent: sql`GREATEST(${readingProgress.maxReadPercent}, ${clampedReadPercent})`,
           updatedAt: sql`now()`,
         },
       })

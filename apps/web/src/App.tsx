@@ -124,8 +124,14 @@ function MainApp() {
   if (!session) return <SignInScreen />
   if (needsOnboarding) return <OnboardingPage onComplete={() => refetch()} />
 
+  // Guard against a stored nativeLanguage outside the supported set so a bad
+  // value can't crash the whole UI (dict[locale] would be undefined).
+  const native = session.user.nativeLanguage
+  const uiLocale: Locale =
+    native === 'en' || native === 'ru' ? native : detectLocale()
+
   return (
-    <I18nProvider locale={session.user.nativeLanguage as Locale}>
+    <I18nProvider locale={uiLocale}>
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<LibraryPage />} />

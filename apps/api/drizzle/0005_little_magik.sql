@@ -1,0 +1,1 @@
+ALTER TABLE "reading_progress" DROP COLUMN IF EXISTS "max_read_percent";

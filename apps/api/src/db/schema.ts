@@ -55,7 +55,6 @@ export const readingProgress = pgTable(
     scrollPosition: integer("scroll_position").notNull().default(0),
     reachedEndAt: timestamp("reached_end_at", { withTimezone: true }),
     maxCompletedStep: integer("max_completed_step").notNull().default(0),
-    maxReadPercent: integer("max_read_percent").notNull().default(0),
     updatedAt: timestamp("updated_at", { withTimezone: true })
       .notNull()
       .defaultNow(),

@@ -54,7 +54,6 @@ export type ReadingProgressRow = {
   scrollPosition: number;
   reachedEndAt: string | null;
   maxCompletedStep: number;
-  maxReadPercent: number;
   updatedAt: string;
 };
 
@@ -107,14 +106,13 @@ export async function postReadingProgress(
   storyId: string,
   densityStep: number,
   scrollPosition: number,
-  readPercent?: number,
 ): Promise<void> {
   try {
     await fetch(`${API_URL}/api/reading-progress`, {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ storyId, densityStep, scrollPosition, readPercent }),
+      body: JSON.stringify({ storyId, densityStep, scrollPosition }),
     });
   } catch (err) {
     console.error("Failed to record reading progress:", err);

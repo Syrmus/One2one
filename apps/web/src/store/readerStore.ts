@@ -29,6 +29,10 @@ export type VocabEntry = {
 };
 
 type ReaderState = {
+  // storyId -> true once the reader has been opened for it. Drives the
+  // "started" status for stories opened but not yet read at any density
+  // (local-only: the server has no "opened" concept, just real progress rows).
+  openedByStory: Record<string, true>;
   densityByStory: Record<string, number>;
   scrollByStory: Record<string, number>;
   // storyId -> timestamp of the most recent "reached the end at density >= 1" event.
@@ -46,6 +50,7 @@ type ReaderState = {
   milestonesShown: Record<string, number>;
   // Set when a new milestone was just crossed; cleared by dismissMilestoneToast.
   milestoneToast: { lang: string; count: number } | null;
+  markOpened: (storyId: string) => void;
   setDensity: (storyId: string, step: number) => void;
   setScroll: (storyId: string, position: number) => void;
   // Records reaching the end of a story. No-op (returns false) below step 1 —
@@ -70,6 +75,7 @@ type ReaderState = {
 };
 
 const EMPTY_USER_DATA = {
+  openedByStory: {},
   densityByStory: {},
   scrollByStory: {},
   reachedEndByStory: {},
@@ -102,6 +108,7 @@ function scheduleScrollSync(storyId: string, step: number, position: number) {
 export const useReaderStore = create<ReaderState>()(
   persist(
     (set, get) => ({
+      openedByStory: {},
       densityByStory: {},
       scrollByStory: {},
       reachedEndByStory: {},
@@ -111,6 +118,12 @@ export const useReaderStore = create<ReaderState>()(
       ownerUserId: null,
       milestonesShown: {},
       milestoneToast: null,
+      markOpened: (storyId) => {
+        if (get().openedByStory[storyId]) return;
+        set((s) => ({
+          openedByStory: { ...s.openedByStory, [storyId]: true },
+        }));
+      },
       setDensity: (storyId, step) => {
         set((s) => ({
           densityByStory: { ...s.densityByStory, [storyId]: step },

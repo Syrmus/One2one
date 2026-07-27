@@ -64,7 +64,14 @@ export function QuizPage({ mode }: { mode: Mode }) {
       const currentScreen = screens[screenIndex];
       for (const pairId of matchedPairIds) {
         const pair = currentScreen?.find((p) => p.id === pairId);
-        if (pair) recordEncounter(lang, pair.id, pair.l1);
+        // Reinforce (bump seenCount) only words already encountered while
+        // reading. A story quiz covers every content word of the story, so
+        // recording each match as a fresh encounter would inject words the
+        // reader never actually met into the vocabulary — and could pop a
+        // milestone toast mid-quiz.
+        if (pair && vocabulary[`${lang}:${pair.id}`]) {
+          recordEncounter(lang, pair.id, pair.l1);
+        }
       }
     }
     setMistakes((m) => m + screenMistakes);

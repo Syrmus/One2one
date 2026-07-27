@@ -21,12 +21,8 @@ export function ReaderPage() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const restoredRef = useRef(false);
 
-  useEffect(() => {
-    if (!storyId) return;
-    setStory(null);
-    getStory(storyId).then((s) => setStory(s ?? undefined));
-  }, [storyId]);
-
+  const openedByStory = useReaderStore((s) => s.openedByStory);
+  const markOpened = useReaderStore((s) => s.markOpened);
   const densityByStory = useReaderStore((s) => s.densityByStory);
   const setDensity = useReaderStore((s) => s.setDensity);
   const scrollByStory = useReaderStore((s) => s.scrollByStory);
@@ -46,6 +42,13 @@ export function ReaderPage() {
     () => (story ? buildStoryQuizPairs(story).length >= 5 : false),
     [story],
   );
+
+  useEffect(() => {
+    if (!storyId) return;
+    setStory(null);
+    markOpened(storyId);
+    getStory(storyId).then((s) => setStory(s ?? undefined));
+  }, [storyId, markOpened]);
 
   useEffect(() => {
     if (!story || restoredRef.current) return;
@@ -92,7 +95,9 @@ export function ReaderPage() {
   ).length;
 
   const hasProgress =
-    story.id in densityByStory || story.id in scrollByStory;
+    story.id in openedByStory ||
+    story.id in densityByStory ||
+    story.id in scrollByStory;
   const status = storyStatus({
     hasProgress,
     maxCompletedStep: maxCompletedStepByStory[story.id] ?? 0,

@@ -47,10 +47,6 @@ export function MatchScreen({ pairs, direction, onComplete }: Props) {
     }
   }, [matched, pairs, onComplete, mistakes]);
 
-  function textOf(pairId: string): string {
-    return pairs.find((p) => p.id === pairId)?.[rightKey] ?? "";
-  }
-
   function handleLeftTap(card: Card) {
     if (matched.has(card.pairId) || wrongPair) return;
     setSelectedLeft(card);
@@ -58,9 +54,12 @@ export function MatchScreen({ pairs, direction, onComplete }: Props) {
 
   function handleRightTap(card: Card) {
     if (matched.has(card.pairId) || !selectedLeft || wrongPair) return;
-    const correct = textOf(selectedLeft.pairId) === card.text;
+    // Match on the pair identity, not on displayed text: two pairs on one
+    // screen can share the same translation (synonyms), and text equality
+    // would then match the wrong card and mark two distinct pairs at once.
+    const correct = card.pairId === selectedLeft.pairId;
     if (correct) {
-      setMatched((prev) => new Set(prev).add(selectedLeft.pairId).add(card.pairId));
+      setMatched((prev) => new Set(prev).add(card.pairId));
       setSelectedLeft(null);
     } else {
       setMistakes((m) => m + 1);
