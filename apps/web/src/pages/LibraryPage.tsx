@@ -3,7 +3,7 @@ import type { Story } from "@weave/shared";
 import { getStories } from "../lib/api";
 import { StoryCard } from "../components/library/StoryCard";
 import { DailyGoalCard } from "../components/library/DailyGoalCard";
-import { WeeklySummary } from "../components/library/WeeklySummary";
+import { WeeklyGoalCard } from "../components/library/WeeklyGoalCard";
 import { LibraryIcon } from "../components/nav/icons";
 import { useSession } from "../lib/authClient";
 import { useT } from "../lib/i18n";
@@ -42,7 +42,7 @@ export function LibraryPage() {
       </div>
 
       <DailyGoalCard targetLanguage={targetLanguage} />
-      <WeeklySummary targetLanguage={targetLanguage} />
+      <WeeklyGoalCard targetLanguage={targetLanguage} />
 
       {error && <p className="text-sm text-red-500">{error}</p>}
       {!error && !stories && (

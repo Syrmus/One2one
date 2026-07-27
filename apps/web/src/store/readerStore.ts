@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { Pos } from "@weave/shared";
+import { MAX_STEP, type Pos } from "@weave/shared";
 import {
   postSeen,
   postAdded,
@@ -39,6 +39,12 @@ type ReaderState = {
   reachedEndByStory: Record<string, number>;
   // storyId -> highest densityStep at which the story has ever been read to the end.
   maxCompletedStepByStory: Record<string, number>;
+  // storyId -> timestamp the story was first woven (read to the end at 100%).
+  // Drives the weekly "weave a story" goal.
+  wovenAtByStory: Record<string, number>;
+  // Timestamp of the most recent finished quiz (any mode). Drives the daily
+  // "pass a test" goal. Local-only.
+  lastQuizAt: number | null;
   vocabulary: Record<string, VocabEntry>;
   hydrated: boolean;
   // Which logged-in user the persisted per-user data (vocabulary, reading
@@ -59,6 +65,7 @@ type ReaderState = {
   // story. Called explicitly when the reader takes a forward action from the
   // end-of-story panel (raise density / test / next), never from scrolling.
   markReachedEnd: (storyId: string, step: number) => boolean;
+  recordQuizCompleted: () => void;
   recordEncounter: (
     lang: string,
     lemma: string,
@@ -80,6 +87,8 @@ const EMPTY_USER_DATA = {
   scrollByStory: {},
   reachedEndByStory: {},
   maxCompletedStepByStory: {},
+  wovenAtByStory: {},
+  lastQuizAt: null,
   vocabulary: {},
   milestonesShown: {},
 } as const;
@@ -113,6 +122,8 @@ export const useReaderStore = create<ReaderState>()(
       scrollByStory: {},
       reachedEndByStory: {},
       maxCompletedStepByStory: {},
+      wovenAtByStory: {},
+      lastQuizAt: null,
       vocabulary: {},
       hydrated: false,
       ownerUserId: null,
@@ -142,16 +153,23 @@ export const useReaderStore = create<ReaderState>()(
         if (step < 1) return false;
         const prevMax = get().maxCompletedStepByStory[storyId] ?? 0;
         const isNewMax = step > prevMax;
+        const now = Date.now();
+        const firstWoven =
+          step === MAX_STEP && !(storyId in get().wovenAtByStory);
         set((s) => ({
-          reachedEndByStory: { ...s.reachedEndByStory, [storyId]: Date.now() },
+          reachedEndByStory: { ...s.reachedEndByStory, [storyId]: now },
           maxCompletedStepByStory: {
             ...s.maxCompletedStepByStory,
             [storyId]: Math.max(prevMax, step),
           },
+          wovenAtByStory: firstWoven
+            ? { ...s.wovenAtByStory, [storyId]: now }
+            : s.wovenAtByStory,
         }));
         void postStoryCompleted(storyId, step);
         return isNewMax;
       },
+      recordQuizCompleted: () => set({ lastQuizAt: Date.now() }),
       recordEncounter: (lang, lemma, gloss, pos) => {
         set((s) => {
           const key = vocabKey(lang, lemma);

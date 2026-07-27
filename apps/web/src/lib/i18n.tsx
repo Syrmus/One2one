@@ -83,9 +83,12 @@ const dict = {
     completionNext: "Next story",
     dailyGoalTitle: (done: number) => `Today's goal: ${done} of 3`,
     dailyGoalDone: "Today's goal complete ✓",
-    dailyGoalReadStory: "Finish a story",
     dailyGoalMetWords: (n: number) => `Meet ${n} new words`,
     dailyGoalAddWords: (n: number) => `Add ${n} words`,
+    dailyGoalPassTest: "Pass a test",
+    weeklyGoalTitle: (done: number) => `This week's goal: ${done} of 2`,
+    weeklyGoalDone: "This week's goal complete ✓",
+    weeklyGoalWeave: "Weave a story",
   },
   ru: {
     appName: "Weave",
@@ -167,9 +170,12 @@ const dict = {
     completionNext: "Следующая история",
     dailyGoalTitle: (done: number) => `Цель на сегодня: ${done} из 3`,
     dailyGoalDone: "Цель на сегодня выполнена ✓",
-    dailyGoalReadStory: "Прочитать одну историю",
     dailyGoalMetWords: (n: number) => `Встретить ${n} новых слов`,
     dailyGoalAddWords: (n: number) => `Добавить ${n} слов`,
+    dailyGoalPassTest: "Пройти 1 тест",
+    weeklyGoalTitle: (done: number) => `Цель на неделю: ${done} из 2`,
+    weeklyGoalDone: "Цель на неделю выполнена ✓",
+    weeklyGoalWeave: "Вплести историю",
   },
 } satisfies Record<Locale, Record<string, unknown>>;
 

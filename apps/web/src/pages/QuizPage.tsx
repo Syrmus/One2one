@@ -24,6 +24,7 @@ export function QuizPage({ mode }: { mode: Mode }) {
 
   const vocabulary = useReaderStore((s) => s.vocabulary);
   const recordEncounter = useReaderStore((s) => s.recordEncounter);
+  const recordQuizCompleted = useReaderStore((s) => s.recordQuizCompleted);
   const densityByStory = useReaderStore((s) => s.densityByStory);
   const setDensity = useReaderStore((s) => s.setDensity);
 
@@ -58,6 +59,11 @@ export function QuizPage({ mode }: { mode: Mode }) {
   const [screenIndex, setScreenIndex] = useState(0);
   const [mistakes, setMistakes] = useState(0);
   const [finished, setFinished] = useState(false);
+
+  // Count a finished quiz toward the daily "pass a test" goal (once).
+  useEffect(() => {
+    if (finished) recordQuizCompleted();
+  }, [finished, recordQuizCompleted]);
 
   function handleScreenComplete(matchedPairIds: string[], screenMistakes: number) {
     if (lang) {

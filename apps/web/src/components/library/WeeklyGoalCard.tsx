@@ -1,9 +1,5 @@
 import { useReaderStore } from "../../store/readerStore";
-import {
-  dailyGoal,
-  DAILY_MET_TARGET,
-  DAILY_ADD_TARGET,
-} from "../../lib/progress";
+import { weeklyGoal, WEEKLY_ADD_TARGET } from "../../lib/progress";
 import { useT } from "../../lib/i18n";
 
 function GoalRow({
@@ -31,35 +27,29 @@ function GoalRow({
   );
 }
 
-export function DailyGoalCard({ targetLanguage }: { targetLanguage?: string }) {
+export function WeeklyGoalCard({ targetLanguage }: { targetLanguage?: string }) {
   const t = useT();
   const vocabulary = useReaderStore((s) => s.vocabulary);
-  const lastQuizAt = useReaderStore((s) => s.lastQuizAt);
-  const goal = dailyGoal(vocabulary, targetLanguage, lastQuizAt);
+  const wovenAtByStory = useReaderStore((s) => s.wovenAtByStory);
+  const goal = weeklyGoal(vocabulary, wovenAtByStory, targetLanguage);
 
   return (
     <div className="mb-4 rounded-2xl border border-cream-100 bg-white px-4 py-3 dark:border-slate-700 dark:bg-slate-800">
       <p className="text-xs font-semibold uppercase tracking-wide text-stone-500 dark:text-slate-400">
-        {goal.done === 3 ? t.dailyGoalDone : t.dailyGoalTitle(goal.done)}
+        {goal.done === 2 ? t.weeklyGoalDone : t.weeklyGoalTitle(goal.done)}
       </p>
       <div className="mt-1 space-y-0.5">
         <GoalRow
-          done={goal.metDone}
-          label={t.dailyGoalMetWords(DAILY_MET_TARGET)}
-          count={goal.met}
-          target={DAILY_MET_TARGET}
+          done={goal.wove}
+          label={t.weeklyGoalWeave}
+          count={goal.wove ? 1 : 0}
+          target={1}
         />
         <GoalRow
           done={goal.addDone}
-          label={t.dailyGoalAddWords(DAILY_ADD_TARGET)}
+          label={t.dailyGoalAddWords(WEEKLY_ADD_TARGET)}
           count={goal.add}
-          target={DAILY_ADD_TARGET}
-        />
-        <GoalRow
-          done={goal.test}
-          label={t.dailyGoalPassTest}
-          count={goal.test ? 1 : 0}
-          target={1}
+          target={WEEKLY_ADD_TARGET}
         />
       </div>
     </div>

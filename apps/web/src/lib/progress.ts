@@ -40,8 +40,9 @@ export function storyStatus(args: {
   return "unopened";
 }
 
-export const NEW_WORDS_TARGET = 5;
-export const ADD_WORDS_TARGET = 5;
+export const DAILY_MET_TARGET = 5;
+export const DAILY_ADD_TARGET = 5;
+export const WEEKLY_ADD_TARGET = 25;
 
 export function isToday(ts: number): boolean {
   const startOfDay = new Date();
@@ -49,29 +50,68 @@ export function isToday(ts: number): boolean {
   return ts >= startOfDay.getTime();
 }
 
+/** Local Monday 00:00 of the current week (weeks run Mon–Sun). */
+export function startOfWeek(): number {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  const daysSinceMonday = (d.getDay() + 6) % 7; // getDay: 0=Sun..6=Sat
+  d.setDate(d.getDate() - daysSinceMonday);
+  return d.getTime();
+}
+
+function forLang(
+  vocabulary: Record<string, VocabEntry>,
+  targetLang: string | undefined,
+): VocabEntry[] {
+  return Object.values(vocabulary).filter(
+    (e) => !targetLang || e.lang === targetLang,
+  );
+}
+
 export type DailyGoal = {
-  readStory: boolean;
-  metWords: boolean;
-  addedWords: boolean;
+  met: number;
+  add: number;
+  test: boolean;
+  metDone: boolean;
+  addDone: boolean;
   done: number;
 };
 
 export function dailyGoal(
   vocabulary: Record<string, VocabEntry>,
-  reachedEndByStory: Record<string, number>,
   targetLang: string | undefined,
+  lastQuizAt: number | null,
 ): DailyGoal {
-  const readStory = Object.values(reachedEndByStory).some(isToday);
+  const entries = forLang(vocabulary, targetLang);
+  const met = entries.filter((e) => isToday(e.firstSeenAt)).length;
+  const add = entries.filter((e) => e.added && isToday(e.addedAt ?? 0)).length;
+  const test = lastQuizAt != null && isToday(lastQuizAt);
 
-  const entries = Object.values(vocabulary).filter(
-    (e) => !targetLang || e.lang === targetLang,
-  );
-  const metWords =
-    entries.filter((e) => isToday(e.firstSeenAt)).length >= NEW_WORDS_TARGET;
-  const addedWords =
-    entries.filter((e) => e.added && isToday(e.addedAt ?? 0)).length >=
-    ADD_WORDS_TARGET;
+  const metDone = met >= DAILY_MET_TARGET;
+  const addDone = add >= DAILY_ADD_TARGET;
+  const done = [metDone, addDone, test].filter(Boolean).length;
+  return { met, add, test, metDone, addDone, done };
+}
 
-  const done = [readStory, metWords, addedWords].filter(Boolean).length;
-  return { readStory, metWords, addedWords, done };
+export type WeeklyGoal = {
+  wove: boolean;
+  add: number;
+  addDone: boolean;
+  done: number;
+};
+
+export function weeklyGoal(
+  vocabulary: Record<string, VocabEntry>,
+  wovenAtByStory: Record<string, number>,
+  targetLang: string | undefined,
+): WeeklyGoal {
+  const weekStart = startOfWeek();
+  const wove = Object.values(wovenAtByStory).some((ts) => ts >= weekStart);
+  const add = forLang(vocabulary, targetLang).filter(
+    (e) => e.added && (e.addedAt ?? 0) >= weekStart,
+  ).length;
+
+  const addDone = add >= WEEKLY_ADD_TARGET;
+  const done = [wove, addDone].filter(Boolean).length;
+  return { wove, add, addDone, done };
 }
