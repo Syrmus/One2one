@@ -31,14 +31,25 @@ function loadAll(): Story[] {
   return stories.sort((a, b) => a.title.localeCompare(b.title));
 }
 
-// The old B1 stories predate the v2 full-coverage weaving model (they only
-// weave ~16 words out of ~130 and never reach true 100% density) and haven't
-// been reworked yet — STORY_GENERATION_SPEC.md §3 flags this explicitly as
-// still-needed follow-up work. Hidden from the app for now without deleting
-// the files, so they're easy to bring back once a reworked B1 set replaces
-// them — just remove this filter.
-const HIDDEN_LEVELS = new Set(["B1"]);
-const stories = loadAll().filter((s) => !HIDDEN_LEVELS.has(s.level));
+// The pre-v2 B1 stories only weave ~16 of ~130 words (12% coverage), so the
+// density slider can never reach 100% on them — they don't fit the v2
+// full-coverage model and haven't been reworked yet. Hidden by base slug
+// (the id minus its `{l2}-{l1}-` prefix) across every language pair, without
+// deleting the files. Remove a slug here once its story is reworked to full
+// coverage. The new B1 `stone-desert-film-01` is full-coverage, so it stays.
+const HIDDEN_STORY_SLUGS = new Set([
+  "eternal-honey-02",
+  "mere-exposure-01",
+  "octopus-mind-05",
+  "thirty-six-questions-03",
+  "waiter-memory-04",
+]);
+
+function baseSlug(id: string): string {
+  return id.replace(/^[a-z]{2}-[a-z]{2}-/, "");
+}
+
+const stories = loadAll().filter((s) => !HIDDEN_STORY_SLUGS.has(baseSlug(s.id)));
 
 export function getStories(lang?: string, nativeLang?: string): Story[] {
   return stories.filter(
