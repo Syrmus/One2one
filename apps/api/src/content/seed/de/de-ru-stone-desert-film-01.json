@@ -4,19 +4,19 @@
   "l2": "de",
   "level": "B1",
   "topic": "кино и работа",
-  "title": "Сияние каменной пустыни",
+  "title": "Свет над пустыней",
   "units": [
     {
       "t": "weave",
-      "l1": "Молодой оператор",
-      "l2": "Der junge Kameramann",
-      "lemma": "Kameramann",
+      "l1": "Молодой режиссёр",
+      "l2": "Der junge Regisseur",
+      "lemma": "Regisseur",
       "pos": "noun",
       "proper_noun": false,
       "gender": "m",
       "article": "der",
       "case": "nom",
-      "gloss": "оператор",
+      "gloss": "режиссёр",
       "ipa": null,
       "weave_priority": 1
     },
@@ -33,8 +33,8 @@
       "proper_noun": true,
       "gender": null,
       "article": null,
-      "case": "nom",
-      "gloss": "Эмиль",
+      "case": null,
+      "gloss": "Emil",
       "ipa": null,
       "weave_priority": 2
     },
@@ -54,7 +54,7 @@
       "case": null,
       "gloss": "приезжать",
       "ipa": null,
-      "weave_priority": 12
+      "weave_priority": 46
     },
     {
       "t": "text",
@@ -76,73 +76,19 @@
     },
     {
       "t": "text",
-      "l1": ", "
-    },
-    {
-      "t": "weave",
-      "l1": "чтобы записать документальный фильм о жизни людей рядом с заброшенной шахтой",
-      "l2": "um einen Dokumentarfilm über das Leben der Menschen neben einer verlassenen Mine aufzunehmen",
-      "lemma": "aufnehmen",
-      "pos": "verb",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "записывать звук или видео",
-      "ipa": null,
-      "weave_priority": 14
-    },
-    {
-      "t": "text",
       "l1": ". "
     },
     {
       "t": "weave",
-      "l1": "Его детство сформировало его",
-      "l2": "Seine Kindheit hat ihn geprägt",
-      "lemma": "prägen",
-      "pos": "verb",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "формировать",
-      "ipa": null,
-      "weave_priority": 16
-    },
-    {
-      "t": "text",
-      "l1": ": "
-    },
-    {
-      "t": "weave",
-      "l1": "раньше он часто слушал",
-      "l2": "früher hörte er oft",
-      "lemma": "hören",
-      "pos": "verb",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "слушать",
-      "ipa": null,
-      "weave_priority": 18
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "шелест",
-      "l2": "das Rauschen",
-      "lemma": "Rauschen",
+      "l1": "Деревня",
+      "l2": "Das Dorf",
+      "lemma": "Dorf",
       "pos": "noun",
       "proper_noun": false,
       "gender": "n",
       "article": "das",
-      "case": "acc",
-      "gloss": "шелест",
+      "case": "nom",
+      "gloss": "деревня",
       "ipa": null,
       "weave_priority": 4
     },
@@ -152,17 +98,17 @@
     },
     {
       "t": "weave",
-      "l1": "листьев",
-      "l2": "der Blätter",
-      "lemma": "Blatt",
-      "pos": "noun",
+      "l1": "была",
+      "l2": "war",
+      "lemma": "sein",
+      "pos": "verb",
       "proper_noun": false,
-      "gender": "n",
-      "article": "der",
-      "case": "gen",
-      "gloss": "лист",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "быть",
       "ipa": null,
-      "weave_priority": 5
+      "weave_priority": 47
     },
     {
       "t": "text",
@@ -170,17 +116,17 @@
     },
     {
       "t": "weave",
-      "l1": "деревьев",
-      "l2": "in den Bäumen",
-      "lemma": "Baum",
-      "pos": "noun",
+      "l1": "старой",
+      "l2": "alt",
+      "lemma": "alt",
+      "pos": "adjective",
       "proper_noun": false,
-      "gender": "m",
-      "article": "den",
-      "case": "dat",
-      "gloss": "дерево",
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "старый",
       "ipa": null,
-      "weave_priority": 6
+      "weave_priority": 67
     },
     {
       "t": "text",
@@ -206,8 +152,62 @@
     },
     {
       "t": "weave",
-      "l1": "мечтал снимать истории",
-      "l2": "träumte davon, Geschichten zu drehen",
+      "l1": "очень",
+      "l2": "sehr",
+      "lemma": "sehr",
+      "pos": "adverb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "очень",
+      "ipa": null,
+      "weave_priority": 73
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "бедной",
+      "l2": "arm",
+      "lemma": "arm",
+      "pos": "adjective",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "бедный",
+      "ipa": null,
+      "weave_priority": 68
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Он",
+      "l2": "Er",
+      "lemma": "er",
+      "pos": "pronoun",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "он",
+      "ipa": null,
+      "weave_priority": 101
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "снимал",
+      "l2": "drehte",
       "lemma": "drehen",
       "pos": "verb",
       "proper_noun": false,
@@ -216,25 +216,7 @@
       "case": null,
       "gloss": "снимать",
       "ipa": null,
-      "weave_priority": 19
-    },
-    {
-      "t": "text",
-      "l1": ", "
-    },
-    {
-      "t": "weave",
-      "l1": "которые помогают",
-      "l2": "die helfen,",
-      "lemma": "helfen",
-      "pos": "verb",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "помогать",
-      "ipa": null,
-      "weave_priority": 21
+      "weave_priority": 48
     },
     {
       "t": "text",
@@ -242,177 +224,87 @@
     },
     {
       "t": "weave",
-      "l1": "понимать чужой опыт",
-      "l2": "die Erfahrungen anderer nachzuvollziehen",
-      "lemma": "nachvollziehen",
-      "pos": "verb",
+      "l1": "документальный фильм",
+      "l2": "einen Dokumentarfilm",
+      "lemma": "Dokumentarfilm",
+      "pos": "noun",
       "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "понимать",
+      "gender": "m",
+      "article": "ein",
+      "case": "acc",
+      "gloss": "документальный фильм",
       "ipa": null,
-      "weave_priority": 23
+      "weave_priority": 5
     },
     {
       "t": "text",
-      "l1": ". "
+      "l1": " "
     },
     {
       "t": "weave",
-      "l1": "Перед началом съёмок",
-      "l2": "Vor Beginn der Dreharbeiten",
-      "lemma": "Dreharbeit",
+      "l1": "о жизни",
+      "l2": "über das Leben",
+      "lemma": "Leben",
       "pos": "noun",
       "proper_noun": false,
-      "gender": "f",
-      "article": "der",
+      "gender": "n",
+      "article": "das",
+      "case": "acc",
+      "gloss": "жизнь",
+      "ipa": null,
+      "weave_priority": 6
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "её тихих жителей",
+      "l2": "seiner stillen Bewohner",
+      "lemma": "Bewohner",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": null,
       "case": "gen",
-      "gloss": "съёмка",
+      "gloss": "житель",
       "ipa": null,
       "weave_priority": 7
     },
     {
       "t": "text",
-      "l1": " "
+      "l1": ". "
     },
     {
       "t": "weave",
-      "l1": "местный исполнитель предупредил команду",
-      "l2": "warnte der örtliche Dienstleister das Team",
-      "lemma": "Dienstleister",
+      "l1": "Местный проводник",
+      "l2": "Ein örtlicher Führer",
+      "lemma": "Führer",
       "pos": "noun",
       "proper_noun": false,
       "gender": "m",
-      "article": "der",
+      "article": "ein",
       "case": "nom",
-      "gloss": "исполнитель",
+      "gloss": "проводник",
       "ipa": null,
       "weave_priority": 8
     },
     {
       "t": "text",
-      "l1": ", "
-    },
-    {
-      "t": "weave",
-      "l1": "что камнепады могут",
-      "l2": "dass Steinschläge die Menschen",
-      "lemma": "Steinschlag",
-      "pos": "noun",
-      "proper_noun": false,
-      "gender": "m",
-      "article": null,
-      "case": "nom",
-      "gloss": "камнепад",
-      "ipa": null,
-      "weave_priority": 9
-    },
-    {
-      "t": "text",
       "l1": " "
     },
     {
       "t": "weave",
-      "l1": "угрожать людям",
-      "l2": "bedrohen können",
-      "lemma": "bedrohen",
+      "l1": "встретил",
+      "l2": "traf",
+      "lemma": "treffen",
       "pos": "verb",
       "proper_noun": false,
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "угрожать",
-      "ipa": null,
-      "weave_priority": 27
-    },
-    {
-      "t": "text",
-      "l1": ". "
-    },
-    {
-      "t": "weave",
-      "l1": "Однако",
-      "l2": "Doch",
-      "lemma": "doch",
-      "pos": "conjunction",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "однако",
-      "ipa": null,
-      "weave_priority": 103
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "никто не хотел сдаваться",
-      "l2": "niemand wollte aufgeben",
-      "lemma": "aufgeben",
-      "pos": "verb",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "сдаваться",
-      "ipa": null,
-      "weave_priority": 29
-    },
-    {
-      "t": "text",
-      "l1": ". "
-    },
-    {
-      "t": "weave",
-      "l1": "Съёмочный период",
-      "l2": "Die Drehzeit",
-      "lemma": "Drehzeit",
-      "pos": "noun",
-      "proper_noun": false,
-      "gender": "f",
-      "article": "die",
-      "case": "nom",
-      "gloss": "съёмочный период",
-      "ipa": null,
-      "weave_priority": 10
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "был коротким",
-      "l2": "war kurz",
-      "lemma": "kurz",
-      "pos": "adjective",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "короткий",
-      "ipa": null,
-      "weave_priority": 33
-    },
-    {
-      "t": "text",
-      "l1": ", "
-    },
-    {
-      "t": "weave",
-      "l1": "поэтому",
-      "l2": "deshalb",
-      "lemma": "deshalb",
-      "pos": "adverb",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "поэтому",
+      "gloss": "встречать",
       "ipa": null,
       "weave_priority": 49
     },
@@ -422,143 +314,17 @@
     },
     {
       "t": "weave",
-      "l1": "группе пришлось запастись водой и едой",
-      "l2": "musste sich die Gruppe mit Wasser und Essen eindecken",
-      "lemma": "sich eindecken",
-      "pos": "verb",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "запасаться",
-      "ipa": null,
-      "weave_priority": 35
-    },
-    {
-      "t": "text",
-      "l1": ", "
-    },
-    {
-      "t": "weave",
-      "l1": "а вечером ещё и",
-      "l2": "und am Abend auch noch",
-      "lemma": "Abend",
-      "pos": "noun",
-      "proper_noun": false,
-      "gender": "m",
-      "article": "dem",
-      "case": "dat",
-      "gloss": "вечер",
-      "ipa": null,
-      "weave_priority": 11
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "поливать растения возле лагеря",
-      "l2": "die Pflanzen beim Lager gießen",
-      "lemma": "gießen",
-      "pos": "verb",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "поливать",
-      "ipa": null,
-      "weave_priority": 37
-    },
-    {
-      "t": "text",
-      "l1": ". "
-    },
-    {
-      "t": "weave",
-      "l1": "В первый день вертолёт благополучно приземлился",
-      "l2": "Am ersten Tag landete der Hubschrauber sicher",
-      "lemma": "landen",
-      "pos": "verb",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "приземляться",
-      "ipa": null,
-      "weave_priority": 38
-    },
-    {
-      "t": "text",
-      "l1": ". "
-    },
-    {
-      "t": "weave",
-      "l1": "На Эмиле были тёплые валенки",
-      "l2": "Emil trug warme Wollschuhe",
-      "lemma": "Wollschuh",
-      "pos": "noun",
-      "proper_noun": false,
-      "gender": "m",
-      "article": null,
-      "case": "acc",
-      "gloss": "валенок",
-      "ipa": null,
-      "weave_priority": 13
-    },
-    {
-      "t": "text",
-      "l1": ". "
-    },
-    {
-      "t": "weave",
-      "l1": "Он установил камеру",
-      "l2": "Er stellte die Kamera auf",
-      "lemma": "aufstellen",
-      "pos": "verb",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "устанавливать",
-      "ipa": null,
-      "weave_priority": 40
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "и сказал",
-      "l2": "und sagte",
-      "lemma": "sagen",
-      "pos": "verb",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "говорить",
-      "ipa": null,
-      "weave_priority": 42
-    },
-    {
-      "t": "text",
-      "l1": ", "
-    },
-    {
-      "t": "weave",
-      "l1": "что сияние",
-      "l2": "dass das Strahlen",
-      "lemma": "Strahlen",
+      "l1": "съёмочную команду",
+      "l2": "das Filmteam",
+      "lemma": "Filmteam",
       "pos": "noun",
       "proper_noun": false,
       "gender": "n",
       "article": "das",
-      "case": "nom",
-      "gloss": "сияние",
+      "case": "acc",
+      "gloss": "съёмочная команда",
       "ipa": null,
-      "weave_priority": 15
+      "weave_priority": 9
     },
     {
       "t": "text",
@@ -566,35 +332,17 @@
     },
     {
       "t": "weave",
-      "l1": "над каменной пустыней",
-      "l2": "über der Steinwüste",
-      "lemma": "Steinwüste",
+      "l1": "у горной дороги",
+      "l2": "an einer Bergstraße",
+      "lemma": "Bergstraße",
       "pos": "noun",
       "proper_noun": false,
       "gender": "f",
-      "article": "der",
+      "article": "ein",
       "case": "dat",
-      "gloss": "каменная пустыня",
+      "gloss": "горная дорога",
       "ipa": null,
-      "weave_priority": 17
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "выглядит удивительно",
-      "l2": "erstaunlich aussieht",
-      "lemma": "erstaunlich",
-      "pos": "adjective",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "удивительный",
-      "ipa": null,
-      "weave_priority": 44
+      "weave_priority": 10
     },
     {
       "t": "text",
@@ -602,15 +350,33 @@
     },
     {
       "t": "weave",
-      "l1": "Кажется,",
-      "l2": "Anscheinend",
-      "lemma": "anscheinend",
-      "pos": "adverb",
+      "l1": "Он",
+      "l2": "Er",
+      "lemma": "er",
+      "pos": "pronoun",
       "proper_noun": false,
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "кажется",
+      "gloss": "он",
+      "ipa": null,
+      "weave_priority": 102
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "показал",
+      "l2": "zeigte",
+      "lemma": "zeigen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "показывать",
       "ipa": null,
       "weave_priority": 50
     },
@@ -620,71 +386,17 @@
     },
     {
       "t": "weave",
-      "l1": "между скалами он услышал",
-      "l2": "vernahm er zwischen den Felsen",
-      "lemma": "vernehmen",
-      "pos": "verb",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "услышать",
-      "ipa": null,
-      "weave_priority": 46
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "тихий шум",
-      "l2": "ein leises Geräusch",
-      "lemma": "Geräusch",
+      "l1": "команде",
+      "l2": "dem Team",
+      "lemma": "Team",
       "pos": "noun",
       "proper_noun": false,
       "gender": "n",
-      "article": "ein",
-      "case": "acc",
-      "gloss": "шум",
+      "article": "dem",
+      "case": "dat",
+      "gloss": "команда",
       "ipa": null,
-      "weave_priority": 20
-    },
-    {
-      "t": "text",
-      "l1": ", "
-    },
-    {
-      "t": "weave",
-      "l1": "похожий на шелест деревьев",
-      "l2": "das dem Rauschen der Bäume ähnelte",
-      "lemma": "ähneln",
-      "pos": "verb",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "быть похожим",
-      "ipa": null,
-      "weave_priority": 48
-    },
-    {
-      "t": "text",
-      "l1": ". "
-    },
-    {
-      "t": "weave",
-      "l1": "Для исторического показа",
-      "l2": "Für die historische Vorführung",
-      "lemma": "Vorführung",
-      "pos": "noun",
-      "proper_noun": false,
-      "gender": "f",
-      "article": "die",
-      "case": "acc",
-      "gloss": "показ",
-      "ipa": null,
-      "weave_priority": 22
+      "weave_priority": 11
     },
     {
       "t": "text",
@@ -692,53 +404,17 @@
     },
     {
       "t": "weave",
-      "l1": "рабочие принесли",
-      "l2": "brachten die Arbeiter",
-      "lemma": "bringen",
-      "pos": "verb",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "приносить",
-      "ipa": null,
-      "weave_priority": 51
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "старый подголовник",
-      "l2": "eine alte Kopfstütze",
-      "lemma": "Kopfstütze",
-      "pos": "noun",
-      "proper_noun": false,
-      "gender": "f",
-      "article": "eine",
-      "case": "acc",
-      "gloss": "подголовник",
-      "ipa": null,
-      "weave_priority": 24
-    },
-    {
-      "t": "text",
-      "l1": ", "
-    },
-    {
-      "t": "weave",
-      "l1": "лоскуты ткани",
-      "l2": "Stofflappen",
-      "lemma": "Lappen",
+      "l1": "горы",
+      "l2": "die Berge",
+      "lemma": "Berg",
       "pos": "noun",
       "proper_noun": false,
       "gender": "m",
-      "article": null,
+      "article": "die",
       "case": "acc",
-      "gloss": "лоскут",
+      "gloss": "гора",
       "ipa": null,
-      "weave_priority": 25
+      "weave_priority": 12
     },
     {
       "t": "text",
@@ -756,7 +432,7 @@
       "case": null,
       "gloss": "и",
       "ipa": null,
-      "weave_priority": 101
+      "weave_priority": 103
     },
     {
       "t": "text",
@@ -764,17 +440,17 @@
     },
     {
       "t": "weave",
-      "l1": "другой хлам",
-      "l2": "anderen Kram",
-      "lemma": "Kram",
+      "l1": "старую шахту",
+      "l2": "die alte Mine",
+      "lemma": "Mine",
       "pos": "noun",
       "proper_noun": false,
-      "gender": "m",
-      "article": null,
+      "gender": "f",
+      "article": "die",
       "case": "acc",
-      "gloss": "хлам",
+      "gloss": "шахта",
       "ipa": null,
-      "weave_priority": 28
+      "weave_priority": 13
     },
     {
       "t": "text",
@@ -782,15 +458,213 @@
     },
     {
       "t": "weave",
-      "l1": "Художник объяснил",
-      "l2": "Der Ausstatter erklärte",
-      "lemma": "erklären",
+      "l1": "Группа",
+      "l2": "Die Gruppe",
+      "lemma": "Gruppe",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "f",
+      "article": "die",
+      "case": "nom",
+      "gloss": "группа",
+      "ipa": null,
+      "weave_priority": 14
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "установила",
+      "l2": "befestigte",
+      "lemma": "befestigen",
       "pos": "verb",
       "proper_noun": false,
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "объяснять",
+      "gloss": "устанавливать",
+      "ipa": null,
+      "weave_priority": 51
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "тяжёлую камеру",
+      "l2": "die schwere Kamera",
+      "lemma": "Kamera",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "f",
+      "article": "die",
+      "case": "acc",
+      "gloss": "камера",
+      "ipa": null,
+      "weave_priority": 15
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "рано",
+      "l2": "früh",
+      "lemma": "früh",
+      "pos": "adverb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "рано",
+      "ipa": null,
+      "weave_priority": 74
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "утром",
+      "l2": "am Morgen",
+      "lemma": "Morgen",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": "dem",
+      "case": "dat",
+      "gloss": "утро",
+      "ipa": null,
+      "weave_priority": 16
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "на холме",
+      "l2": "auf einem Hügel",
+      "lemma": "Hügel",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": "ein",
+      "case": "dat",
+      "gloss": "холм",
+      "ipa": null,
+      "weave_priority": 17
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Солнце",
+      "l2": "Die Sonne",
+      "lemma": "Sonne",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "f",
+      "article": "die",
+      "case": "nom",
+      "gloss": "солнце",
+      "ipa": null,
+      "weave_priority": 18
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "стояло",
+      "l2": "stand",
+      "lemma": "stehen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "стоять",
+      "ipa": null,
+      "weave_priority": 52
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "высоко",
+      "l2": "hoch",
+      "lemma": "hoch",
+      "pos": "adverb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "высоко",
+      "ipa": null,
+      "weave_priority": 75
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "над сухой пустыней",
+      "l2": "über der trockenen Wüste",
+      "lemma": "Wüste",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "f",
+      "article": "der",
+      "case": "dat",
+      "gloss": "пустыня",
+      "ipa": null,
+      "weave_priority": 19
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Тёплый вечерний свет",
+      "l2": "Warmes Abendlicht",
+      "lemma": "Abendlicht",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "n",
+      "article": null,
+      "case": "nom",
+      "gloss": "вечерний свет",
+      "ipa": null,
+      "weave_priority": 20
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "падал",
+      "l2": "fiel",
+      "lemma": "fallen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "падать",
       "ipa": null,
       "weave_priority": 53
     },
@@ -800,71 +674,17 @@
     },
     {
       "t": "weave",
-      "l1": "необычный термин",
-      "l2": "den ungewöhnlichen Begriff",
-      "lemma": "Begriff",
+      "l1": "на серые камни",
+      "l2": "auf die grauen Steine",
+      "lemma": "Stein",
       "pos": "noun",
       "proper_noun": false,
       "gender": "m",
-      "article": "den",
+      "article": "die",
       "case": "acc",
-      "gloss": "термин",
+      "gloss": "камень",
       "ipa": null,
-      "weave_priority": 30
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "«тип с хвостом и лоскутами»",
-      "l2": "„Start- und Lappen-Typ“",
-      "lemma": "Start- und Lappen-Typ",
-      "pos": "noun",
-      "proper_noun": false,
-      "gender": "m",
-      "article": null,
-      "case": "acc",
-      "gloss": "тип с хвостом и лоскутами",
-      "ipa": null,
-      "weave_priority": 32
-    },
-    {
-      "t": "text",
-      "l1": ": "
-    },
-    {
-      "t": "weave",
-      "l1": "хвост конструкции",
-      "l2": "Der Schwanz der Konstruktion",
-      "lemma": "Schwanz",
-      "pos": "noun",
-      "proper_noun": false,
-      "gender": "m",
-      "article": "der",
-      "case": "nom",
-      "gloss": "хвост",
-      "ipa": null,
-      "weave_priority": 34
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "держался на нескольких лоскутах",
-      "l2": "wurde von mehreren Lappen gehalten",
-      "lemma": "Lappen",
-      "pos": "noun",
-      "proper_noun": false,
-      "gender": "m",
-      "article": null,
-      "case": "dat",
-      "gloss": "лоскут",
-      "ipa": null,
-      "weave_priority": 26
+      "weave_priority": 21
     },
     {
       "t": "text",
@@ -872,69 +692,141 @@
     },
     {
       "t": "weave",
-      "l1": "Эмиль попросил помощника",
-      "l2": "Emil bat den Assistenten",
-      "lemma": "bitten",
+      "l1": "Эмиль",
+      "l2": "Emil",
+      "lemma": "Emil",
+      "pos": "noun",
+      "proper_noun": true,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "Emil",
+      "ipa": null,
+      "weave_priority": 22
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "снимал",
+      "l2": "filmte",
+      "lemma": "filmen",
       "pos": "verb",
       "proper_noun": false,
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "просить",
+      "gloss": "снимать",
+      "ipa": null,
+      "weave_priority": 54
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "спокойные лица",
+      "l2": "die ruhigen Gesichter",
+      "lemma": "Gesicht",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "n",
+      "article": "die",
+      "case": "acc",
+      "gloss": "лицо",
+      "ipa": null,
+      "weave_priority": 23
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "усталых людей",
+      "l2": "müder Menschen",
+      "lemma": "Mensch",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": null,
+      "case": "gen",
+      "gloss": "человек",
+      "ipa": null,
+      "weave_priority": 24
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Работа",
+      "l2": "Die Arbeit",
+      "lemma": "Arbeit",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "f",
+      "article": "die",
+      "case": "nom",
+      "gloss": "работа",
+      "ipa": null,
+      "weave_priority": 25
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "была",
+      "l2": "war",
+      "lemma": "sein",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "быть",
       "ipa": null,
       "weave_priority": 55
     },
     {
       "t": "text",
-      "l1": ": "
+      "l1": " "
     },
     {
       "t": "weave",
-      "l1": "«Покажи",
-      "l2": "„Zeig",
-      "lemma": "zeigen",
-      "pos": "verb",
+      "l1": "трудной",
+      "l2": "schwer",
+      "lemma": "schwer",
+      "pos": "adjective",
       "proper_noun": false,
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "показывать",
+      "gloss": "трудный",
       "ipa": null,
-      "weave_priority": 56
+      "weave_priority": 69
     },
     {
       "t": "text",
-      "l1": " "
+      "l1": ", "
     },
     {
       "t": "weave",
-      "l1": "деталь крупным планом».",
-      "l2": "das Detail in Großaufnahme!“",
-      "lemma": "Großaufnahme",
-      "pos": "noun",
-      "proper_noun": false,
-      "gender": "f",
-      "article": "der",
-      "case": "dat",
-      "gloss": "крупный план",
-      "ipa": null,
-      "weave_priority": 36
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "Но",
-      "l2": "Doch",
-      "lemma": "doch",
+      "l1": "потому что",
+      "l2": "weil",
+      "lemma": "weil",
       "pos": "conjunction",
       "proper_noun": false,
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "однако",
+      "gloss": "потому что",
       "ipa": null,
       "weave_priority": 104
     },
@@ -944,33 +836,195 @@
     },
     {
       "t": "weave",
-      "l1": "актёр начал раздражаться из-за костюма",
-      "l2": "der Schauspieler begann, sich über das Kostüm aufzuregen",
-      "lemma": "sich aufregen über",
+      "l1": "дни",
+      "l2": "die Tage",
+      "lemma": "Tag",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": "die",
+      "case": "nom",
+      "gloss": "день",
+      "ipa": null,
+      "weave_priority": 26
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "были короткими",
+      "l2": "kurz waren",
+      "lemma": "kurz",
+      "pos": "adjective",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "короткий",
+      "ipa": null,
+      "weave_priority": 70
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Эмиль",
+      "l2": "Emil",
+      "lemma": "Emil",
+      "pos": "noun",
+      "proper_noun": true,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "Emil",
+      "ipa": null,
+      "weave_priority": 27
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "проверял",
+      "l2": "prüfte",
+      "lemma": "prüfen",
       "pos": "verb",
       "proper_noun": false,
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "раздражаться из-за",
+      "gloss": "проверять",
+      "ipa": null,
+      "weave_priority": 56
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "материал",
+      "l2": "das Material",
+      "lemma": "Material",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "n",
+      "article": "das",
+      "case": "acc",
+      "gloss": "материал",
+      "ipa": null,
+      "weave_priority": 28
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "внимательно",
+      "l2": "aufmerksam",
+      "lemma": "aufmerksam",
+      "pos": "adverb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "внимательно",
+      "ipa": null,
+      "weave_priority": 76
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "поздним вечером",
+      "l2": "am späten Abend",
+      "lemma": "Abend",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": "dem",
+      "case": "dat",
+      "gloss": "вечер",
+      "ipa": null,
+      "weave_priority": 29
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "в палатке",
+      "l2": "im Zelt",
+      "lemma": "Zelt",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "n",
+      "article": "dem",
+      "case": "dat",
+      "gloss": "палатка",
+      "ipa": null,
+      "weave_priority": 30
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Он",
+      "l2": "Er",
+      "lemma": "er",
+      "pos": "pronoun",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "он",
+      "ipa": null,
+      "weave_priority": 105
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "видел",
+      "l2": "sah",
+      "lemma": "sehen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "видеть",
       "ipa": null,
       "weave_priority": 57
     },
     {
       "t": "text",
-      "l1": ", "
+      "l1": " "
     },
     {
       "t": "weave",
-      "l1": "потому что",
-      "l2": "weil der Stoff",
-      "lemma": "weil",
-      "pos": "conjunction",
+      "l1": "много",
+      "l2": "viele",
+      "lemma": "viele",
+      "pos": "pronoun",
       "proper_noun": false,
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "потому что",
+      "gloss": "много",
       "ipa": null,
       "weave_priority": 106
     },
@@ -980,98 +1034,8 @@
     },
     {
       "t": "weave",
-      "l1": "под верхним слоем",
-      "l2": "unter der oberen Schicht",
-      "lemma": "Schicht",
-      "pos": "noun",
-      "proper_noun": false,
-      "gender": "f",
-      "article": "der",
-      "case": "dat",
-      "gloss": "слой",
-      "ipa": null,
-      "weave_priority": 39
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "ткань царапала кожу",
-      "l2": "seine Haut kratzte",
-      "lemma": "kratzen",
-      "pos": "verb",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "царапать",
-      "ipa": null,
-      "weave_priority": 58
-    },
-    {
-      "t": "text",
-      "l1": ". "
-    },
-    {
-      "t": "weave",
-      "l1": "После смены",
-      "l2": "Nach der Arbeitsschicht",
-      "lemma": "Arbeitsschicht",
-      "pos": "noun",
-      "proper_noun": false,
-      "gender": "f",
-      "article": "der",
-      "case": "dat",
-      "gloss": "смена",
-      "ipa": null,
-      "weave_priority": 41
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "материал был неотредактированным",
-      "l2": "war das Material ungeschnitten",
-      "lemma": "ungeschnitten",
-      "pos": "adjective",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "неотредактированный",
-      "ipa": null,
-      "weave_priority": 43
-    },
-    {
-      "t": "text",
-      "l1": ". "
-    },
-    {
-      "t": "weave",
-      "l1": "Эмиль посмотрел его",
-      "l2": "Emil sah es sich an",
-      "lemma": "sich ansehen",
-      "pos": "verb",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "смотреть",
-      "ipa": null,
-      "weave_priority": 59
-    },
-    {
-      "t": "text",
-      "l1": ". "
-    },
-    {
-      "t": "weave",
-      "l1": "Ошибок было много",
-      "l2": "Es gab viele Fehler",
+      "l1": "ошибок",
+      "l2": "Fehler",
       "lemma": "Fehler",
       "pos": "noun",
       "proper_noun": false,
@@ -1080,7 +1044,7 @@
       "case": "acc",
       "gloss": "ошибка",
       "ipa": null,
-      "weave_priority": 45
+      "weave_priority": 31
     },
     {
       "t": "text",
@@ -1106,8 +1070,44 @@
     },
     {
       "t": "weave",
-      "l1": "история оставалась честной",
-      "l2": "die Geschichte blieb ehrlich",
+      "l1": "история",
+      "l2": "die Geschichte",
+      "lemma": "Geschichte",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "f",
+      "article": "die",
+      "case": "nom",
+      "gloss": "история",
+      "ipa": null,
+      "weave_priority": 32
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "казалась",
+      "l2": "schien",
+      "lemma": "scheinen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "казаться",
+      "ipa": null,
+      "weave_priority": 58
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "честной",
+      "l2": "ehrlich",
       "lemma": "ehrlich",
       "pos": "adjective",
       "proper_noun": false,
@@ -1116,7 +1116,7 @@
       "case": null,
       "gloss": "честный",
       "ipa": null,
-      "weave_priority": 47
+      "weave_priority": 71
     },
     {
       "t": "text",
@@ -1124,35 +1124,125 @@
     },
     {
       "t": "weave",
-      "l1": "Он решил привязать фильм к воспоминаниям жителей",
-      "l2": "Er beschloss, den Film an die Erinnerungen der Bewohner anzuknüpfen",
-      "lemma": "anknüpfen an",
+      "l1": "Режиссёр",
+      "l2": "Der Regisseur",
+      "lemma": "Regisseur",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": "der",
+      "case": "nom",
+      "gloss": "режиссёр",
+      "ipa": null,
+      "weave_priority": 33
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "показал",
+      "l2": "zeigte",
+      "lemma": "zeigen",
       "pos": "verb",
       "proper_noun": false,
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "привязывать к",
+      "gloss": "показывать",
+      "ipa": null,
+      "weave_priority": 59
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "тихую силу",
+      "l2": "die stille Kraft",
+      "lemma": "Kraft",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "f",
+      "article": "die",
+      "case": "acc",
+      "gloss": "сила",
+      "ipa": null,
+      "weave_priority": 34
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "простых людей",
+      "l2": "einfacher Menschen",
+      "lemma": "Mensch",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": null,
+      "case": "gen",
+      "gloss": "человек",
+      "ipa": null,
+      "weave_priority": 35
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Он",
+      "l2": "Er",
+      "lemma": "er",
+      "pos": "pronoun",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "он",
+      "ipa": null,
+      "weave_priority": 108
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "думал",
+      "l2": "dachte",
+      "lemma": "denken",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "думать",
       "ipa": null,
       "weave_priority": 60
     },
     {
       "t": "text",
-      "l1": " "
+      "l1": ", "
     },
     {
       "t": "weave",
-      "l1": "и",
-      "l2": "und",
-      "lemma": "und",
+      "l1": "что",
+      "l2": "dass",
+      "lemma": "dass",
       "pos": "conjunction",
       "proper_noun": false,
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "и",
+      "gloss": "что",
       "ipa": null,
-      "weave_priority": 102
+      "weave_priority": 109
     },
     {
       "t": "text",
@@ -1160,15 +1250,51 @@
     },
     {
       "t": "weave",
-      "l1": "убедить зрителей не судить их слишком быстро",
-      "l2": "die Zuschauer davon zu überzeugen, sie nicht vorschnell zu beurteilen",
-      "lemma": "überzeugen",
+      "l1": "настоящий фильм",
+      "l2": "ein echter Film",
+      "lemma": "Film",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": "ein",
+      "case": "nom",
+      "gloss": "фильм",
+      "ipa": null,
+      "weave_priority": 36
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "всегда",
+      "l2": "immer",
+      "lemma": "immer",
+      "pos": "adverb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "всегда",
+      "ipa": null,
+      "weave_priority": 77
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "говорит правду",
+      "l2": "die Wahrheit sagt",
+      "lemma": "sagen",
       "pos": "verb",
       "proper_noun": false,
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "убеждать",
+      "gloss": "говорить",
       "ipa": null,
       "weave_priority": 61
     },
@@ -1178,53 +1304,53 @@
     },
     {
       "t": "weave",
-      "l1": "Когда команда вернулась домой",
-      "l2": "Als das Team nach Hause zurückkehrte",
-      "lemma": "zurückkehren",
+      "l1": "Команда",
+      "l2": "Das Team",
+      "lemma": "Team",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "n",
+      "article": "das",
+      "case": "nom",
+      "gloss": "команда",
+      "ipa": null,
+      "weave_priority": 37
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "собрала",
+      "l2": "packte",
+      "lemma": "packen",
       "pos": "verb",
       "proper_noun": false,
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "возвращаться",
+      "gloss": "собирать",
       "ipa": null,
       "weave_priority": 62
     },
     {
       "t": "text",
-      "l1": ", "
+      "l1": " "
     },
     {
       "t": "weave",
-      "l1": "помощник воскликнул",
-      "l2": "rief der Assistent",
-      "lemma": "rufen",
-      "pos": "verb",
+      "l1": "свои вещи",
+      "l2": "seine Sachen",
+      "lemma": "Sache",
+      "pos": "noun",
       "proper_noun": false,
-      "gender": null,
+      "gender": "f",
       "article": null,
-      "case": null,
-      "gloss": "восклицать",
+      "case": "acc",
+      "gloss": "вещь",
       "ipa": null,
-      "weave_priority": 63
-    },
-    {
-      "t": "text",
-      "l1": ": "
-    },
-    {
-      "t": "weave",
-      "l1": "«Дома просто офигенно!»",
-      "l2": "„Daheim ist es einfach geil!“",
-      "lemma": "daheim",
-      "pos": "adverb",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "дома",
-      "ipa": null,
-      "weave_priority": 52
+      "weave_priority": 38
     },
     {
       "t": "text",
@@ -1232,53 +1358,17 @@
     },
     {
       "t": "weave",
-      "l1": "Эмиль понял",
-      "l2": "Emil verstand",
-      "lemma": "verstehen",
-      "pos": "verb",
+      "l1": "через неделю",
+      "l2": "nach einer Woche",
+      "lemma": "Woche",
+      "pos": "noun",
       "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "понимать",
+      "gender": "f",
+      "article": "ein",
+      "case": "dat",
+      "gloss": "неделя",
       "ipa": null,
-      "weave_priority": 64
-    },
-    {
-      "t": "text",
-      "l1": ", "
-    },
-    {
-      "t": "weave",
-      "l1": "что обычный фильм",
-      "l2": "dass ein üblicher Film",
-      "lemma": "üblich",
-      "pos": "adjective",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "обычный",
-      "ipa": null,
-      "weave_priority": 54
-    },
-    {
-      "t": "text",
-      "l1": " "
-    },
-    {
-      "t": "weave",
-      "l1": "закончился бы красивыми кадрами",
-      "l2": "mit schönen Bildern enden würde",
-      "lemma": "enden",
-      "pos": "verb",
-      "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "заканчиваться",
-      "ipa": null,
-      "weave_priority": 65
+      "weave_priority": 39
     },
     {
       "t": "text",
@@ -1286,17 +1376,17 @@
     },
     {
       "t": "weave",
-      "l1": "Но",
-      "l2": "Doch",
-      "lemma": "doch",
-      "pos": "conjunction",
+      "l1": "Группа",
+      "l2": "Die Gruppe",
+      "lemma": "Gruppe",
+      "pos": "noun",
       "proper_noun": false,
-      "gender": null,
-      "article": null,
-      "case": null,
-      "gloss": "однако",
+      "gender": "f",
+      "article": "die",
+      "case": "nom",
+      "gloss": "группа",
       "ipa": null,
-      "weave_priority": 105
+      "weave_priority": 40
     },
     {
       "t": "text",
@@ -1304,15 +1394,195 @@
     },
     {
       "t": "weave",
-      "l1": "их работа должна была показать людей",
-      "l2": "ihre Arbeit sollte Menschen zeigen",
-      "lemma": "zeigen",
+      "l1": "поехала",
+      "l2": "fuhr",
+      "lemma": "fahren",
       "pos": "verb",
       "proper_noun": false,
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "показывать",
+      "gloss": "ехать",
+      "ipa": null,
+      "weave_priority": 63
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "домой",
+      "l2": "nach Hause",
+      "lemma": "nach Hause",
+      "pos": "adverb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "домой",
+      "ipa": null,
+      "weave_priority": 78
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "по пустой дороге",
+      "l2": "über eine leere Straße",
+      "lemma": "Straße",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "f",
+      "article": "ein",
+      "case": "acc",
+      "gloss": "дорога",
+      "ipa": null,
+      "weave_priority": 41
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Все",
+      "l2": "Alle",
+      "lemma": "alle",
+      "pos": "pronoun",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "все",
+      "ipa": null,
+      "weave_priority": 110
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "молчали",
+      "l2": "schwiegen",
+      "lemma": "schweigen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "молчать",
+      "ipa": null,
+      "weave_priority": 64
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "в машине",
+      "l2": "im Auto",
+      "lemma": "Auto",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "n",
+      "article": "dem",
+      "case": "dat",
+      "gloss": "машина",
+      "ipa": null,
+      "weave_priority": 42
+    },
+    {
+      "t": "text",
+      "l1": ", "
+    },
+    {
+      "t": "weave",
+      "l1": "но",
+      "l2": "aber",
+      "lemma": "aber",
+      "pos": "conjunction",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "но",
+      "ipa": null,
+      "weave_priority": 111
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "чувствовали",
+      "l2": "fühlten",
+      "lemma": "fühlen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "чувствовать",
+      "ipa": null,
+      "weave_priority": 65
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "тихую радость",
+      "l2": "eine stille Freude",
+      "lemma": "Freude",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "f",
+      "article": "ein",
+      "case": "acc",
+      "gloss": "радость",
+      "ipa": null,
+      "weave_priority": 43
+    },
+    {
+      "t": "text",
+      "l1": ". "
+    },
+    {
+      "t": "weave",
+      "l1": "Эмиль",
+      "l2": "Emil",
+      "lemma": "Emil",
+      "pos": "noun",
+      "proper_noun": true,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "Emil",
+      "ipa": null,
+      "weave_priority": 44
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "знал",
+      "l2": "wusste",
+      "lemma": "wissen",
+      "pos": "verb",
+      "proper_noun": false,
+      "gender": null,
+      "article": null,
+      "case": null,
+      "gloss": "знать",
       "ipa": null,
       "weave_priority": 66
     },
@@ -1322,35 +1592,53 @@
     },
     {
       "t": "weave",
-      "l1": "которые не сдаются",
-      "l2": "die nicht aufgeben",
-      "lemma": "aufgeben",
-      "pos": "verb",
+      "l1": "что",
+      "l2": "dass",
+      "lemma": "dass",
+      "pos": "conjunction",
       "proper_noun": false,
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "сдаваться",
+      "gloss": "что",
       "ipa": null,
-      "weave_priority": 31
+      "weave_priority": 112
     },
     {
       "t": "text",
-      "l1": ", "
+      "l1": " "
     },
     {
       "t": "weave",
-      "l1": "даже когда опасность кажется сильнее надежды",
-      "l2": "selbst wenn die Gefahr stärker als die Hoffnung erscheint",
-      "lemma": "erscheinen",
-      "pos": "verb",
+      "l1": "этот маленький фильм",
+      "l2": "dieser kleine Film",
+      "lemma": "Film",
+      "pos": "noun",
+      "proper_noun": false,
+      "gender": "m",
+      "article": "dieser",
+      "case": "nom",
+      "gloss": "фильм",
+      "ipa": null,
+      "weave_priority": 45
+    },
+    {
+      "t": "text",
+      "l1": " "
+    },
+    {
+      "t": "weave",
+      "l1": "останется важным",
+      "l2": "wichtig bleibt",
+      "lemma": "wichtig",
+      "pos": "adjective",
       "proper_noun": false,
       "gender": null,
       "article": null,
       "case": null,
-      "gloss": "казаться",
+      "gloss": "важный",
       "ipa": null,
-      "weave_priority": 67
+      "weave_priority": 72
     },
     {
       "t": "text",
