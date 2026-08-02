@@ -8,5 +8,6 @@ export const requireSession: MiddlewareHandler<AppEnv> = async (c, next) => {
     return c.json({ error: "unauthorized" }, 401);
   }
   c.set("userId", session.user.id);
+  c.set("userEmail", session.user.email);
   await next();
 };

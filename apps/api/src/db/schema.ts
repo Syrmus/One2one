@@ -6,10 +6,29 @@ import {
   boolean,
   timestamp,
   uniqueIndex,
+  index,
 } from "drizzle-orm/pg-core";
 import { user } from "./authSchema";
 
 export * from "./authSchema";
+
+// Lightweight visit log: one row each time a logged-in user opens the app
+// (client throttles to ~1/hour, server also skips if the last row is recent).
+// Used only for owner-facing visit analytics.
+export const activity = pgTable(
+  "activity",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    at: timestamp("at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [
+    index("activity_user_at_idx").on(table.userId, table.at),
+    index("activity_at_idx").on(table.at),
+  ],
+);
 
 export const progress = pgTable(
   "progress",

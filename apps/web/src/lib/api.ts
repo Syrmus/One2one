@@ -144,3 +144,55 @@ export async function postStoryCompleted(
     console.error("Failed to record story completion:", err);
   }
 }
+
+export async function postActivity(): Promise<void> {
+  try {
+    await fetch(`${API_URL}/api/activity`, {
+      method: "POST",
+      credentials: "include",
+    });
+  } catch (err) {
+    console.error("Failed to record activity:", err);
+  }
+}
+
+export async function getWhoami(): Promise<{ admin: boolean }> {
+  try {
+    const res = await fetch(`${API_URL}/api/admin/whoami`, {
+      credentials: "include",
+    });
+    if (!res.ok) return { admin: false };
+    return res.json();
+  } catch {
+    return { admin: false };
+  }
+}
+
+export type AdminStats = {
+  totals: {
+    users: number;
+    active_today: number;
+    active_7d: number;
+    returning_users: number;
+  };
+  users: {
+    email: string;
+    signup_at: string | null;
+    last_login_at: string | null;
+    last_seen: string | null;
+    active_days: number;
+    visits: number;
+    logins: number;
+  }[];
+  signups: { day: string; count: number }[];
+  logins: { day: string; count: number }[];
+  dailyActive: { day: string; users: number }[];
+};
+
+export async function getAdminStats(): Promise<AdminStats> {
+  const res = await fetch(`${API_URL}/api/admin/stats`, {
+    credentials: "include",
+  });
+  if (!res.ok) throw new Error(`Failed to load stats: ${res.status}`);
+  return res.json();
+}

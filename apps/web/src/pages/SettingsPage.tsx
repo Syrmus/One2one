@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { signOut, useSession, updateUser } from "../lib/authClient";
 import { SettingsIcon } from "../components/nav/icons";
-import { getLanguages, type Language } from "../lib/api";
+import { getLanguages, getWhoami, type Language } from "../lib/api";
 import { langInfo, NATIVE_LANGUAGES } from "../lib/languages";
 import { useFontSizeStore, type FontScale } from "../store/fontSizeStore";
 import { useReaderStore } from "../store/readerStore";
@@ -18,6 +18,7 @@ export function SettingsPage() {
   const [languages, setLanguages] = useState<Language[]>([]);
   const [picker, setPicker] = useState<Picker>(null);
   const [saving, setSaving] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const fontScale = useFontSizeStore((s) => s.fontScale);
   const resetUserData = useReaderStore((s) => s.resetUserData);
   const setFontScale = useFontSizeStore((s) => s.setFontScale);
@@ -32,6 +33,9 @@ export function SettingsPage() {
   useEffect(() => {
     getLanguages()
       .then(setLanguages)
+      .catch(() => {});
+    getWhoami()
+      .then((r) => setIsAdmin(r.admin))
       .catch(() => {});
   }, []);
 
@@ -157,6 +161,15 @@ export function SettingsPage() {
       >
         {t.signOut}
       </button>
+
+      {isAdmin && (
+        <Link
+          to="/stats"
+          className="mt-4 block text-center text-sm text-dusk-600 dark:text-dusk-500"
+        >
+          {t.statsNavLink}
+        </Link>
+      )}
 
       <Link
         to="/about"

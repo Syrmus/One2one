@@ -43,6 +43,13 @@
       "when": 1785146050761,
       "tag": "0005_little_magik",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1785662802175,
+      "tag": "0006_old_pride",
+      "breakpoints": true
     }
   ]
 }

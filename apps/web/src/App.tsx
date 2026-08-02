@@ -4,12 +4,14 @@ import { LibraryPage } from './pages/LibraryPage'
 import { ReaderPage } from './pages/ReaderPage'
 import { ProgressPage } from './pages/ProgressPage'
 import { SettingsPage } from './pages/SettingsPage'
+import { StatsPage } from './pages/StatsPage'
 import { OnboardingPage } from './pages/OnboardingPage'
 import { AboutPage } from './pages/AboutPage'
 import { QuizPage } from './pages/QuizPage'
 import { AppLayout } from './components/nav/AppLayout'
 import { BottomNav } from './components/nav/BottomNav'
 import { signIn, useSession } from './lib/authClient'
+import { postActivity } from './lib/api'
 import { detectLocale, I18nProvider, useT, type Locale } from './lib/i18n'
 import { useLocaleStore } from './store/localeStore'
 import { useReaderStore } from './store/readerStore'
@@ -113,6 +115,17 @@ function MainApp() {
     if (session && !needsOnboarding) void hydrateFromServer(session.user.id)
   }, [session, needsOnboarding, hydrateFromServer])
 
+  // Record a visit on app open, throttled to once an hour per device.
+  useEffect(() => {
+    if (!session || needsOnboarding) return
+    const KEY = 'weave-last-activity-ping'
+    const last = Number(localStorage.getItem(KEY) || 0)
+    if (Date.now() - last > 60 * 60 * 1000) {
+      localStorage.setItem(KEY, String(Date.now()))
+      void postActivity()
+    }
+  }, [session, needsOnboarding])
+
   if (isPending) {
     return (
       <div className="flex min-h-svh items-center justify-center">
@@ -137,6 +150,7 @@ function MainApp() {
           <Route path="/" element={<LibraryPage />} />
           <Route path="/progress" element={<ProgressPage />} />
           <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/stats" element={<StatsPage />} />
           <Route path="/reader/:storyId" element={<ReaderPage />} />
           <Route path="/quiz/story/:storyId" element={<QuizPage mode="story" />} />
           <Route path="/quiz/vocab" element={<QuizPage mode="vocab" />} />

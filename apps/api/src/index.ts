@@ -5,6 +5,8 @@ import { languagesRoute } from "./routes/languages";
 import { storiesRoute } from "./routes/stories";
 import { progressRoute } from "./routes/progress";
 import { readingProgressRoute } from "./routes/readingProgress";
+import { activityRoute } from "./routes/activity";
+import { adminRoute } from "./routes/admin";
 import { authRoute } from "./routes/auth";
 import { requireSession } from "./middleware/requireSession";
 import type { AppEnv } from "./types";
@@ -26,9 +28,13 @@ app.route("/api/auth", authRoute);
 app.use("/api/stories/*", requireSession);
 app.use("/api/progress/*", requireSession);
 app.use("/api/reading-progress/*", requireSession);
+app.use("/api/activity/*", requireSession);
+app.use("/api/admin/*", requireSession);
 app.route("/api/stories", storiesRoute);
 app.route("/api/progress", progressRoute);
 app.route("/api/reading-progress", readingProgressRoute);
+app.route("/api/activity", activityRoute);
+app.route("/api/admin", adminRoute);
 
 const port = Number(process.env.PORT ?? 3001);
 serve({ fetch: app.fetch, port }, (info) => {
