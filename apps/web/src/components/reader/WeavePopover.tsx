@@ -1,8 +1,11 @@
+import { useEffect } from "react";
 import type { WeaveUnit } from "@weave/shared";
 import { useT } from "../../lib/i18n";
+import { isSpeechSupported, speak, stopSpeaking } from "../../lib/speech";
 
 type Props = {
   unit: WeaveUnit;
+  lang: string;
   seenCount: number;
   added: boolean;
   onAdd: () => void;
@@ -10,8 +13,29 @@ type Props = {
   onClose: () => void;
 };
 
+function SpeakerIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4">
+      <path
+        d="M11 5 6 9H3v6h3l5 4V5Z"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth={1.5}
+        strokeLinejoin="round"
+      />
+      <path
+        d="M15.5 8.5a4 4 0 0 1 0 7M18 6a7 7 0 0 1 0 12"
+        stroke="currentColor"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 export function WeavePopover({
   unit,
+  lang,
   seenCount,
   added,
   onAdd,
@@ -19,6 +43,9 @@ export function WeavePopover({
   onClose,
 }: Props) {
   const t = useT();
+
+  // Stop any playback when the popover closes.
+  useEffect(() => stopSpeaking, []);
 
   return (
     <div className="fixed inset-0 z-50" onClick={onClose}>
@@ -37,9 +64,26 @@ export function WeavePopover({
 
         <dl className="mt-4 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-sm">
           <dt className="text-slate-500 dark:text-slate-400">{t.lemma}</dt>
-          <dd className="text-slate-800 dark:text-slate-200">
-            {unit.article ? `${unit.article} ` : ""}
-            {unit.lemma}
+          <dd className="flex items-center gap-2 text-slate-800 dark:text-slate-200">
+            <span>
+              {unit.article ? `${unit.article} ` : ""}
+              {unit.lemma}
+            </span>
+            {isSpeechSupported() && (
+              <button
+                type="button"
+                aria-label={t.listen}
+                onClick={() =>
+                  speak(
+                    `${unit.article ? `${unit.article} ` : ""}${unit.lemma}`,
+                    lang,
+                  )
+                }
+                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-cream-100 text-dusk-600 active:bg-cream-200 dark:bg-slate-700 dark:text-dusk-400"
+              >
+                <SpeakerIcon />
+              </button>
+            )}
           </dd>
 
           {unit.gender && (

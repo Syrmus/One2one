@@ -36,6 +36,7 @@ const dict = {
     gender: "Gender",
     ipa: "IPA",
     gloss: "Gloss",
+    listen: "Listen",
     seen: "Seen",
     seenTimes: (n: number) => `${n} time${n === 1 ? "" : "s"}`,
     added: "Added ✓",
@@ -103,6 +104,9 @@ const dict = {
     statsColLastSeen: "Last seen",
     statsColDays: "Days",
     statsColVisits: "Visits",
+    streakCaption: "day streak",
+    streakActiveMonth: (n: number) => `${n} active days this month`,
+    streakStartToday: "Start your streak today",
   },
   ru: {
     appName: "Weave",
@@ -137,6 +141,7 @@ const dict = {
     gender: "Род",
     ipa: "МФА",
     gloss: "Перевод",
+    listen: "Прослушать",
     seen: "Встречалось",
     seenTimes: (n: number) => `${n} раз`,
     added: "Добавлено ✓",
@@ -204,6 +209,9 @@ const dict = {
     statsColLastSeen: "Последний визит",
     statsColDays: "Дней",
     statsColVisits: "Визитов",
+    streakCaption: "серия дней",
+    streakActiveMonth: (n: number) => `${n} активных дней за месяц`,
+    streakStartToday: "Начни серию сегодня",
   },
 } satisfies Record<Locale, Record<string, unknown>>;
 

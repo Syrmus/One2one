@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { Story } from "@weave/shared";
 import { getStories } from "../lib/api";
 import { StoryCard } from "../components/library/StoryCard";
+import { StreakCard } from "../components/library/StreakCard";
 import { DailyGoalCard } from "../components/library/DailyGoalCard";
 import { WeeklyGoalCard } from "../components/library/WeeklyGoalCard";
 import { LibraryIcon } from "../components/nav/icons";
@@ -41,6 +42,7 @@ export function LibraryPage() {
         </div>
       </div>
 
+      <StreakCard />
       <DailyGoalCard targetLanguage={targetLanguage} />
       <WeeklyGoalCard targetLanguage={targetLanguage} />
 

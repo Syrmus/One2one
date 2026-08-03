@@ -184,6 +184,7 @@ export function ReaderPage() {
       {weaveUnit && (
         <WeavePopover
           unit={weaveUnit}
+          lang={story.l2}
           seenCount={
             vocabulary[`${story.l2}:${weaveUnit.lemma}`]?.seenCount ?? 0
           }

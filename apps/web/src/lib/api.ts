@@ -196,3 +196,17 @@ export async function getAdminStats(): Promise<AdminStats> {
   if (!res.ok) throw new Error(`Failed to load stats: ${res.status}`);
   return res.json();
 }
+
+export type ActivitySummary = {
+  streak: number;
+  activeDaysLast30: number;
+  activeToday: boolean;
+};
+
+export async function getActivitySummary(): Promise<ActivitySummary> {
+  const res = await fetch(`${API_URL}/api/activity/summary`, {
+    credentials: "include",
+  });
+  if (!res.ok) throw new Error(`Failed to load activity summary: ${res.status}`);
+  return res.json();
+}
