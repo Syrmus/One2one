@@ -99,6 +99,45 @@ docker compose -f docker-compose.prod.yml --env-file .env.production up -d --bui
 
 Rebuilds only what changed; Postgres data persists in the `weave_prod_pgdata` volume across restarts.
 
+## Backups
+
+User data (accounts, progress, vocabulary, visits) lives only in the
+`weave_prod_pgdata` volume, so it needs its own backups. [`ops/pg-backup.sh`](ops/pg-backup.sh)
+dumps the DB out of the running container as gzipped SQL into `/root/weave-backups`,
+keeping the last `RETENTION_DAYS` (default 30). Because the script is in the repo,
+`git pull` on the server keeps it up to date at `/root/weave/ops/pg-backup.sh`.
+
+Wire it to cron on the host (once):
+
+```bash
+ssh lexdocs
+chmod +x /root/weave/ops/pg-backup.sh
+# daily at 03:00, logging to /var/log/weave-backup.log
+( crontab -l 2>/dev/null; echo "0 3 * * * /root/weave/ops/pg-backup.sh >> /var/log/weave-backup.log 2>&1" ) | crontab -
+/root/weave/ops/pg-backup.sh   # run once now to confirm it works
+ls -lh /root/weave-backups
+```
+
+**Restore** — never straight over prod unless you mean to overwrite it. Verify a
+dump by restoring into a scratch database first:
+
+```bash
+# on the server
+docker exec weave-prod-postgres-1 createdb -U weave weave_restore_test
+gunzip -c /root/weave-backups/weave-YYYYMMDD-HHMMSS.sql.gz \
+  | docker exec -i weave-prod-postgres-1 psql -U weave -d weave_restore_test
+docker exec weave-prod-postgres-1 psql -U weave -d weave_restore_test -c 'select count(*) from "user";'
+docker exec weave-prod-postgres-1 dropdb -U weave weave_restore_test   # cleanup
+```
+
+To restore over the live DB (disaster recovery): stop the backend, restore into
+`weave`, restart. Note the dump does not `DROP` existing objects, so restore into
+a fresh/empty DB.
+
+Off-host copies (protection against losing the whole box) are a recommended
+next step — e.g. `scp`/`rsync` `/root/weave-backups` somewhere else, or push to
+object storage.
+
 ## Tearing down (local testing only)
 
 ```bash
